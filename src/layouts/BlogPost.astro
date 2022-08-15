@@ -1,0 +1,80 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from '@astrojs/image/components';
+
+export interface Props {
+	content: {
+		title: string;
+		description: string;
+		publishDate?: string;
+		updatedDate?: string;
+		heroImage?: string;
+	};
+}
+
+
+
+
+const {
+	content: { title, description, publishDate, updatedDate, heroImage },
+} = Astro.props as Props;
+
+//If there is no updated date, don't include it
+var updatedDateCheck = '';
+var lastUpdatedOn = '';
+
+if (updatedDate === undefined) {
+	//no change
+} else if (updatedDate != undefined) {
+	lastUpdatedOn = 'Last updated on ';
+	updatedDateCheck = updatedDate;
+};
+
+// Match the `heroImage` frontmatter string to its correct
+// Astro.glob() import of the file in the src/ directory.
+const assets = await Astro.glob('../assets/**/*');
+const heroImageAsset = assets.find(asset => {
+	if (!heroImage) {
+		return false;
+	}
+	if (!asset.default?.src) {
+		return false;
+	}
+	const index = asset.default.src.indexOf('/assets/');
+	return asset.default.src.slice(index) === heroImage;
+});
+---
+
+<html data-theme="wireframe" lang="en-us">
+
+<head>
+	<BaseHead title={title} description={description} />
+
+</head>
+
+<body class="flex flex-col min-h-screen">
+	<Header />
+	<main class="flex-auto">
+		<article class="prose prose-lg container px-4 mx-auto py-7">
+			{heroImageAsset && (
+			<Image src={heroImageAsset.default} alt="" />
+			)}
+
+			<h1 class="text-3xl">{title}</h1>
+
+			<div class="columns-2xs">
+				<p class="text-primary text-sm m-0">{publishDate && <time>{publishDate}</time>}</p>
+				<p class="text-primary text-sm m-0 text-right">{lastUpdatedOn} {updatedDateCheck &&
+					<time>{updatedDateCheck}</time>}
+				</p>
+			</div>
+			<div class="divider m-0"></div>
+			<slot /> <!-- This is where blog content goes -->
+		</article>
+	</main>
+	<Footer />
+</body>
+
+</html>
