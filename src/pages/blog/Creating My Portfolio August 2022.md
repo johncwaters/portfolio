@@ -1,6 +1,6 @@
 ---
 layout: "../../layouts/BlogPost.astro"
-title: "Creating My Portfolio - Day 1"
+title: "Creating My Portfolio - August 2022"
 description: "I finally started creating my own portfolio website to showcase all my projects. It's built with Astro, Svelte, Tailwind, and hosted on Vercel. Today I focused on creating a design doc, building a basic layout with placeholders, and figuring out how to make my site unique."
 publishDate: "Aug 14 2022"
 heroImage: "/assets/placeholder-hero.jpg"

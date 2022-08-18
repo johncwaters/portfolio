@@ -12,7 +12,5 @@ export default defineConfig({
 	output: 'server',
 	adapter: vercel(),
 	integrations: [image(), sitemap(), svelte(), tailwind()],
-	daisyui: {
-		themes: ["wireframe"],
-	},
+
 });
