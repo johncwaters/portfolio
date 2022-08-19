@@ -27,13 +27,8 @@ webVitals({
             type="module"
             define:vars={{ astroUrl, analyticsId, astroParams }}
         >
-            import {
-                getCLS,
-                getFCP,
-                getFID,
-                getLCP,
-                getTTFB,
-            } from "../../node_modules/web-vitals/dist/modules/index";
+            import pkg from "web-vitals";
+            const { getFID, getTTFB, getLCP, getCLS, getFCP } = pkg;
 
             const vitalsUrl = "https://vitals.vercel-analytics.com/v1/vitals";
 
