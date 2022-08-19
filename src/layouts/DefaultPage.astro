@@ -10,7 +10,7 @@ let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
 
 webVitals({
     path: new URL(Astro.request.url),
-    //params: $page.params,
+    params: Astro.params,
     analyticsId,
 });
 ---
