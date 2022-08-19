@@ -3,16 +3,6 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
-
-import { webVitals } from "../pages/vitals.js";
-
-let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
-
-webVitals({
-    path: new URL(Astro.request.url),
-    params: Astro.params,
-    analyticsId,
-});
 ---
 
 <!DOCTYPE html>
@@ -27,5 +17,16 @@ webVitals({
             <slot /><!-- Body Stuff goes here -->
         </main>
         <Footer />
+        <script is:inline>
+            import { webVitals } from "../pages/vitals.js";
+
+            let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
+
+            webVitals({
+                path: new URL(Astro.request.url),
+                params: Astro.params,
+                analyticsId,
+            });
+        </script>
     </body>
 </html>
