@@ -1,4 +1,5 @@
-import { getCLS, getFCP, getFID, getLCP, getTTFB } from 'web-vitals';
+import pkg from 'web-vitals';
+const { getFID, getTTFB, getLCP, getCLS, getFCP } = pkg;
 
 const vitalsUrl = 'https://vitals.vercel-analytics.com/v1/vitals';
 
@@ -10,6 +11,8 @@ function getConnectionSpeed() {
         navigator['connection']['effectiveType']
         : '';
 }
+
+
 
 /**
  * @param {import("web-vitals").Metric} metric
