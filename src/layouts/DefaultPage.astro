@@ -23,8 +23,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
             let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
 
             webVitals({
-                path: new URL(Astro.request.url),
-                params: Astro.params,
+                path: Astro.url,
+                //params: Astro.params,
                 analyticsId,
             });
         </script>
