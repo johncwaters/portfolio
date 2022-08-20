@@ -4,17 +4,13 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 //import GoogleAnalytics from "../../node_modules/astro-analytics/src/GoogleAnalytics.astro";
-
-const vercelKey = process.env.VERCEL_ANALYTICS_ID; //vercel logs only
-console.log("key " + vercelKey);
 ---
 
 <!DOCTYPE html>
 <html data-theme="wireframe" lang="en-us">
     <script>
         import { webVitals } from "../pages/vitals";
-        let test = process.env.VERCEL_ANALYTICS_ID;
-        console.log(test);
+
         let analyticsId = import.meta.env.PUBLIC_VERCEL_ANALYTICS_KEY;
         console.log(analyticsId);
         webVitals({
