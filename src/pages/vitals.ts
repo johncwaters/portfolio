@@ -1,8 +1,7 @@
 import { getCLS, getFCP, getFID, getLCP, getTTFB, Metric } from 'web-vitals/src';
 
 const vitalsUrl = 'https://vitals.vercel-analytics.com/v1/vitals';
-const vercelKey = import.meta.env.PUBLIC_VERCEL_ANALYTICS_KEY;
-console.log(vercelKey)
+
 //
 function getConnectionSpeed() {
     return 'connection' in navigator &&
@@ -19,7 +18,7 @@ function sendToAnalytics(metric: Metric, options: { params: { [s: string]: unkno
     );
 
     const body = {
-        dsn: vercelKey, // qPgJqYH9LQX5o31Ormk8iWhCxZO
+        dsn: options.analyticsId, // qPgJqYH9LQX5o31Ormk8iWhCxZO
         id: metric.id, // v2-1653884975443-1839479248192
         page, // /blog/[slug]
         href: location.href, // https://my-app.vercel.app/blog/my-test
