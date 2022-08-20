@@ -11,7 +11,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
     <script>
         import { webVitals } from "../pages/vitals";
 
-        let analyticsId = import.meta.env.PUBLIC_VERCEL_ANALYTICS_KEY; //DOESNT WORK, call in vitals.ts
+        let analyticsId = import.meta.env.PUBLIC_VERCEL_ANALYTICS_KEY;
         console.log("inside " + analyticsId);
         webVitals({
             path: window.location.origin,
