@@ -21,6 +21,7 @@
     "@astrojs/vercel": "^1.0.0",
     "astro-analytics": "^2.2.0",
     "daisyui": "^2.24.0",
-    "svelte": "^3.49.0"
+    "svelte": "^3.49.0",
+    "web-vitals": "^2.1.4"
   }
 }

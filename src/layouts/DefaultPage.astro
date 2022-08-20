@@ -4,14 +4,26 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 //import GoogleAnalytics from "../../node_modules/astro-analytics/src/GoogleAnalytics.astro";
+
+var myHrefUrl = Astro.url.href;
+var myPathName = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
 <html data-theme="wireframe" lang="en-us">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-        <!--<GoogleAnalytics id="G-QP2FLYGVL3" />-->
-    </head>
+    <script>
+        import { webVitals } from "../pages/vitals";
+        let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
+
+        webVitals({
+            path: window.location.origin,
+            params: window.location.pathname,
+            analyticsId,
+        });
+    </script>
+
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <!--<GoogleAnalytics id="G-QP2FLYGVL3" />-->
 
     <body class="flex flex-col min-h-screen">
         <Header title={SITE_TITLE} />
