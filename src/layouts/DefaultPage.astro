@@ -10,8 +10,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 <html data-theme="wireframe" lang="en-us">
     <script>
         import { webVitals } from "../pages/vitals";
-        let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
-
+        let analyticsId = process.env.VERCEL_ANALYTICS_ID;
+        console.log(analyticsId);
         webVitals({
             path: window.location.origin,
             params: window.location.pathname,
