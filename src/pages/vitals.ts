@@ -1,7 +1,7 @@
 import { getCLS, getFCP, getFID, getLCP, getTTFB, Metric } from 'web-vitals/src';
 
 const vitalsUrl = 'https://vitals.vercel-analytics.com/v1/vitals';
-const vercelKey = process.env.PUBLIC_VERCEL_ANALYTICS_KEY;
+const vercelKey = import.meta.env.PUBLIC_VERCEL_ANALYTICS_KEY;
 console.log(vercelKey)
 //
 function getConnectionSpeed() {
