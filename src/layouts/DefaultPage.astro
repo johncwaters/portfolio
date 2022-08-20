@@ -5,8 +5,8 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 //import GoogleAnalytics from "../../node_modules/astro-analytics/src/GoogleAnalytics.astro";
 
-const vercelKey = process.env.VERCEL_ANALYTICS_ID;
-console.log(vercelKey);
+const vercelKey = process.env.VERCEL_ANALYTICS_ID; //vercel logs only
+console.log("key " + vercelKey);
 ---
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ console.log(vercelKey);
     <script>
         import { webVitals } from "../pages/vitals";
         let analyticsId = import.meta.env.PUBLIC_VERCEL_ANALYTICS_KEY;
-        console.log(analyticsId);
+
         webVitals({
             path: window.location.origin,
             params: window.location.pathname,
