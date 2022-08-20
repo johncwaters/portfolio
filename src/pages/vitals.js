@@ -1,4 +1,6 @@
-import { getCLS, getFCP, getFID, getLCP, getTTFB } from 'web-vitals';
+import { getCLS, getFCP, getFID, getTTFB } from 'web-vitals';
+
+
 
 const vitalsUrl = 'https://vitals.vercel-analytics.com/v1/vitals';
 
@@ -57,7 +59,7 @@ export function webVitals(options) {
     try {
         getFID((metric) => sendToAnalytics(metric, options));
         getTTFB((metric) => sendToAnalytics(metric, options));
-        getLCP((metric) => sendToAnalytics(metric, options));
+        //getLCP((metric) => sendToAnalytics(metric, options));
         getCLS((metric) => sendToAnalytics(metric, options));
         getFCP((metric) => sendToAnalytics(metric, options));
     } catch (err) {
