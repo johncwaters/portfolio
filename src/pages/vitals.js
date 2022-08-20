@@ -1,8 +1,8 @@
-import { getFID, getTTFB } from 'web-vitals';
-
 const getLCP = require("web-vitals");
 const getCLS = require("web-vitals");
 const getFCP = require("web-vitals");
+const getFID = require("web-vitals");
+const getTTFB = require("web-vitals");
 
 const vitalsUrl = 'https://vitals.vercel-analytics.com/v1/vitals';
 
