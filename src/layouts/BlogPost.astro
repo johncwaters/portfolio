@@ -162,7 +162,7 @@ const heroImageAsset = assets.find((asset) => {
 				footerHeightDif = trueHeight - myFooter!.clientHeight;
 			};
 
-			// Show, hide, or adjust button positioning
+			// Show, hide, or adjust button positioning on scroll
 			window.onscroll = function () {
 				scrollFunction(footerHeightDif, footerHeight);
 			};
