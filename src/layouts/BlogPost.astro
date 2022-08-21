@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { Image } from "@astrojs/image/components";
+import VitalsComp from "../components/VitalsComp.astro";
 
 export interface Props {
 	content: {
@@ -53,21 +54,9 @@ const heroImageAsset = assets.find((asset) => {
 ---
 
 <html data-theme="wireframe" lang="en-us">
-	<script>
-		import { webVitals } from "../pages/vitals";
-
-		//let analyticsId = import.meta.env.PUBLIC_VERCEL_ANALYTICS_KEY;
-
-		webVitals({
-			path: window.location.origin,
-			params: window.location.pathname,
-			//analyticsId,
-		});
-	</script>
+	<VitalsComp />
 
 	<BaseHead title={title} description={description} />
-
-
 
 	<body class="flex flex-col min-h-screen">
 		<Header />

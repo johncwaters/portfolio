@@ -3,22 +3,13 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import VitalsComp from "../components/VitalsComp.astro";
 //import GoogleAnalytics from "../../node_modules/astro-analytics/src/GoogleAnalytics.astro";
 ---
 
 <!DOCTYPE html>
 <html data-theme="wireframe" lang="en-us">
-    <script>
-        import { webVitals } from "../pages/vitals";
-
-        //let analyticsId = import.meta.env.PUBLIC_VERCEL_ANALYTICS_KEY;
-
-        webVitals({
-            path: window.location.origin,
-            params: window.location.pathname,
-            //analyticsId,
-        });
-    </script>
+    <VitalsComp />
 
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <!--<GoogleAnalytics id="G-QP2FLYGVL3" />-->
