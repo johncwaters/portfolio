@@ -53,7 +53,7 @@ const heroImageAsset = assets.find((asset) => {
 });
 ---
 
-<html data-theme="wireframe" lang="en-us">
+<html data-theme="wireframe" lang="en-us" class="scroll-smooth">
 	<VitalsComp />
 
 	<BaseHead title={title} description={description} />
@@ -62,7 +62,6 @@ const heroImageAsset = assets.find((asset) => {
 		<Header />
 		<main class="flex-auto">
 			<!--Exit Button -->
-			<!--TODO: Looks HORRIBLE on mobile  -->
 			<button
 				class="btn btn-circle btn-outline m-3 md:m-6 lg:m-10"
 				onclick="location.href='/blog'"
@@ -108,6 +107,7 @@ const heroImageAsset = assets.find((asset) => {
 				<slot />
 				<!-- This is where blog content goes -->
 			</article>
+			<!-- Back to top button -->
 			<button
 				type="button"
 				data-mdb-ripple="true"
@@ -151,6 +151,7 @@ const heroImageAsset = assets.find((asset) => {
 			var footerHeight = height - 1400; //have button display about the footer when scrolled down
 			//BUG Doesn't work on mobile
 
+			//DEBUG
 			console.log(height, footerHeight);
 
 			// When the user scrolls down 20px from the top of the document, show the button
