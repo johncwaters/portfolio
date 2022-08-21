@@ -2,10 +2,17 @@
   "name": "@example/blog",
   "version": "0.0.1",
   "private": true,
+  "description": "My personal portfolio built with Astro, Tailwind, Typescript, and Svelte.",
+  "author": {
+    "email": "john@johncwaters.com",
+    "name": "John C. Waters",
+    "url": "https://www.johncwaters.com/"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

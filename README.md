@@ -6,18 +6,5 @@
 
 ## Project Structure
 
-My porfolio is built with Astro, Tailwind CSS, and Svelte.
+My porfolio is built with with Astro, Tailwind, Typescript, and Svelte.
 
-```
-├── public/
-├── src/
-│   ├── components/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
-
-## Placeholder!

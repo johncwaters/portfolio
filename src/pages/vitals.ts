@@ -7,15 +7,17 @@ if (vercelKey === undefined) {
     console.log("No Vercel Key")
 }
 
+
 function getConnectionSpeed() {
     return 'connection' in navigator &&
         navigator['connection'] &&
         'effectiveType' in navigator['connection']
-        ? navigator['connection']['effectiveType']
+        ? navigator['connection']['type']
         : '';
 }
 
-function sendToAnalytics(metric: Metric, options: { params: { [s: string]: unknown; } | ArrayLike<unknown>; path: any; analyticsId: any; debug: any; }) {
+
+function sendToAnalytics(metric: Metric, options: { params: { [s: string]: unknown; } | ArrayLike<unknown>; path: any; analyticsId: any; debug: any; }): void {
     const page = Object.entries(options.params).reduce(
         (acc, [key, value]) => acc.replace(value, `[${key}]`),
         options.path,
