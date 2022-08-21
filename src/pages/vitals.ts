@@ -13,7 +13,7 @@ function getConnectionSpeed() {
     return 'connection' in navigator &&
         navigator['connection'] &&
         'effectiveType' in navigator['connection']
-        ? navigator['connection']['effectiveType']
+        ? navigator['connection']['effectiveType'] //randomly may show as error, ignore it
         : '';
 }
 
