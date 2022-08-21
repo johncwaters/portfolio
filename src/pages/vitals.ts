@@ -8,6 +8,9 @@ if (vercelKey === undefined) {
     console.log("No Vercel Key")
 }
 
+//don't track vitals if running in dev
+let envMode = import.meta.env.MODE; //(development / production)
+
 
 function getConnectionSpeed() {
     return 'connection' in navigator &&
@@ -54,13 +57,17 @@ function sendToAnalytics(metric: Metric, options: { params: { [s: string]: unkno
 }
 
 export function webVitals(options: any) {
-    try {
-        getFID((metric) => sendToAnalytics(metric, options));
-        getTTFB((metric) => sendToAnalytics(metric, options));
-        getLCP((metric) => sendToAnalytics(metric, options));
-        getCLS((metric) => sendToAnalytics(metric, options));
-        getFCP((metric) => sendToAnalytics(metric, options));
-    } catch (err) {
-        console.error('[Analytics]', err);
+    if (envMode === 'production') {
+        try {
+            getFID((metric) => sendToAnalytics(metric, options));
+            getTTFB((metric) => sendToAnalytics(metric, options));
+            getLCP((metric) => sendToAnalytics(metric, options));
+            getCLS((metric) => sendToAnalytics(metric, options));
+            getFCP((metric) => sendToAnalytics(metric, options));
+        } catch (err) {
+            console.error('[Analytics]', err);
+        }
+    } else if (envMode === 'development') {
+        //do nothing
     }
 }
