@@ -2,6 +2,8 @@
 import { getCLS, getFCP, getFID, getLCP, getTTFB, Metric } from 'web-vitals/src';
 
 const vitalsUrl = 'https://vitals.vercel-analytics.com/v1/vitals';
+
+//might be grabbing from Vercel Env Variables instead of local .env
 let vercelKey = import.meta.env.PUBLIC_VERCEL_ANALYTICS_KEY;
 
 if (vercelKey === undefined) {
