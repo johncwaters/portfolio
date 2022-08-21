@@ -134,7 +134,7 @@ const heroImageAsset = assets.find((asset) => {
 		</main>
 		<Footer />
 		<!-- Class myFooter -->
-		<script>
+		<script is:inline>
 			// Get the backToTop button
 			let mybutton = document.getElementById("btn-back-to-top");
 
@@ -145,8 +145,8 @@ const heroImageAsset = assets.find((asset) => {
 				document.documentElement.clientHeight;
 
 			//default values
-			var footerHeight = myFooter!.clientHeight;
-			var footerHeightDif = trueHeight - myFooter!.clientHeight;
+			var footerHeight = myFooter.clientHeight;
+			var footerHeightDif = trueHeight - myFooter.clientHeight;
 
 			//Update values on window resize
 			window.onresize = function () {
@@ -158,8 +158,8 @@ const heroImageAsset = assets.find((asset) => {
 					document.documentElement.scrollHeight -
 					document.documentElement.clientHeight;
 
-				footerHeight = myFooter!.clientHeight;
-				footerHeightDif = trueHeight - myFooter!.clientHeight;
+				footerHeight = myFooter.clientHeight;
+				footerHeightDif = trueHeight - myFooter.clientHeight;
 			};
 
 			// Show, hide, or adjust button positioning on scroll
@@ -168,30 +168,27 @@ const heroImageAsset = assets.find((asset) => {
 			};
 
 			//Determine what height to set the BackToTop button (so it stays above the footer)
-			function scrollFunction(
-				footerHeightDif: number,
-				footerHeight: number
-			) {
+			function scrollFunction(footerHeightDif, footerHeight) {
 				if (
 					document.documentElement.scrollTop > 40 &&
 					document.documentElement.scrollTop < footerHeightDif
 				) {
-					mybutton!.style.bottom = "20px";
-					mybutton!.style.opacity = "1";
-					mybutton!.style.visibility = "visible";
+					mybutton.style.bottom = "20px";
+					mybutton.style.opacity = "1";
+					mybutton.style.visibility = "visible";
 				} else if (
 					document.documentElement.scrollTop >= footerHeightDif
 				) {
-					mybutton!.style.bottom = footerHeight + 5 + "px";
-					mybutton!.style.opacity = "1";
-					mybutton!.style.visibility = "visible";
+					mybutton.style.bottom = footerHeight + 5 + "px";
+					mybutton.style.opacity = "1";
+					mybutton.style.visibility = "visible";
 				} else {
-					mybutton!.style.opacity = "0";
-					mybutton!.style.visibility = "hidden";
+					mybutton.style.opacity = "0";
+					mybutton.style.visibility = "hidden";
 				}
 			}
 			// When the user clicks on the button, scroll to the top of the document
-			mybutton!.addEventListener("click", backToTop);
+			mybutton.addEventListener("click", backToTop);
 
 			function backToTop() {
 				document.body.scrollTop = 0;
