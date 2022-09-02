@@ -7,6 +7,8 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 		new Date(b.frontmatter.publishDate).valueOf() -
 		new Date(a.frontmatter.publishDate).valueOf()
 );
+
+//TODO Something to look into https://daily-dev-tips.com/posts/astro-getting-related-articles-based-on-tags/
 ---
 
 <DefaultPage>
@@ -43,7 +45,9 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 								"..."}
 						</p>
 						<div class="card-actions justify-end">
-							<div class="badge badge-outline">Fashion</div>
+							<div class="badge badge-outline">
+								{post.frontmatter.tags}
+							</div>
 							<div class="badge badge-outline">Products</div>
 						</div>
 					</div>

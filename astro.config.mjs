@@ -12,5 +12,5 @@ export default defineConfig({
 	output: 'server',
 	adapter: vercel(),
 	integrations: [image(), sitemap(), svelte(), tailwind()],
-
+	site: 'https://johncwaters.com',
 });

@@ -6,6 +6,7 @@ publishDate: "Aug 14 2022"
 heroImage: "/assets/placeholder-hero.jpg"
 updatedDate: "Aug 17 2022"
 readTime: "5 min"
+tags: "NEW, UX DESIGN"
 ---
 
 **TLDR:** I finally started creating my own portfolio website to showcase all my projects. It's built with Astro, Tailwind, and hosted on Vercel. Today I focused on creating a design doc, building a basic layout with placeholders, and figuring out how to make my site unique.
