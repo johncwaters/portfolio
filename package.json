@@ -8,6 +8,7 @@
     "name": "John C. Waters",
     "url": "https://www.johncwaters.com/"
   },
+  "type": "module",
   "license": "MIT",
   "scripts": {
     "dev": "astro dev",
