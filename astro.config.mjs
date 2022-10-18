@@ -3,7 +3,7 @@ import image from '@astrojs/image';
 import svelte from '@astrojs/svelte';
 import tailwind from '@astrojs/tailwind';
 
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel/static';
 
 import sitemap from '@astrojs/sitemap';
 
