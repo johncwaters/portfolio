@@ -1,0 +1,81 @@
+---
+import DefaultPage from "../../../layouts/DefaultPage.astro";
+---
+
+<DefaultPage>
+	<div class="hero min-h-screen bg-[url('/background.svg')]">
+		<div class="hero-overlay bg-opacity-0"></div>
+		<div class="hero-content text-center text-primary">
+			<div class="max-w-md">
+				<h1 class="mb-5 text-4xl font-bold">2022-9</h1>
+				<p class="mb-5">
+					If you couldn't tell, my site is under construction. Feel
+					free to poke around at what I do have. More updates are
+					coming!
+				</p>
+				<p>Updated 9/1/2022</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="hero min-h-screen bg-base-200">
+		<div class="hero-content flex-col lg:flex-row">
+			<img
+				src="https://placeimg.com/260/400/arch"
+				class="max-w-sm rounded-lg shadow-2xl"
+			/>
+			<div>
+				<h1 class="text-4xl font-bold">Portfolio stuffs are here!</h1>
+				<p class="py-6">
+					As I build more projects I will be adding them here to
+					showoff. Duh.
+				</p>
+				<button
+					onclick="location.href='/portfolio';"
+					class="btn btn-primary">My Portfolio</button
+				>
+			</div>
+		</div>
+	</div>
+
+	<div class="hero min-h-screen bg-base-200">
+		<div class="hero-content flex-col lg:flex-row-reverse">
+			<img
+				src="https://placeimg.com/260/400/arch"
+				class="max-w-sm rounded-lg shadow-2xl"
+			/>
+			<div>
+				<h1 class="text-4xl font-bold">Check out my blog!</h1>
+				<p class="py-6">
+					I'm no writer, but I can string some words together pretty
+					well. Blog posts monthly.
+				</p>
+				<button onclick="location.href='/blog';" class="btn btn-primary"
+					>My Blog</button
+				>
+			</div>
+		</div>
+	</div>
+
+	<div
+		class="hero min-h-screen"
+		style="background-image: url(https://placeimg.com/1000/800/arch);"
+	>
+		<div class="hero-overlay bg-opacity-60"></div>
+		<div class="hero-content text-center text-neutral-content">
+			<div class="max-w-md">
+				<h1 class="mb-5 text-4xl font-bold">
+					What else could possibly be here!?
+				</h1>
+				<p class="mb-5">
+					Honestly, I don't know. Eventually I will find a use for
+					this.
+				</p>
+				<button
+					onclick="alert('Easter Egg Unlocked: You clicked a button.');"
+					class="btn btn-primary">My... uh... button!</button
+				>
+			</div>
+		</div>
+	</div>
+</DefaultPage>
