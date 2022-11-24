@@ -3,56 +3,49 @@ import DefaultPage from "../layouts/DefaultPage.astro";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
-	(a, b) =>
-		new Date(b.frontmatter.publishDate).valueOf() -
-		new Date(a.frontmatter.publishDate).valueOf()
+  (a, b) =>
+    new Date(b.frontmatter.publishDate).valueOf() -
+    new Date(a.frontmatter.publishDate).valueOf()
 );
 
-//TODO Something to look into https://daily-dev-tips.com/posts/astro-getting-related-articles-based-on-tags/
+// TODO Something to look into https://daily-dev-tips.com/posts/astro-getting-related-articles-based-on-tags/
 ---
 
 <DefaultPage>
-	<container>
-		{
-			posts.map((post) => (
-				<a
-					class="card bg-base-100 shadow-xl mx-auto m-6 w-11/12 md:w-96"
-					href={post.url}
-				>
-					<figure>
-						<img
-							src="https://placeimg.com/400/225/arch"
-							alt="Shoes"
-						/>
-					</figure>
-					<div class="card-body">
-						<h2 class="card-title">{post.frontmatter.title}</h2>
+  <container>
+    {
+      posts.map((post) => (
+        <a
+          class="card bg-base-100 shadow-xl mx-auto m-6 w-11/12 md:w-96"
+          href={post.url}
+        >
+          <figure>
+            <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">{post.frontmatter.title}</h2>
 
-						<div class="badge badge-secondary">
-							<time datetime={post.frontmatter.publishDate}>
-								{new Date(
-									post.frontmatter.publishDate
-								).toLocaleDateString("en-us", {
-									year: "numeric",
-									month: "short",
-									day: "numeric",
-								})}
-							</time>
-						</div>
+            <div class="badge badge-secondary">
+              <time datetime={post.frontmatter.publishDate}>
+                {new Date(post.frontmatter.publishDate).toLocaleDateString(
+                  "en-us",
+                  {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  }
+                )}
+              </time>
+            </div>
 
-						<p>
-							{post.frontmatter.description.substring(0, 120) +
-								"..."}
-						</p>
-						<div class="card-actions justify-end">
-							<div class="badge badge-outline">
-								{post.frontmatter.tags}
-							</div>
-							<div class="badge badge-outline">Products</div>
-						</div>
-					</div>
-				</a>
-			))
-		}
-	</container>
+            <p>{post.frontmatter.description.substring(0, 120) + "..."}</p>
+            <div class="card-actions justify-end">
+              <div class="badge badge-outline">{post.frontmatter.tags}</div>
+              <div class="badge badge-outline">Products</div>
+            </div>
+          </div>
+        </a>
+      ))
+    }
+  </container>
 </DefaultPage>
