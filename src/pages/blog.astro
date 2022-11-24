@@ -1,8 +1,8 @@
 ---
-import DefaultPage from "../layouts/DefaultPage.astro";
+import DefaultPage from '../layouts/DefaultPage.astro'
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
+const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
   (a, b) =>
     new Date(b.frontmatter.publishDate).valueOf() -
     new Date(a.frontmatter.publishDate).valueOf()
@@ -28,17 +28,17 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
             <div class="badge badge-secondary">
               <time datetime={post.frontmatter.publishDate}>
                 {new Date(post.frontmatter.publishDate).toLocaleDateString(
-                  "en-us",
+                  'en-us',
                   {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
                   }
                 )}
               </time>
             </div>
 
-            <p>{post.frontmatter.description.substring(0, 120) + "..."}</p>
+            <p>{post.frontmatter.description.substring(0, 120) + '...'}</p>
             <div class="card-actions justify-end">
               <div class="badge badge-outline">{post.frontmatter.tags}</div>
               <div class="badge badge-outline">Products</div>
