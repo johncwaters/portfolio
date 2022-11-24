@@ -24,12 +24,9 @@
     "astro": "^1.0.5"
   },
   "dependencies": {
-    "@astrojs/svelte": "^1.0.0",
+    "@astrojs/netlify": "^1.2.1",
     "@astrojs/tailwind": "^1.0.0",
-    "@astrojs/vercel": "^1.0.2",
     "astro-analytics": "^2.2.0",
-    "daisyui": "^2.24.0",
-    "svelte": "^3.49.0",
-    "web-vitals": "^2.1.4"
+    "daisyui": "^2.24.0"
   }
 }
