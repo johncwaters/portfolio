@@ -3,22 +3,20 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
-import VitalsComp from "../components/VitalsComp.astro";
+
 //import GoogleAnalytics from "../../node_modules/astro-analytics/src/GoogleAnalytics.astro";
 ---
 
 <!DOCTYPE html>
 <html data-theme="wireframe" lang="en-us">
-    <VitalsComp />
+  <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  <!--<GoogleAnalytics id="G-QP2FLYGVL3" />-->
 
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <!--<GoogleAnalytics id="G-QP2FLYGVL3" />-->
-
-    <body class="flex flex-col min-h-screen">
-        <Header title={SITE_TITLE} />
-        <main class="flex-auto">
-            <slot /><!-- Body Stuff goes here -->
-        </main>
-        <Footer />
-    </body>
+  <body class="flex flex-col min-h-screen">
+    <Header title={SITE_TITLE} />
+    <main class="flex-auto">
+      <slot /><!-- Body Stuff goes here -->
+    </main>
+    <Footer />
+  </body>
 </html>

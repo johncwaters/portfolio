@@ -1,10 +1,10 @@
-import * as adapter from '@astrojs/vercel/serverless/entrypoint';
+import * as adapter from '@astrojs/netlify/netlify-functions.js';
 import { escape } from 'html-escaper';
 import etag from 'etag';
 import { lookup } from 'mrmime';
 import sharp$1 from 'sharp';
 import fs from 'node:fs/promises';
-/* empty css                                */import './chunks/08-2022-Creating-My-Portfolio.5fd18360.b021670a.mjs';
+/* empty css                                */import './chunks/08-2022-Creating-My-Portfolio.05771221.49891a51.mjs';
 import { dim, bold, red, yellow, cyan, green, bgGreen, black } from 'kleur/colors';
 import path, { extname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -17,25 +17,6 @@ import 'cookie';
 import 'string-width';
 import 'path-browserify';
 import { compile } from 'path-to-regexp';
-
-function check$1(Component) {
-	return Component['render'] && Component['$$render'];
-}
-
-async function renderToStaticMarkup$1(Component, props, slotted) {
-	const slots = {};
-	for (const [key, value] of Object.entries(slotted)) {
-		slots[key] = () =>
-			`<astro-slot${key === 'default' ? '' : ` name="${key}"`}>${value}</astro-slot>`;
-	}
-	const { html } = Component.render(props, { $$slots: slots });
-	return { html };
-}
-
-const _renderer1 = {
-	check: check$1,
-	renderToStaticMarkup: renderToStaticMarkup$1,
-};
 
 const ASTRO_VERSION = "1.5.0";
 
@@ -549,7 +530,7 @@ class HTMLParts {
 
 function validateComponentProps(props, displayName) {
   var _a;
-  if (((_a = {"PUBLIC_VERCEL_ANALYTICS_KEY":"VBLJWoOy3WUinZ6WedmUQhTc2w9","BASE_URL":"/","MODE":"production","DEV":false,"PROD":true}) == null ? void 0 : _a.DEV) && props != null) {
+  if (((_a = {"BASE_URL":"/","MODE":"production","DEV":false,"PROD":true}) == null ? void 0 : _a.DEV) && props != null) {
     for (const prop of Object.keys(props)) {
       if (HydrationDirectiveProps.has(prop)) {
         console.warn(
@@ -1482,8 +1463,8 @@ const service = new SharpService();
 var sharp_default = service;
 
 const sharp = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	default: sharp_default
+  __proto__: null,
+  default: sharp_default
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const get = async ({ request }) => {
@@ -1520,14 +1501,14 @@ const get = async ({ request }) => {
 };
 
 const _page0 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	get
+  __proto__: null,
+  get
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$metadata$a = createMetadata("/D:/Projects/portfolio/src/components/BaseHead.astro", { modules: [], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
-const $$Astro$d = createAstro("/D:/Projects/portfolio/src/components/BaseHead.astro", "https://johncwaters.com/", "file:///D:/Projects/portfolio/");
+const $$metadata$9 = createMetadata("/C:/Projects/portfolio/src/components/BaseHead.astro", { modules: [], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
+const $$Astro$c = createAstro("/C:/Projects/portfolio/src/components/BaseHead.astro", "https://johncwaters.com/", "file:///C:/Projects/portfolio/");
 const $$BaseHead = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$d, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$c, $$props, $$slots);
   Astro2.self = $$BaseHead;
   const { title, description, image = "/placeholder-social.jpg" } = Astro2.props;
   return renderTemplate`<!-- Global Metadata --><meta charset="utf-8">
@@ -1556,27 +1537,27 @@ const $$BaseHead = createComponent(async ($$result, $$props, $$slots) => {
 `;
 });
 
-const $$file$a = "D:/Projects/portfolio/src/components/BaseHead.astro";
-const $$url$a = undefined;
+const $$file$9 = "C:/Projects/portfolio/src/components/BaseHead.astro";
+const $$url$9 = undefined;
 
 const $$module1$2 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	$$metadata: $$metadata$a,
-	default: $$BaseHead,
-	file: $$file$a,
-	url: $$url$a
+  __proto__: null,
+  $$metadata: $$metadata$9,
+  default: $$BaseHead,
+  file: $$file$9,
+  url: $$url$9
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const SITE_TITLE = "John C. Waters";
 const SITE_DESCRIPTION = "Welcome to my website!";
 
 const $$module4$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	SITE_TITLE,
-	SITE_DESCRIPTION
+  __proto__: null,
+  SITE_TITLE,
+  SITE_DESCRIPTION
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$metadata$9 = createMetadata("/D:/Projects/portfolio/src/components/VersionSwitcher.astro", { modules: [], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [{ type: "inline", value: `
+const $$metadata$8 = createMetadata("/C:/Projects/portfolio/src/components/VersionSwitcher.astro", { modules: [], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [{ type: "inline", value: `
   const history = {
     index: ["2022-9", "2022-10"],
     blog: ["2022-9", "2022-10"],
@@ -1609,9 +1590,9 @@ const $$metadata$9 = createMetadata("/D:/Projects/portfolio/src/components/Versi
 
   buttons!.addEventListener("click", changePage);
 ` }] });
-const $$Astro$c = createAstro("/D:/Projects/portfolio/src/components/VersionSwitcher.astro", "https://johncwaters.com/", "file:///D:/Projects/portfolio/");
+const $$Astro$b = createAstro("/C:/Projects/portfolio/src/components/VersionSwitcher.astro", "https://johncwaters.com/", "file:///C:/Projects/portfolio/");
 const $$VersionSwitcher = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$c, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$b, $$props, $$slots);
   Astro2.self = $$VersionSwitcher;
   return renderTemplate`${maybeRenderHead($$result)}<div id="styleSwitcherButtons" class="btn-group self-center">
   <button id="older" class="btn btn-md">&#60;Older</button>
@@ -1621,21 +1602,21 @@ const $$VersionSwitcher = createComponent(async ($$result, $$props, $$slots) => 
 ${maybeRenderHead($$result)}`;
 });
 
-const $$file$9 = "D:/Projects/portfolio/src/components/VersionSwitcher.astro";
-const $$url$9 = undefined;
+const $$file$8 = "C:/Projects/portfolio/src/components/VersionSwitcher.astro";
+const $$url$8 = undefined;
 
 const $$module2$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	$$metadata: $$metadata$9,
-	default: $$VersionSwitcher,
-	file: $$file$9,
-	url: $$url$9
+  __proto__: null,
+  $$metadata: $$metadata$8,
+  default: $$VersionSwitcher,
+  file: $$file$8,
+  url: $$url$8
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$metadata$8 = createMetadata("/D:/Projects/portfolio/src/components/Header.astro", { modules: [{ module: $$module4$1, specifier: "../config", assert: {} }, { module: $$module2$1, specifier: "./VersionSwitcher.astro", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
-const $$Astro$b = createAstro("/D:/Projects/portfolio/src/components/Header.astro", "https://johncwaters.com/", "file:///D:/Projects/portfolio/");
+const $$metadata$7 = createMetadata("/C:/Projects/portfolio/src/components/Header.astro", { modules: [{ module: $$module4$1, specifier: "../config", assert: {} }, { module: $$module2$1, specifier: "./VersionSwitcher.astro", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
+const $$Astro$a = createAstro("/C:/Projects/portfolio/src/components/Header.astro", "https://johncwaters.com/", "file:///C:/Projects/portfolio/");
 const $$Header = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$b, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$a, $$props, $$slots);
   Astro2.self = $$Header;
   return renderTemplate`${maybeRenderHead($$result)}<div class="navbar bg-base-100 shadow-lg">
   <div class="navbar-start">
@@ -1669,21 +1650,21 @@ const $$Header = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 });
 
-const $$file$8 = "D:/Projects/portfolio/src/components/Header.astro";
-const $$url$8 = undefined;
+const $$file$7 = "C:/Projects/portfolio/src/components/Header.astro";
+const $$url$7 = undefined;
 
 const $$module2 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	$$metadata: $$metadata$8,
-	default: $$Header,
-	file: $$file$8,
-	url: $$url$8
+  __proto__: null,
+  $$metadata: $$metadata$7,
+  default: $$Header,
+  file: $$file$7,
+  url: $$url$7
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$metadata$7 = createMetadata("/D:/Projects/portfolio/src/components/Footer.astro", { modules: [], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
-const $$Astro$a = createAstro("/D:/Projects/portfolio/src/components/Footer.astro", "https://johncwaters.com/", "file:///D:/Projects/portfolio/");
+const $$metadata$6 = createMetadata("/C:/Projects/portfolio/src/components/Footer.astro", { modules: [], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
+const $$Astro$9 = createAstro("/C:/Projects/portfolio/src/components/Footer.astro", "https://johncwaters.com/", "file:///C:/Projects/portfolio/");
 const $$Footer = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$a, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$9, $$props, $$slots);
   Astro2.self = $$Footer;
   const today = new Date();
   return renderTemplate`${maybeRenderHead($$result)}<footer class="footer items-center p-4 bg-neutral text-neutral-content myFooter">
@@ -1716,80 +1697,48 @@ const $$Footer = createComponent(async ($$result, $$props, $$slots) => {
 </footer>`;
 });
 
-const $$file$7 = "D:/Projects/portfolio/src/components/Footer.astro";
-const $$url$7 = undefined;
-
-const $$module3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	$$metadata: $$metadata$7,
-	default: $$Footer,
-	file: $$file$7,
-	url: $$url$7
-}, Symbol.toStringTag, { value: 'Module' }));
-
-const $$metadata$6 = createMetadata("/D:/Projects/portfolio/src/components/VitalsComp.astro", { modules: [], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [{ type: "inline", value: `
-    import { webVitals } from "../pages/vitals";
-
-    //let analyticsId = (Object.assign({"PUBLIC_VERCEL_ANALYTICS_KEY":"VBLJWoOy3WUinZ6WedmUQhTc2w9","BASE_URL":"/","MODE":"production","DEV":false,"PROD":true},{PUBLIC:process.env.PUBLIC,})).PUBLIC_VERCEL_ANALYTICS_KEY;
-
-    webVitals({
-        path: window.location.origin,
-        params: window.location.pathname,
-        //analyticsId,
-    });
-` }] });
-const $$Astro$9 = createAstro("/D:/Projects/portfolio/src/components/VitalsComp.astro", "https://johncwaters.com/", "file:///D:/Projects/portfolio/");
-const $$VitalsComp = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$9, $$props, $$slots);
-  Astro2.self = $$VitalsComp;
-  return renderTemplate`<!-- Include on any page we want Vercel Vitals -->${maybeRenderHead($$result)}
-`;
-});
-
-const $$file$6 = "D:/Projects/portfolio/src/components/VitalsComp.astro";
+const $$file$6 = "C:/Projects/portfolio/src/components/Footer.astro";
 const $$url$6 = undefined;
 
-const $$module5 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	$$metadata: $$metadata$6,
-	default: $$VitalsComp,
-	file: $$file$6,
-	url: $$url$6
+const $$module3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  $$metadata: $$metadata$6,
+  default: $$Footer,
+  file: $$file$6,
+  url: $$url$6
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$metadata$5 = createMetadata("/D:/Projects/portfolio/src/layouts/DefaultPage.astro", { modules: [{ module: $$module1$2, specifier: "../components/BaseHead.astro", assert: {} }, { module: $$module2, specifier: "../components/Header.astro", assert: {} }, { module: $$module3, specifier: "../components/Footer.astro", assert: {} }, { module: $$module4$1, specifier: "../config", assert: {} }, { module: $$module5, specifier: "../components/VitalsComp.astro", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
-const $$Astro$8 = createAstro("/D:/Projects/portfolio/src/layouts/DefaultPage.astro", "https://johncwaters.com/", "file:///D:/Projects/portfolio/");
+const $$metadata$5 = createMetadata("/C:/Projects/portfolio/src/layouts/DefaultPage.astro", { modules: [{ module: $$module1$2, specifier: "../components/BaseHead.astro", assert: {} }, { module: $$module2, specifier: "../components/Header.astro", assert: {} }, { module: $$module3, specifier: "../components/Footer.astro", assert: {} }, { module: $$module4$1, specifier: "../config", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
+const $$Astro$8 = createAstro("/C:/Projects/portfolio/src/layouts/DefaultPage.astro", "https://johncwaters.com/", "file:///C:/Projects/portfolio/");
 const $$DefaultPage = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$8, $$props, $$slots);
   Astro2.self = $$DefaultPage;
   return renderTemplate`<html data-theme="wireframe" lang="en-us">
-    ${renderComponent($$result, "VitalsComp", $$VitalsComp, {})}
+  ${renderComponent($$result, "BaseHead", $$BaseHead, { "title": SITE_TITLE, "description": SITE_DESCRIPTION })}
+  <!--<GoogleAnalytics id="G-QP2FLYGVL3" />-->
 
-    ${renderComponent($$result, "BaseHead", $$BaseHead, { "title": SITE_TITLE, "description": SITE_DESCRIPTION })}
-    <!--<GoogleAnalytics id="G-QP2FLYGVL3" />-->
-
-    ${maybeRenderHead($$result)}<body class="flex flex-col min-h-screen">
-        ${renderComponent($$result, "Header", $$Header, { "title": SITE_TITLE })}
-        <main class="flex-auto">
-            ${renderSlot($$result, $$slots["default"])}<!-- Body Stuff goes here -->
-        </main>
-        ${renderComponent($$result, "Footer", $$Footer, {})}
-    </body></html>`;
+  ${maybeRenderHead($$result)}<body class="flex flex-col min-h-screen">
+    ${renderComponent($$result, "Header", $$Header, { "title": SITE_TITLE })}
+    <main class="flex-auto">
+      ${renderSlot($$result, $$slots["default"])}<!-- Body Stuff goes here -->
+    </main>
+    ${renderComponent($$result, "Footer", $$Footer, {})}
+  </body></html>`;
 });
 
-const $$file$5 = "D:/Projects/portfolio/src/layouts/DefaultPage.astro";
+const $$file$5 = "C:/Projects/portfolio/src/layouts/DefaultPage.astro";
 const $$url$5 = undefined;
 
 const $$module1$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	$$metadata: $$metadata$5,
-	default: $$DefaultPage,
-	file: $$file$5,
-	url: $$url$5
+  __proto__: null,
+  $$metadata: $$metadata$5,
+  default: $$DefaultPage,
+  file: $$file$5,
+  url: $$url$5
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$metadata$4 = createMetadata("/D:/Projects/portfolio/src/pages/index.astro", { modules: [{ module: $$module1$1, specifier: "../layouts/DefaultPage.astro", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
-const $$Astro$7 = createAstro("/D:/Projects/portfolio/src/pages/index.astro", "https://johncwaters.com/", "file:///D:/Projects/portfolio/");
+const $$metadata$4 = createMetadata("/C:/Projects/portfolio/src/pages/index.astro", { modules: [{ module: $$module1$1, specifier: "../layouts/DefaultPage.astro", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
+const $$Astro$7 = createAstro("/C:/Projects/portfolio/src/pages/index.astro", "https://johncwaters.com/", "file:///C:/Projects/portfolio/");
 const $$Index$2 = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$7, $$props, $$slots);
   Astro2.self = $$Index$2;
@@ -1844,19 +1793,19 @@ const $$Index$2 = createComponent(async ($$result, $$props, $$slots) => {
   </div>` })}`;
 });
 
-const $$file$4 = "D:/Projects/portfolio/src/pages/index.astro";
+const $$file$4 = "C:/Projects/portfolio/src/pages/index.astro";
 const $$url$4 = "";
 
 const _page1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	$$metadata: $$metadata$4,
-	default: $$Index$2,
-	file: $$file$4,
-	url: $$url$4
+  __proto__: null,
+  $$metadata: $$metadata$4,
+  default: $$Index$2,
+  file: $$file$4,
+  url: $$url$4
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$metadata$3 = createMetadata("/D:/Projects/portfolio/src/pages/portfolio.astro", { modules: [{ module: $$module1$1, specifier: "../layouts/DefaultPage.astro", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
-const $$Astro$6 = createAstro("/D:/Projects/portfolio/src/pages/portfolio.astro", "https://johncwaters.com/", "file:///D:/Projects/portfolio/");
+const $$metadata$3 = createMetadata("/C:/Projects/portfolio/src/pages/portfolio.astro", { modules: [{ module: $$module1$1, specifier: "../layouts/DefaultPage.astro", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
+const $$Astro$6 = createAstro("/C:/Projects/portfolio/src/pages/portfolio.astro", "https://johncwaters.com/", "file:///C:/Projects/portfolio/");
 const $$Portfolio = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$6, $$props, $$slots);
   Astro2.self = $$Portfolio;
@@ -1872,19 +1821,19 @@ const $$Portfolio = createComponent(async ($$result, $$props, $$slots) => {
     </div><p style="float:right; padding-top:600px;">made you look</p>` })}`;
 });
 
-const $$file$3 = "D:/Projects/portfolio/src/pages/portfolio.astro";
+const $$file$3 = "C:/Projects/portfolio/src/pages/portfolio.astro";
 const $$url$3 = "/portfolio";
 
 const _page2 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	$$metadata: $$metadata$3,
-	default: $$Portfolio,
-	file: $$file$3,
-	url: $$url$3
+  __proto__: null,
+  $$metadata: $$metadata$3,
+  default: $$Portfolio,
+  file: $$file$3,
+  url: $$url$3
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$metadata$2 = createMetadata("/D:/Projects/portfolio/src/pages/versions/2022-10/index.astro", { modules: [{ module: $$module1$1, specifier: "../../../layouts/DefaultPage.astro", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
-const $$Astro$5 = createAstro("/D:/Projects/portfolio/src/pages/versions/2022-10/index.astro", "https://johncwaters.com/", "file:///D:/Projects/portfolio/");
+const $$metadata$2 = createMetadata("/C:/Projects/portfolio/src/pages/versions/2022-10/index.astro", { modules: [{ module: $$module1$1, specifier: "../../../layouts/DefaultPage.astro", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
+const $$Astro$5 = createAstro("/C:/Projects/portfolio/src/pages/versions/2022-10/index.astro", "https://johncwaters.com/", "file:///C:/Projects/portfolio/");
 const $$Index$1 = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$5, $$props, $$slots);
   Astro2.self = $$Index$1;
@@ -1942,19 +1891,19 @@ const $$Index$1 = createComponent(async ($$result, $$props, $$slots) => {
 	</div>` })}`;
 });
 
-const $$file$2 = "D:/Projects/portfolio/src/pages/versions/2022-10/index.astro";
+const $$file$2 = "C:/Projects/portfolio/src/pages/versions/2022-10/index.astro";
 const $$url$2 = "/versions/2022-10";
 
 const _page3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	$$metadata: $$metadata$2,
-	default: $$Index$1,
-	file: $$file$2,
-	url: $$url$2
+  __proto__: null,
+  $$metadata: $$metadata$2,
+  default: $$Index$1,
+  file: $$file$2,
+  url: $$url$2
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$metadata$1 = createMetadata("/D:/Projects/portfolio/src/pages/versions/2022-8/index.astro", { modules: [{ module: $$module1$1, specifier: "../../../layouts/DefaultPage.astro", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
-const $$Astro$4 = createAstro("/D:/Projects/portfolio/src/pages/versions/2022-8/index.astro", "https://johncwaters.com/", "file:///D:/Projects/portfolio/");
+const $$metadata$1 = createMetadata("/C:/Projects/portfolio/src/pages/versions/2022-8/index.astro", { modules: [{ module: $$module1$1, specifier: "../../../layouts/DefaultPage.astro", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
+const $$Astro$4 = createAstro("/C:/Projects/portfolio/src/pages/versions/2022-8/index.astro", "https://johncwaters.com/", "file:///C:/Projects/portfolio/");
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$4, $$props, $$slots);
   Astro2.self = $$Index;
@@ -2012,460 +1961,15 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
 	</div>` })}`;
 });
 
-const $$file$1 = "D:/Projects/portfolio/src/pages/versions/2022-8/index.astro";
+const $$file$1 = "C:/Projects/portfolio/src/pages/versions/2022-8/index.astro";
 const $$url$1 = "/versions/2022-8";
 
 const _page4 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	$$metadata: $$metadata$1,
-	default: $$Index,
-	file: $$file$1,
-	url: $$url$1
-}, Symbol.toStringTag, { value: 'Module' }));
-
-const generateUniqueID = () => {
-  return `v2-${Date.now()}-${Math.floor(Math.random() * (9e12 - 1)) + 1e12}`;
-};
-
-const initMetric = (name, value) => {
-  return {
-    name,
-    value: typeof value === "undefined" ? -1 : value,
-    delta: 0,
-    entries: [],
-    id: generateUniqueID()
-  };
-};
-
-const observe = (type, callback) => {
-  try {
-    if (PerformanceObserver.supportedEntryTypes.includes(type)) {
-      if (type === "first-input" && !("PerformanceEventTiming" in self)) {
-        return;
-      }
-      const po = new PerformanceObserver((l) => l.getEntries().map(callback));
-      po.observe({ type, buffered: true });
-      return po;
-    }
-  } catch (e) {
-  }
-  return;
-};
-
-const onHidden = (cb, once) => {
-  const onHiddenOrPageHide = (event) => {
-    if (event.type === "pagehide" || document.visibilityState === "hidden") {
-      cb(event);
-      if (once) {
-        removeEventListener("visibilitychange", onHiddenOrPageHide, true);
-        removeEventListener("pagehide", onHiddenOrPageHide, true);
-      }
-    }
-  };
-  addEventListener("visibilitychange", onHiddenOrPageHide, true);
-  addEventListener("pagehide", onHiddenOrPageHide, true);
-};
-
-const onBFCacheRestore = (cb) => {
-  addEventListener("pageshow", (event) => {
-    if (event.persisted) {
-      cb(event);
-    }
-  }, true);
-};
-
-const bindReporter = (callback, metric, reportAllChanges) => {
-  let prevValue;
-  return (forceReport) => {
-    if (metric.value >= 0) {
-      if (forceReport || reportAllChanges) {
-        metric.delta = metric.value - (prevValue || 0);
-        if (metric.delta || prevValue === void 0) {
-          prevValue = metric.value;
-          callback(metric);
-        }
-      }
-    }
-  };
-};
-
-let firstHiddenTime = -1;
-const initHiddenTime = () => {
-  return document.visibilityState === "hidden" ? 0 : Infinity;
-};
-const trackChanges = () => {
-  onHidden(({ timeStamp }) => {
-    firstHiddenTime = timeStamp;
-  }, true);
-};
-const getVisibilityWatcher = () => {
-  if (firstHiddenTime < 0) {
-    if (window.__WEB_VITALS_POLYFILL__) {
-      firstHiddenTime = window.webVitals.firstHiddenTime;
-      if (firstHiddenTime === Infinity) {
-        trackChanges();
-      }
-    } else {
-      firstHiddenTime = initHiddenTime();
-      trackChanges();
-    }
-    onBFCacheRestore(() => {
-      setTimeout(() => {
-        firstHiddenTime = initHiddenTime();
-        trackChanges();
-      }, 0);
-    });
-  }
-  return {
-    get firstHiddenTime() {
-      return firstHiddenTime;
-    }
-  };
-};
-
-const getFCP = (onReport, reportAllChanges) => {
-  const visibilityWatcher = getVisibilityWatcher();
-  let metric = initMetric("FCP");
-  let report;
-  const entryHandler = (entry) => {
-    if (entry.name === "first-contentful-paint") {
-      if (po) {
-        po.disconnect();
-      }
-      if (entry.startTime < visibilityWatcher.firstHiddenTime) {
-        metric.value = entry.startTime;
-        metric.entries.push(entry);
-        report(true);
-      }
-    }
-  };
-  const fcpEntry = window.performance && performance.getEntriesByName && performance.getEntriesByName("first-contentful-paint")[0];
-  const po = fcpEntry ? null : observe("paint", entryHandler);
-  if (fcpEntry || po) {
-    report = bindReporter(onReport, metric, reportAllChanges);
-    if (fcpEntry) {
-      entryHandler(fcpEntry);
-    }
-    onBFCacheRestore((event) => {
-      metric = initMetric("FCP");
-      report = bindReporter(onReport, metric, reportAllChanges);
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          metric.value = performance.now() - event.timeStamp;
-          report(true);
-        });
-      });
-    });
-  }
-};
-
-let isMonitoringFCP = false;
-let fcpValue = -1;
-const getCLS = (onReport, reportAllChanges) => {
-  if (!isMonitoringFCP) {
-    getFCP((metric2) => {
-      fcpValue = metric2.value;
-    });
-    isMonitoringFCP = true;
-  }
-  const onReportWrapped = (arg) => {
-    if (fcpValue > -1) {
-      onReport(arg);
-    }
-  };
-  let metric = initMetric("CLS", 0);
-  let report;
-  let sessionValue = 0;
-  let sessionEntries = [];
-  const entryHandler = (entry) => {
-    if (!entry.hadRecentInput) {
-      const firstSessionEntry = sessionEntries[0];
-      const lastSessionEntry = sessionEntries[sessionEntries.length - 1];
-      if (sessionValue && entry.startTime - lastSessionEntry.startTime < 1e3 && entry.startTime - firstSessionEntry.startTime < 5e3) {
-        sessionValue += entry.value;
-        sessionEntries.push(entry);
-      } else {
-        sessionValue = entry.value;
-        sessionEntries = [entry];
-      }
-      if (sessionValue > metric.value) {
-        metric.value = sessionValue;
-        metric.entries = sessionEntries;
-        report();
-      }
-    }
-  };
-  const po = observe("layout-shift", entryHandler);
-  if (po) {
-    report = bindReporter(onReportWrapped, metric, reportAllChanges);
-    onHidden(() => {
-      po.takeRecords().map(entryHandler);
-      report(true);
-    });
-    onBFCacheRestore(() => {
-      sessionValue = 0;
-      fcpValue = -1;
-      metric = initMetric("CLS", 0);
-      report = bindReporter(onReportWrapped, metric, reportAllChanges);
-    });
-  }
-};
-
-let firstInputEvent;
-let firstInputDelay;
-let firstInputTimeStamp;
-let callbacks;
-const listenerOpts = { passive: true, capture: true };
-const startTimeStamp = new Date();
-const firstInputPolyfill = (onFirstInput) => {
-  callbacks.push(onFirstInput);
-  reportFirstInputDelayIfRecordedAndValid();
-};
-const resetFirstInputPolyfill = () => {
-  callbacks = [];
-  firstInputDelay = -1;
-  firstInputEvent = null;
-  eachEventType(addEventListener);
-};
-const recordFirstInputDelay = (delay, event) => {
-  if (!firstInputEvent) {
-    firstInputEvent = event;
-    firstInputDelay = delay;
-    firstInputTimeStamp = new Date();
-    eachEventType(removeEventListener);
-    reportFirstInputDelayIfRecordedAndValid();
-  }
-};
-const reportFirstInputDelayIfRecordedAndValid = () => {
-  if (firstInputDelay >= 0 && firstInputDelay < firstInputTimeStamp - startTimeStamp) {
-    const entry = {
-      entryType: "first-input",
-      name: firstInputEvent.type,
-      target: firstInputEvent.target,
-      cancelable: firstInputEvent.cancelable,
-      startTime: firstInputEvent.timeStamp,
-      processingStart: firstInputEvent.timeStamp + firstInputDelay
-    };
-    callbacks.forEach(function(callback) {
-      callback(entry);
-    });
-    callbacks = [];
-  }
-};
-const onPointerDown = (delay, event) => {
-  const onPointerUp = () => {
-    recordFirstInputDelay(delay, event);
-    removePointerEventListeners();
-  };
-  const onPointerCancel = () => {
-    removePointerEventListeners();
-  };
-  const removePointerEventListeners = () => {
-    removeEventListener("pointerup", onPointerUp, listenerOpts);
-    removeEventListener("pointercancel", onPointerCancel, listenerOpts);
-  };
-  addEventListener("pointerup", onPointerUp, listenerOpts);
-  addEventListener("pointercancel", onPointerCancel, listenerOpts);
-};
-const onInput = (event) => {
-  if (event.cancelable) {
-    const isEpochTime = event.timeStamp > 1e12;
-    const now = isEpochTime ? new Date() : performance.now();
-    const delay = now - event.timeStamp;
-    if (event.type == "pointerdown") {
-      onPointerDown(delay, event);
-    } else {
-      recordFirstInputDelay(delay, event);
-    }
-  }
-};
-const eachEventType = (callback) => {
-  const eventTypes = [
-    "mousedown",
-    "keydown",
-    "touchstart",
-    "pointerdown"
-  ];
-  eventTypes.forEach((type) => callback(type, onInput, listenerOpts));
-};
-
-const getFID = (onReport, reportAllChanges) => {
-  const visibilityWatcher = getVisibilityWatcher();
-  let metric = initMetric("FID");
-  let report;
-  const entryHandler = (entry) => {
-    if (entry.startTime < visibilityWatcher.firstHiddenTime) {
-      metric.value = entry.processingStart - entry.startTime;
-      metric.entries.push(entry);
-      report(true);
-    }
-  };
-  const po = observe("first-input", entryHandler);
-  report = bindReporter(onReport, metric, reportAllChanges);
-  if (po) {
-    onHidden(() => {
-      po.takeRecords().map(entryHandler);
-      po.disconnect();
-    }, true);
-  }
-  if (window.__WEB_VITALS_POLYFILL__) {
-    if (!po) {
-      window.webVitals.firstInputPolyfill(entryHandler);
-    }
-    onBFCacheRestore(() => {
-      metric = initMetric("FID");
-      report = bindReporter(onReport, metric, reportAllChanges);
-      window.webVitals.resetFirstInputPolyfill();
-      window.webVitals.firstInputPolyfill(entryHandler);
-    });
-  } else {
-    if (po) {
-      onBFCacheRestore(() => {
-        metric = initMetric("FID");
-        report = bindReporter(onReport, metric, reportAllChanges);
-        resetFirstInputPolyfill();
-        firstInputPolyfill(entryHandler);
-      });
-    }
-  }
-};
-
-const reportedMetricIDs = {};
-const getLCP = (onReport, reportAllChanges) => {
-  const visibilityWatcher = getVisibilityWatcher();
-  let metric = initMetric("LCP");
-  let report;
-  const entryHandler = (entry) => {
-    const value = entry.startTime;
-    if (value < visibilityWatcher.firstHiddenTime) {
-      metric.value = value;
-      metric.entries.push(entry);
-      report();
-    }
-  };
-  const po = observe("largest-contentful-paint", entryHandler);
-  if (po) {
-    report = bindReporter(onReport, metric, reportAllChanges);
-    const stopListening = () => {
-      if (!reportedMetricIDs[metric.id]) {
-        po.takeRecords().map(entryHandler);
-        po.disconnect();
-        reportedMetricIDs[metric.id] = true;
-        report(true);
-      }
-    };
-    ["keydown", "click"].forEach((type) => {
-      addEventListener(type, stopListening, { once: true, capture: true });
-    });
-    onHidden(stopListening, true);
-    onBFCacheRestore((event) => {
-      metric = initMetric("LCP");
-      report = bindReporter(onReport, metric, reportAllChanges);
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          metric.value = performance.now() - event.timeStamp;
-          reportedMetricIDs[metric.id] = true;
-          report(true);
-        });
-      });
-    });
-  }
-};
-
-const afterLoad = (callback) => {
-  if (document.readyState === "complete") {
-    setTimeout(callback, 0);
-  } else {
-    addEventListener("load", () => setTimeout(callback, 0));
-  }
-};
-const getNavigationEntryFromPerformanceTiming = () => {
-  const timing = performance.timing;
-  const navigationEntry = {
-    entryType: "navigation",
-    startTime: 0
-  };
-  for (const key in timing) {
-    if (key !== "navigationStart" && key !== "toJSON") {
-      navigationEntry[key] = Math.max(
-        timing[key] - timing.navigationStart,
-        0
-      );
-    }
-  }
-  return navigationEntry;
-};
-const getTTFB = (onReport) => {
-  const metric = initMetric("TTFB");
-  afterLoad(() => {
-    try {
-      const navigationEntry = performance.getEntriesByType("navigation")[0] || getNavigationEntryFromPerformanceTiming();
-      metric.value = metric.delta = navigationEntry.responseStart;
-      if (metric.value < 0 || metric.value > performance.now())
-        return;
-      metric.entries = [navigationEntry];
-      onReport(metric);
-    } catch (error) {
-    }
-  });
-};
-
-const vitalsUrl = "https://vitals.vercel-analytics.com/v1/vitals";
-let vercelKey = Object.assign({"PUBLIC_VERCEL_ANALYTICS_KEY":"VBLJWoOy3WUinZ6WedmUQhTc2w9","BASE_URL":"/","MODE":"production","DEV":false,"PROD":true}, { OS: process.env.OS, PUBLIC: process.env.PUBLIC }).PUBLIC_VERCEL_ANALYTICS_KEY;
-if (vercelKey === void 0) {
-  console.log("No Vercel Key");
-}
-let envMode = Object.assign({"PUBLIC_VERCEL_ANALYTICS_KEY":"VBLJWoOy3WUinZ6WedmUQhTc2w9","BASE_URL":"/","MODE":"production","DEV":false,"PROD":true}, { OS: process.env.OS, PUBLIC: process.env.PUBLIC }).MODE;
-function getConnectionSpeed() {
-  return "connection" in navigator && navigator["connection"] && "effectiveType" in navigator["connection"] ? navigator["connection"]["effectiveType"] : "";
-}
-function sendToAnalytics(metric, options) {
-  const page = Object.entries(options.params).reduce(
-    (acc, [key, value]) => acc.replace(value, `[${key}]`),
-    options.path
-  );
-  const body = {
-    dsn: vercelKey,
-    id: metric.id,
-    page,
-    href: location.href,
-    event_name: metric.name,
-    value: metric.value.toString(),
-    speed: getConnectionSpeed()
-  };
-  if (options.debug) {
-    console.log("[Analytics]", metric.name, JSON.stringify(body, null, 2));
-  }
-  const blob = new Blob([new URLSearchParams(body).toString()], {
-    type: "application/x-www-form-urlencoded"
-  });
-  if (navigator.sendBeacon) {
-    navigator.sendBeacon(vitalsUrl, blob);
-  } else
-    fetch(vitalsUrl, {
-      body: blob,
-      method: "POST",
-      credentials: "omit",
-      keepalive: true
-    });
-}
-function webVitals(options) {
-  if (envMode === "production") {
-    try {
-      getFID((metric) => sendToAnalytics(metric, options));
-      getTTFB((metric) => sendToAnalytics(metric, options));
-      getLCP((metric) => sendToAnalytics(metric, options));
-      getCLS((metric) => sendToAnalytics(metric, options));
-      getFCP((metric) => sendToAnalytics(metric, options));
-    } catch (err) {
-      console.error("[Analytics]", err);
-    }
-  }
-}
-
-const _page5 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	webVitals
+  __proto__: null,
+  $$metadata: $$metadata$1,
+  default: $$Index,
+  file: $$file$1,
+  url: $$url$1
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const PKG_NAME = "@astrojs/image";
@@ -2845,7 +2349,7 @@ async function getImage(transform) {
   }
   const resolved = await resolveTransform(transform);
   const attributes = await loader.getImageAttributes(resolved);
-  const isDev = (_b = (Object.assign({"PUBLIC_VERCEL_ANALYTICS_KEY":"VBLJWoOy3WUinZ6WedmUQhTc2w9","BASE_URL":"/","MODE":"production","DEV":false,"PROD":true},{SSR:true,}))) == null ? void 0 : _b.DEV;
+  const isDev = (_b = (Object.assign({"BASE_URL":"/","MODE":"production","DEV":false,"PROD":true},{SSR:true,}))) == null ? void 0 : _b.DEV;
   const isLocalImage = !isRemoteImage(resolved.src);
   const _loader = isDev && isLocalImage ? sharp_default : loader;
   if (!_loader) {
@@ -2996,16 +2500,16 @@ function integration(options = {}) {
 }
 
 const $$module1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	default: integration,
-	getImage,
-	getPicture,
-	isHostedService,
-	isSSRService
+  __proto__: null,
+  default: integration,
+  getImage,
+  getPicture,
+  isHostedService,
+  isSSRService
 }, Symbol.toStringTag, { value: 'Module' }));
 
-createMetadata("/D:/Projects/portfolio/node_modules/@astrojs/image/components/Image.astro", { modules: [{ module: $$module1, specifier: "../dist/index.js", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
-const $$Astro$3 = createAstro("/D:/Projects/portfolio/node_modules/@astrojs/image/components/Image.astro", "https://johncwaters.com/", "file:///D:/Projects/portfolio/");
+createMetadata("/C:/Projects/portfolio/node_modules/@astrojs/image/components/Image.astro", { modules: [{ module: $$module1, specifier: "../dist/index.js", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
+const $$Astro$3 = createAstro("/C:/Projects/portfolio/node_modules/@astrojs/image/components/Image.astro", "https://johncwaters.com/", "file:///C:/Projects/portfolio/");
 const $$Image = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$3, $$props, $$slots);
   Astro2.self = $$Image;
@@ -3019,8 +2523,8 @@ const $$Image = createComponent(async ($$result, $$props, $$slots) => {
 `;
 });
 
-createMetadata("/D:/Projects/portfolio/node_modules/@astrojs/image/components/Picture.astro", { modules: [{ module: $$module1, specifier: "../dist/index.js", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
-const $$Astro$2 = createAstro("/D:/Projects/portfolio/node_modules/@astrojs/image/components/Picture.astro", "https://johncwaters.com/", "file:///D:/Projects/portfolio/");
+createMetadata("/C:/Projects/portfolio/node_modules/@astrojs/image/components/Picture.astro", { modules: [{ module: $$module1, specifier: "../dist/index.js", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
+const $$Astro$2 = createAstro("/C:/Projects/portfolio/node_modules/@astrojs/image/components/Picture.astro", "https://johncwaters.com/", "file:///C:/Projects/portfolio/");
 const $$Picture = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$2, $$props, $$slots);
   Astro2.self = $$Picture;
@@ -3048,17 +2552,17 @@ const $$Picture = createComponent(async ($$result, $$props, $$slots) => {
 });
 
 const $$module4 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	Image: $$Image,
-	Picture: $$Picture
+  __proto__: null,
+  Image: $$Image,
+  Picture: $$Picture
 }, Symbol.toStringTag, { value: 'Module' }));
 
 var __freeze = Object.freeze;
 var __defProp = Object.defineProperty;
 var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(raw || cooked.slice()) }));
 var _a;
-createMetadata("/D:/Projects/portfolio/src/layouts/BlogPost.astro", { modules: [{ module: $$module1$2, specifier: "../components/BaseHead.astro", assert: {} }, { module: $$module2, specifier: "../components/Header.astro", assert: {} }, { module: $$module3, specifier: "../components/Footer.astro", assert: {} }, { module: $$module4, specifier: "@astrojs/image/components", assert: {} }, { module: $$module5, specifier: "../components/VitalsComp.astro", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
-const $$Astro$1 = createAstro("/D:/Projects/portfolio/src/layouts/BlogPost.astro", "https://johncwaters.com/", "file:///D:/Projects/portfolio/");
+createMetadata("/C:/Projects/portfolio/src/layouts/BlogPost.astro", { modules: [{ module: $$module1$2, specifier: "../components/BaseHead.astro", assert: {} }, { module: $$module2, specifier: "../components/Header.astro", assert: {} }, { module: $$module3, specifier: "../components/Footer.astro", assert: {} }, { module: $$module4, specifier: "@astrojs/image/components", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
+const $$Astro$1 = createAstro("/C:/Projects/portfolio/src/layouts/BlogPost.astro", "https://johncwaters.com/", "file:///C:/Projects/portfolio/");
 const $$BlogPost = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$BlogPost;
@@ -3090,7 +2594,7 @@ const $$BlogPost = createComponent(async ($$result, $$props, $$slots) => {
     const index = asset.default.src.indexOf("/assets/");
     return asset.default.src.slice(index) === heroImage;
   });
-  return renderTemplate(_a || (_a = __template(['<html data-theme="wireframe" lang="en-us" class="scroll-smooth">\n	', "\n\n	", "\n\n	", '<body class="flex flex-col min-h-screen">\n		', `
+  return renderTemplate(_a || (_a = __template(['<html data-theme="wireframe" lang="en-us" class="scroll-smooth">\n\n	', "\n\n	", '<body class="flex flex-col min-h-screen">\n		', `
 		<main class="flex-auto">
 			<!--Exit Button -->
 			<button class="btn btn-circle btn-outline m-3 md:m-6 lg:m-10" onclick="location.href='/blog'">
@@ -3099,16 +2603,16 @@ const $$BlogPost = createComponent(async ($$result, $$props, $$slots) => {
 				</svg>
 			</button>
 			<article class="prose prose-lg container px-4 mx-auto pb-4 md:pb-5 lg:pb-7">
-				`, '\n\n				<h1 class="text-3xl">', '</h1>\n\n				<div class="container columns-3">\n					<p class="text-primary text-sm m-0">\n						Posted ', '\n					</p>\n					<p class="text-primary text-sm m-0 text-left">\n						Read time: ', '\n					</p>\n					<p class="text-primary text-sm m-0 text-right">\n						', "\n						", '\n					</p>\n				</div>\n				<div class="divider m-0"></div>\n				', '\n				<!-- This is where blog content goes -->\n			</article>\n			<!-- Back to top button -->\n			<button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" class="p-3 btn transition duration-700 ease-in-out opacity-0 bottom-5 right-5 fixed invisible" id="btn-back-to-top">\n				<svg aria-hidden="true" focusable="false" data-prefix="fas" class="w-4 h-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">\n					<path fill="currentColor" d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z">\n					</path>\n				</svg>\n			</button>\n		</main>\n		', '\n		<!-- Class myFooter -->\n		<script>\n			// Get the backToTop button\n			let mybutton = document.getElementById("btn-back-to-top");\n\n			//Get default values for displaying height\n			var myFooter = document.querySelector(".myFooter");\n			var trueHeight =\n				document.documentElement.scrollHeight -\n				document.documentElement.clientHeight;\n\n			//default values\n			var footerHeight = myFooter.clientHeight;\n			var footerHeightDif = trueHeight - myFooter.clientHeight;\n\n			//Update values on window resize\n			window.onresize = function () {\n				var myFooter = document.querySelector(".myFooter");\n				//TODO excellent blog material to describe why you have to subtract the clientHeight from scrollHeight to get the proper size for this\n				//get true height by subtracting the clients height, then matches with max ScrollTop\n\n				trueHeight =\n					document.documentElement.scrollHeight -\n					document.documentElement.clientHeight;\n\n				footerHeight = myFooter.clientHeight;\n				footerHeightDif = trueHeight - myFooter.clientHeight;\n			};\n\n			// Show, hide, or adjust button positioning on scroll\n			window.onscroll = function () {\n				scrollFunction(footerHeightDif, footerHeight);\n			};\n\n			//Determine what height to set the BackToTop button (so it stays above the footer)\n			function scrollFunction(footerHeightDif, footerHeight) {\n				if (\n					document.documentElement.scrollTop > 40 &&\n					document.documentElement.scrollTop < footerHeightDif\n				) {\n					mybutton.style.bottom = "20px";\n					mybutton.style.opacity = "1";\n					mybutton.style.visibility = "visible";\n				} else if (\n					document.documentElement.scrollTop >= footerHeightDif\n				) {\n					mybutton.style.bottom = footerHeight + 5 + "px";\n					mybutton.style.opacity = "1";\n					mybutton.style.visibility = "visible";\n				} else {\n					mybutton.style.opacity = "0";\n					mybutton.style.visibility = "hidden";\n				}\n			}\n			// When the user clicks on the button, scroll to the top of the document\n			mybutton.addEventListener("click", backToTop);\n\n			function backToTop() {\n				document.body.scrollTop = 0;\n				document.documentElement.scrollTop = 0;\n			}\n		<\/script>\n	</body>\n</html>'])), renderComponent($$result, "VitalsComp", $$VitalsComp, {}), renderComponent($$result, "BaseHead", $$BaseHead, { "title": title, "description": description }), maybeRenderHead($$result), renderComponent($$result, "Header", $$Header, {}), heroImageAsset && renderTemplate`${renderComponent($$result, "Image", $$Image, { "src": heroImageAsset.default, "alt": "" })}`, title, publishDate && renderTemplate`<time>${publishDate}</time>`, readTime, lastUpdatedOn, updatedDateCheck && renderTemplate`<time>${updatedDateCheck}</time>`, renderSlot($$result, $$slots["default"]), renderComponent($$result, "Footer", $$Footer, {}));
+				`, '\n\n				<h1 class="text-3xl">', '</h1>\n\n				<div class="container columns-3">\n					<p class="text-primary text-sm m-0">\n						Posted ', '\n					</p>\n					<p class="text-primary text-sm m-0 text-left">\n						Read time: ', '\n					</p>\n					<p class="text-primary text-sm m-0 text-right">\n						', "\n						", '\n					</p>\n				</div>\n				<div class="divider m-0"></div>\n				', '\n				<!-- This is where blog content goes -->\n			</article>\n			<!-- Back to top button -->\n			<button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" class="p-3 btn transition duration-700 ease-in-out opacity-0 bottom-5 right-5 fixed invisible" id="btn-back-to-top">\n				<svg aria-hidden="true" focusable="false" data-prefix="fas" class="w-4 h-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">\n					<path fill="currentColor" d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z">\n					</path>\n				</svg>\n			</button>\n		</main>\n		', '\n		<!-- Class myFooter -->\n		<script>\n			// Get the backToTop button\n			let mybutton = document.getElementById("btn-back-to-top");\n\n			//Get default values for displaying height\n			var myFooter = document.querySelector(".myFooter");\n			var trueHeight =\n				document.documentElement.scrollHeight -\n				document.documentElement.clientHeight;\n\n			//default values\n			var footerHeight = myFooter.clientHeight;\n			var footerHeightDif = trueHeight - myFooter.clientHeight;\n\n			//Update values on window resize\n			window.onresize = function () {\n				var myFooter = document.querySelector(".myFooter");\n				//TODO excellent blog material to describe why you have to subtract the clientHeight from scrollHeight to get the proper size for this\n				//get true height by subtracting the clients height, then matches with max ScrollTop\n\n				trueHeight =\n					document.documentElement.scrollHeight -\n					document.documentElement.clientHeight;\n\n				footerHeight = myFooter.clientHeight;\n				footerHeightDif = trueHeight - myFooter.clientHeight;\n			};\n\n			// Show, hide, or adjust button positioning on scroll\n			window.onscroll = function () {\n				scrollFunction(footerHeightDif, footerHeight);\n			};\n\n			//Determine what height to set the BackToTop button (so it stays above the footer)\n			function scrollFunction(footerHeightDif, footerHeight) {\n				if (\n					document.documentElement.scrollTop > 40 &&\n					document.documentElement.scrollTop < footerHeightDif\n				) {\n					mybutton.style.bottom = "20px";\n					mybutton.style.opacity = "1";\n					mybutton.style.visibility = "visible";\n				} else if (\n					document.documentElement.scrollTop >= footerHeightDif\n				) {\n					mybutton.style.bottom = footerHeight + 5 + "px";\n					mybutton.style.opacity = "1";\n					mybutton.style.visibility = "visible";\n				} else {\n					mybutton.style.opacity = "0";\n					mybutton.style.visibility = "hidden";\n				}\n			}\n			// When the user clicks on the button, scroll to the top of the document\n			mybutton.addEventListener("click", backToTop);\n\n			function backToTop() {\n				document.body.scrollTop = 0;\n				document.documentElement.scrollTop = 0;\n			}\n		<\/script>\n	</body>\n</html>'])), renderComponent($$result, "BaseHead", $$BaseHead, { "title": title, "description": description }), maybeRenderHead($$result), renderComponent($$result, "Header", $$Header, {}), heroImageAsset && renderTemplate`${renderComponent($$result, "Image", $$Image, { "src": heroImageAsset.default, "alt": "" })}`, title, publishDate && renderTemplate`<time>${publishDate}</time>`, readTime, lastUpdatedOn, updatedDateCheck && renderTemplate`<time>${updatedDateCheck}</time>`, renderSlot($$result, $$slots["default"]), renderComponent($$result, "Footer", $$Footer, {}));
 });
 
-const html$3 = "<p><strong>TLDR:</strong> I used ESRI tools and Astro to build a modular custom Dashboard for viewing utility maps. The main challenges were keeping the tools to just ESRI (for simplicity) and keeping it modular so we could add more quickly. While the methods I describe are probably not ‘the best way’, it’s what I came up with in a short amount of time.</p>\n<h2 id=\"maps-maps-maps\">Maps, maps, maps…</h2>\n<p>I work at ELM Companies, specifically their utility locating branch that specializes in… well utility locating. You call 811 before you dig and they probably call us (if you live on the west coast).</p>\n<p>That’s pretty simple. It gets complicated when you realize that each state has several utilities each with several utility companies responsibile for them.</p>\n<blockquote>\n<p>The number of electric utility companies operating in the United States is estimated at over 3,300, with around 200 of them providing power to the majority of users. The U.S. power grid connects about 2.5 million miles of feeder lines and over 450,000 miles of high-voltage transmission lines.<br>\n— <cite>Statista<sup><a href=\"#user-content-fn-1\" id=\"user-content-fnref-1\" data-footnote-ref=\"\" aria-describedby=\"footnote-label\">1</a></sup></cite></p>\n</blockquote>\n<p>That’s just the electric companies! Gas, water, anything that runs through a pipe has to be carefully tracked and managed to ensure reliability.</p>\n<h2 id=\"okay-but-what-about-maps\">Okay, but what about maps?</h2>\n<p>My most recent project at work gave me an opportunity to build a custom Dashboard displaying utility maps with some filters. I used Astro as a framework, ESRI Javascript SDK for the managing the map, and their Calcite Design System for UI components.</p>\n<p>Loading the map up is made easy with the SDK.</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #FF7B72\">const</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">map</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">Map</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">          basemap: </span><span style=\"color: #A5D6FF\">\"arcgis-topographic\"</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #8B949E\">// Basemap layer service</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        });</span></span></code></pre>\n<p>The main challenge was adding unique filters and keeping the whole system modular in order to support future Dashboards without having to rewrite everything. Our goals were:</p>\n<ol>\n<li>Display a map that could be used on desktop or mobile devices</li>\n<li>Use ESRI tools as much as possible, avoiding too much custom HTML and CSS</li>\n<li>Keep it modular so future dashboards can be easily added, even if it’s by someone else</li>\n</ol>\n<h4 id=\"mobile-and-desktop-display\">Mobile and Desktop Display</h4>\n<p>Usually making a website compatible with many screensizes requires a bit of work. Typically I use Tailwind CSS media queries to quick make elements responsive, but that wasn’t an option.</p>\n<p>Luckily I was pretty spoiled in this case and had little to no work to do since the ESRI SDK handled everything for me. Just create the component, stick it on the screen, it handles the rest.</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #8B949E\">// Adding a layerList expand widget</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">layerList </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">LayerList</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  container: document.</span><span style=\"color: #D2A8FF\">createElement</span><span style=\"color: #C9D1D9\">(</span><span style=\"color: #A5D6FF\">\"div\"</span><span style=\"color: #C9D1D9\">),</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  view: view</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">});</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">layerListExpand </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">Expand</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  view: view,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  content: layerList</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">});</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">view.ui.</span><span style=\"color: #D2A8FF\">add</span><span style=\"color: #C9D1D9\">(layerListExpand, </span><span style=\"color: #A5D6FF\">\"top-right\"</span><span style=\"color: #C9D1D9\">);</span></span></code></pre>\n<p><img src=\"/blog/ezri-resize-example.gif\" alt=\"A GIF example of a ESRI map resizing and adjusting the UI accordingly\"></p>\n<p>Anytime the screen size changed, the map and widgets simply adjusted themselves. Job done.</p>\n<h4 id=\"using-esri-tools-only\">Using ESRI Tools Only</h4>\n<p>ESRI provides everything needed to display their maps.</p>\n<p>The map is handled by the Javascript SDK. You initialize a new map and add Feature Layers to build it up (which are basically layers of information). One layer could be for water pipes while another is a layer for gas pipe.</p>\n<p>You don’t create the map in the frontend, you just call the respective API and slap it on the map.</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #8B949E\">// Call the feature layer and save to an object</span></span>\n<span class=\"line\"><span style=\"color: #FF7B72\">const</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">featureLayer</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">FeatureLayer</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  url:</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #A5D6FF\">`https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis</span></span>\n<span class=\"line\"><span style=\"color: #A5D6FF\">    /rest/services/Landscape_Trees/FeatureServer/0`</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">});</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color: #8B949E\">// Slap it on the map</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">map.</span><span style=\"color: #D2A8FF\">add</span><span style=\"color: #C9D1D9\">(featureLayer);</span></span></code></pre>\n<p>Now you have some data on top of your map!</p>\n<p><img src=\"/blog/esri-example-photo.jpg\" alt=\"An image of a map with a new layer on it, showing tree density as circles\"></p>\n<p>You can add as many layers as needed, just keeping in mind that each one is an API call, and the bigger the feature layer the longer the load times.</p>\n<h4 id=\"modular-growth\">Modular Growth</h4>\n<p>To make sure it was as easy as possible to create new Dashboards in the future, I used Astro’s components and pages to build each map programatically.</p>\n<p>The ‘autoMap.astro’ component holds all the logic needed to create the map which accepts a variety of properties and builds each thing on the fly. Almost everything done through the JS SDK is with API, so it’s mostly passing in URL’s and settings.</p>\n<p>For example adding layers is as simple as adding Feature Layer URLS hosted ArcGIS Online to an object:</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #FF7B72\">const</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">urlsList</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    My_First_Nap:</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        </span><span style=\"color: #A5D6FF\">\"https://arcgis.com/arcgis/rest/services/my_first_map/FeatureServer\"</span><span style=\"color: #C9D1D9\">,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    My_Second_Map:</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        </span><span style=\"color: #A5D6FF\">\"https://arcgis.com/arcgis/rest/services/my_second_map/FeatureServer\"</span><span style=\"color: #C9D1D9\">,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">};</span></span></code></pre>\n<p>Then a function I created would build off those properties to programatically add each layer to the page. For example, loading multiple layers onto the map without hardcoding each one into the page.</p>\n<p><strong>Note:</strong> Feature Layers have multiple layers themselves, so each one needs added.</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #8B949E\">//set options for getting feature layer layers</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #FF7B72\">var</span><span style=\"color: #C9D1D9\"> options </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> { query: { f: </span><span style=\"color: #A5D6FF\">\"json\"</span><span style=\"color: #C9D1D9\"> }, responseType: </span><span style=\"color: #A5D6FF\">\"json\"</span><span style=\"color: #C9D1D9\"> };</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #8B949E\">//get layers for each feature layer provided in 'urls' and add to map</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #FF7B72\">async</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">function</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">getUrls</span><span style=\"color: #C9D1D9\">(</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        </span><span style=\"color: #FFA657\">urls</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> { [</span><span style=\"color: #FFA657\">x</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">string</span><span style=\"color: #C9D1D9\">]</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">string</span><span style=\"color: #C9D1D9\"> },</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        </span><span style=\"color: #FFA657\">searchSettings</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> { [</span><span style=\"color: #FFA657\">x</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">string</span><span style=\"color: #C9D1D9\">]</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FFA657\">__esri</span><span style=\"color: #C9D1D9\">.</span><span style=\"color: #FFA657\">SearchSource</span><span style=\"color: #C9D1D9\">[] }</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    ) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        </span><span style=\"color: #FF7B72\">for</span><span style=\"color: #C9D1D9\"> (</span><span style=\"color: #FF7B72\">let</span><span style=\"color: #C9D1D9\"> u </span><span style=\"color: #FF7B72\">in</span><span style=\"color: #C9D1D9\"> urls) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">            </span><span style=\"color: #8B949E\">// Request list of layers from hosted feature layer</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">            </span><span style=\"color: #FF7B72\">await</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">esriRequest</span><span style=\"color: #C9D1D9\">(urls[u] </span><span style=\"color: #FF7B72\">+</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #A5D6FF\">\"?token=\"</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">+</span><span style=\"color: #C9D1D9\"> esriToken, options)</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                .</span><span style=\"color: #D2A8FF\">then</span><span style=\"color: #C9D1D9\">(</span><span style=\"color: #FF7B72\">function</span><span style=\"color: #C9D1D9\"> (</span><span style=\"color: #FFA657\">response</span><span style=\"color: #C9D1D9\">) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                    </span><span style=\"color: #FF7B72\">var</span><span style=\"color: #C9D1D9\"> data </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> response.data.layers;</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                    </span><span style=\"color: #FF7B72\">return</span><span style=\"color: #C9D1D9\"> data;</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                })</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                .</span><span style=\"color: #D2A8FF\">then</span><span style=\"color: #C9D1D9\">(</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                    </span><span style=\"color: #FF7B72\">function</span><span style=\"color: #C9D1D9\"> (</span><span style=\"color: #FFA657\">data</span><span style=\"color: #C9D1D9\">) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                        </span><span style=\"color: #FF7B72\">for</span><span style=\"color: #C9D1D9\"> (</span><span style=\"color: #FF7B72\">let</span><span style=\"color: #C9D1D9\"> i </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">0</span><span style=\"color: #C9D1D9\">; i </span><span style=\"color: #FF7B72\">&#x3C;</span><span style=\"color: #C9D1D9\"> data.</span><span style=\"color: #79C0FF\">length</span><span style=\"color: #C9D1D9\">; i</span><span style=\"color: #FF7B72\">++</span><span style=\"color: #C9D1D9\">) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                            </span><span style=\"color: #8B949E\">//creates a layer</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                            </span><span style=\"color: #FF7B72\">var</span><span style=\"color: #C9D1D9\"> layer </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">FeatureLayer</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                                url: urls[u] </span><span style=\"color: #FF7B72\">+</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #A5D6FF\">\"/\"</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">+</span><span style=\"color: #C9D1D9\"> data[i].id,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                                id: data[i].name,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                                title: data[i].name,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                            });</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                            </span><span style=\"color: #8B949E\">//push layer to map</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                            map.layers.</span><span style=\"color: #D2A8FF\">push</span><span style=\"color: #C9D1D9\">(layer);</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                        }</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                    }, (</span><span style=\"color: #FFA657\">error</span><span style=\"color: #C9D1D9\">) </span><span style=\"color: #FF7B72\">=></span><span style=\"color: #C9D1D9\"> { </span><span style=\"color: #8B949E\">/*handle errors*/</span><span style=\"color: #C9D1D9\"> }</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                );</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        };</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    };</span></span></code></pre>\n<p><em><strong>Never hardcode layers into your map.</strong></em> The Feature Layer URL will never change, but the layers inside are based on whatever work is done in the backend (like with ArcGIS Pro) so they can and will change, causing everything to break.</p>\n<h2 id=\"closing\">Closing</h2>\n<p>Creating unique frontend UI is a lot of fun, but it’s also nice to be able to throw something together really quickly using well made components. ESRI made it easy for me to create a quick proof of concept showing this solution would work for our business.</p>\n<p>I hope you learned something!</p>\n<p>John C. Waters</p>\n<section data-footnotes=\"\" class=\"footnotes\"><h2 class=\"sr-only\" id=\"footnote-label\">Footnotes</h2>\n<ol>\n<li id=\"user-content-fn-1\">\n<p>The above quote is excerpted from a report on <a href=\"https://www.statista.com/statistics/237773/the-largest-electric-utilities-in-the-us-based-on-market-value/#:~:text=The%20number%20of%20electric%20utility,of%20high%2Dvoltage%20transmission%20lines.\">statista</a>, September 2022. <a href=\"#user-content-fnref-1\" data-footnote-backref=\"\" class=\"data-footnote-backref\" aria-label=\"Back to content\">↩</a></p>\n</li>\n</ol>\n</section>";
+const html$3 = "<p><strong>TLDR:</strong> I used ESRI tools and Astro to build a modular custom Dashboard for viewing utility maps. The main challenges were keeping the tools to just ESRI (for simplicity) and keeping it modular so we could add more quickly. While the methods I describe are probably not ‘the best way’, it’s what I came up with in a short amount of time.</p>\n<h2 id=\"maps-maps-maps\">Maps, maps, maps…</h2>\n<p>I work at ELM Companies, specifically their utility locating branch that specializes in… well utility locating. You call 811 before you dig and they probably call us (if you live on the west coast).</p>\n<p>That’s pretty simple. It gets complicated when you realize that each state has several utilities each with several utility companies responsibile for them.</p>\n<blockquote>\n<p>The number of electric utility companies operating in the United States is estimated at over 3,300, with around 200 of them providing power to the majority of users. The U.S. power grid connects about 2.5 million miles of feeder lines and over 450,000 miles of high-voltage transmission lines.<br>\r\n— <cite>Statista<sup><a href=\"#user-content-fn-1\" id=\"user-content-fnref-1\" data-footnote-ref=\"\" aria-describedby=\"footnote-label\">1</a></sup></cite></p>\n</blockquote>\n<p>That’s just the electric companies! Gas, water, anything that runs through a pipe has to be carefully tracked and managed to ensure reliability.</p>\n<h2 id=\"okay-but-what-about-maps\">Okay, but what about maps?</h2>\n<p>My most recent project at work gave me an opportunity to build a custom Dashboard displaying utility maps with some filters. I used Astro as a framework, ESRI Javascript SDK for the managing the map, and their Calcite Design System for UI components.</p>\n<p>Loading the map up is made easy with the SDK.</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #FF7B72\">const</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">map</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">Map</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">          basemap: </span><span style=\"color: #A5D6FF\">\"arcgis-topographic\"</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #8B949E\">// Basemap layer service</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        });</span></span></code></pre>\n<p>The main challenge was adding unique filters and keeping the whole system modular in order to support future Dashboards without having to rewrite everything. Our goals were:</p>\n<ol>\n<li>Display a map that could be used on desktop or mobile devices</li>\n<li>Use ESRI tools as much as possible, avoiding too much custom HTML and CSS</li>\n<li>Keep it modular so future dashboards can be easily added, even if it’s by someone else</li>\n</ol>\n<h4 id=\"mobile-and-desktop-display\">Mobile and Desktop Display</h4>\n<p>Usually making a website compatible with many screensizes requires a bit of work. Typically I use Tailwind CSS media queries to quick make elements responsive, but that wasn’t an option.</p>\n<p>Luckily I was pretty spoiled in this case and had little to no work to do since the ESRI SDK handled everything for me. Just create the component, stick it on the screen, it handles the rest.</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #8B949E\">// Adding a layerList expand widget</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">layerList </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">LayerList</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  container: document.</span><span style=\"color: #D2A8FF\">createElement</span><span style=\"color: #C9D1D9\">(</span><span style=\"color: #A5D6FF\">\"div\"</span><span style=\"color: #C9D1D9\">),</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  view: view</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">});</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">layerListExpand </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">Expand</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  view: view,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  content: layerList</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">});</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">view.ui.</span><span style=\"color: #D2A8FF\">add</span><span style=\"color: #C9D1D9\">(layerListExpand, </span><span style=\"color: #A5D6FF\">\"top-right\"</span><span style=\"color: #C9D1D9\">);</span></span></code></pre>\n<p><img src=\"/blog/ezri-resize-example.gif\" alt=\"A GIF example of a ESRI map resizing and adjusting the UI accordingly\"></p>\n<p>Anytime the screen size changed, the map and widgets simply adjusted themselves. Job done.</p>\n<h4 id=\"using-esri-tools-only\">Using ESRI Tools Only</h4>\n<p>ESRI provides everything needed to display their maps.</p>\n<p>The map is handled by the Javascript SDK. You initialize a new map and add Feature Layers to build it up (which are basically layers of information). One layer could be for water pipes while another is a layer for gas pipe.</p>\n<p>You don’t create the map in the frontend, you just call the respective API and slap it on the map.</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #8B949E\">// Call the feature layer and save to an object</span></span>\n<span class=\"line\"><span style=\"color: #FF7B72\">const</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">featureLayer</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">FeatureLayer</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  url:</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #A5D6FF\">`https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis</span></span>\n<span class=\"line\"><span style=\"color: #A5D6FF\">    /rest/services/Landscape_Trees/FeatureServer/0`</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">});</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color: #8B949E\">// Slap it on the map</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">map.</span><span style=\"color: #D2A8FF\">add</span><span style=\"color: #C9D1D9\">(featureLayer);</span></span></code></pre>\n<p>Now you have some data on top of your map!</p>\n<p><img src=\"/blog/esri-example-photo.jpg\" alt=\"An image of a map with a new layer on it, showing tree density as circles\"></p>\n<p>You can add as many layers as needed, just keeping in mind that each one is an API call, and the bigger the feature layer the longer the load times.</p>\n<h4 id=\"modular-growth\">Modular Growth</h4>\n<p>To make sure it was as easy as possible to create new Dashboards in the future, I used Astro’s components and pages to build each map programatically.</p>\n<p>The ‘autoMap.astro’ component holds all the logic needed to create the map which accepts a variety of properties and builds each thing on the fly. Almost everything done through the JS SDK is with API, so it’s mostly passing in URL’s and settings.</p>\n<p>For example adding layers is as simple as adding Feature Layer URLS hosted ArcGIS Online to an object:</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #FF7B72\">const</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">urlsList</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    My_First_Nap:</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        </span><span style=\"color: #A5D6FF\">\"https://arcgis.com/arcgis/rest/services/my_first_map/FeatureServer\"</span><span style=\"color: #C9D1D9\">,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    My_Second_Map:</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        </span><span style=\"color: #A5D6FF\">\"https://arcgis.com/arcgis/rest/services/my_second_map/FeatureServer\"</span><span style=\"color: #C9D1D9\">,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">};</span></span></code></pre>\n<p>Then a function I created would build off those properties to programatically add each layer to the page. For example, loading multiple layers onto the map without hardcoding each one into the page.</p>\n<p><strong>Note:</strong> Feature Layers have multiple layers themselves, so each one needs added.</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #8B949E\">//set options for getting feature layer layers</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #FF7B72\">var</span><span style=\"color: #C9D1D9\"> options </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> { query: { f: </span><span style=\"color: #A5D6FF\">\"json\"</span><span style=\"color: #C9D1D9\"> }, responseType: </span><span style=\"color: #A5D6FF\">\"json\"</span><span style=\"color: #C9D1D9\"> };</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #8B949E\">//get layers for each feature layer provided in 'urls' and add to map</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #FF7B72\">async</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">function</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">getUrls</span><span style=\"color: #C9D1D9\">(</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        </span><span style=\"color: #FFA657\">urls</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> { [</span><span style=\"color: #FFA657\">x</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">string</span><span style=\"color: #C9D1D9\">]</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">string</span><span style=\"color: #C9D1D9\"> },</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        </span><span style=\"color: #FFA657\">searchSettings</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> { [</span><span style=\"color: #FFA657\">x</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">string</span><span style=\"color: #C9D1D9\">]</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FFA657\">__esri</span><span style=\"color: #C9D1D9\">.</span><span style=\"color: #FFA657\">SearchSource</span><span style=\"color: #C9D1D9\">[] }</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    ) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        </span><span style=\"color: #FF7B72\">for</span><span style=\"color: #C9D1D9\"> (</span><span style=\"color: #FF7B72\">let</span><span style=\"color: #C9D1D9\"> u </span><span style=\"color: #FF7B72\">in</span><span style=\"color: #C9D1D9\"> urls) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">            </span><span style=\"color: #8B949E\">// Request list of layers from hosted feature layer</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">            </span><span style=\"color: #FF7B72\">await</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">esriRequest</span><span style=\"color: #C9D1D9\">(urls[u] </span><span style=\"color: #FF7B72\">+</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #A5D6FF\">\"?token=\"</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">+</span><span style=\"color: #C9D1D9\"> esriToken, options)</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                .</span><span style=\"color: #D2A8FF\">then</span><span style=\"color: #C9D1D9\">(</span><span style=\"color: #FF7B72\">function</span><span style=\"color: #C9D1D9\"> (</span><span style=\"color: #FFA657\">response</span><span style=\"color: #C9D1D9\">) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                    </span><span style=\"color: #FF7B72\">var</span><span style=\"color: #C9D1D9\"> data </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> response.data.layers;</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                    </span><span style=\"color: #FF7B72\">return</span><span style=\"color: #C9D1D9\"> data;</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                })</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                .</span><span style=\"color: #D2A8FF\">then</span><span style=\"color: #C9D1D9\">(</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                    </span><span style=\"color: #FF7B72\">function</span><span style=\"color: #C9D1D9\"> (</span><span style=\"color: #FFA657\">data</span><span style=\"color: #C9D1D9\">) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                        </span><span style=\"color: #FF7B72\">for</span><span style=\"color: #C9D1D9\"> (</span><span style=\"color: #FF7B72\">let</span><span style=\"color: #C9D1D9\"> i </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">0</span><span style=\"color: #C9D1D9\">; i </span><span style=\"color: #FF7B72\">&#x3C;</span><span style=\"color: #C9D1D9\"> data.</span><span style=\"color: #79C0FF\">length</span><span style=\"color: #C9D1D9\">; i</span><span style=\"color: #FF7B72\">++</span><span style=\"color: #C9D1D9\">) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                            </span><span style=\"color: #8B949E\">//creates a layer</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                            </span><span style=\"color: #FF7B72\">var</span><span style=\"color: #C9D1D9\"> layer </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">FeatureLayer</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                                url: urls[u] </span><span style=\"color: #FF7B72\">+</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #A5D6FF\">\"/\"</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">+</span><span style=\"color: #C9D1D9\"> data[i].id,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                                id: data[i].name,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                                title: data[i].name,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                            });</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                            </span><span style=\"color: #8B949E\">//push layer to map</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                            map.layers.</span><span style=\"color: #D2A8FF\">push</span><span style=\"color: #C9D1D9\">(layer);</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                        }</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                    }, (</span><span style=\"color: #FFA657\">error</span><span style=\"color: #C9D1D9\">) </span><span style=\"color: #FF7B72\">=></span><span style=\"color: #C9D1D9\"> { </span><span style=\"color: #8B949E\">/*handle errors*/</span><span style=\"color: #C9D1D9\"> }</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">                );</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        };</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    };</span></span></code></pre>\n<p><em><strong>Never hardcode layers into your map.</strong></em> The Feature Layer URL will never change, but the layers inside are based on whatever work is done in the backend (like with ArcGIS Pro) so they can and will change, causing everything to break.</p>\n<h2 id=\"closing\">Closing</h2>\n<p>Creating unique frontend UI is a lot of fun, but it’s also nice to be able to throw something together really quickly using well made components. ESRI made it easy for me to create a quick proof of concept showing this solution would work for our business.</p>\n<p>I hope you learned something!</p>\n<p>John C. Waters</p>\n<section data-footnotes=\"\" class=\"footnotes\"><h2 class=\"sr-only\" id=\"footnote-label\">Footnotes</h2>\n<ol>\n<li id=\"user-content-fn-1\">\n<p>The above quote is excerpted from a report on <a href=\"https://www.statista.com/statistics/237773/the-largest-electric-utilities-in-the-us-based-on-market-value/#:~:text=The%20number%20of%20electric%20utility,of%20high%2Dvoltage%20transmission%20lines.\">statista</a>, September 2022. <a href=\"#user-content-fnref-1\" data-footnote-backref=\"\" class=\"data-footnote-backref\" aria-label=\"Back to content\">↩</a></p>\n</li>\n</ol>\n</section>";
 
 				const frontmatter$3 = {"layout":"../../layouts/BlogPost.astro","title":"Working With Maps (ESRI) - September 2022","description":"Creating digital maps is a lot more complicated than I thought, especially when you factor in how much information it has to hold while still being coherent. While I don't have to worry about creating the map too much, displaying it effectively and quickly is still a challenge.","publishDate":"Sep 1 2022","heroImage":"/assets/placeholder-hero.jpg","updatedDate":null,"readTime":"9 mins","tags":"NEW, ESRI"};
-				const file$3 = "D:/Projects/portfolio/src/pages/blog/09-2022-Working-With-Maps-(ESRI).md";
+				const file$3 = "C:/Projects/portfolio/src/pages/blog/09-2022-Working-With-Maps-(ESRI).md";
 				const url$3 = "/blog/09-2022-Working-With-Maps-(ESRI)";
 				function rawContent$3() {
-					return "\n**TLDR:** I used ESRI tools and Astro to build a modular custom Dashboard for viewing utility maps. The main challenges were keeping the tools to just ESRI (for simplicity) and keeping it modular so we could add more quickly. While the methods I describe are probably not 'the best way', it's what I came up with in a short amount of time.\n\n## Maps, maps, maps...\n\nI work at ELM Companies, specifically their utility locating branch that specializes in... well utility locating. You call 811 before you dig and they probably call us (if you live on the west coast).\n\nThat's pretty simple. It gets complicated when you realize that each state has several utilities each with several utility companies responsibile for them.\n\n> The number of electric utility companies operating in the United States is estimated at over 3,300, with around 200 of them providing power to the majority of users. The U.S. power grid connects about 2.5 million miles of feeder lines and over 450,000 miles of high-voltage transmission lines.<br>\n> — <cite>Statista[^1]</cite>\n\n[^1]: The above quote is excerpted from a report on [statista](https://www.statista.com/statistics/237773/the-largest-electric-utilities-in-the-us-based-on-market-value/#:~:text=The%20number%20of%20electric%20utility,of%20high%2Dvoltage%20transmission%20lines.), September 2022.\n\nThat's just the electric companies! Gas, water, anything that runs through a pipe has to be carefully tracked and managed to ensure reliability. \n\n## Okay, but what about maps?\n\nMy most recent project at work gave me an opportunity to build a custom Dashboard displaying utility maps with some filters. I used Astro as a framework, ESRI Javascript SDK for the managing the map, and their Calcite Design System for UI components.\n\nLoading the map up is made easy with the SDK.\n\n```js\nconst map = new Map({\n          basemap: \"arcgis-topographic\" // Basemap layer service\n        });\n```\n\nThe main challenge was adding unique filters and keeping the whole system modular in order to support future Dashboards without having to rewrite everything. Our goals were:\n\n1. Display a map that could be used on desktop or mobile devices\n2. Use ESRI tools as much as possible, avoiding too much custom HTML and CSS\n3. Keep it modular so future dashboards can be easily added, even if it's by someone else\n\n\n#### Mobile and Desktop Display\n\nUsually making a website compatible with many screensizes requires a bit of work. Typically I use Tailwind CSS media queries to quick make elements responsive, but that wasn't an option.\n\nLuckily I was pretty spoiled in this case and had little to no work to do since the ESRI SDK handled everything for me. Just create the component, stick it on the screen, it handles the rest.\n\n```js\n// Adding a layerList expand widget\nlayerList = new LayerList({\n  container: document.createElement(\"div\"),\n  view: view\n});\n\nlayerListExpand = new Expand({\n  view: view,\n  content: layerList\n});\n\nview.ui.add(layerListExpand, \"top-right\");\n```\n![A GIF example of a ESRI map resizing and adjusting the UI accordingly](/blog/ezri-resize-example.gif)\n\nAnytime the screen size changed, the map and widgets simply adjusted themselves. Job done.\n\n#### Using ESRI Tools Only\n\nESRI provides everything needed to display their maps.\n\nThe map is handled by the Javascript SDK. You initialize a new map and add Feature Layers to build it up (which are basically layers of information). One layer could be for water pipes while another is a layer for gas pipe.\n\nYou don't create the map in the frontend, you just call the respective API and slap it on the map.\n\n```js\n// Call the feature layer and save to an object\nconst featureLayer = new FeatureLayer({\n  url:\n    `https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis\n    /rest/services/Landscape_Trees/FeatureServer/0`\n});\n\n// Slap it on the map\nmap.add(featureLayer);\n```\n\nNow you have some data on top of your map! \n\n![An image of a map with a new layer on it, showing tree density as circles](/blog/esri-example-photo.jpg)\n\nYou can add as many layers as needed, just keeping in mind that each one is an API call, and the bigger the feature layer the longer the load times.\n\n#### Modular Growth\n\nTo make sure it was as easy as possible to create new Dashboards in the future, I used Astro's components and pages to build each map programatically. \n\nThe 'autoMap.astro' component holds all the logic needed to create the map which accepts a variety of properties and builds each thing on the fly. Almost everything done through the JS SDK is with API, so it's mostly passing in URL's and settings.\n\nFor example adding layers is as simple as adding Feature Layer URLS hosted ArcGIS Online to an object:\n```js\nconst urlsList = {\n    My_First_Nap:\n        \"https://arcgis.com/arcgis/rest/services/my_first_map/FeatureServer\",\n    My_Second_Map:\n        \"https://arcgis.com/arcgis/rest/services/my_second_map/FeatureServer\",\n};\n```\n\nThen a function I created would build off those properties to programatically add each layer to the page. For example, loading multiple layers onto the map without hardcoding each one into the page.\n\n**Note:** Feature Layers have multiple layers themselves, so each one needs added.\n\n```js\n    //set options for getting feature layer layers\n    var options = { query: { f: \"json\" }, responseType: \"json\" };\n\n    //get layers for each feature layer provided in 'urls' and add to map\n    async function getUrls(\n        urls: { [x: string]: string },\n        searchSettings: { [x: string]: __esri.SearchSource[] }\n    ) {\n        for (let u in urls) {\n            // Request list of layers from hosted feature layer\n            await esriRequest(urls[u] + \"?token=\" + esriToken, options)\n                .then(function (response) {\n                    var data = response.data.layers;\n                    return data;\n                })\n                .then(\n                    function (data) {\n                        for (let i = 0; i < data.length; i++) {\n                            //creates a layer\n                            var layer = new FeatureLayer({\n                                url: urls[u] + \"/\" + data[i].id,\n                                id: data[i].name,\n                                title: data[i].name,\n                            });\n                            //push layer to map\n                            map.layers.push(layer);\n                        }\n                    }, (error) => { /*handle errors*/ }\n                );\n        };\n    };\n```\n\n***Never hardcode layers into your map.*** The Feature Layer URL will never change, but the layers inside are based on whatever work is done in the backend (like with ArcGIS Pro) so they can and will change, causing everything to break.\n\n## Closing\n\nCreating unique frontend UI is a lot of fun, but it's also nice to be able to throw something together really quickly using well made components. ESRI made it easy for me to create a quick proof of concept showing this solution would work for our business. \n\nI hope you learned something!\n\nJohn C. Waters\n";
+					return "\r\n**TLDR:** I used ESRI tools and Astro to build a modular custom Dashboard for viewing utility maps. The main challenges were keeping the tools to just ESRI (for simplicity) and keeping it modular so we could add more quickly. While the methods I describe are probably not 'the best way', it's what I came up with in a short amount of time.\r\n\r\n## Maps, maps, maps...\r\n\r\nI work at ELM Companies, specifically their utility locating branch that specializes in... well utility locating. You call 811 before you dig and they probably call us (if you live on the west coast).\r\n\r\nThat's pretty simple. It gets complicated when you realize that each state has several utilities each with several utility companies responsibile for them.\r\n\r\n> The number of electric utility companies operating in the United States is estimated at over 3,300, with around 200 of them providing power to the majority of users. The U.S. power grid connects about 2.5 million miles of feeder lines and over 450,000 miles of high-voltage transmission lines.<br>\r\n> — <cite>Statista[^1]</cite>\r\n\r\n[^1]: The above quote is excerpted from a report on [statista](https://www.statista.com/statistics/237773/the-largest-electric-utilities-in-the-us-based-on-market-value/#:~:text=The%20number%20of%20electric%20utility,of%20high%2Dvoltage%20transmission%20lines.), September 2022.\r\n\r\nThat's just the electric companies! Gas, water, anything that runs through a pipe has to be carefully tracked and managed to ensure reliability. \r\n\r\n## Okay, but what about maps?\r\n\r\nMy most recent project at work gave me an opportunity to build a custom Dashboard displaying utility maps with some filters. I used Astro as a framework, ESRI Javascript SDK for the managing the map, and their Calcite Design System for UI components.\r\n\r\nLoading the map up is made easy with the SDK.\r\n\r\n```js\r\nconst map = new Map({\r\n          basemap: \"arcgis-topographic\" // Basemap layer service\r\n        });\r\n```\r\n\r\nThe main challenge was adding unique filters and keeping the whole system modular in order to support future Dashboards without having to rewrite everything. Our goals were:\r\n\r\n1. Display a map that could be used on desktop or mobile devices\r\n2. Use ESRI tools as much as possible, avoiding too much custom HTML and CSS\r\n3. Keep it modular so future dashboards can be easily added, even if it's by someone else\r\n\r\n\r\n#### Mobile and Desktop Display\r\n\r\nUsually making a website compatible with many screensizes requires a bit of work. Typically I use Tailwind CSS media queries to quick make elements responsive, but that wasn't an option.\r\n\r\nLuckily I was pretty spoiled in this case and had little to no work to do since the ESRI SDK handled everything for me. Just create the component, stick it on the screen, it handles the rest.\r\n\r\n```js\r\n// Adding a layerList expand widget\r\nlayerList = new LayerList({\r\n  container: document.createElement(\"div\"),\r\n  view: view\r\n});\r\n\r\nlayerListExpand = new Expand({\r\n  view: view,\r\n  content: layerList\r\n});\r\n\r\nview.ui.add(layerListExpand, \"top-right\");\r\n```\r\n![A GIF example of a ESRI map resizing and adjusting the UI accordingly](/blog/ezri-resize-example.gif)\r\n\r\nAnytime the screen size changed, the map and widgets simply adjusted themselves. Job done.\r\n\r\n#### Using ESRI Tools Only\r\n\r\nESRI provides everything needed to display their maps.\r\n\r\nThe map is handled by the Javascript SDK. You initialize a new map and add Feature Layers to build it up (which are basically layers of information). One layer could be for water pipes while another is a layer for gas pipe.\r\n\r\nYou don't create the map in the frontend, you just call the respective API and slap it on the map.\r\n\r\n```js\r\n// Call the feature layer and save to an object\r\nconst featureLayer = new FeatureLayer({\r\n  url:\r\n    `https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis\r\n    /rest/services/Landscape_Trees/FeatureServer/0`\r\n});\r\n\r\n// Slap it on the map\r\nmap.add(featureLayer);\r\n```\r\n\r\nNow you have some data on top of your map! \r\n\r\n![An image of a map with a new layer on it, showing tree density as circles](/blog/esri-example-photo.jpg)\r\n\r\nYou can add as many layers as needed, just keeping in mind that each one is an API call, and the bigger the feature layer the longer the load times.\r\n\r\n#### Modular Growth\r\n\r\nTo make sure it was as easy as possible to create new Dashboards in the future, I used Astro's components and pages to build each map programatically. \r\n\r\nThe 'autoMap.astro' component holds all the logic needed to create the map which accepts a variety of properties and builds each thing on the fly. Almost everything done through the JS SDK is with API, so it's mostly passing in URL's and settings.\r\n\r\nFor example adding layers is as simple as adding Feature Layer URLS hosted ArcGIS Online to an object:\r\n```js\r\nconst urlsList = {\r\n    My_First_Nap:\r\n        \"https://arcgis.com/arcgis/rest/services/my_first_map/FeatureServer\",\r\n    My_Second_Map:\r\n        \"https://arcgis.com/arcgis/rest/services/my_second_map/FeatureServer\",\r\n};\r\n```\r\n\r\nThen a function I created would build off those properties to programatically add each layer to the page. For example, loading multiple layers onto the map without hardcoding each one into the page.\r\n\r\n**Note:** Feature Layers have multiple layers themselves, so each one needs added.\r\n\r\n```js\r\n    //set options for getting feature layer layers\r\n    var options = { query: { f: \"json\" }, responseType: \"json\" };\r\n\r\n    //get layers for each feature layer provided in 'urls' and add to map\r\n    async function getUrls(\r\n        urls: { [x: string]: string },\r\n        searchSettings: { [x: string]: __esri.SearchSource[] }\r\n    ) {\r\n        for (let u in urls) {\r\n            // Request list of layers from hosted feature layer\r\n            await esriRequest(urls[u] + \"?token=\" + esriToken, options)\r\n                .then(function (response) {\r\n                    var data = response.data.layers;\r\n                    return data;\r\n                })\r\n                .then(\r\n                    function (data) {\r\n                        for (let i = 0; i < data.length; i++) {\r\n                            //creates a layer\r\n                            var layer = new FeatureLayer({\r\n                                url: urls[u] + \"/\" + data[i].id,\r\n                                id: data[i].name,\r\n                                title: data[i].name,\r\n                            });\r\n                            //push layer to map\r\n                            map.layers.push(layer);\r\n                        }\r\n                    }, (error) => { /*handle errors*/ }\r\n                );\r\n        };\r\n    };\r\n```\r\n\r\n***Never hardcode layers into your map.*** The Feature Layer URL will never change, but the layers inside are based on whatever work is done in the backend (like with ArcGIS Pro) so they can and will change, causing everything to break.\r\n\r\n## Closing\r\n\r\nCreating unique frontend UI is a lot of fun, but it's also nice to be able to throw something together really quickly using well made components. ESRI made it easy for me to create a quick proof of concept showing this solution would work for our business. \r\n\r\nI hope you learned something!\r\n\r\nJohn C. Waters\r\n";
 				}
 				function compiledContent$3() {
 					return html$3;
@@ -3154,26 +2658,26 @@ const html$3 = "<p><strong>TLDR:</strong> I used ESRI tools and Astro to build a
 				}
 				Content$3[Symbol.for('astro.needsHeadRendering')] = false;
 
-const _page6 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	frontmatter: frontmatter$3,
-	file: file$3,
-	url: url$3,
-	rawContent: rawContent$3,
-	compiledContent: compiledContent$3,
-	getHeadings: getHeadings$3,
-	getHeaders: getHeaders$3,
-	Content: Content$3,
-	default: Content$3
+const _page5 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  frontmatter: frontmatter$3,
+  file: file$3,
+  url: url$3,
+  rawContent: rawContent$3,
+  compiledContent: compiledContent$3,
+  getHeadings: getHeadings$3,
+  getHeaders: getHeaders$3,
+  Content: Content$3,
+  default: Content$3
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const html$2 = "<p><strong>TLDR:</strong> I finally started creating my own portfolio website to showcase all my projects. It’s built with Astro, Tailwind, and hosted on Vercel. Today I focused on creating a design doc, building a basic layout with placeholders, and figuring out how to make my site unique.</p>\n<h2 id=\"the-start-of-a-never-ending-process\">The start of a never ending process…</h2>\n<p>Hi! I’m John.</p>\n<p>Currently I work as a Data Analyst but I’m working towards becoming a Front End Developer with a focus on UX Design.</p>\n<p>My goal by making my own portfolio website is not to just showcase my projects, but to document my thought and design process behind each one. This is how I work normally so it just makes sense to include it. My portfolio is the start of a very long process as I plan to update it monthly with my works.</p>\n<p>My main goals are to make sure I:</p>\n<ul>\n<li>Create something unique that isn’t just copy pasted UI components from the internet</li>\n<li>Stand out as a frontend developer (is this even possible?)</li>\n<li>Work on it regularly and keep it updated</li>\n<li>Focus on mobile first design</li>\n<li>Include documentation on how the site was created</li>\n</ul>\n<h2 id=\"standing-out\">Standing out</h2>\n<p>I love design. Specifically the user experience. Everytime I use a new product I am immediately thinking about why it is the way it is. Could it be easier to use? This seems like a poor choice this for design, why did they decide to do it this way?</p>\n<p>To try and showcase that, I decided my portfolio should include my design docs, thought processes, and iterations of the websites design. My guess is no one would read or look through 20 photos of the same website looking different each time.</p>\n<p>That’s when I thought:</p>\n<blockquote>\n<p>Why not just build this into the website in an interactive way?</p>\n</blockquote>\n<p>Or put another way, include buttons that allow the user to quickly swap between design iterations of the website itself. Each time they click the button, the whole website transforms back into an older (or newer) version of itself.</p>\n<p>That way I can show how the website has come together over time in a fun and interesting way, without subjecting visitors to a boring slideshow of UI components.</p>\n<p>Before that can even happen, I need to actually create a first version, so I figured out what I wanted to include:</p>\n<h4 id=\"website-layout\">Website Layout</h4>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Web Page</th><th>Description</th></tr></thead><tbody><tr><td>Home</td><td>Where the user lands, first impressions count!</td></tr><tr><td>Blog</td><td>Central place for all my blog posts</td></tr><tr><td>Portfolio</td><td>List of all my projects to explore</td></tr><tr><td>About Me</td><td>List my contacts and a bit about myself</td></tr></tbody></table>\n<p>Then I determined what I wanted to use to build it:</p>\n<h4 id=\"tech-stack\">Tech Stack</h4>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Tech</th><th>For</th><th>Why</th></tr></thead><tbody><tr><td>Astro</td><td>Web Framework</td><td>Easy SSR and great for content</td></tr><tr><td>Tailwind</td><td>CSS</td><td>Cause normal css is a pain</td></tr><tr><td>Vercel</td><td>Hosting</td><td>Free and asy push from GitHub</td></tr><tr><td>Typescript</td><td>Language</td><td>Because I need to learn it</td></tr></tbody></table>\n<p>And finally I could start building a site with some placeholders! My first go-around has a ton of placeholders so I could build something quick and dirty. The next challenge is figuring out how my unique website transformations will work before I get too far ahead. I don’t want to have to rebuild everything just because it doesn’t work.</p>\n<h2 id=\"closing\">Closing</h2>\n<p>I hope this first blog post provided some insite into what I hope to accomplish and how I went about planning for it. I plan on posting monthly updates that include future updates, design documents, screenshots, and more.</p>\n<p>Take care!</p>\n<p>John C. Waters</p>\n<p><em>Note to self: add buttons here to go back and forth between blogs! :)</em></p>";
 
 				const frontmatter$2 = {"layout":"../../layouts/BlogPost.astro","title":"Creating My Portfolio - August 2022","description":"I finally started creating my own portfolio website to showcase all my projects. It's built with Astro, Svelte, Tailwind, and hosted on Vercel. Today I focused on creating a design doc, building a basic layout with placeholders, and figuring out how to make my site unique.","publishDate":"Aug 14 2022","heroImage":"/assets/placeholder-hero.jpg","updatedDate":"Aug 17 2022","readTime":"5 min","tags":"NEW, UX DESIGN"};
-				const file$2 = "D:/Projects/portfolio/src/pages/blog/08-2022-Creating-My-Portfolio.md";
+				const file$2 = "C:/Projects/portfolio/src/pages/blog/08-2022-Creating-My-Portfolio.md";
 				const url$2 = "/blog/08-2022-Creating-My-Portfolio";
 				function rawContent$2() {
-					return "\n**TLDR:** I finally started creating my own portfolio website to showcase all my projects. It's built with Astro, Tailwind, and hosted on Vercel. Today I focused on creating a design doc, building a basic layout with placeholders, and figuring out how to make my site unique.\n\n## The start of a never ending process...\n\nHi! I'm John. \n\nCurrently I work as a Data Analyst but I'm working towards becoming a Front End Developer with a focus on UX Design.\n\nMy goal by making my own portfolio website is not to just showcase my projects, but to document my thought and design process behind each one. This is how I work normally so it just makes sense to include it. My portfolio is the start of a very long process as I plan to update it monthly with my works.\n\nMy main goals are to make sure I:\n\n* Create something unique that isn’t just copy pasted UI components from the internet\n* Stand out as a frontend developer (is this even possible?)\n* Work on it regularly and keep it updated\n* Focus on mobile first design\n* Include documentation on how the site was created\n\n## Standing out\n\nI love design. Specifically the user experience. Everytime I use a new product I am immediately thinking about why it is the way it is. Could it be easier to use? This seems like a poor choice this for design, why did they decide to do it this way?\n\nTo try and showcase that, I decided my portfolio should include my design docs, thought processes, and iterations of the websites design. My guess is no one would read or look through 20 photos of the same website looking different each time.\n\nThat's when I thought: \n>Why not just build this into the website in an interactive way?\n\nOr put another way, include buttons that allow the user to quickly swap between design iterations of the website itself. Each time they click the button, the whole website transforms back into an older (or newer) version of itself.\n\nThat way I can show how the website has come together over time in a fun and interesting way, without subjecting visitors to a boring slideshow of UI components.\n\nBefore that can even happen, I need to actually create a first version, so I figured out what I wanted to include:\n\n#### Website Layout\n\n| Web Page   | Description    | \n| --------  | -------- | \n| Home | Where the user lands, first impressions count!| \n| Blog | Central place for all my blog posts |\n| Portfolio | List of all my projects to explore |\n| About Me | List my contacts and a bit about myself |\n\nThen I determined what I wanted to use to build it:\n\n#### Tech Stack\n\n| Tech   | For    | Why   |\n| --------  | -------- | ------ |\n| Astro | Web Framework | Easy SSR and great for content |\n| Tailwind | CSS | Cause normal css is a pain |\n| Vercel | Hosting | Free and asy push from GitHub |\n| Typescript | Language | Because I need to learn it |\n\nAnd finally I could start building a site with some placeholders! My first go-around has a ton of placeholders so I could build something quick and dirty. The next challenge is figuring out how my unique website transformations will work before I get too far ahead. I don't want to have to rebuild everything just because it doesn't work.\n\n## Closing\n\nI hope this first blog post provided some insite into what I hope to accomplish and how I went about planning for it. I plan on posting monthly updates that include future updates, design documents, screenshots, and more.\n\nTake care!\n\nJohn C. Waters\n\n*Note to self: add buttons here to go back and forth between blogs! :)*";
+					return "\r\n**TLDR:** I finally started creating my own portfolio website to showcase all my projects. It's built with Astro, Tailwind, and hosted on Vercel. Today I focused on creating a design doc, building a basic layout with placeholders, and figuring out how to make my site unique.\r\n\r\n## The start of a never ending process...\r\n\r\nHi! I'm John. \r\n\r\nCurrently I work as a Data Analyst but I'm working towards becoming a Front End Developer with a focus on UX Design.\r\n\r\nMy goal by making my own portfolio website is not to just showcase my projects, but to document my thought and design process behind each one. This is how I work normally so it just makes sense to include it. My portfolio is the start of a very long process as I plan to update it monthly with my works.\r\n\r\nMy main goals are to make sure I:\r\n\r\n* Create something unique that isn’t just copy pasted UI components from the internet\r\n* Stand out as a frontend developer (is this even possible?)\r\n* Work on it regularly and keep it updated\r\n* Focus on mobile first design\r\n* Include documentation on how the site was created\r\n\r\n## Standing out\r\n\r\nI love design. Specifically the user experience. Everytime I use a new product I am immediately thinking about why it is the way it is. Could it be easier to use? This seems like a poor choice this for design, why did they decide to do it this way?\r\n\r\nTo try and showcase that, I decided my portfolio should include my design docs, thought processes, and iterations of the websites design. My guess is no one would read or look through 20 photos of the same website looking different each time.\r\n\r\nThat's when I thought: \r\n>Why not just build this into the website in an interactive way?\r\n\r\nOr put another way, include buttons that allow the user to quickly swap between design iterations of the website itself. Each time they click the button, the whole website transforms back into an older (or newer) version of itself.\r\n\r\nThat way I can show how the website has come together over time in a fun and interesting way, without subjecting visitors to a boring slideshow of UI components.\r\n\r\nBefore that can even happen, I need to actually create a first version, so I figured out what I wanted to include:\r\n\r\n#### Website Layout\r\n\r\n| Web Page   | Description    | \r\n| --------  | -------- | \r\n| Home | Where the user lands, first impressions count!| \r\n| Blog | Central place for all my blog posts |\r\n| Portfolio | List of all my projects to explore |\r\n| About Me | List my contacts and a bit about myself |\r\n\r\nThen I determined what I wanted to use to build it:\r\n\r\n#### Tech Stack\r\n\r\n| Tech   | For    | Why   |\r\n| --------  | -------- | ------ |\r\n| Astro | Web Framework | Easy SSR and great for content |\r\n| Tailwind | CSS | Cause normal css is a pain |\r\n| Vercel | Hosting | Free and asy push from GitHub |\r\n| Typescript | Language | Because I need to learn it |\r\n\r\nAnd finally I could start building a site with some placeholders! My first go-around has a ton of placeholders so I could build something quick and dirty. The next challenge is figuring out how my unique website transformations will work before I get too far ahead. I don't want to have to rebuild everything just because it doesn't work.\r\n\r\n## Closing\r\n\r\nI hope this first blog post provided some insite into what I hope to accomplish and how I went about planning for it. I plan on posting monthly updates that include future updates, design documents, screenshots, and more.\r\n\r\nTake care!\r\n\r\nJohn C. Waters\r\n\r\n*Note to self: add buttons here to go back and forth between blogs! :)*";
 				}
 				function compiledContent$2() {
 					return html$2;
@@ -3219,26 +2723,26 @@ const html$2 = "<p><strong>TLDR:</strong> I finally started creating my own port
 				}
 				Content$2[Symbol.for('astro.needsHeadRendering')] = false;
 
-const _page7 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	frontmatter: frontmatter$2,
-	file: file$2,
-	url: url$2,
-	rawContent: rawContent$2,
-	compiledContent: compiledContent$2,
-	getHeadings: getHeadings$2,
-	getHeaders: getHeaders$2,
-	Content: Content$2,
-	default: Content$2
+const _page6 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  frontmatter: frontmatter$2,
+  file: file$2,
+  url: url$2,
+  rawContent: rawContent$2,
+  compiledContent: compiledContent$2,
+  getHeadings: getHeadings$2,
+  getHeaders: getHeaders$2,
+  Content: Content$2,
+  default: Content$2
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const html$1 = "<p>Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.</p>\n<h2 id=\"headings\">Headings</h2>\n<p>The following HTML <code>&#x3C;h1></code>—<code>&#x3C;h6></code> elements represent six levels of section headings. <code>&#x3C;h1></code> is the highest section level while <code>&#x3C;h6></code> is the lowest.</p>\n<h1 id=\"h1\">H1</h1>\n<h2 id=\"h2\">H2</h2>\n<h3 id=\"h3\">H3</h3>\n<h4 id=\"h4\">H4</h4>\n<h5 id=\"h5\">H5</h5>\n<h6 id=\"h6\">H6</h6>\n<h2 id=\"paragraph\">Paragraph</h2>\n<p>Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.</p>\n<p>Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.</p>\n<h2 id=\"images\">Images</h2>\n<p><img src=\"/placeholder-social.jpg\" alt=\"This is a placeholder image description\"></p>\n<h2 id=\"blockquotes\">Blockquotes</h2>\n<p>The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a <code>footer</code> or <code>cite</code> element, and optionally with in-line changes such as annotations and abbreviations.</p>\n<h4 id=\"blockquote-without-attribution\">Blockquote without attribution</h4>\n<blockquote>\n<p>Tiam, ad mint andaepu dandae nostion secatur sequo quae.<br>\n<strong>Note</strong> that you can use <em>Markdown syntax</em> within a blockquote.</p>\n</blockquote>\n<h4 id=\"blockquote-with-attribution\">Blockquote with attribution</h4>\n<blockquote>\n<p>Don’t communicate by sharing memory, share memory by communicating.<br>\n— <cite>Rob Pike<sup><a href=\"#user-content-fn-1\" id=\"user-content-fnref-1\" data-footnote-ref=\"\" aria-describedby=\"footnote-label\">1</a></sup></cite></p>\n</blockquote>\n<h2 id=\"tables\">Tables</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Italics</th><th>Bold</th><th>Code</th></tr></thead><tbody><tr><td><em>italics</em></td><td><strong>bold</strong></td><td><code>code</code></td></tr></tbody></table>\n<h2 id=\"code-blocks\">Code Blocks</h2>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #C9D1D9\">&#x3C;!</span><span style=\"color: #7EE787\">doctype</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">html</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">&#x3C;</span><span style=\"color: #7EE787\">html</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">lang</span><span style=\"color: #C9D1D9\">=</span><span style=\"color: #A5D6FF\">\"en\"</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">&#x3C;</span><span style=\"color: #7EE787\">head</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  &#x3C;</span><span style=\"color: #7EE787\">meta</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">charset</span><span style=\"color: #C9D1D9\">=</span><span style=\"color: #A5D6FF\">\"utf-8\"</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  &#x3C;</span><span style=\"color: #7EE787\">title</span><span style=\"color: #C9D1D9\">>Example HTML5 Document&#x3C;/</span><span style=\"color: #7EE787\">title</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">&#x3C;/</span><span style=\"color: #7EE787\">head</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">&#x3C;</span><span style=\"color: #7EE787\">body</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  &#x3C;</span><span style=\"color: #7EE787\">p</span><span style=\"color: #C9D1D9\">>Test&#x3C;/</span><span style=\"color: #7EE787\">p</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">&#x3C;/</span><span style=\"color: #7EE787\">body</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">&#x3C;/</span><span style=\"color: #7EE787\">html</span><span style=\"color: #C9D1D9\">></span></span></code></pre>\n<h2 id=\"list-types\">List Types</h2>\n<h4 id=\"ordered-list\">Ordered List</h4>\n<ol>\n<li>First item</li>\n<li>Second item</li>\n<li>Third item</li>\n</ol>\n<h4 id=\"unordered-list\">Unordered List</h4>\n<ul>\n<li>List item</li>\n<li>Another item</li>\n<li>And another item</li>\n</ul>\n<h4 id=\"nested-list\">Nested list</h4>\n<ul>\n<li>Fruit\n<ul>\n<li>Apple</li>\n<li>Orange</li>\n<li>Banana</li>\n</ul>\n</li>\n<li>Dairy\n<ul>\n<li>Milk</li>\n<li>Cheese</li>\n</ul>\n</li>\n</ul>\n<h2 id=\"other-elements--abbr-sub-sup-kbd-mark\">Other Elements — abbr, sub, sup, kbd, mark</h2>\n<p><abbr title=\"Graphics Interchange Format\">GIF</abbr> is a bitmap image format.</p>\n<p>H<sub>2</sub>O</p>\n<p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>\n<p>Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.</p>\n<p>Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.</p>\n<section data-footnotes=\"\" class=\"footnotes\"><h2 class=\"sr-only\" id=\"footnote-label\">Footnotes</h2>\n<ol>\n<li id=\"user-content-fn-1\">\n<p>The above quote is excerpted from Rob Pike’s <a href=\"https://www.youtube.com/watch?v=PAAkCSZUG1c\">talk</a> during Gopherfest, November 18, 2015. <a href=\"#user-content-fnref-1\" data-footnote-backref=\"\" class=\"data-footnote-backref\" aria-label=\"Back to content\">↩</a></p>\n</li>\n</ol>\n</section>";
+const html$1 = "<p>Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.</p>\n<h2 id=\"headings\">Headings</h2>\n<p>The following HTML <code>&#x3C;h1></code>—<code>&#x3C;h6></code> elements represent six levels of section headings. <code>&#x3C;h1></code> is the highest section level while <code>&#x3C;h6></code> is the lowest.</p>\n<h1 id=\"h1\">H1</h1>\n<h2 id=\"h2\">H2</h2>\n<h3 id=\"h3\">H3</h3>\n<h4 id=\"h4\">H4</h4>\n<h5 id=\"h5\">H5</h5>\n<h6 id=\"h6\">H6</h6>\n<h2 id=\"paragraph\">Paragraph</h2>\n<p>Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.</p>\n<p>Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.</p>\n<h2 id=\"images\">Images</h2>\n<p><img src=\"/placeholder-social.jpg\" alt=\"This is a placeholder image description\"></p>\n<h2 id=\"blockquotes\">Blockquotes</h2>\n<p>The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a <code>footer</code> or <code>cite</code> element, and optionally with in-line changes such as annotations and abbreviations.</p>\n<h4 id=\"blockquote-without-attribution\">Blockquote without attribution</h4>\n<blockquote>\n<p>Tiam, ad mint andaepu dandae nostion secatur sequo quae.<br>\n<strong>Note</strong> that you can use <em>Markdown syntax</em> within a blockquote.</p>\n</blockquote>\n<h4 id=\"blockquote-with-attribution\">Blockquote with attribution</h4>\n<blockquote>\n<p>Don’t communicate by sharing memory, share memory by communicating.<br>\r\n— <cite>Rob Pike<sup><a href=\"#user-content-fn-1\" id=\"user-content-fnref-1\" data-footnote-ref=\"\" aria-describedby=\"footnote-label\">1</a></sup></cite></p>\n</blockquote>\n<h2 id=\"tables\">Tables</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Italics</th><th>Bold</th><th>Code</th></tr></thead><tbody><tr><td><em>italics</em></td><td><strong>bold</strong></td><td><code>code</code></td></tr></tbody></table>\n<h2 id=\"code-blocks\">Code Blocks</h2>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #C9D1D9\">&#x3C;!</span><span style=\"color: #7EE787\">doctype</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">html</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">&#x3C;</span><span style=\"color: #7EE787\">html</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">lang</span><span style=\"color: #C9D1D9\">=</span><span style=\"color: #A5D6FF\">\"en\"</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">&#x3C;</span><span style=\"color: #7EE787\">head</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  &#x3C;</span><span style=\"color: #7EE787\">meta</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">charset</span><span style=\"color: #C9D1D9\">=</span><span style=\"color: #A5D6FF\">\"utf-8\"</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  &#x3C;</span><span style=\"color: #7EE787\">title</span><span style=\"color: #C9D1D9\">>Example HTML5 Document&#x3C;/</span><span style=\"color: #7EE787\">title</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">&#x3C;/</span><span style=\"color: #7EE787\">head</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">&#x3C;</span><span style=\"color: #7EE787\">body</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  &#x3C;</span><span style=\"color: #7EE787\">p</span><span style=\"color: #C9D1D9\">>Test&#x3C;/</span><span style=\"color: #7EE787\">p</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">&#x3C;/</span><span style=\"color: #7EE787\">body</span><span style=\"color: #C9D1D9\">></span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">&#x3C;/</span><span style=\"color: #7EE787\">html</span><span style=\"color: #C9D1D9\">></span></span></code></pre>\n<h2 id=\"list-types\">List Types</h2>\n<h4 id=\"ordered-list\">Ordered List</h4>\n<ol>\n<li>First item</li>\n<li>Second item</li>\n<li>Third item</li>\n</ol>\n<h4 id=\"unordered-list\">Unordered List</h4>\n<ul>\n<li>List item</li>\n<li>Another item</li>\n<li>And another item</li>\n</ul>\n<h4 id=\"nested-list\">Nested list</h4>\n<ul>\n<li>Fruit\n<ul>\n<li>Apple</li>\n<li>Orange</li>\n<li>Banana</li>\n</ul>\n</li>\n<li>Dairy\n<ul>\n<li>Milk</li>\n<li>Cheese</li>\n</ul>\n</li>\n</ul>\n<h2 id=\"other-elements--abbr-sub-sup-kbd-mark\">Other Elements — abbr, sub, sup, kbd, mark</h2>\n<p><abbr title=\"Graphics Interchange Format\">GIF</abbr> is a bitmap image format.</p>\n<p>H<sub>2</sub>O</p>\n<p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>\n<p>Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.</p>\n<p>Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.</p>\n<section data-footnotes=\"\" class=\"footnotes\"><h2 class=\"sr-only\" id=\"footnote-label\">Footnotes</h2>\n<ol>\n<li id=\"user-content-fn-1\">\n<p>The above quote is excerpted from Rob Pike’s <a href=\"https://www.youtube.com/watch?v=PAAkCSZUG1c\">talk</a> during Gopherfest, November 18, 2015. <a href=\"#user-content-fnref-1\" data-footnote-backref=\"\" class=\"data-footnote-backref\" aria-label=\"Back to content\">↩</a></p>\n</li>\n</ol>\n</section>";
 
 				const frontmatter$1 = {"layout":"../../layouts/BlogPost.astro","title":"Markdown Style Guide","description":"Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.","publishDate":"Jul 01 2022","heroImage":"/assets/placeholder-hero.jpg"};
-				const file$1 = "D:/Projects/portfolio/src/pages/blog/markdown-style-guide.md";
+				const file$1 = "C:/Projects/portfolio/src/pages/blog/markdown-style-guide.md";
 				const url$1 = "/blog/markdown-style-guide";
 				function rawContent$1() {
-					return "\nHere is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.\n\n## Headings\n\nThe following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.\n\n# H1\n## H2\n### H3\n#### H4\n##### H5\n###### H6\n\n## Paragraph\n\nXerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.\n\nItatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.\n\n## Images\n\n![This is a placeholder image description](/placeholder-social.jpg)\n\n## Blockquotes\n\nThe blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.\n\n#### Blockquote without attribution\n\n> Tiam, ad mint andaepu dandae nostion secatur sequo quae.  \n> **Note** that you can use *Markdown syntax* within a blockquote.\n\n#### Blockquote with attribution\n\n> Don't communicate by sharing memory, share memory by communicating.<br>\n> — <cite>Rob Pike[^1]</cite>\n\n[^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.\n\n## Tables\n\n| Italics   | Bold     | Code   |\n| --------  | -------- | ------ |\n| *italics* | **bold** | `code` |\n\n## Code Blocks\n\n```html\n<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Example HTML5 Document</title>\n</head>\n<body>\n  <p>Test</p>\n</body>\n</html>\n```\n\n## List Types\n\n#### Ordered List\n\n1. First item\n2. Second item\n3. Third item\n\n#### Unordered List\n\n* List item\n* Another item\n* And another item\n\n#### Nested list\n\n* Fruit\n  * Apple\n  * Orange\n  * Banana\n* Dairy\n  * Milk\n  * Cheese\n\n## Other Elements — abbr, sub, sup, kbd, mark\n\n<abbr title=\"Graphics Interchange Format\">GIF</abbr> is a bitmap image format.\n\nH<sub>2</sub>O\n\nX<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>\n\nPress <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.\n\nMost <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.\n";
+					return "\r\nHere is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.\r\n\r\n## Headings\r\n\r\nThe following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.\r\n\r\n# H1\r\n## H2\r\n### H3\r\n#### H4\r\n##### H5\r\n###### H6\r\n\r\n## Paragraph\r\n\r\nXerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.\r\n\r\nItatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.\r\n\r\n## Images\r\n\r\n![This is a placeholder image description](/placeholder-social.jpg)\r\n\r\n## Blockquotes\r\n\r\nThe blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.\r\n\r\n#### Blockquote without attribution\r\n\r\n> Tiam, ad mint andaepu dandae nostion secatur sequo quae.  \r\n> **Note** that you can use *Markdown syntax* within a blockquote.\r\n\r\n#### Blockquote with attribution\r\n\r\n> Don't communicate by sharing memory, share memory by communicating.<br>\r\n> — <cite>Rob Pike[^1]</cite>\r\n\r\n[^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.\r\n\r\n## Tables\r\n\r\n| Italics   | Bold     | Code   |\r\n| --------  | -------- | ------ |\r\n| *italics* | **bold** | `code` |\r\n\r\n## Code Blocks\r\n\r\n```html\r\n<!doctype html>\r\n<html lang=\"en\">\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <title>Example HTML5 Document</title>\r\n</head>\r\n<body>\r\n  <p>Test</p>\r\n</body>\r\n</html>\r\n```\r\n\r\n## List Types\r\n\r\n#### Ordered List\r\n\r\n1. First item\r\n2. Second item\r\n3. Third item\r\n\r\n#### Unordered List\r\n\r\n* List item\r\n* Another item\r\n* And another item\r\n\r\n#### Nested list\r\n\r\n* Fruit\r\n  * Apple\r\n  * Orange\r\n  * Banana\r\n* Dairy\r\n  * Milk\r\n  * Cheese\r\n\r\n## Other Elements — abbr, sub, sup, kbd, mark\r\n\r\n<abbr title=\"Graphics Interchange Format\">GIF</abbr> is a bitmap image format.\r\n\r\nH<sub>2</sub>O\r\n\r\nX<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>\r\n\r\nPress <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.\r\n\r\nMost <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.\r\n";
 				}
 				function compiledContent$1() {
 					return html$1;
@@ -3284,26 +2788,26 @@ const html$1 = "<p>Here is a sample of some basic Markdown syntax that can be us
 				}
 				Content$1[Symbol.for('astro.needsHeadRendering')] = false;
 
-const _page8 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	frontmatter: frontmatter$1,
-	file: file$1,
-	url: url$1,
-	rawContent: rawContent$1,
-	compiledContent: compiledContent$1,
-	getHeadings: getHeadings$1,
-	getHeaders: getHeaders$1,
-	Content: Content$1,
-	default: Content$1
+const _page7 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  frontmatter: frontmatter$1,
+  file: file$1,
+  url: url$1,
+  rawContent: rawContent$1,
+  compiledContent: compiledContent$1,
+  getHeadings: getHeadings$1,
+  getHeaders: getHeaders$1,
+  Content: Content$1,
+  default: Content$1
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const html = "<p><strong>TLDR:</strong> I used ESRI tools and Astro to build a modular custom Dashboard for viewing utility maps. The main challenges were keeping the tools to just ESRI (for simplicity) and keeping it modular so we could add more quickly. While the methods I describe are probably not ‘the best way’, it’s what I came up with in a short amount of time.</p>\n<h2 id=\"maps-maps-maps\">Maps, maps, maps…</h2>\n<p>I work at ELM Companies, specifically their utility locating branch that specializes in… well utility locating. You call 811 before you dig and they probably call us (if you live on the west coast).</p>\n<p>That’s pretty simple. It gets complicated when you realize that each state has several utilities each with several utility companies responsibile for them.</p>\n<blockquote>\n<p>The number of electric utility companies operating in the United States is estimated at over 3,300, with around 200 of them providing power to the majority of users. The U.S. power grid connects about 2.5 million miles of feeder lines and over 450,000 miles of high-voltage transmission lines.<br>\n— <cite>Statista<sup><a href=\"#user-content-fn-1\" id=\"user-content-fnref-1\" data-footnote-ref=\"\" aria-describedby=\"footnote-label\">1</a></sup></cite></p>\n</blockquote>\n<p>That’s just the electric companies! Gas, water, anything that runs through a pipe has to be carefully tracked and managed to ensure reliability.</p>\n<h2 id=\"okay-but-what-about-maps\">Okay, but what about maps?</h2>\n<p>My most recent project at work gave me an opportunity to build a custom Dashboard displaying utility maps with some filters. I used Astro as a framework, ESRI Javascript SDK for the managing the map, and their Calcite Design System for UI components.</p>\n<p>Loading the map up is made easy with the SDK.</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #FF7B72\">const</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">map</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">Map</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  basemap: </span><span style=\"color: #A5D6FF\">\"arcgis-topographic\"</span><span style=\"color: #C9D1D9\">, </span><span style=\"color: #8B949E\">// Basemap layer service</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">});</span></span></code></pre>\n<p>The main challenge was adding unique filters and keeping the whole system modular in order to support future Dashboards without having to rewrite everything. Our goals were:</p>\n<ol>\n<li>Display a map that could be used on desktop or mobile devices</li>\n<li>Use ESRI tools as much as possible, avoiding too much custom HTML and CSS</li>\n<li>Keep it modular so future dashboards can be easily added, even if it’s by someone else</li>\n</ol>\n<h4 id=\"mobile-and-desktop-display\">Mobile and Desktop Display</h4>\n<p>Usually making a website compatible with many screensizes requires a bit of work. Typically I use Tailwind CSS media queries to quick make elements responsive, but that wasn’t an option.</p>\n<p>Luckily I was pretty spoiled in this case and had little to no work to do since the ESRI SDK handled everything for me. Just create the component, stick it on the screen, it handles the rest.</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #8B949E\">// Adding a layerList expand widget</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">layerList </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">LayerList</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  container: document.</span><span style=\"color: #D2A8FF\">createElement</span><span style=\"color: #C9D1D9\">(</span><span style=\"color: #A5D6FF\">\"div\"</span><span style=\"color: #C9D1D9\">),</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  view: view,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">});</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">layerListExpand </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">Expand</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  view: view,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  content: layerList,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">});</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">view.ui.</span><span style=\"color: #D2A8FF\">add</span><span style=\"color: #C9D1D9\">(layerListExpand, </span><span style=\"color: #A5D6FF\">\"top-right\"</span><span style=\"color: #C9D1D9\">);</span></span></code></pre>\n<p><img src=\"/blog/ezri-resize-example.gif\" alt=\"A GIF example of a ESRI map resizing and adjusting the UI accordingly\"></p>\n<p>Anytime the screen size changed, the map and widgets simply adjusted themselves. Job done.</p>\n<h4 id=\"using-esri-tools-only\">Using ESRI Tools Only</h4>\n<p>ESRI provides everything needed to display their maps.</p>\n<p>The map is handled by the Javascript SDK. You initialize a new map and add Feature Layers to build it up (which are basically layers of information). One layer could be for water pipes while another is a layer for gas pipe.</p>\n<p>You don’t create the map in the frontend, you just call the respective API and slap it on the map.</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #8B949E\">// Call the feature layer and save to an object</span></span>\n<span class=\"line\"><span style=\"color: #FF7B72\">const</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">featureLayer</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">FeatureLayer</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  url: </span><span style=\"color: #A5D6FF\">`https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis</span></span>\n<span class=\"line\"><span style=\"color: #A5D6FF\">    /rest/services/Landscape_Trees/FeatureServer/0`</span><span style=\"color: #C9D1D9\">,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">});</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color: #8B949E\">// Slap it on the map</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">map.</span><span style=\"color: #D2A8FF\">add</span><span style=\"color: #C9D1D9\">(featureLayer);</span></span></code></pre>\n<p>Now you have some data on top of your map!</p>\n<p><img src=\"/blog/esri-example-photo.jpg\" alt=\"An image of a map with a new layer on it, showing tree density as circles\"></p>\n<p>You can add as many layers as needed, just keeping in mind that each one is an API call, and the bigger the feature layer the longer the load times.</p>\n<h4 id=\"modular-growth\">Modular Growth</h4>\n<p>To make sure it was as easy as possible to create new Dashboards in the future, I used Astro’s components and pages to build each map programatically.</p>\n<p>The ‘autoMap.astro’ component holds all the logic needed to create the map which accepts a variety of properties and builds each thing on the fly. Almost everything done through the JS SDK is with API, so it’s mostly passing in URL’s and settings.</p>\n<p>For example adding layers is as simple as adding Feature Layer URLS hosted ArcGIS Online to an object:</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #FF7B72\">const</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">urlsList</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  My_First_Nap:</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #A5D6FF\">\"https://arcgis.com/arcgis/rest/services/my_first_map/FeatureServer\"</span><span style=\"color: #C9D1D9\">,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  My_Second_Map:</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #A5D6FF\">\"https://arcgis.com/arcgis/rest/services/my_second_map/FeatureServer\"</span><span style=\"color: #C9D1D9\">,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">};</span></span></code></pre>\n<p>Then a function I created would build off those properties to programatically add each layer to the page. For example, loading multiple layers onto the map without hardcoding each one into the page.</p>\n<p><strong>Note:</strong> Feature Layers have multiple layers themselves, so each one needs added.</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #8B949E\">//set options for getting feature layer layers</span></span>\n<span class=\"line\"><span style=\"color: #FF7B72\">var</span><span style=\"color: #C9D1D9\"> options </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> { query: { f: </span><span style=\"color: #A5D6FF\">\"json\"</span><span style=\"color: #C9D1D9\"> }, responseType: </span><span style=\"color: #A5D6FF\">\"json\"</span><span style=\"color: #C9D1D9\"> };</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color: #8B949E\">//get layers for each feature layer provided in 'urls' and add to map</span></span>\n<span class=\"line\"><span style=\"color: #FF7B72\">async</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">function</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">getUrls</span><span style=\"color: #C9D1D9\">(</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  </span><span style=\"color: #FFA657\">urls</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> { [</span><span style=\"color: #FFA657\">x</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">string</span><span style=\"color: #C9D1D9\">]</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">string</span><span style=\"color: #C9D1D9\"> },</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  </span><span style=\"color: #FFA657\">searchSettings</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> { [</span><span style=\"color: #FFA657\">x</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">string</span><span style=\"color: #C9D1D9\">]</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FFA657\">__esri</span><span style=\"color: #C9D1D9\">.</span><span style=\"color: #FFA657\">SearchSource</span><span style=\"color: #C9D1D9\">[] }</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  </span><span style=\"color: #FF7B72\">for</span><span style=\"color: #C9D1D9\"> (</span><span style=\"color: #FF7B72\">let</span><span style=\"color: #C9D1D9\"> u </span><span style=\"color: #FF7B72\">in</span><span style=\"color: #C9D1D9\"> urls) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #8B949E\">// Request list of layers from hosted feature layer</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #FF7B72\">await</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">esriRequest</span><span style=\"color: #C9D1D9\">(urls[u] </span><span style=\"color: #FF7B72\">+</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #A5D6FF\">\"?token=\"</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">+</span><span style=\"color: #C9D1D9\"> esriToken, options)</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">      .</span><span style=\"color: #D2A8FF\">then</span><span style=\"color: #C9D1D9\">(</span><span style=\"color: #FF7B72\">function</span><span style=\"color: #C9D1D9\"> (</span><span style=\"color: #FFA657\">response</span><span style=\"color: #C9D1D9\">) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        </span><span style=\"color: #FF7B72\">var</span><span style=\"color: #C9D1D9\"> data </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> response.data.layers;</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        </span><span style=\"color: #FF7B72\">return</span><span style=\"color: #C9D1D9\"> data;</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">      })</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">      .</span><span style=\"color: #D2A8FF\">then</span><span style=\"color: #C9D1D9\">(</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        </span><span style=\"color: #FF7B72\">function</span><span style=\"color: #C9D1D9\"> (</span><span style=\"color: #FFA657\">data</span><span style=\"color: #C9D1D9\">) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">          </span><span style=\"color: #FF7B72\">for</span><span style=\"color: #C9D1D9\"> (</span><span style=\"color: #FF7B72\">let</span><span style=\"color: #C9D1D9\"> i </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">0</span><span style=\"color: #C9D1D9\">; i </span><span style=\"color: #FF7B72\">&#x3C;</span><span style=\"color: #C9D1D9\"> data.</span><span style=\"color: #79C0FF\">length</span><span style=\"color: #C9D1D9\">; i</span><span style=\"color: #FF7B72\">++</span><span style=\"color: #C9D1D9\">) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">            </span><span style=\"color: #8B949E\">//creates a layer</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">            </span><span style=\"color: #FF7B72\">var</span><span style=\"color: #C9D1D9\"> layer </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">FeatureLayer</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">              url: urls[u] </span><span style=\"color: #FF7B72\">+</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #A5D6FF\">\"/\"</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">+</span><span style=\"color: #C9D1D9\"> data[i].id,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">              id: data[i].name,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">              title: data[i].name,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">            });</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">            </span><span style=\"color: #8B949E\">//push layer to map</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">            map.layers.</span><span style=\"color: #D2A8FF\">push</span><span style=\"color: #C9D1D9\">(layer);</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">          }</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        },</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        (</span><span style=\"color: #FFA657\">error</span><span style=\"color: #C9D1D9\">) </span><span style=\"color: #FF7B72\">=></span><span style=\"color: #C9D1D9\"> {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">          </span><span style=\"color: #8B949E\">/*handle errors*/</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        }</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">      );</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  }</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">}</span></span></code></pre>\n<p><strong><em>Never hardcode layers into your map.</em></strong> The Feature Layer URL will never change, but the layers inside are based on whatever work is done in the backend (like with ArcGIS Pro) so they can and will change, causing everything to break.</p>\n<h2 id=\"closing\">Closing</h2>\n<p>Creating unique frontend UI is a lot of fun, but it’s also nice to be able to throw something together really quickly using well made components. ESRI made it easy for me to create a quick proof of concept showing this solution would work for our business.</p>\n<p>I hope you learned something!</p>\n<p>John C. Waters</p>\n<section data-footnotes=\"\" class=\"footnotes\"><h2 class=\"sr-only\" id=\"footnote-label\">Footnotes</h2>\n<ol>\n<li id=\"user-content-fn-1\">\n<p>The above quote is excerpted from a report on <a href=\"https://www.statista.com/statistics/237773/the-largest-electric-utilities-in-the-us-based-on-market-value/#:~:text=The%20number%20of%20electric%20utility,of%20high%2Dvoltage%20transmission%20lines.\">statista</a>, September 2022. <a href=\"#user-content-fnref-1\" data-footnote-backref=\"\" class=\"data-footnote-backref\" aria-label=\"Back to content\">↩</a></p>\n</li>\n</ol>\n</section>";
+const html = "<p><strong>TLDR:</strong> I used ESRI tools and Astro to build a modular custom Dashboard for viewing utility maps. The main challenges were keeping the tools to just ESRI (for simplicity) and keeping it modular so we could add more quickly. While the methods I describe are probably not ‘the best way’, it’s what I came up with in a short amount of time.</p>\n<h2 id=\"maps-maps-maps\">Maps, maps, maps…</h2>\n<p>I work at ELM Companies, specifically their utility locating branch that specializes in… well utility locating. You call 811 before you dig and they probably call us (if you live on the west coast).</p>\n<p>That’s pretty simple. It gets complicated when you realize that each state has several utilities each with several utility companies responsibile for them.</p>\n<blockquote>\n<p>The number of electric utility companies operating in the United States is estimated at over 3,300, with around 200 of them providing power to the majority of users. The U.S. power grid connects about 2.5 million miles of feeder lines and over 450,000 miles of high-voltage transmission lines.<br>\r\n— <cite>Statista<sup><a href=\"#user-content-fn-1\" id=\"user-content-fnref-1\" data-footnote-ref=\"\" aria-describedby=\"footnote-label\">1</a></sup></cite></p>\n</blockquote>\n<p>That’s just the electric companies! Gas, water, anything that runs through a pipe has to be carefully tracked and managed to ensure reliability.</p>\n<h2 id=\"okay-but-what-about-maps\">Okay, but what about maps?</h2>\n<p>My most recent project at work gave me an opportunity to build a custom Dashboard displaying utility maps with some filters. I used Astro as a framework, ESRI Javascript SDK for the managing the map, and their Calcite Design System for UI components.</p>\n<p>Loading the map up is made easy with the SDK.</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #FF7B72\">const</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">map</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">Map</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  basemap: </span><span style=\"color: #A5D6FF\">\"arcgis-topographic\"</span><span style=\"color: #C9D1D9\">, </span><span style=\"color: #8B949E\">// Basemap layer service</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">});</span></span></code></pre>\n<p>The main challenge was adding unique filters and keeping the whole system modular in order to support future Dashboards without having to rewrite everything. Our goals were:</p>\n<ol>\n<li>Display a map that could be used on desktop or mobile devices</li>\n<li>Use ESRI tools as much as possible, avoiding too much custom HTML and CSS</li>\n<li>Keep it modular so future dashboards can be easily added, even if it’s by someone else</li>\n</ol>\n<h4 id=\"mobile-and-desktop-display\">Mobile and Desktop Display</h4>\n<p>Usually making a website compatible with many screensizes requires a bit of work. Typically I use Tailwind CSS media queries to quick make elements responsive, but that wasn’t an option.</p>\n<p>Luckily I was pretty spoiled in this case and had little to no work to do since the ESRI SDK handled everything for me. Just create the component, stick it on the screen, it handles the rest.</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #8B949E\">// Adding a layerList expand widget</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">layerList </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">LayerList</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  container: document.</span><span style=\"color: #D2A8FF\">createElement</span><span style=\"color: #C9D1D9\">(</span><span style=\"color: #A5D6FF\">\"div\"</span><span style=\"color: #C9D1D9\">),</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  view: view,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">});</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">layerListExpand </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">Expand</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  view: view,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  content: layerList,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">});</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">view.ui.</span><span style=\"color: #D2A8FF\">add</span><span style=\"color: #C9D1D9\">(layerListExpand, </span><span style=\"color: #A5D6FF\">\"top-right\"</span><span style=\"color: #C9D1D9\">);</span></span></code></pre>\n<p><img src=\"/blog/ezri-resize-example.gif\" alt=\"A GIF example of a ESRI map resizing and adjusting the UI accordingly\"></p>\n<p>Anytime the screen size changed, the map and widgets simply adjusted themselves. Job done.</p>\n<h4 id=\"using-esri-tools-only\">Using ESRI Tools Only</h4>\n<p>ESRI provides everything needed to display their maps.</p>\n<p>The map is handled by the Javascript SDK. You initialize a new map and add Feature Layers to build it up (which are basically layers of information). One layer could be for water pipes while another is a layer for gas pipe.</p>\n<p>You don’t create the map in the frontend, you just call the respective API and slap it on the map.</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #8B949E\">// Call the feature layer and save to an object</span></span>\n<span class=\"line\"><span style=\"color: #FF7B72\">const</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">featureLayer</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">FeatureLayer</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  url: </span><span style=\"color: #A5D6FF\">`https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis</span></span>\n<span class=\"line\"><span style=\"color: #A5D6FF\">    /rest/services/Landscape_Trees/FeatureServer/0`</span><span style=\"color: #C9D1D9\">,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">});</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color: #8B949E\">// Slap it on the map</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">map.</span><span style=\"color: #D2A8FF\">add</span><span style=\"color: #C9D1D9\">(featureLayer);</span></span></code></pre>\n<p>Now you have some data on top of your map!</p>\n<p><img src=\"/blog/esri-example-photo.jpg\" alt=\"An image of a map with a new layer on it, showing tree density as circles\"></p>\n<p>You can add as many layers as needed, just keeping in mind that each one is an API call, and the bigger the feature layer the longer the load times.</p>\n<h4 id=\"modular-growth\">Modular Growth</h4>\n<p>To make sure it was as easy as possible to create new Dashboards in the future, I used Astro’s components and pages to build each map programatically.</p>\n<p>The ‘autoMap.astro’ component holds all the logic needed to create the map which accepts a variety of properties and builds each thing on the fly. Almost everything done through the JS SDK is with API, so it’s mostly passing in URL’s and settings.</p>\n<p>For example adding layers is as simple as adding Feature Layer URLS hosted ArcGIS Online to an object:</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #FF7B72\">const</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">urlsList</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  My_First_Nap:</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #A5D6FF\">\"https://arcgis.com/arcgis/rest/services/my_first_map/FeatureServer\"</span><span style=\"color: #C9D1D9\">,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  My_Second_Map:</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #A5D6FF\">\"https://arcgis.com/arcgis/rest/services/my_second_map/FeatureServer\"</span><span style=\"color: #C9D1D9\">,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">};</span></span></code></pre>\n<p>Then a function I created would build off those properties to programatically add each layer to the page. For example, loading multiple layers onto the map without hardcoding each one into the page.</p>\n<p><strong>Note:</strong> Feature Layers have multiple layers themselves, so each one needs added.</p>\n<pre is:raw=\"\" class=\"astro-code\" style=\"background-color: #0d1117; overflow-x: auto;\"><code><span class=\"line\"><span style=\"color: #8B949E\">//set options for getting feature layer layers</span></span>\n<span class=\"line\"><span style=\"color: #FF7B72\">var</span><span style=\"color: #C9D1D9\"> options </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> { query: { f: </span><span style=\"color: #A5D6FF\">\"json\"</span><span style=\"color: #C9D1D9\"> }, responseType: </span><span style=\"color: #A5D6FF\">\"json\"</span><span style=\"color: #C9D1D9\"> };</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color: #8B949E\">//get layers for each feature layer provided in 'urls' and add to map</span></span>\n<span class=\"line\"><span style=\"color: #FF7B72\">async</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">function</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">getUrls</span><span style=\"color: #C9D1D9\">(</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  </span><span style=\"color: #FFA657\">urls</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> { [</span><span style=\"color: #FFA657\">x</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">string</span><span style=\"color: #C9D1D9\">]</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">string</span><span style=\"color: #C9D1D9\"> },</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  </span><span style=\"color: #FFA657\">searchSettings</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> { [</span><span style=\"color: #FFA657\">x</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">string</span><span style=\"color: #C9D1D9\">]</span><span style=\"color: #FF7B72\">:</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FFA657\">__esri</span><span style=\"color: #C9D1D9\">.</span><span style=\"color: #FFA657\">SearchSource</span><span style=\"color: #C9D1D9\">[] }</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  </span><span style=\"color: #FF7B72\">for</span><span style=\"color: #C9D1D9\"> (</span><span style=\"color: #FF7B72\">let</span><span style=\"color: #C9D1D9\"> u </span><span style=\"color: #FF7B72\">in</span><span style=\"color: #C9D1D9\"> urls) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #8B949E\">// Request list of layers from hosted feature layer</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">    </span><span style=\"color: #FF7B72\">await</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">esriRequest</span><span style=\"color: #C9D1D9\">(urls[u] </span><span style=\"color: #FF7B72\">+</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #A5D6FF\">\"?token=\"</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">+</span><span style=\"color: #C9D1D9\"> esriToken, options)</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">      .</span><span style=\"color: #D2A8FF\">then</span><span style=\"color: #C9D1D9\">(</span><span style=\"color: #FF7B72\">function</span><span style=\"color: #C9D1D9\"> (</span><span style=\"color: #FFA657\">response</span><span style=\"color: #C9D1D9\">) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        </span><span style=\"color: #FF7B72\">var</span><span style=\"color: #C9D1D9\"> data </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> response.data.layers;</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        </span><span style=\"color: #FF7B72\">return</span><span style=\"color: #C9D1D9\"> data;</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">      })</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">      .</span><span style=\"color: #D2A8FF\">then</span><span style=\"color: #C9D1D9\">(</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        </span><span style=\"color: #FF7B72\">function</span><span style=\"color: #C9D1D9\"> (</span><span style=\"color: #FFA657\">data</span><span style=\"color: #C9D1D9\">) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">          </span><span style=\"color: #FF7B72\">for</span><span style=\"color: #C9D1D9\"> (</span><span style=\"color: #FF7B72\">let</span><span style=\"color: #C9D1D9\"> i </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #79C0FF\">0</span><span style=\"color: #C9D1D9\">; i </span><span style=\"color: #FF7B72\">&#x3C;</span><span style=\"color: #C9D1D9\"> data.</span><span style=\"color: #79C0FF\">length</span><span style=\"color: #C9D1D9\">; i</span><span style=\"color: #FF7B72\">++</span><span style=\"color: #C9D1D9\">) {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">            </span><span style=\"color: #8B949E\">//creates a layer</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">            </span><span style=\"color: #FF7B72\">var</span><span style=\"color: #C9D1D9\"> layer </span><span style=\"color: #FF7B72\">=</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">new</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #D2A8FF\">FeatureLayer</span><span style=\"color: #C9D1D9\">({</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">              url: urls[u] </span><span style=\"color: #FF7B72\">+</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #A5D6FF\">\"/\"</span><span style=\"color: #C9D1D9\"> </span><span style=\"color: #FF7B72\">+</span><span style=\"color: #C9D1D9\"> data[i].id,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">              id: data[i].name,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">              title: data[i].name,</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">            });</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">            </span><span style=\"color: #8B949E\">//push layer to map</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">            map.layers.</span><span style=\"color: #D2A8FF\">push</span><span style=\"color: #C9D1D9\">(layer);</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">          }</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        },</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        (</span><span style=\"color: #FFA657\">error</span><span style=\"color: #C9D1D9\">) </span><span style=\"color: #FF7B72\">=></span><span style=\"color: #C9D1D9\"> {</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">          </span><span style=\"color: #8B949E\">/*handle errors*/</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">        }</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">      );</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">  }</span></span>\n<span class=\"line\"><span style=\"color: #C9D1D9\">}</span></span></code></pre>\n<p><strong><em>Never hardcode layers into your map.</em></strong> The Feature Layer URL will never change, but the layers inside are based on whatever work is done in the backend (like with ArcGIS Pro) so they can and will change, causing everything to break.</p>\n<h2 id=\"closing\">Closing</h2>\n<p>Creating unique frontend UI is a lot of fun, but it’s also nice to be able to throw something together really quickly using well made components. ESRI made it easy for me to create a quick proof of concept showing this solution would work for our business.</p>\n<p>I hope you learned something!</p>\n<p>John C. Waters</p>\n<section data-footnotes=\"\" class=\"footnotes\"><h2 class=\"sr-only\" id=\"footnote-label\">Footnotes</h2>\n<ol>\n<li id=\"user-content-fn-1\">\n<p>The above quote is excerpted from a report on <a href=\"https://www.statista.com/statistics/237773/the-largest-electric-utilities-in-the-us-based-on-market-value/#:~:text=The%20number%20of%20electric%20utility,of%20high%2Dvoltage%20transmission%20lines.\">statista</a>, September 2022. <a href=\"#user-content-fnref-1\" data-footnote-backref=\"\" class=\"data-footnote-backref\" aria-label=\"Back to content\">↩</a></p>\n</li>\n</ol>\n</section>";
 
 				const frontmatter = {"layout":"../../layouts/BlogPost.astro","title":"Something - October 2022","description":"Creating digital maps is a lot more complicated than I thought, especially when you factor in how much information it has to hold while still being coherent. While I don't have to worry about creating the map too much, displaying it effectively and quickly is still a challenge.","publishDate":"Oct 17 2022","heroImage":"/assets/placeholder-hero.jpg","updatedDate":null,"readTime":"9 mins","tags":"NEW, ESRI"};
-				const file = "D:/Projects/portfolio/src/pages/blog/10-2022-Something.md";
+				const file = "C:/Projects/portfolio/src/pages/blog/10-2022-Something.md";
 				const url = "/blog/10-2022-Something";
 				function rawContent() {
-					return "\n**TLDR:** I used ESRI tools and Astro to build a modular custom Dashboard for viewing utility maps. The main challenges were keeping the tools to just ESRI (for simplicity) and keeping it modular so we could add more quickly. While the methods I describe are probably not 'the best way', it's what I came up with in a short amount of time.\n\n## Maps, maps, maps...\n\nI work at ELM Companies, specifically their utility locating branch that specializes in... well utility locating. You call 811 before you dig and they probably call us (if you live on the west coast).\n\nThat's pretty simple. It gets complicated when you realize that each state has several utilities each with several utility companies responsibile for them.\n\n> The number of electric utility companies operating in the United States is estimated at over 3,300, with around 200 of them providing power to the majority of users. The U.S. power grid connects about 2.5 million miles of feeder lines and over 450,000 miles of high-voltage transmission lines.<br>\n> — <cite>Statista[^1]</cite>\n\n[^1]: The above quote is excerpted from a report on [statista](https://www.statista.com/statistics/237773/the-largest-electric-utilities-in-the-us-based-on-market-value/#:~:text=The%20number%20of%20electric%20utility,of%20high%2Dvoltage%20transmission%20lines.), September 2022.\n\nThat's just the electric companies! Gas, water, anything that runs through a pipe has to be carefully tracked and managed to ensure reliability.\n\n## Okay, but what about maps?\n\nMy most recent project at work gave me an opportunity to build a custom Dashboard displaying utility maps with some filters. I used Astro as a framework, ESRI Javascript SDK for the managing the map, and their Calcite Design System for UI components.\n\nLoading the map up is made easy with the SDK.\n\n```js\nconst map = new Map({\n  basemap: \"arcgis-topographic\", // Basemap layer service\n});\n```\n\nThe main challenge was adding unique filters and keeping the whole system modular in order to support future Dashboards without having to rewrite everything. Our goals were:\n\n1. Display a map that could be used on desktop or mobile devices\n2. Use ESRI tools as much as possible, avoiding too much custom HTML and CSS\n3. Keep it modular so future dashboards can be easily added, even if it's by someone else\n\n#### Mobile and Desktop Display\n\nUsually making a website compatible with many screensizes requires a bit of work. Typically I use Tailwind CSS media queries to quick make elements responsive, but that wasn't an option.\n\nLuckily I was pretty spoiled in this case and had little to no work to do since the ESRI SDK handled everything for me. Just create the component, stick it on the screen, it handles the rest.\n\n```js\n// Adding a layerList expand widget\nlayerList = new LayerList({\n  container: document.createElement(\"div\"),\n  view: view,\n});\n\nlayerListExpand = new Expand({\n  view: view,\n  content: layerList,\n});\n\nview.ui.add(layerListExpand, \"top-right\");\n```\n\n![A GIF example of a ESRI map resizing and adjusting the UI accordingly](/blog/ezri-resize-example.gif)\n\nAnytime the screen size changed, the map and widgets simply adjusted themselves. Job done.\n\n#### Using ESRI Tools Only\n\nESRI provides everything needed to display their maps.\n\nThe map is handled by the Javascript SDK. You initialize a new map and add Feature Layers to build it up (which are basically layers of information). One layer could be for water pipes while another is a layer for gas pipe.\n\nYou don't create the map in the frontend, you just call the respective API and slap it on the map.\n\n```js\n// Call the feature layer and save to an object\nconst featureLayer = new FeatureLayer({\n  url: `https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis\n    /rest/services/Landscape_Trees/FeatureServer/0`,\n});\n\n// Slap it on the map\nmap.add(featureLayer);\n```\n\nNow you have some data on top of your map!\n\n![An image of a map with a new layer on it, showing tree density as circles](/blog/esri-example-photo.jpg)\n\nYou can add as many layers as needed, just keeping in mind that each one is an API call, and the bigger the feature layer the longer the load times.\n\n#### Modular Growth\n\nTo make sure it was as easy as possible to create new Dashboards in the future, I used Astro's components and pages to build each map programatically.\n\nThe 'autoMap.astro' component holds all the logic needed to create the map which accepts a variety of properties and builds each thing on the fly. Almost everything done through the JS SDK is with API, so it's mostly passing in URL's and settings.\n\nFor example adding layers is as simple as adding Feature Layer URLS hosted ArcGIS Online to an object:\n\n```js\nconst urlsList = {\n  My_First_Nap:\n    \"https://arcgis.com/arcgis/rest/services/my_first_map/FeatureServer\",\n  My_Second_Map:\n    \"https://arcgis.com/arcgis/rest/services/my_second_map/FeatureServer\",\n};\n```\n\nThen a function I created would build off those properties to programatically add each layer to the page. For example, loading multiple layers onto the map without hardcoding each one into the page.\n\n**Note:** Feature Layers have multiple layers themselves, so each one needs added.\n\n```js\n//set options for getting feature layer layers\nvar options = { query: { f: \"json\" }, responseType: \"json\" };\n\n//get layers for each feature layer provided in 'urls' and add to map\nasync function getUrls(\n  urls: { [x: string]: string },\n  searchSettings: { [x: string]: __esri.SearchSource[] }\n) {\n  for (let u in urls) {\n    // Request list of layers from hosted feature layer\n    await esriRequest(urls[u] + \"?token=\" + esriToken, options)\n      .then(function (response) {\n        var data = response.data.layers;\n        return data;\n      })\n      .then(\n        function (data) {\n          for (let i = 0; i < data.length; i++) {\n            //creates a layer\n            var layer = new FeatureLayer({\n              url: urls[u] + \"/\" + data[i].id,\n              id: data[i].name,\n              title: data[i].name,\n            });\n            //push layer to map\n            map.layers.push(layer);\n          }\n        },\n        (error) => {\n          /*handle errors*/\n        }\n      );\n  }\n}\n```\n\n**_Never hardcode layers into your map._** The Feature Layer URL will never change, but the layers inside are based on whatever work is done in the backend (like with ArcGIS Pro) so they can and will change, causing everything to break.\n\n## Closing\n\nCreating unique frontend UI is a lot of fun, but it's also nice to be able to throw something together really quickly using well made components. ESRI made it easy for me to create a quick proof of concept showing this solution would work for our business.\n\nI hope you learned something!\n\nJohn C. Waters\n";
+					return "\r\n**TLDR:** I used ESRI tools and Astro to build a modular custom Dashboard for viewing utility maps. The main challenges were keeping the tools to just ESRI (for simplicity) and keeping it modular so we could add more quickly. While the methods I describe are probably not 'the best way', it's what I came up with in a short amount of time.\r\n\r\n## Maps, maps, maps...\r\n\r\nI work at ELM Companies, specifically their utility locating branch that specializes in... well utility locating. You call 811 before you dig and they probably call us (if you live on the west coast).\r\n\r\nThat's pretty simple. It gets complicated when you realize that each state has several utilities each with several utility companies responsibile for them.\r\n\r\n> The number of electric utility companies operating in the United States is estimated at over 3,300, with around 200 of them providing power to the majority of users. The U.S. power grid connects about 2.5 million miles of feeder lines and over 450,000 miles of high-voltage transmission lines.<br>\r\n> — <cite>Statista[^1]</cite>\r\n\r\n[^1]: The above quote is excerpted from a report on [statista](https://www.statista.com/statistics/237773/the-largest-electric-utilities-in-the-us-based-on-market-value/#:~:text=The%20number%20of%20electric%20utility,of%20high%2Dvoltage%20transmission%20lines.), September 2022.\r\n\r\nThat's just the electric companies! Gas, water, anything that runs through a pipe has to be carefully tracked and managed to ensure reliability.\r\n\r\n## Okay, but what about maps?\r\n\r\nMy most recent project at work gave me an opportunity to build a custom Dashboard displaying utility maps with some filters. I used Astro as a framework, ESRI Javascript SDK for the managing the map, and their Calcite Design System for UI components.\r\n\r\nLoading the map up is made easy with the SDK.\r\n\r\n```js\r\nconst map = new Map({\r\n  basemap: \"arcgis-topographic\", // Basemap layer service\r\n});\r\n```\r\n\r\nThe main challenge was adding unique filters and keeping the whole system modular in order to support future Dashboards without having to rewrite everything. Our goals were:\r\n\r\n1. Display a map that could be used on desktop or mobile devices\r\n2. Use ESRI tools as much as possible, avoiding too much custom HTML and CSS\r\n3. Keep it modular so future dashboards can be easily added, even if it's by someone else\r\n\r\n#### Mobile and Desktop Display\r\n\r\nUsually making a website compatible with many screensizes requires a bit of work. Typically I use Tailwind CSS media queries to quick make elements responsive, but that wasn't an option.\r\n\r\nLuckily I was pretty spoiled in this case and had little to no work to do since the ESRI SDK handled everything for me. Just create the component, stick it on the screen, it handles the rest.\r\n\r\n```js\r\n// Adding a layerList expand widget\r\nlayerList = new LayerList({\r\n  container: document.createElement(\"div\"),\r\n  view: view,\r\n});\r\n\r\nlayerListExpand = new Expand({\r\n  view: view,\r\n  content: layerList,\r\n});\r\n\r\nview.ui.add(layerListExpand, \"top-right\");\r\n```\r\n\r\n![A GIF example of a ESRI map resizing and adjusting the UI accordingly](/blog/ezri-resize-example.gif)\r\n\r\nAnytime the screen size changed, the map and widgets simply adjusted themselves. Job done.\r\n\r\n#### Using ESRI Tools Only\r\n\r\nESRI provides everything needed to display their maps.\r\n\r\nThe map is handled by the Javascript SDK. You initialize a new map and add Feature Layers to build it up (which are basically layers of information). One layer could be for water pipes while another is a layer for gas pipe.\r\n\r\nYou don't create the map in the frontend, you just call the respective API and slap it on the map.\r\n\r\n```js\r\n// Call the feature layer and save to an object\r\nconst featureLayer = new FeatureLayer({\r\n  url: `https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis\r\n    /rest/services/Landscape_Trees/FeatureServer/0`,\r\n});\r\n\r\n// Slap it on the map\r\nmap.add(featureLayer);\r\n```\r\n\r\nNow you have some data on top of your map!\r\n\r\n![An image of a map with a new layer on it, showing tree density as circles](/blog/esri-example-photo.jpg)\r\n\r\nYou can add as many layers as needed, just keeping in mind that each one is an API call, and the bigger the feature layer the longer the load times.\r\n\r\n#### Modular Growth\r\n\r\nTo make sure it was as easy as possible to create new Dashboards in the future, I used Astro's components and pages to build each map programatically.\r\n\r\nThe 'autoMap.astro' component holds all the logic needed to create the map which accepts a variety of properties and builds each thing on the fly. Almost everything done through the JS SDK is with API, so it's mostly passing in URL's and settings.\r\n\r\nFor example adding layers is as simple as adding Feature Layer URLS hosted ArcGIS Online to an object:\r\n\r\n```js\r\nconst urlsList = {\r\n  My_First_Nap:\r\n    \"https://arcgis.com/arcgis/rest/services/my_first_map/FeatureServer\",\r\n  My_Second_Map:\r\n    \"https://arcgis.com/arcgis/rest/services/my_second_map/FeatureServer\",\r\n};\r\n```\r\n\r\nThen a function I created would build off those properties to programatically add each layer to the page. For example, loading multiple layers onto the map without hardcoding each one into the page.\r\n\r\n**Note:** Feature Layers have multiple layers themselves, so each one needs added.\r\n\r\n```js\r\n//set options for getting feature layer layers\r\nvar options = { query: { f: \"json\" }, responseType: \"json\" };\r\n\r\n//get layers for each feature layer provided in 'urls' and add to map\r\nasync function getUrls(\r\n  urls: { [x: string]: string },\r\n  searchSettings: { [x: string]: __esri.SearchSource[] }\r\n) {\r\n  for (let u in urls) {\r\n    // Request list of layers from hosted feature layer\r\n    await esriRequest(urls[u] + \"?token=\" + esriToken, options)\r\n      .then(function (response) {\r\n        var data = response.data.layers;\r\n        return data;\r\n      })\r\n      .then(\r\n        function (data) {\r\n          for (let i = 0; i < data.length; i++) {\r\n            //creates a layer\r\n            var layer = new FeatureLayer({\r\n              url: urls[u] + \"/\" + data[i].id,\r\n              id: data[i].name,\r\n              title: data[i].name,\r\n            });\r\n            //push layer to map\r\n            map.layers.push(layer);\r\n          }\r\n        },\r\n        (error) => {\r\n          /*handle errors*/\r\n        }\r\n      );\r\n  }\r\n}\r\n```\r\n\r\n**_Never hardcode layers into your map._** The Feature Layer URL will never change, but the layers inside are based on whatever work is done in the backend (like with ArcGIS Pro) so they can and will change, causing everything to break.\r\n\r\n## Closing\r\n\r\nCreating unique frontend UI is a lot of fun, but it's also nice to be able to throw something together really quickly using well made components. ESRI made it easy for me to create a quick proof of concept showing this solution would work for our business.\r\n\r\nI hope you learned something!\r\n\r\nJohn C. Waters\r\n";
 				}
 				function compiledContent() {
 					return html;
@@ -3349,25 +2853,25 @@ const html = "<p><strong>TLDR:</strong> I used ESRI tools and Astro to build a m
 				}
 				Content[Symbol.for('astro.needsHeadRendering')] = false;
 
-const _page9 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	frontmatter,
-	file,
-	url,
-	rawContent,
-	compiledContent,
-	getHeadings,
-	getHeaders,
-	Content,
-	default: Content
+const _page8 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  frontmatter,
+  file,
+  url,
+  rawContent,
+  compiledContent,
+  getHeadings,
+  getHeaders,
+  Content,
+  default: Content
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$metadata = createMetadata("/D:/Projects/portfolio/src/pages/blog.astro", { modules: [{ module: $$module1$1, specifier: "../layouts/DefaultPage.astro", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
-const $$Astro = createAstro("/D:/Projects/portfolio/src/pages/blog.astro", "https://johncwaters.com/", "file:///D:/Projects/portfolio/");
+const $$metadata = createMetadata("/C:/Projects/portfolio/src/pages/blog.astro", { modules: [{ module: $$module1$1, specifier: "../layouts/DefaultPage.astro", assert: {} }], hydratedComponents: [], clientOnlyComponents: [], hydrationDirectives: /* @__PURE__ */ new Set([]), hoisted: [] });
+const $$Astro = createAstro("/C:/Projects/portfolio/src/pages/blog.astro", "https://johncwaters.com/", "file:///C:/Projects/portfolio/");
 const $$Blog = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Blog;
-  const posts = (await Astro2.glob(/* #__PURE__ */ Object.assign({"./blog/08-2022-Creating-My-Portfolio.md": () => Promise.resolve().then(() => _page7),"./blog/09-2022-Working-With-Maps-(ESRI).md": () => Promise.resolve().then(() => _page6),"./blog/10-2022-Something.md": () => Promise.resolve().then(() => _page9),"./blog/markdown-style-guide.md": () => Promise.resolve().then(() => _page8)}), () => "./blog/*.{md,mdx}")).sort(
+  const posts = (await Astro2.glob(/* #__PURE__ */ Object.assign({"./blog/08-2022-Creating-My-Portfolio.md": () => Promise.resolve().then(() => _page6),"./blog/09-2022-Working-With-Maps-(ESRI).md": () => Promise.resolve().then(() => _page5),"./blog/10-2022-Something.md": () => Promise.resolve().then(() => _page8),"./blog/markdown-style-guide.md": () => Promise.resolve().then(() => _page7)}), () => "./blog/*.{md,mdx}")).sort(
     (a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
   );
   return renderTemplate`${renderComponent($$result, "DefaultPage", $$DefaultPage, {}, { "default": () => renderTemplate`${maybeRenderHead($$result)}<container>
@@ -3404,19 +2908,19 @@ const $$Blog = createComponent(async ($$result, $$props, $$slots) => {
 	</container>` })}`;
 });
 
-const $$file = "D:/Projects/portfolio/src/pages/blog.astro";
+const $$file = "C:/Projects/portfolio/src/pages/blog.astro";
 const $$url = "/blog";
 
-const _page10 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-	__proto__: null,
-	$$metadata,
-	default: $$Blog,
-	file: $$file,
-	url: $$url
+const _page9 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  $$metadata,
+  default: $$Blog,
+  file: $$file,
+  url: $$url
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const pageMap = new Map([['node_modules/@astrojs/image/dist/endpoints/prod.js', _page0],['src/pages/index.astro', _page1],['src/pages/portfolio.astro', _page2],['src/pages/versions/2022-10/index.astro', _page3],['src/pages/versions/2022-8/index.astro', _page4],['src/pages/vitals.ts', _page5],['src/pages/blog/09-2022-Working-With-Maps-(ESRI).md', _page6],['src/pages/blog/08-2022-Creating-My-Portfolio.md', _page7],['src/pages/blog/markdown-style-guide.md', _page8],['src/pages/blog/10-2022-Something.md', _page9],['src/pages/blog.astro', _page10],]);
-const renderers = [Object.assign({"name":"astro:jsx","serverEntrypoint":"astro/jsx/server.js","jsxImportSource":"astro"}, { ssr: server_default }),Object.assign({"name":"@astrojs/svelte","clientEntrypoint":"@astrojs/svelte/client.js","serverEntrypoint":"@astrojs/svelte/server.js"}, { ssr: _renderer1 }),];
+const pageMap = new Map([['node_modules/@astrojs/image/dist/endpoints/prod.js', _page0],['src/pages/index.astro', _page1],['src/pages/portfolio.astro', _page2],['src/pages/versions/2022-10/index.astro', _page3],['src/pages/versions/2022-8/index.astro', _page4],['src/pages/blog/09-2022-Working-With-Maps-(ESRI).md', _page5],['src/pages/blog/08-2022-Creating-My-Portfolio.md', _page6],['src/pages/blog/markdown-style-guide.md', _page7],['src/pages/blog/10-2022-Something.md', _page8],['src/pages/blog.astro', _page9],]);
+const renderers = [Object.assign({"name":"astro:jsx","serverEntrypoint":"astro/jsx/server.js","jsxImportSource":"astro"}, { ssr: server_default }),];
 
 if (typeof process !== "undefined") {
   if (process.argv.includes("--verbose")) ; else if (process.argv.includes("--silent")) ; else ;
@@ -3487,18 +2991,18 @@ function deserializeManifest(serializedManifest) {
   };
 }
 
-const _manifest = Object.assign(deserializeManifest({"adapterName":"@astrojs/vercel/serverless","routes":[{"file":"","links":[],"scripts":[],"routeData":{"type":"endpoint","route":"/_image","pattern":"^\\/_image$","segments":[[{"content":"_image","dynamic":false,"spread":false}]],"params":[],"component":"node_modules/@astrojs/image/dist/endpoints/prod.js","pathname":"/_image","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css"],"scripts":[{"type":"external","value":"hoisted.db949a37.js"}],"routeData":{"route":"/","type":"page","pattern":"^\\/$","segments":[],"params":[],"component":"src/pages/index.astro","pathname":"/","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css"],"scripts":[{"type":"external","value":"hoisted.db949a37.js"}],"routeData":{"route":"/portfolio","type":"page","pattern":"^\\/portfolio\\/?$","segments":[[{"content":"portfolio","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/portfolio.astro","pathname":"/portfolio","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css"],"scripts":[{"type":"external","value":"hoisted.db949a37.js"}],"routeData":{"route":"/versions/2022-10","type":"page","pattern":"^\\/versions\\/2022-10\\/?$","segments":[[{"content":"versions","dynamic":false,"spread":false}],[{"content":"2022-10","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/versions/2022-10/index.astro","pathname":"/versions/2022-10","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css"],"scripts":[{"type":"external","value":"hoisted.db949a37.js"}],"routeData":{"route":"/versions/2022-8","type":"page","pattern":"^\\/versions\\/2022-8\\/?$","segments":[[{"content":"versions","dynamic":false,"spread":false}],[{"content":"2022-8","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/versions/2022-8/index.astro","pathname":"/versions/2022-8","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":[],"scripts":[],"routeData":{"route":"/vitals","type":"endpoint","pattern":"^\\/vitals$","segments":[[{"content":"vitals","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/vitals.ts","pathname":"/vitals","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css","assets/08-2022-Creating-My-Portfolio.58b7ca84.css"],"scripts":[{"type":"external","value":"hoisted.db949a37.js"}],"routeData":{"route":"/blog/09-2022-working-with-maps-(esri)","type":"page","pattern":"^\\/blog\\/09-2022-Working-With-Maps-\\(ESRI\\)\\/?$","segments":[[{"content":"blog","dynamic":false,"spread":false}],[{"content":"09-2022-Working-With-Maps-(ESRI)","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/blog/09-2022-Working-With-Maps-(ESRI).md","pathname":"/blog/09-2022-Working-With-Maps-(ESRI)","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css","assets/08-2022-Creating-My-Portfolio.58b7ca84.css"],"scripts":[{"type":"external","value":"hoisted.db949a37.js"}],"routeData":{"route":"/blog/08-2022-creating-my-portfolio","type":"page","pattern":"^\\/blog\\/08-2022-Creating-My-Portfolio\\/?$","segments":[[{"content":"blog","dynamic":false,"spread":false}],[{"content":"08-2022-Creating-My-Portfolio","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/blog/08-2022-Creating-My-Portfolio.md","pathname":"/blog/08-2022-Creating-My-Portfolio","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css","assets/08-2022-Creating-My-Portfolio.58b7ca84.css"],"scripts":[{"type":"external","value":"hoisted.db949a37.js"}],"routeData":{"route":"/blog/markdown-style-guide","type":"page","pattern":"^\\/blog\\/markdown-style-guide\\/?$","segments":[[{"content":"blog","dynamic":false,"spread":false}],[{"content":"markdown-style-guide","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/blog/markdown-style-guide.md","pathname":"/blog/markdown-style-guide","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css","assets/08-2022-Creating-My-Portfolio.58b7ca84.css"],"scripts":[{"type":"external","value":"hoisted.db949a37.js"}],"routeData":{"route":"/blog/10-2022-something","type":"page","pattern":"^\\/blog\\/10-2022-Something\\/?$","segments":[[{"content":"blog","dynamic":false,"spread":false}],[{"content":"10-2022-Something","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/blog/10-2022-Something.md","pathname":"/blog/10-2022-Something","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css","assets/08-2022-Creating-My-Portfolio.58b7ca84.css"],"scripts":[{"type":"external","value":"hoisted.db949a37.js"}],"routeData":{"route":"/blog","type":"page","pattern":"^\\/blog\\/?$","segments":[[{"content":"blog","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/blog.astro","pathname":"/blog","_meta":{"trailingSlash":"ignore"}}}],"site":"https://johncwaters.com/","base":"/","markdown":{"drafts":false,"syntaxHighlight":"shiki","shikiConfig":{"langs":[],"theme":"github-dark","wrap":false},"remarkPlugins":[],"rehypePlugins":[],"remarkRehype":{},"extendDefaultPlugins":false,"isAstroFlavoredMd":false},"pageMap":null,"renderers":[],"entryModules":{"\u0000@astrojs-ssr-virtual-entry":"entry.js","D:/Projects/portfolio/src/assets/placeholder-about.jpg":"chunks/placeholder-about.ed9d509c.mjs","D:/Projects/portfolio/src/assets/placeholder-hero.jpg":"chunks/placeholder-hero.5dc9e66a.mjs","@astrojs/svelte/client.js":"client.788af3ea.js","/astro/hoisted.js?q=0":"hoisted.db949a37.js","astro:scripts/before-hydration.js":""},"assets":["/assets/08-2022-Creating-My-Portfolio.58b7ca84.css","/assets/blog.921f64e6.css","/astro.svg","/background.svg","/client.788af3ea.js","/hoisted.db949a37.js","/placeholder-social.jpg","/blog/esri-example-photo.jpg","/blog/ezri-resize-example.gif"]}), {
+const _manifest = Object.assign(deserializeManifest({"adapterName":"@astrojs/netlify/functions","routes":[{"file":"","links":[],"scripts":[],"routeData":{"type":"endpoint","route":"/_image","pattern":"^\\/_image$","segments":[[{"content":"_image","dynamic":false,"spread":false}]],"params":[],"component":"node_modules/@astrojs/image/dist/endpoints/prod.js","pathname":"/_image","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css"],"scripts":[{"type":"inline","value":"var o=window.location.pathname,n=new Date().toLocaleDateString(\"en-us\",{year:\"numeric\",month:\"numeric\"}).replace(/\\//g,\"-\").split(\"-\").reverse().join(\"-\");console.log(o);console.log(n);function t(){console.log(\"Hello!\")}var e=document.querySelector(\"#styleSwitcherButtons\");console.log(e);e.addEventListener(\"click\",t);\n"}],"routeData":{"route":"/","type":"page","pattern":"^\\/$","segments":[],"params":[],"component":"src/pages/index.astro","pathname":"/","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css"],"scripts":[{"type":"inline","value":"var o=window.location.pathname,n=new Date().toLocaleDateString(\"en-us\",{year:\"numeric\",month:\"numeric\"}).replace(/\\//g,\"-\").split(\"-\").reverse().join(\"-\");console.log(o);console.log(n);function t(){console.log(\"Hello!\")}var e=document.querySelector(\"#styleSwitcherButtons\");console.log(e);e.addEventListener(\"click\",t);\n"}],"routeData":{"route":"/portfolio","type":"page","pattern":"^\\/portfolio\\/?$","segments":[[{"content":"portfolio","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/portfolio.astro","pathname":"/portfolio","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css"],"scripts":[{"type":"inline","value":"var o=window.location.pathname,n=new Date().toLocaleDateString(\"en-us\",{year:\"numeric\",month:\"numeric\"}).replace(/\\//g,\"-\").split(\"-\").reverse().join(\"-\");console.log(o);console.log(n);function t(){console.log(\"Hello!\")}var e=document.querySelector(\"#styleSwitcherButtons\");console.log(e);e.addEventListener(\"click\",t);\n"}],"routeData":{"route":"/versions/2022-10","type":"page","pattern":"^\\/versions\\/2022-10\\/?$","segments":[[{"content":"versions","dynamic":false,"spread":false}],[{"content":"2022-10","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/versions/2022-10/index.astro","pathname":"/versions/2022-10","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css"],"scripts":[{"type":"inline","value":"var o=window.location.pathname,n=new Date().toLocaleDateString(\"en-us\",{year:\"numeric\",month:\"numeric\"}).replace(/\\//g,\"-\").split(\"-\").reverse().join(\"-\");console.log(o);console.log(n);function t(){console.log(\"Hello!\")}var e=document.querySelector(\"#styleSwitcherButtons\");console.log(e);e.addEventListener(\"click\",t);\n"}],"routeData":{"route":"/versions/2022-8","type":"page","pattern":"^\\/versions\\/2022-8\\/?$","segments":[[{"content":"versions","dynamic":false,"spread":false}],[{"content":"2022-8","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/versions/2022-8/index.astro","pathname":"/versions/2022-8","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css","assets/08-2022-Creating-My-Portfolio.58b7ca84.css"],"scripts":[{"type":"inline","value":"var o=window.location.pathname,n=new Date().toLocaleDateString(\"en-us\",{year:\"numeric\",month:\"numeric\"}).replace(/\\//g,\"-\").split(\"-\").reverse().join(\"-\");console.log(o);console.log(n);function t(){console.log(\"Hello!\")}var e=document.querySelector(\"#styleSwitcherButtons\");console.log(e);e.addEventListener(\"click\",t);\n"}],"routeData":{"route":"/blog/09-2022-working-with-maps-(esri)","type":"page","pattern":"^\\/blog\\/09-2022-Working-With-Maps-\\(ESRI\\)\\/?$","segments":[[{"content":"blog","dynamic":false,"spread":false}],[{"content":"09-2022-Working-With-Maps-(ESRI)","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/blog/09-2022-Working-With-Maps-(ESRI).md","pathname":"/blog/09-2022-Working-With-Maps-(ESRI)","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css","assets/08-2022-Creating-My-Portfolio.58b7ca84.css"],"scripts":[{"type":"inline","value":"var o=window.location.pathname,n=new Date().toLocaleDateString(\"en-us\",{year:\"numeric\",month:\"numeric\"}).replace(/\\//g,\"-\").split(\"-\").reverse().join(\"-\");console.log(o);console.log(n);function t(){console.log(\"Hello!\")}var e=document.querySelector(\"#styleSwitcherButtons\");console.log(e);e.addEventListener(\"click\",t);\n"}],"routeData":{"route":"/blog/08-2022-creating-my-portfolio","type":"page","pattern":"^\\/blog\\/08-2022-Creating-My-Portfolio\\/?$","segments":[[{"content":"blog","dynamic":false,"spread":false}],[{"content":"08-2022-Creating-My-Portfolio","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/blog/08-2022-Creating-My-Portfolio.md","pathname":"/blog/08-2022-Creating-My-Portfolio","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css","assets/08-2022-Creating-My-Portfolio.58b7ca84.css"],"scripts":[{"type":"inline","value":"var o=window.location.pathname,n=new Date().toLocaleDateString(\"en-us\",{year:\"numeric\",month:\"numeric\"}).replace(/\\//g,\"-\").split(\"-\").reverse().join(\"-\");console.log(o);console.log(n);function t(){console.log(\"Hello!\")}var e=document.querySelector(\"#styleSwitcherButtons\");console.log(e);e.addEventListener(\"click\",t);\n"}],"routeData":{"route":"/blog/markdown-style-guide","type":"page","pattern":"^\\/blog\\/markdown-style-guide\\/?$","segments":[[{"content":"blog","dynamic":false,"spread":false}],[{"content":"markdown-style-guide","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/blog/markdown-style-guide.md","pathname":"/blog/markdown-style-guide","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css","assets/08-2022-Creating-My-Portfolio.58b7ca84.css"],"scripts":[{"type":"inline","value":"var o=window.location.pathname,n=new Date().toLocaleDateString(\"en-us\",{year:\"numeric\",month:\"numeric\"}).replace(/\\//g,\"-\").split(\"-\").reverse().join(\"-\");console.log(o);console.log(n);function t(){console.log(\"Hello!\")}var e=document.querySelector(\"#styleSwitcherButtons\");console.log(e);e.addEventListener(\"click\",t);\n"}],"routeData":{"route":"/blog/10-2022-something","type":"page","pattern":"^\\/blog\\/10-2022-Something\\/?$","segments":[[{"content":"blog","dynamic":false,"spread":false}],[{"content":"10-2022-Something","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/blog/10-2022-Something.md","pathname":"/blog/10-2022-Something","_meta":{"trailingSlash":"ignore"}}},{"file":"","links":["assets/blog.921f64e6.css","assets/08-2022-Creating-My-Portfolio.58b7ca84.css"],"scripts":[{"type":"inline","value":"var o=window.location.pathname,n=new Date().toLocaleDateString(\"en-us\",{year:\"numeric\",month:\"numeric\"}).replace(/\\//g,\"-\").split(\"-\").reverse().join(\"-\");console.log(o);console.log(n);function t(){console.log(\"Hello!\")}var e=document.querySelector(\"#styleSwitcherButtons\");console.log(e);e.addEventListener(\"click\",t);\n"}],"routeData":{"route":"/blog","type":"page","pattern":"^\\/blog\\/?$","segments":[[{"content":"blog","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/blog.astro","pathname":"/blog","_meta":{"trailingSlash":"ignore"}}}],"site":"https://johncwaters.com/","base":"/","markdown":{"drafts":false,"syntaxHighlight":"shiki","shikiConfig":{"langs":[],"theme":"github-dark","wrap":false},"remarkPlugins":[],"rehypePlugins":[],"remarkRehype":{},"extendDefaultPlugins":false,"isAstroFlavoredMd":false},"pageMap":null,"renderers":[],"entryModules":{"\u0000@astrojs-ssr-virtual-entry":"entry.mjs","C:/Projects/portfolio/src/assets/placeholder-about.jpg":"chunks/placeholder-about.ed9d509c.mjs","C:/Projects/portfolio/src/assets/placeholder-hero.jpg":"chunks/placeholder-hero.5dc9e66a.mjs","/astro/hoisted.js?q=0":"hoisted.31b2a873.js","astro:scripts/before-hydration.js":""},"assets":["/assets/08-2022-Creating-My-Portfolio.58b7ca84.css","/assets/blog.921f64e6.css","/astro.svg","/background.svg","/placeholder-social.jpg","/blog/esri-example-photo.jpg","/blog/ezri-resize-example.gif"]}), {
 	pageMap: pageMap,
 	renderers: renderers
 });
-const _args = undefined;
+const _args = {};
 
 const _exports = adapter.createExports(_manifest, _args);
-const _default = _exports['default'];
+const handler = _exports['handler'];
 
 const _start = 'start';
 if(_start in adapter) {
 	adapter[_start](_manifest, _args);
 }
 
-export { _default as default };
+export { handler };

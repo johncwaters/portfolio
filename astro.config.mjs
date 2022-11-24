@@ -10,6 +10,6 @@ import netlify from "@astrojs/netlify/functions";
 export default defineConfig({
   output: 'server',
   adapter: netlify(),
-  integrations: [image(), sitemap(), svelte(), tailwind()],
+  integrations: [image(), sitemap(), tailwind()],
   site: 'https://johncwaters.com'
 });
