@@ -1,6 +1,6 @@
 ---
 import DefaultPage from '../layouts/DefaultPage.astro'
-import Header from '../components/Header.astro';
+import Header from '../components/Header.astro'
 
 // TODO add transitions to the text
 // TODO change color theme to match with current SVG on landing page (text colors white, background that grey color, etc)
@@ -11,21 +11,24 @@ import Header from '../components/Header.astro';
 // TODO Add a contact page with a form and email
 // TODO Add social media links somewhere (not on the contact page)
 // TODO add Header back to other pages (requires colors for text and background themes to be updated first)
+const time = Math.floor(Math.random() * 1000)
+const backgroundPath = `bg-[url('/background.svg?rando=${time}')`;
 ---
 
 <DefaultPage>
   <div style="width: 100%;
     place-items: center;
     background-size: cover;
-    background-position: center;" class="min-h-screen bg-[url('/background.svg')]">
+    background-position: center;"
+    class:list={['min-h-screen', backgroundPath]}>
   <Header/>
 
     <div class="hero-overlay bg-opacity-0"></div>
     <div class="hero-content text-primary-content sm:pt-10 pt-40">
       <div class="text-left">
-        <p class="mb-5 sm:text-2xl text-2xl">Hello there! My name is</p>
-        <p class="mb-5 sm:text-7xl text-5xl font-bold">John C Waters.</p>
-        <p class="sm:text-7xl text-5xl font-bold">I design and build solutions.</p>
+        <p class="mb-5 sm:text-2xl text-2xl lineUp opacity-0" style="--delay: 0.25s;">Hello there! My name is</p>
+        <p class="mb-5 sm:text-7xl text-5xl font-bold lineUp opacity-0" style="--delay: 0.75s;">John C Waters.</p>
+        <p class="sm:text-7xl text-5xl font-bold lineUp opacity-0" style="--delay: 1.2s;">I design and build solutions.</p>
 
       </div>
     </div>
@@ -67,25 +70,29 @@ import Header from '../components/Header.astro';
       </div>
     </div>
   </div>
-
-  <div
-    class="hero min-h-screen"
-    style="background-image: url(https://placeimg.com/1000/800/arch);"
-  >
-    <div class="hero-overlay bg-opacity-60"></div>
-    <div class="hero-content text-center text-neutral-content">
-      <div class="max-w-md">
-        <h1 class="mb-5 text-4xl font-bold">
-          What else could possibly be here!?
-        </h1>
-        <p class="mb-5">
-          Honestly, I don't know. Eventually I will find a use for this.
-        </p>
-        <button
-          onclick="alert('Easter Egg Unlocked: You clicked a button.');"
-          class="btn btn-primary">My... uh... button!</button
-        >
-      </div>
-    </div>
-  </div>
 </DefaultPage>
+
+<style>
+  /* lineup class and keyframes */
+.lineUp {
+  animation: 2s anim-lineUp ease-out forwards;
+  animation-delay: var(--delay);
+}
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+</style>
