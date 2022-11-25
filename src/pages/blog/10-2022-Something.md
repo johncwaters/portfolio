@@ -1,28 +1,27 @@
 ---
 layout: "../../layouts/BlogPost.astro"
-title: "Something - October 2022"
-description: "Creating digital maps is a lot more complicated than I thought, especially when you factor in how much information it has to hold while still being coherent. While I don't have to worry about creating the map too much, displaying it effectively and quickly is still a challenge."
+title: "Functionality VS Looking Pretty - October 2022"
+description: "From what I can tell, a lot of Frontend Developers care more about how good their site looks than how easy it is to use or understand. While both are important, not enough time is spent thinking/researching how users will actually use their product."
 publishDate: "Oct 17 2022"
 heroImage: "/assets/placeholder-hero.jpg"
 updatedDate:
 readTime: "9 mins"
-tags: "NEW, ESRI"
+tags: "NEW, DESIGN"
 ---
 
-**TLDR:** I used ESRI tools and Astro to build a modular custom Dashboard for viewing utility maps. The main challenges were keeping the tools to just ESRI (for simplicity) and keeping it modular so we could add more quickly. While the methods I describe are probably not 'the best way', it's what I came up with in a short amount of time.
+**TLDR:** I'm sick of 'bad' websites and have decided to make it my primary focus to make sure anything I build not only looks good, but is functional and easy to use/understand.
 
-## Maps, maps, maps...
+## What is a bad website?
 
-I work at ELM Companies, specifically their utility locating branch that specializes in... well utility locating. You call 811 before you dig and they probably call us (if you live on the west coast).
+A bad website fails on multiple levels: it needs to look good, be resposive, and easily accomplish whatever task/goal the user has for visiting it in the first place. This includes apps too.
 
-That's pretty simple. It gets complicated when you realize that each state has several utilities each with several utility companies responsibile for them.
+Large, succesful, companies have bad websites.
 
-> The number of electric utility companies operating in the United States is estimated at over 3,300, with around 200 of them providing power to the majority of users. The U.S. power grid connects about 2.5 million miles of feeder lines and over 450,000 miles of high-voltage transmission lines.<br>
-> — <cite>Statista[^1]</cite>
+Most feel like someone walked into the developer department, listed out 20 features that HAD to be included on a page, and then told them it was due tomorrow. Also, when they were done they could never touch the code again. The result is a bloated website and barely functional controls with a logo and color scheme slapped onto it.
 
-[^1]: The above quote is excerpted from a report on [statista](https://www.statista.com/statistics/237773/the-largest-electric-utilities-in-the-us-based-on-market-value/#:~:text=The%20number%20of%20electric%20utility,of%20high%2Dvoltage%20transmission%20lines.), September 2022.
+WHY?
 
-That's just the electric companies! Gas, water, anything that runs through a pipe has to be carefully tracked and managed to ensure reliability.
+I get that custom building a website, especially one potentially serving thousands of people at a time, is expensive. 
 
 ## Okay, but what about maps?
 
