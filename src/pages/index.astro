@@ -1,15 +1,21 @@
 ---
-import DefaultPage from '../layouts/DefaultPage.astro';
+import DefaultPage from '../layouts/DefaultPage.astro'
+import Header from '../components/Header.astro';
 ---
 
 <DefaultPage>
-  <div class="hero min-h-screen bg-[url('/background.svg')]">
+  <div style="width: 100%;
+    place-items: center;
+    background-size: cover;
+    background-position: center;" class="min-h-screen bg-[url('/background.svg')]">
+  <Header/>
+
     <div class="hero-overlay bg-opacity-0"></div>
-    <div class="hero-content text-primary top-0">
+    <div class="hero-content text-primary-content pt-10">
       <div class="text-left">
         <p class="mb-5 sm:text-2xl text-2xl">Hello there! My name is</p>
         <p class="mb-5 sm:text-7xl text-5xl font-bold">John C Waters.</p>
-        <p class="mb-72 sm:text-7xl text-5xl font-bold">I design and build solutions.</p>
+        <p class="sm:text-7xl text-5xl font-bold">I design and build solutions.</p>
 
       </div>
     </div>

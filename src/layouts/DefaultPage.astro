@@ -1,6 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro'
-import Header from '../components/Header.astro'
+// import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 
@@ -12,11 +12,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
   <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   <!--<GoogleAnalytics id="G-QP2FLYGVL3" />-->
 
-  <body class="flex flex-col min-h-screen">
-    <Header title={SITE_TITLE} />
-    <main class="flex-auto">
+  <main class="flex flex-col min-h-screen">
+
       <slot /><!-- Body Stuff goes here -->
-    </main>
+
     <Footer />
-  </body>
+  </main>
 </html>
