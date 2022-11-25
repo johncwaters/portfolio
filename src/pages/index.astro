@@ -1,6 +1,16 @@
 ---
 import DefaultPage from '../layouts/DefaultPage.astro'
 import Header from '../components/Header.astro';
+
+// TODO add transitions to the text
+// TODO change color theme to match with current SVG on landing page (text colors white, background that grey color, etc)
+// TODO add transitions to the background svg?
+// TODO Move portfolio items to main page, and then provide link to portfolio page to view all
+// TODO update blog to match layout: https://danspratling.dev/blog
+// TODO Remove 'Home' from header and rely on clicking on just my name instead
+// TODO Add a contact page with a form and email
+// TODO Add social media links somewhere (not on the contact page)
+// TODO add Header back to other pages (requires colors for text and background themes to be updated first)
 ---
 
 <DefaultPage>
@@ -11,7 +21,7 @@ import Header from '../components/Header.astro';
   <Header/>
 
     <div class="hero-overlay bg-opacity-0"></div>
-    <div class="hero-content text-primary-content pt-10">
+    <div class="hero-content text-primary-content sm:pt-10 pt-40">
       <div class="text-left">
         <p class="mb-5 sm:text-2xl text-2xl">Hello there! My name is</p>
         <p class="mb-5 sm:text-7xl text-5xl font-bold">John C Waters.</p>
