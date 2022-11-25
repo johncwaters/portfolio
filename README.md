@@ -6,5 +6,5 @@
 
 ## Project Structure
 
-My porfolio is built with with Astro, Tailwind, Typescript, and Svelte.
+My porfolio is built with with Astro, Tailwind, and Typescript.
 
