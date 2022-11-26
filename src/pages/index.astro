@@ -11,8 +11,8 @@ import Header from '../components/Header.astro'
 // TODO Add a contact page with a form and email
 // TODO Add social media links somewhere (not on the contact page)
 // TODO add Header back to other pages (requires colors for text and background themes to be updated first)
-const time = Math.floor(Math.random() * 1000)
-const backgroundPath = `bg-[url('/background.svg?rando=${time}')`;
+// const time = Math.floor(Math.random() * 1000)
+// const backgroundPath = `?rando=${time}')]`;
 ---
 
 <DefaultPage>
@@ -20,11 +20,11 @@ const backgroundPath = `bg-[url('/background.svg?rando=${time}')`;
     place-items: center;
     background-size: cover;
     background-position: center;"
-    class:list={['min-h-screen', backgroundPath]}>
+    class:list={['min-h-screen', "bg-[url('/background.svg')]"]}>
   <Header/>
 
     <div class="hero-overlay bg-opacity-0"></div>
-    <div class="hero-content text-primary-content sm:pt-10 pt-40">
+    <div class="hero-content text-primary-content sm:pt-32 pt-24">
       <div class="text-left">
         <p class="mb-5 sm:text-2xl text-2xl lineUp opacity-0" style="--delay: 0.25s;">Hello there! My name is</p>
         <p class="mb-5 sm:text-7xl text-5xl font-bold lineUp opacity-0" style="--delay: 0.75s;">John C Waters.</p>
