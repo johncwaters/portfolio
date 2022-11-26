@@ -27,26 +27,26 @@ import Header from '../components/Header.astro';
     background-position: center;
     min-height: 100vh;"
   >
-    <Header animDelay={'3s'} />
+    <Header animDelay={'2.5s'} />
 
     <div class="hero-overlay bg-opacity-0"></div>
     <div class="hero-content sm:pt-32 pt-24">
       <div class="text-left">
         <p
           class="mb-5 sm:text-2xl text-2xl lineUp opacity-0 min-h-sc"
-          style="--delay: 0.25s;"
+          style="--delay: 0.1;"
         >
           Hello there! My name is
         </p>
         <p
           class="mb-5 sm:text-7xl text-5xl font-bold lineUp opacity-0"
-          style="--delay: 0.95s;"
+          style="--delay: 0.75s;"
         >
           John C Waters.
         </p>
         <p
           class="sm:text-7xl text-5xl font-bold lineUp opacity-0"
-          style="--delay: 2s;"
+          style="--delay: 1.7s;"
         >
           I design and build solutions.
         </p>
@@ -54,7 +54,7 @@ import Header from '../components/Header.astro';
     </div>
     <div
       class="scroll-button lineUp font-bold text-lg opacity-0"
-      style="--delay: 3s;"
+      style="--delay: 2.5s;"
       tabindex="0"
     >
       <div class="arrow">↓</div> scroll
@@ -128,7 +128,7 @@ import Header from '../components/Header.astro';
     padding: 2rem 0;
     border: none;
     outline: none;
-    /* cursor: pointer; */
+    cursor: default;
     display: flex;
     transition: opacity 250ms;
   }
