@@ -36,6 +36,9 @@ import Header from '../components/Header.astro'
 
       </div>
     </div>
+    <div class="scroll-button lineUp text-primary-content font-bold text-lg opacity-0" style="--delay: 3s;" tabindex="0">
+          <div class="arrow">↓</div> scroll
+        </div>
   </div>
 
   <div class="hero min-h-screen bg-base-200">
@@ -100,6 +103,21 @@ import Header from '../components/Header.astro'
   }
 }
 
+.scroll-button{
+    position: absolute;
+    bottom: 0;
+    left: 3%;
+    padding: 2rem 0;
+    border: none;
+    outline: none;
+    /* cursor: pointer; */
+    display: flex;
+    transition: opacity 250ms;
+}
+
+.scroll-button .arrow {
+    margin-right: 0.25rem;
+}
 </style>
 
 <script>
