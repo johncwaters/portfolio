@@ -25,10 +25,10 @@ import Header from '../components/Header.astro'
     background-position: center;
     min-height: 100vh;"
     >
-  <Header/>
+  <Header animDelay={'3s'}/>
 
     <div class="hero-overlay bg-opacity-0"></div>
-    <div class="hero-content text-primary-content sm:pt-32 pt-24">
+    <div class="hero-content sm:pt-32 pt-24">
       <div class="text-left">
         <p class="mb-5 sm:text-2xl text-2xl lineUp opacity-0 min-h-sc" style="--delay: 0.25s;">Hello there! My name is</p>
         <p class="mb-5 sm:text-7xl text-5xl font-bold lineUp opacity-0" style="--delay: 0.95s;">John C Waters.</p>
@@ -36,7 +36,7 @@ import Header from '../components/Header.astro'
 
       </div>
     </div>
-    <div class="scroll-button lineUp text-primary-content font-bold text-lg opacity-0" style="--delay: 3s;" tabindex="0">
+    <div class="scroll-button lineUp font-bold text-lg opacity-0" style="--delay: 3s;" tabindex="0">
           <div class="arrow">↓</div> scroll
         </div>
   </div>
@@ -52,7 +52,7 @@ import Header from '../components/Header.astro'
         <p class="py-6">
           As I build more projects I will be adding them here to showoff. Duh.
         </p>
-        <button onclick="location.href='/portfolio';" class="btn btn-primary"
+        <button onclick="location.href='/portfolio';" class="btn"
           >My Portfolio</button
         >
       </div>
@@ -71,7 +71,7 @@ import Header from '../components/Header.astro'
           I'm no writer, but I can string some words together pretty well sorta
           kinda. Blog posts monthly.
         </p>
-        <button onclick="location.href='/blog';" class="btn btn-primary"
+        <button onclick="location.href='/blog';" class="btn"
           >My Blog</button
         >
       </div>

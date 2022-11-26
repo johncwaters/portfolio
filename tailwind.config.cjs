@@ -5,6 +5,13 @@ module.exports = {
   },
   plugins: [require('daisyui'), require('@tailwindcss/typography')],
   daisyui: {
-    themes: ['lofi']
+    themes: [
+      {
+        light: {
+          ...require('daisyui/src/colors/themes')['[data-theme=dark]'],
+          'base-100': '#002438'
+        }
+      }
+    ]
   }
 }

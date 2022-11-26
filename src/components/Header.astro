@@ -1,5 +1,10 @@
 ---
-import { SITE_TITLE } from '../config';
+import { SITE_TITLE } from '../config'
+export interface Props {
+animDelay?: string;
+}
+
+const { animDelay = '0s' } = Astro.props;
 
 ---
 
@@ -23,27 +28,27 @@ import { SITE_TITLE } from '../config';
       </label>
       <ul
         tabindex="0"
-        class="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52 text-primary-content bg-primary"
+        class="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52 bg-primary"
       >
         <li><a href="/portfolio">Portfolio</a></li>
         <li><a href="/blog">Blog</a></li>
       </ul>
     </div>
-    <a href="/" class="btn btn-ghost normal-case text-xl text-primary-content">{SITE_TITLE}</a>
+    <a href="/" class="btn btn-ghost normal-case text-xl">{SITE_TITLE}</a>
   </div>
   <div class="navbar-end pr-3 hidden lg:flex">
-    <ul class="menu menu-horizontal p-0 px-2 text-primary-content text-md">
+    <ul class="menu menu-horizontal p-0 px-2 text-md">
       <li><a href="/portfolio">Portfolio</a></li>
       <li><a href="/blog">Blog</a></li>
     </ul>
   </div>
 </div>
 
-<style>
+<style define:vars={{ animDelay }}>
 
 .lineDown {
   animation: 2s anim-lineDown ease-out forwards;
-  animation-delay: 2.7s;
+  animation-delay: var(--animDelay);
 }
 @keyframes anim-lineDown {
   0% {

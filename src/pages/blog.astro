@@ -1,5 +1,6 @@
 ---
 import DefaultPage from '../layouts/DefaultPage.astro'
+import Header from '../components/Header.astro'
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
@@ -9,14 +10,16 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 );
 
 // TODO Something to look into https://daily-dev-tips.com/posts/astro-getting-related-articles-based-on-tags/
+// TODO Add hover effect when over a card?
 ---
 
 <DefaultPage>
+  <Header />
   <container>
     {
       posts.map((post) => (
         <a
-          class="card bg-base-100 shadow-xl mx-auto m-6 w-11/12 md:w-96"
+          class="card bg-neutral shadow-xl mx-auto m-6 w-11/12 md:w-96"
           href={post.url}
         >
           <figure>
@@ -25,7 +28,7 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
           <div class="card-body">
             <h2 class="card-title">{post.frontmatter.title}</h2>
 
-            <div class="badge badge-secondary">
+            <div class="badge">
               <time datetime={post.frontmatter.publishDate}>
                 {new Date(post.frontmatter.publishDate).toLocaleDateString(
                   'en-us',
