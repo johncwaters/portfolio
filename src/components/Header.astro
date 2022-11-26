@@ -3,7 +3,7 @@ import { SITE_TITLE } from '../config';
 
 ---
 
-<div class="navbar">
+<div class="navbar lineDown opacity-0">
   <div class="navbar-start">
     <div class="dropdown">
       <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -38,3 +38,28 @@ import { SITE_TITLE } from '../config';
     </ul>
   </div>
 </div>
+
+<style>
+
+.lineDown {
+  animation: 2s anim-lineDown ease-out forwards;
+  animation-delay: 2.7s;
+}
+@keyframes anim-lineDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+</style>

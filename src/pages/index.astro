@@ -3,6 +3,7 @@ import DefaultPage from '../layouts/DefaultPage.astro'
 import Header from '../components/Header.astro'
 
 // TODO add transitions to the text
+
 // TODO change color theme to match with current SVG on landing page (text colors white, background that grey color, etc)
 // TODO add transitions to the background svg?
 // TODO Move portfolio items to main page, and then provide link to portfolio page to view all
@@ -11,24 +12,27 @@ import Header from '../components/Header.astro'
 // TODO Add a contact page with a form and email
 // TODO Add social media links somewhere (not on the contact page)
 // TODO add Header back to other pages (requires colors for text and background themes to be updated first)
+
 // const time = Math.floor(Math.random() * 1000)
 // const backgroundPath = `?rando=${time}')]`;
+//    class:list={['min-h-screen', `bg-[url('/background.svg?rando=` + Math.floor(Math.random() * 1000).toString() +`')]`]}>
 ---
 
 <DefaultPage>
-  <div style="width: 100%;
+  <div id="background" style="width: 100%;
     place-items: center;
     background-size: cover;
-    background-position: center;"
-    class:list={['min-h-screen', "bg-[url('/background.svg')]"]}>
+    background-position: center;
+    min-height: 100vh;"
+    >
   <Header/>
 
     <div class="hero-overlay bg-opacity-0"></div>
     <div class="hero-content text-primary-content sm:pt-32 pt-24">
       <div class="text-left">
-        <p class="mb-5 sm:text-2xl text-2xl lineUp opacity-0" style="--delay: 0.25s;">Hello there! My name is</p>
-        <p class="mb-5 sm:text-7xl text-5xl font-bold lineUp opacity-0" style="--delay: 0.75s;">John C Waters.</p>
-        <p class="sm:text-7xl text-5xl font-bold lineUp opacity-0" style="--delay: 1.2s;">I design and build solutions.</p>
+        <p class="mb-5 sm:text-2xl text-2xl lineUp opacity-0 min-h-sc" style="--delay: 0.25s;">Hello there! My name is</p>
+        <p class="mb-5 sm:text-7xl text-5xl font-bold lineUp opacity-0" style="--delay: 0.95s;">John C Waters.</p>
+        <p class="sm:text-7xl text-5xl font-bold lineUp opacity-0" style="--delay: 2s;">I design and build solutions.</p>
 
       </div>
     </div>
@@ -95,4 +99,15 @@ import Header from '../components/Header.astro'
     transform: translateY(0%);
   }
 }
+
 </style>
+
+<script>
+  //class={"bg-[url('/background.svg?rando=" + Math.floor(Math.random() * 100000).toFixed() + "')]"}>
+  //`bg-[url('/background.svg?rando=${random}')]`
+  const random = Math.floor(Math.random() * 100000).toString()
+  const background = document.getElementById('background')
+  const bgurl = `url('/background.svg?rando=${random}')`
+
+  background!.style.backgroundImage = bgurl
+</script>
