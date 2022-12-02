@@ -11,7 +11,9 @@ module.exports = {
           ...require('daisyui/src/colors/themes')['[data-theme=dark]'],
           'base-100': '#002438',
           'base-content': 'white',
-          'neutral-content': 'white'
+          'neutral-content': 'white',
+          primary: '#B30003',
+          accent: '#E50004'
         }
       }
     ]
