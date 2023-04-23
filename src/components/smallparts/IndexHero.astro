@@ -1,0 +1,97 @@
+---
+import Header from "../Header.astro";
+---
+
+<div class="max-h-screen overflow-hidden">
+  <div
+    id="background"
+    style="width: 100%;
+    place-items: center;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    z-index: 0;"
+  >
+    <Header animDelay={"2.5s"} />
+
+    <div class="hero-overlay bg-opacity-0"></div>
+    <div class="hero-content sm:pt-32 pt-24">
+      <div class="text-left">
+        <h1
+          class="mb-5 sm:text-2xl text-2xl lineUp opacity-0 min-h-sc"
+          style="--delay: 0.1;"
+        >
+          Hello there! My name is
+        </h1>
+        <h1
+          class="mb-5 sm:text-7xl text-5xl font-bold lineUp opacity-0"
+          style="--delay: 0.6s;"
+        >
+          John C Waters.
+        </h1>
+        <h1
+          class="sm:text-7xl text-5xl font-bold lineUp opacity-0"
+          style="--delay: 1.2s;"
+        >
+          I design and build solutions.
+        </h1>
+      </div>
+    </div>
+    <div
+      class="scroll-button lineUp font-bold text-lg opacity-0"
+      style="--delay: 2.5s;"
+      tabindex="0"
+    >
+      <div class="arrow">↓</div> scroll
+    </div>
+  </div>
+</div>
+
+<script>
+  const random = Math.floor(Math.random() * 100000).toString();
+  const background = document.getElementById("background");
+  const bgurl = `url('/background.svg?rando=${random}')`;
+
+  background!.style.backgroundImage = bgurl;
+</script>
+
+<style>
+  /* lineup class and keyframes */
+  .lineUp {
+    animation: 2s anim-lineUp ease-out forwards;
+    animation-delay: var(--delay);
+  }
+  @keyframes anim-lineUp {
+    0% {
+      opacity: 0;
+      transform: translateY(80%);
+    }
+    20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+  .scroll-button {
+    position: absolute;
+    bottom: 0;
+    left: 3%;
+    padding: 2rem 0;
+    border: none;
+    outline: none;
+    cursor: default;
+    display: flex;
+    transition: opacity 250ms;
+  }
+
+  .scroll-button .arrow {
+    margin-right: 0.25rem;
+  }
+</style>

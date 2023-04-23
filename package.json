@@ -1,8 +1,8 @@
 {
   "name": "portfolio",
-  "version": "0.0.2",
-  "private": true,
-  "description": "My personal portfolio built with Astro, Tailwind, Typescript, and Svelte.",
+  "version": "0.8.0",
+  "private": false,
+  "description": "My personal portfolio built with Astro, Tailwind, Typescript, and a dash of React.",
   "author": {
     "email": "john@johncwaters.com",
     "name": "John C. Waters",
@@ -18,16 +18,21 @@
     "astro": "astro"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.3.3",
-    "@astrojs/sitemap": "^1.0.0",
-    "@tailwindcss/typography": "^0.5.4",
-    "astro": "^1.0.5",
-    "typescript": "^4.9.3"
+    "@astrojs/image": "^0.16.5",
+    "@astrojs/sitemap": "^1.2.2",
+    "@tailwindcss/typography": "^0.5.9",
+    "astro": "^2.2.0",
+    "typescript": "^5.0.3"
   },
   "dependencies": {
-    "@astrojs/netlify": "^1.2.1",
-    "@astrojs/tailwind": "^1.0.0",
-    "astro-analytics": "^2.2.0",
-    "daisyui": "^2.24.0"
+    "@astrojs/netlify": "^2.2.0",
+    "@astrojs/react": "^2.1.1",
+    "@astrojs/tailwind": "^3.1.1",
+    "@types/react": "^18.0.33",
+    "@types/react-dom": "^18.0.11",
+    "astro-analytics": "^2.6.0",
+    "daisyui": "^2.51.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

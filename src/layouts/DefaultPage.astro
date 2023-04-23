@@ -1,21 +1,21 @@
 ---
-import BaseHead from '../components/BaseHead.astro'
+import BaseHead from "../components/BaseHead.astro";
 // import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
 // import GoogleAnalytics from "../../node_modules/astro-analytics/src/GoogleAnalytics.astro";
 ---
 
 <!DOCTYPE html>
-<html data-theme="wireframe" lang="en-us">
+<html data-theme="wireframe" lang="en-us" class="scroll-smooth">
   <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   <!--<GoogleAnalytics id="G-QP2FLYGVL3" />-->
 
   <main class="flex flex-col min-h-screen">
-
-      <slot /><!-- Body Stuff goes here -->
-
-    <Footer />
+    <slot /><!-- Body Stuff goes here -->
   </main>
+  <footer>
+    <Footer />
+  </footer>
 </html>

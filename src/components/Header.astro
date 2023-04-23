@@ -1,11 +1,10 @@
 ---
-import { SITE_TITLE } from '../config'
+import { SITE_TITLE } from "../config";
 export interface Props {
-animDelay?: string;
+  animDelay?: string;
 }
 
-const { animDelay = '0s' } = Astro.props;
-
+const { animDelay = "0s" } = Astro.props;
 ---
 
 <div class="navbar lineDown opacity-0 z-50">
@@ -30,41 +29,40 @@ const { animDelay = '0s' } = Astro.props;
         tabindex="0"
         class="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52 bg-neutral"
       >
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/blog">Blog</a></li>
+        <li><a href="#staryportfolio">Portfolio</a></li>
+        <!-- <li><a href="/blog">Blog</a></li> -->
       </ul>
     </div>
     <a href="/" class="btn btn-ghost normal-case text-xl">{SITE_TITLE}</a>
   </div>
   <div class="navbar-end pr-3 hidden lg:flex">
     <ul class="menu menu-horizontal p-0 px-2 text-md">
-      <li><a href="/portfolio">Portfolio</a></li>
-      <li><a href="/blog">Blog</a></li>
+      <li><a href="#staryportfolio">Portfolio</a></li>
+      <!-- <li><a href="/blog">Blog</a></li> -->
     </ul>
   </div>
 </div>
 
 <style define:vars={{ animDelay }}>
-
-.lineDown {
-  animation: 2s anim-lineDown ease-out forwards;
-  animation-delay: var(--animDelay);
-}
-@keyframes anim-lineDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-80%);
+  .lineDown {
+    animation: 2s anim-lineDown ease-out forwards;
+    animation-delay: var(--animDelay);
   }
-  20% {
-    opacity: 0;
+  @keyframes anim-lineDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-80%);
+    }
+    20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
   }
-  50% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
 </style>
