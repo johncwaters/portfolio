@@ -24,27 +24,35 @@ export const PortfolioCard = ({
         setShow(false);
       }}
     >
-      <figure>
-        <img
-          src={image.src}
-          alt="Waters Massage Therapy logo of a purple humming bird"
-          className={
-            "pt-4 opacity-100 relative col-start-1 row-start-1 grid object-cover h-full"
-          }
-        />
-      </figure>
       {show ? (
-        <div className="card-body relative items-center text-center bg-slate-800 rounded-2xl ">
-          <h2 className="card-title">{title}</h2>
-          <p>{description}</p>
-          <div className="card-actions justify-end">
-            <a href={hrefUrl} target="_blank">
-              <button className="btn btn-primary">Visit</button>
-            </a>
+        <figure>
+          <img
+            src={image.src}
+            alt="Waters Massage Therapy logo of a purple humming bird"
+            className={
+              "opacity-100 relative col-start-1 row-start-1 pt-4 grid object-cover h-full"
+            }
+          />
+          <div className="card-body absolute items-center text-center bg-slate-800 top-0 bottom-0 rounded-xl opacity-95">
+            <h2 className="card-title">{title}</h2>
+            <p>{description}</p>
+            <div className="card-actions justify-end">
+              <a href={hrefUrl} target="_blank">
+                <button className="btn btn-primary">Visit</button>
+              </a>
+            </div>
           </div>
-        </div>
+        </figure>
       ) : (
-        <></>
+        <figure>
+          <img
+            src={image.src}
+            alt="Waters Massage Therapy logo of a purple humming bird"
+            className={
+              "opacity-100 relative col-start-1 row-start-1 pt-4 grid object-cover h-full"
+            }
+          />
+        </figure>
       )}
     </div>
   );
