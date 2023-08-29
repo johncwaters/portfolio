@@ -1,7 +1,7 @@
 # John C. Waters - My Portfolio
 
 
->  **WORK IN PROGRESS** www.johncwaters.com
+>  www.johncwaters.com
 
 
 ## Project Structure
