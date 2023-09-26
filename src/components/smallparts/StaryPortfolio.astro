@@ -1,6 +1,7 @@
 ---
-import watersMassageLogo from "../../assets/portfolio_logos/wmt_logo_transparent_background.png";
-import { PortfolioCard } from "../PortfolioCard";
+import watersMassageLogo from "../../assets/portfolio_logos/wmt_logo.png";
+import BlackWiddowTattooLogo from "../../assets/portfolio_logos/black_willow_tattoo_logo.png";
+import PortfolioCard from "../PortfolioCard.astro";
 ---
 
 <div id="staryportfolio" class="h-screen">
@@ -57,11 +58,16 @@ import { PortfolioCard } from "../PortfolioCard";
         class="grid grid-cols-1 gap-3 lg:grid-cols-2 xl:grid-cols-3 justify-center justify-items-center"
       >
         <PortfolioCard
-          client:load
           image={watersMassageLogo}
           hrefUrl={"https://watersmassage.com/"}
           title={"Waters Massage Therapy"}
-          description={"Provides personalized traveling massage therapy with online booking. Built with Astro and React."}
+          message={"Provides personalized traveling massage therapy with online booking. Built with Astro and React."}
+        />
+        <PortfolioCard
+          image={BlackWiddowTattooLogo}
+          hrefUrl={"https://blackwiddowtattoo.ink/"}
+          title="Black Willow Tattoo"
+          message={"A local tattoo artist's business/portfolio website. Built with Astro."}
         />
       </div>
     </div>
