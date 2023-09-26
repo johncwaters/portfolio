@@ -20,13 +20,13 @@
   "devDependencies": {
     "@astrojs/sitemap": "^3.0.0",
     "@tailwindcss/typography": "^0.5.10",
-    "astro": "^3.1.2",
+    "astro": "^3.1.4",
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@astrojs/netlify": "^3.0.1",
+    "@astrojs/netlify": "^3.0.2",
     "@astrojs/tailwind": "^5.0.0",
     "astro-analytics": "^2.7.0",
-    "daisyui": "^3.7.7"
+    "daisyui": "^3.8.0"
   }
 }
