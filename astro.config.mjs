@@ -3,12 +3,10 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import netlify from "@astrojs/netlify/functions";
 
-import react from "@astrojs/react";
-
 // https://astro.build/config
 export default defineConfig({
   output: "server",
   adapter: netlify(),
-  integrations: [sitemap(), tailwind(), react()],
+  integrations: [sitemap(), tailwind()],
   site: "https://johncwaters.com",
 });
