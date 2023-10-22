@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "private": false,
   "description": "My personal portfolio built with Astro, Tailwind, Typescript, and a dash of React.",
   "author": {
@@ -19,12 +19,15 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
+    "@types/nodemailer": "^6.4.11",
     "astro": "^3.3.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.0.2",
     "@astrojs/vercel": "^5.0.2",
-    "daisyui": "^3.9.2"
+    "daisyui": "^3.9.2",
+    "googleapis": "^127.0.0",
+    "nodemailer": "^6.9.6"
   }
 }

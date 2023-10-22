@@ -1,0 +1,147 @@
+<div id="contactme" class="my-64">
+  <div class="max-w-xl mx-auto p-8">
+    <h1 class="text-2xl font-bold mb-1">Let's talk</h1>
+    <p class="text-lg mb-6">
+      Lets get started. I'll walk you through it. Reach out for a free
+      consultation and quote.
+    </p>
+    <form method="post">
+      <div class="flex gap-3">
+        <div class="form-control w-full max-w-xs mb-6">
+          <label class="label">
+            <span class="label-text">First name</span>
+          </label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            required
+            placeholder="Jane"
+            class="input input-bordered w-full max-w-xs"
+          />
+        </div>
+
+        <div class="form-control w-full max-w-xs mb-6">
+          <label class="label">
+            <span class="label-text">Last name</span>
+            <span class="italic text-xs">Optional</span>
+          </label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            placeholder="Doe"
+            class="input input-bordered w-full max-w-xs"
+          />
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <div class="form-control w-full max-w-xs mb-6">
+          <label class="label">
+            <span class="label-text">Email address</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="JaneDoe@gmail.com"
+            class="input input-bordered w-full max-w-xs"
+          />
+        </div>
+
+        <div class="form-control w-full max-w-xs mb-6">
+          <label class="label">
+            <span class="label-text">Phone number</span>
+            <span class="italic text-xs">Optional</span>
+          </label>
+          <input
+            type="number"
+            id="phoneNumber"
+            name="phoneNumber"
+            placeholder="406-304-9061"
+            class="input input-bordered w-full max-w-xs"
+          />
+        </div>
+      </div>
+
+      <div class="form-control w-full max-w-full mb-6">
+        <label class="label">
+          <span class="label-text">Project type</span>
+        </label>
+        <select
+          class="select select-bordered"
+          id="projectType"
+          name="projectType"
+        >
+          <option disabled selected>Pick one</option>
+          <option>New Website</option>
+          <option>Update Website</option>
+          <option>Custom Software</option>
+          <option>I'm not sure, help me choose</option>
+        </select>
+      </div>
+
+      <div class="form-control mb-6">
+        <label class="label">
+          <span class="label-text">Any questions or additional details?</span>
+        </label>
+        <textarea
+          id="projectDescription"
+          name="projectDescription"
+          required
+          class="textarea textarea-bordered h-24"
+          placeholder="I am looking to... create a website, automate some work, or just fix a problem. "
+        ></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-outline">Submit</button>
+    </form>
+    <!-- ... Form Feedback Response ... -->
+    <div id="message" class="mt-4"></div>
+  </div>
+</div>
+
+<script>
+  // Form Submission Handling
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    const messageBox = document.getElementById("message");
+
+    if (form && messageBox) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch("/api/nodemailer", {
+            method: "POST",
+            body: formData,
+          });
+
+          // Expecting JSON response from the server
+          const responseData = await response.json();
+
+          // Handle response data and display a message
+          if (response.ok) {
+            messageBox.textContent = "Sent! I will reach out soon.";
+            messageBox.classList.add("text-green-500");
+          } else {
+            messageBox.textContent = `Failed to send message. Please email me at john@johncwaters.com.`;
+            messageBox.classList.add("text-red-500");
+
+            console.log(
+              "🚀 ~ file: ContactForm.astro:82 ~ form.addEventListener ~ ${responseData.error}:",
+              responseData.error
+            );
+          }
+        } catch (error) {
+          messageBox.textContent =
+            "An error occurred while sending the message. Please email me at john@johncwaters.com.";
+          messageBox.classList.add("text-red-500");
+        }
+      });
+    }
+  });
+</script>
