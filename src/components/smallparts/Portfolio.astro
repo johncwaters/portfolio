@@ -1,0 +1,31 @@
+---
+import watersMassageLogo from "../../assets/portfolio_logos/wmt_logo.png";
+import BlackWiddowTattooLogo from "../../assets/portfolio_logos/black_willow_tattoo_logo.png";
+import PortfolioCard from "../PortfolioCard.astro";
+---
+
+<div id="staryportfolio" class="my-96 p-8">
+  <div class="max-w-xl mx-auto p-8 text-center">
+    <h1 class="text-4xl font-bold mb-1">My Works</h1>
+    <p class="text-base md:text-lg mb-6">
+      Here are some of the public solutions I have made.
+    </p>
+  </div>
+
+  <div
+    class="grid grid-cols-1 gap-11 lg:grid-cols-2 xl:grid-cols-3 justify-center justify-items-center mt-12"
+  >
+    <PortfolioCard
+      image={watersMassageLogo}
+      hrefUrl={"https://watersmassage.com/"}
+      title={"Waters Massage Therapy"}
+      message={"Local traveling massage therapy business with online booking. Built with Astro and React."}
+    />
+    <PortfolioCard
+      image={BlackWiddowTattooLogo}
+      hrefUrl={"https://www.blackwillowtattoo.ink/"}
+      title="Black Willow Tattoo"
+      message={"A local tattoo artist's business/portfolio website. Built with Astro."}
+    />
+  </div>
+</div>
