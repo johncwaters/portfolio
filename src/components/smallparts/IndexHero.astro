@@ -52,7 +52,9 @@ import Header from "../Header.astro";
   const background = document.getElementById("background");
   const bgurl = `url('/background.svg?rando=${random}')`;
 
-  background!.style.backgroundImage = bgurl;
+  if (background) {
+    background.style.backgroundImage = bgurl;
+  }
 </script>
 
 <style>
