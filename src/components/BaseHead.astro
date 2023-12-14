@@ -9,7 +9,12 @@ export interface Props {
   image?: string;
 }
 
-const { title, description, image = "/placeholder-social.jpg" } = Astro.props;
+// TODO: Update this with website logo
+const {
+  title,
+  description,
+  image = "/logos/Favicon No Background.svg",
+} = Astro.props;
 ---
 
 <!-- Global Metadata -->
