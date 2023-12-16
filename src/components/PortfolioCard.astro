@@ -11,13 +11,14 @@ export interface Props {
 const { image, title, message, hrefUrl } = Astro.props;
 ---
 
-<div class="group relative w-96 rounded overflow-hidden card">
+<div class="group relative w-96 rounded overflow-hidden">
   <Image src={image} alt="" class="w-full h-full object-cover rounded" />
   <div
-    class="card-body absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-95 flex flex-col items-center justify-center transition-opacity duration-300 text-center opacity-0 group-hover:opacity-95"
+    class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-95 flex flex-col items-center justify-center transition-opacity duration-300 text-center opacity-0 group-hover:opacity-95"
   >
     <h3 class="card-title">{title}</h3>
-    <p>{message}</p>
-    <a href={hrefUrl} target="_blank" class="btn btn-outline">Visit Site</a>
+    <p class="px-8">{message}</p>
+    <a href={hrefUrl} target="_blank" class="btn btn-outline mt-2">Visit Site</a
+    >
   </div>
 </div>
