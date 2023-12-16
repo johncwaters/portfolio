@@ -20,16 +20,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
     "@types/nodemailer": "^6.4.14",
-    "@typescript-eslint/eslint-plugin": "^6.14.0",
-    "@typescript-eslint/parser": "^6.14.0",
     "astro": "^4.0.6",
-    "eslint": "^8.56.0",
-    "eslint-config-standard-with-typescript": "^42.0.0",
-    "eslint-plugin-astro": "^0.31.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-n": "^16.4.0",
-    "eslint-plugin-promise": "^6.1.1",
     "typescript": "^5.3.3"
   },
   "dependencies": {

@@ -1,5 +1,5 @@
-import { createTransport } from "nodemailer";
 import { google } from "googleapis";
+import { createTransport } from "nodemailer";
 import type { Options } from "nodemailer/lib/mailer";
 const OAuth2 = google.auth.OAuth2;
 
@@ -57,7 +57,7 @@ const sendEmail = async (emailOptions: Options) => {
 };
 
 //@ts-ignore
-export async function POST({ request }) {
+export const POST: APIRoute = async ({ request }) => {
   const data = await request.formData();
 
   const fullName = data.get("firstName") + " " + data.get("lastName");
@@ -65,6 +65,15 @@ export async function POST({ request }) {
   const budget = data.get("budget");
   const projectType = data.get("projectType");
   const projectDescription = data.get("projectDescription");
+
+  if (!fullName || !email || !budget || !projectType || !projectDescription) {
+    return new Response(
+      JSON.stringify({
+        message: "Missing required fields",
+      }),
+      { status: 400 }
+    );
+  }
 
   const emailResponse = await sendEmail({
     subject: `Portfolio New Form - ${fullName}`,
@@ -78,17 +87,19 @@ export async function POST({ request }) {
   });
 
   // Check if the emailResponse indicates success, and adjust accordingly
-  if (emailResponse.ok) {
-    return {
-      status: 200,
-      body: JSON.stringify({ message: "Email sent successfully." }),
-    };
+  if (!emailResponse.ok) {
+    return new Response(
+      JSON.stringify({
+        message: "Failed to send email.",
+      }),
+      { status: 500 }
+    );
   }
 
-  // ! Error
-  console.error("Email Error:", emailResponse.json);
-  return {
-    status: 500,
-    body: JSON.stringify({ error: "Failed to send email." }),
-  };
-}
+  return new Response(
+    JSON.stringify({
+      message: "Email sent successfully.",
+    }),
+    { status: 200 }
+  );
+};
