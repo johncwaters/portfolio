@@ -62,7 +62,7 @@ export async function POST({ request }) {
 
   const fullName = data.get("firstName") + " " + data.get("lastName");
   const email = data.get("email");
-  const phone = data.get("phoneNumber");
+  const budget = data.get("budget");
   const projectType = data.get("projectType");
   const projectDescription = data.get("projectDescription");
 
@@ -70,7 +70,7 @@ export async function POST({ request }) {
     subject: `Portfolio New Form - ${fullName}`,
     text: `A new form has been submitted by ${fullName}. 
       Email: ${email}
-      Phone: ${phone}
+      Budget: ${budget}
       Project Type: ${projectType}
       Project Description: ${projectDescription}`,
     to: "john@johncwaters.com",
