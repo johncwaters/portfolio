@@ -91,7 +91,9 @@
         ></textarea>
       </div>
 
-      <button type="submit" class="btn btn-outline">Submit</button>
+      <button type="submit" id="submitButton" class="btn btn-outline"
+        >Submit</button
+      >
     </form>
     <!-- ... Form Feedback Response ... -->
     <div id="message" class="mt-4"></div>
@@ -103,10 +105,17 @@
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
     const messageBox = document.getElementById("message");
+    const submitButton = document.getElementById(
+      "submitButton"
+    ) as HTMLButtonElement;
 
-    if (form && messageBox) {
+    if (form && messageBox && submitButton) {
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
+
+        // Disable button and show loading status
+        submitButton.disabled = true;
+        submitButton.innerHTML = `<span class="loading loading-dots loading-lg"></span>`;
 
         const formData = new FormData(form);
 
@@ -132,6 +141,10 @@
               responseData.error
             );
           }
+
+          // Set the button back to normal
+          submitButton.disabled = false;
+          submitButton.innerHTML = `Submit`;
         } catch (error) {
           messageBox.textContent =
             "An error occurred while sending the message. Please email me at john@johncwaters.com.";
