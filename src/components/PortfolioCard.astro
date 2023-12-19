@@ -6,13 +6,14 @@ export interface Props {
   title: string;
   message: string;
   hrefUrl: string;
+  altText: string;
 }
 
-const { image, title, message, hrefUrl } = Astro.props;
+const { image, title, message, hrefUrl, altText } = Astro.props;
 ---
 
 <div class="group relative w-96 rounded overflow-hidden">
-  <Image src={image} alt="" class="w-full h-full object-cover rounded" />
+  <Image src={image} alt={altText} class="w-full h-full object-cover rounded" />
   <div
     class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-95 flex flex-col items-center justify-center transition-opacity duration-300 text-center opacity-0 group-hover:opacity-95"
   >
