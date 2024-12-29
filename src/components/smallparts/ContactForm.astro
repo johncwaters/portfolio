@@ -7,58 +7,42 @@
       or so.
     </p>
     <form method="post">
-      <div class="flex gap-3">
-        <div class="form-control w-full max-w-xs mb-6">
-          <label class="label">
-            <span class="label-text">First name</span>
-          </label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            required
-            class="input input-bordered w-full max-w-xs"
-          />
-        </div>
-
-        <div class="form-control w-full max-w-xs mb-6">
-          <label class="label">
-            <span class="label-text">Last name</span>
-            <span class="italic text-xs">Optional</span>
-          </label>
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            class="input input-bordered w-full max-w-xs"
-          />
-        </div>
+      <div class="form-control w-full max-w-full mb-6">
+        <label class="label">
+          <span class="label-text">Full name</span>
+        </label>
+        <input
+          type="text"
+          id="fullName"
+          name="fullName"
+          required
+          class="input input-bordered w-full"
+        />
       </div>
-      <div class="flex gap-3">
-        <div class="form-control w-full max-w-xs mb-6">
-          <label class="label">
-            <span class="label-text">Email address</span>
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            class="input input-bordered w-full max-w-xs"
-          />
-        </div>
+      <div class="form-control w-full max-w-full mb-6">
+        <label class="label">
+          <span class="label-text">Email address</span>
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="input input-bordered w-full"
+        />
+      </div>
 
-        <div class="form-control w-full max-w-xs mb-6">
-          <label class="label">
-            <span class="label-text">Budget</span>
-          </label>
-          <select class="select select-bordered" id="budget" name="budget">
-            <option disabled selected></option>
-            <option>$5,000 - $10,000</option>
-            <option>$10,000 - $25,000</option>
-            <option>$25,000 +</option>
-          </select>
-        </div>
+      <div class="form-control w-full max-w-full mb-6">
+        <label class="label">
+          <span class="label-text">Budget</span>
+        </label>
+        <select class="select select-bordered" id="budget" name="budget">
+          <option disabled selected></option>
+          <option>$Less than $5000</option>
+          <option>$5,000 - $10,000</option>
+          <option>$10,000 - $25,000</option>
+          <option>$25,000 +</option>
+        </select>
       </div>
 
       <div class="form-control w-full max-w-full mb-6">
@@ -71,7 +55,8 @@
           name="projectType"
         >
           <option disabled selected></option>
-          <option>New/Update Website</option>
+          <option>New Website</option>
+          <option>Website Redesign</option>
           <option>Custom Software/Tool</option>
           <option>Automate Work</option>
           <option>I'm not sure, help me choose</option>
