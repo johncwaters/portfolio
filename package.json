@@ -28,6 +28,6 @@
     "@astrojs/vercel": "^8.2.6",
     "daisyui": "^4.12.24",
     "googleapis": "^129.0.0",
-    "nodemailer": "^6.10.1"
+    "nodemailer": "^7.0.11"
   }
 }
