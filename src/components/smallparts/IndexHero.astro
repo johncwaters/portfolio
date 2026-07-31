@@ -128,12 +128,20 @@ import Header from "../Header.astro";
   .hedgehogPeek {
     position: absolute;
     z-index: -1;
-    bottom: 10%;
+    bottom: 13%;
     left: 62%;
-    width: clamp(90px, 12vw, 150px);
+    width: clamp(110px, 12vw, 160px);
     transform: translateY(130%) rotate(6deg);
-    transition: transform 900ms cubic-bezier(0.34, 1.56, 0.64, 1) 400ms;
+    /* delay holds the peek until the last wave layer (1.25s delay + 1.8s
+       rise) has finished */
+    transition: transform 900ms cubic-bezier(0.34, 1.56, 0.64, 1) 2600ms;
     pointer-events: none;
+  }
+  /* narrow viewports cover-scale the waves taller, so the crest sits higher */
+  @media (max-width: 640px) {
+    .hedgehogPeek {
+      bottom: 18%;
+    }
   }
   #background.showHedgehog .hedgehogPeek {
     transform: translateY(0) rotate(0deg);
