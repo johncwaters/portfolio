@@ -1,0 +1,42 @@
+---
+export const prerender = true;
+
+import DefaultPage from "../../layouts/DefaultPage.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<DefaultPage
+  title="Blog"
+  description="Notes on platform engineering, reliability, and AI tooling."
+  showHeader
+>
+  <div class="max-w-3xl mx-auto px-4 py-16 w-full">
+    <h1 class="text-4xl font-bold mb-10 text-center">Blog</h1>
+    <ul>
+      {
+        posts.map((post) => (
+          <li class="border-b border-neutral py-6">
+            <a
+              href={`/blog/${post.id}/`}
+              class="text-2xl font-semibold hover:text-accent"
+            >
+              {post.data.title}
+            </a>
+            <p class="opacity-70 mt-1">
+              {post.data.pubDate.toLocaleDateString("en-us", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </p>
+            <p class="opacity-70 mt-2">{post.data.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</DefaultPage>

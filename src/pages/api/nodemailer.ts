@@ -44,7 +44,7 @@ const sendEmail = async (emailOptions: Options) => {
 	let emailTransporter = await createTransporter();
 	const response = emailTransporter
 		.sendMail(emailOptions)
-		.then((response: any) => {
+		.then(() => {
 			return new Response(JSON.stringify({ response: "Message Sent" }), {
 				status: 200,
 			});
@@ -62,11 +62,9 @@ export const POST: APIRoute = async ({ request }) => {
 
 	const fullName = `${data.get("fullName")}`;
 	const email = data.get("email");
-	const budget = data.get("budget");
-	const projectType = data.get("projectType");
 	const projectDescription = data.get("projectDescription");
 
-	if (!fullName || !email || !budget || !projectType || !projectDescription) {
+	if (!fullName || !email || !projectDescription) {
 		return new Response(
 			JSON.stringify({
 				message: "Missing required fields",
@@ -77,10 +75,8 @@ export const POST: APIRoute = async ({ request }) => {
 
 	const emailResponse = await sendEmail({
 		subject: `Portfolio New Form - ${fullName}`,
-		text: `A new form has been submitted by ${fullName}. 
+		text: `A new form has been submitted by ${fullName}.
       Email: ${email}
-      Budget: ${budget}
-      Project Type: ${projectType}
       Project Description: ${projectDescription}`,
 		to: "john@johncwaters.com",
 		from: import.meta.env.SECRET_GCLOUD_MAIL_USERNAME,

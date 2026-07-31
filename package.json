@@ -28,6 +28,8 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
     "@astrojs/vercel": "^11.0.4",
     "daisyui": "^5.7.9",
     "googleapis": "^173.0.0",

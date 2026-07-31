@@ -52,3 +52,22 @@
 *:not(i) {
     font-family: SFMono-Regular;
 }
+
+.prose {
+    --tw-prose-body: var(--color-base-content);
+    --tw-prose-headings: var(--color-base-content);
+    --tw-prose-lead: var(--color-base-content);
+    --tw-prose-links: var(--color-accent);
+    --tw-prose-bold: var(--color-base-content);
+    --tw-prose-counters: var(--color-base-content);
+    --tw-prose-bullets: var(--color-neutral-content);
+    --tw-prose-hr: var(--color-neutral);
+    --tw-prose-quotes: var(--color-base-content);
+    --tw-prose-quote-borders: var(--color-neutral);
+    --tw-prose-captions: var(--color-base-content);
+    --tw-prose-code: var(--color-accent);
+    --tw-prose-pre-code: var(--color-base-content);
+    --tw-prose-pre-bg: var(--color-neutral);
+    --tw-prose-th-borders: var(--color-neutral);
+    --tw-prose-td-borders: var(--color-neutral);
+}
