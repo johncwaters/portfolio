@@ -24,11 +24,13 @@ const {
   <BaseHead title={title} description={description} />
   <!--<GoogleAnalytics id="G-QP2FLYGVL3" />-->
 
-  <main class="flex flex-col min-h-screen">
-    {showHeader && <Header />}
-    <slot /><!-- Body Stuff goes here -->
-  </main>
-  <footer>
-    <Footer />
-  </footer>
+  <body class="flex flex-col min-h-screen">
+    <main class="flex flex-col flex-1">
+      {showHeader && <Header />}
+      <slot /><!-- Body Stuff goes here -->
+    </main>
+    <footer>
+      <Footer />
+    </footer>
+  </body>
 </html>

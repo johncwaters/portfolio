@@ -42,7 +42,7 @@
 @source "../**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}";
 
 @font-face {
-    font-family: 'DistantGalaxy';
+    font-family: "SFMono-Regular";
     src: url('/fonts/SFMono-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
@@ -50,7 +50,7 @@
 }
 
 *:not(i) {
-    font-family: SFMono-Regular;
+    font-family: "SFMono-Regular", ui-monospace, "Cascadia Mono", Consolas, monospace;
 }
 
 .prose {

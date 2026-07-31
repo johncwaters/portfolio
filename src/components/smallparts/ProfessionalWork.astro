@@ -13,18 +13,18 @@ import { projects } from "../../data/projects";
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
     {
       projects.map((project) => (
-        <div class="card bg-base-200">
+        <div class="card bg-base-200 h-full">
           <div class="card-body">
             <h2 class="card-title">{project.title}</h2>
             <p>{project.description}</p>
-            <p class="text-sm opacity-70">{project.impact}</p>
-            <div class="flex flex-wrap gap-2 mt-2">
+            <p class="text-sm opacity-70 mt-1">{project.impact}</p>
+            <div class="flex flex-wrap gap-2 mt-auto pt-4">
               {project.stack.map((tech) => (
                 <span class="badge badge-outline">{tech}</span>
               ))}
             </div>
             {project.href && (
-              <div class="card-actions mt-4">
+              <div class="card-actions mt-2">
                 <a href={project.href} class="btn btn-outline btn-sm">
                   Read More
                 </a>
