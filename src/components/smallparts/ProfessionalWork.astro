@@ -13,14 +13,24 @@ import { projects } from "../../data/projects";
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
     {
       projects.map((project) => (
-        <div class="workCard group relative flex flex-col h-full overflow-hidden bg-base-200 border border-[var(--brand-line)] transition-colors hover:border-[var(--brand-pink-soft)]">
-          <div class="flex items-center gap-2 bg-[var(--brand-chrome)] border-b border-[var(--brand-line)] px-4 py-2">
-            <span class="h-2.5 w-2.5 rounded-full bg-[var(--brand-red)]" aria-hidden="true" />
-            <span class="h-2.5 w-2.5 rounded-full bg-[var(--brand-pink)]" aria-hidden="true" />
-            <span class="h-2.5 w-2.5 rounded-full bg-[var(--brand-line)]" aria-hidden="true" />
-            <span class="ml-1 text-xs opacity-60">{project.file}</span>
+        <div class="workCard group relative flex flex-col h-full overflow-hidden bg-[var(--brand-terminal)] border border-[var(--brand-line)] transition-colors hover:border-[var(--brand-pink-soft)]">
+          <div
+            class="flex items-center gap-2.5 bg-[var(--brand-chrome)] border-b border-[var(--brand-line)] px-4 py-2"
+            aria-hidden="true"
+          >
+            <span class="text-sm font-bold text-[var(--brand-pink-soft)]">&gt;_</span>
+            <span class="text-xs opacity-60">john@work: ~/professional</span>
+            <span class="ml-auto flex gap-3 text-xs opacity-60">
+              <span>_</span>
+              <span>&#9633;</span>
+              <span>&#10005;</span>
+            </span>
           </div>
           <div class="flex flex-col flex-1 p-6 pl-7 text-left">
+            <p class="text-xs opacity-60 mb-3">
+              <span class="text-[var(--brand-pink-soft)]">{"$ "}</span>
+              cat {project.file}
+            </p>
             <h2 class="text-lg font-bold transition-colors group-hover:text-[var(--brand-pink-soft)]">
               {project.title}
             </h2>
@@ -29,18 +39,24 @@ import { projects } from "../../data/projects";
             </p>
             <p class="text-sm mb-3">{project.description}</p>
             <p class="text-sm italic opacity-70 mb-5">
-              <span class="text-[var(--brand-pink-soft)] not-italic">{"// "}</span>
+              <span class="text-[var(--brand-pink-soft)] not-italic">{"# "}</span>
               {project.impact}
             </p>
             {project.href && (
-              <div class="mt-auto">
-                <a
-                  href={project.href}
-                  class="btn btn-sm rounded border-0 text-white bg-gradient-to-r from-[var(--brand-red)] to-[var(--brand-pink)] hover:brightness-110"
-                >
-                  Read More
-                </a>
-              </div>
+              <a
+                href={project.href}
+                class="mt-auto self-start text-sm font-bold text-[var(--brand-pink-soft)] hover:text-[var(--brand-pink)] hover:underline"
+              >
+                <span class="font-normal text-base-content opacity-60">{"$ "}</span>
+                Read More
+                {" ->"}
+              </a>
+            )}
+            {!project.href && (
+              <p class="mt-auto text-sm" aria-hidden="true">
+                <span class="opacity-60">{"$ "}</span>
+                <span class="tmCursor" />
+              </p>
             )}
           </div>
         </div>
@@ -48,3 +64,25 @@ import { projects } from "../../data/projects";
     }
   </div>
 </div>
+
+<style>
+  .tmCursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1em;
+    background: var(--brand-pink-soft);
+    margin-left: 3px;
+    vertical-align: text-bottom;
+    animation: tm-blink 1.1s steps(1) infinite;
+  }
+  @keyframes tm-blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tmCursor {
+      animation: none;
+    }
+  }
+</style>

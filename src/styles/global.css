@@ -60,6 +60,7 @@
     --brand-pink-soft: #ff5c8a;
     --brand-line: #12455e;
     --brand-chrome: #032033;
+    --brand-terminal: #001b2b;
 }
 
 .workCard::before {
