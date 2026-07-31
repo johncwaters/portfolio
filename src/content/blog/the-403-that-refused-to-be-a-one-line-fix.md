@@ -1,7 +1,7 @@
 ---
 title: "The 403 That Refused to Be a One-Line Fix"
 description: "A failing deploy, a hand-edited Azure role shared by three services, and why the real fix was an IAM-as-code layer with a drift gate instead of a permissions patch."
-pubDate: 2026-07-30
+pubDate: 2026-03-10
 tags: ["azure", "rbac", "bicep", "infrastructure-as-code"]
 ---
 

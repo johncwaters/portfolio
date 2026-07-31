@@ -41,9 +41,7 @@
   <text x="52" y="666" font-size="14.5" fill="#9fb6c4">working / awaiting input</text>
   <text x="52" y="686" font-size="14.5" fill="#d84a8b">task complete</text>
 
-  <!-- hooks route down the right margin into the merge box -->
-  <path d="M468,145 C486,145 486,145 486,240 L486,512 C486,512 486,512 472,512" fill="none" stroke="#d84a8b" stroke-width="2" marker-end="url(#arrow)" />
-  <!-- title straight down into the merge box -->
+  <path d="M468,145 C486,145 486,145 486,240 L486,512 C486,512 486,512 468,512" fill="none" stroke="#d84a8b" stroke-width="2" marker-end="url(#arrow)" />
   <path d="M250,402 L250,448" fill="none" stroke="#6b8697" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowFaint)" />
   <path d="M250,572 L250,602" fill="none" stroke="#d84a8b" stroke-width="2" marker-end="url(#arrow)" />
 </svg>

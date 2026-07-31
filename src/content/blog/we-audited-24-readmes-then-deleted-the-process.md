@@ -1,7 +1,7 @@
 ---
 title: "We Audited 24 READMEs by Hand. Then We Deleted the Process."
 description: "Twenty pull requests into a manual documentation cleanup, we abandoned the epic on purpose and replaced it with a linter and a required CI check."
-pubDate: 2026-07-29
+pubDate: 2026-01-22
 tags: ["developer-experience", "ci", "documentation", "process"]
 ---
 
