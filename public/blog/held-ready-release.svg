@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" font-family="ui-monospace, 'Cascadia Mono', Consolas, monospace" role="img" aria-label="Diagram: the arbiter that decides whether a held ready signal is cancelled, kept holding, or released as task complete">
+  <defs>
+    <marker id="arrowR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a2a4a" />
+    </marker>
+    <marker id="arrowD" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9fb6c4" />
+    </marker>
+    <marker id="arrowP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#d84a8b" />
+    </marker>
+  </defs>
+
+  <rect x="1" y="1" width="858" height="518" rx="10" fill="#002438" stroke="#e07a9f" stroke-opacity="0.18" />
+
+  <text x="28" y="42" font-size="15" fill="#6b8697">$ <tspan fill="#d84a8b">cat</tspan> <tspan fill="#ffffff">release-held-ready.md</tspan></text>
+
+  <!-- held ready entry -->
+  <rect x="60" y="66" width="300" height="44" rx="6" fill="#06304a" stroke="#e07a9f" stroke-opacity="0.4" />
+  <text x="210" y="93" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">held ready (from a real Stop)</text>
+
+  <!-- check 1 -->
+  <path d="M60,140 L360,140 L360,184 L60,184 Z" fill="#06304a" stroke="#6b8697" stroke-opacity="0.5" />
+  <text x="210" y="167" font-size="13" fill="#9fb6c4" text-anchor="middle">state changed since the stash?</text>
+  <path d="M360,162 L560,162" fill="none" stroke="#8a2a4a" stroke-width="2" marker-end="url(#arrowR)" />
+  <text x="460" y="152" font-size="11" fill="#8a2a4a" text-anchor="middle">yes</text>
+  <rect x="564" y="140" width="150" height="44" rx="6" fill="#002438" stroke="#8a2a4a" />
+  <text x="639" y="167" font-size="13" fill="#e07a9f" text-anchor="middle">cancel</text>
+
+  <!-- check 2 -->
+  <path d="M60,214 L360,214 L360,258 L60,258 Z" fill="#06304a" stroke="#6b8697" stroke-opacity="0.5" />
+  <text x="210" y="241" font-size="13" fill="#9fb6c4" text-anchor="middle">newer signal after the stash?</text>
+  <path d="M360,236 L560,236" fill="none" stroke="#8a2a4a" stroke-width="2" marker-end="url(#arrowR)" />
+  <text x="460" y="226" font-size="11" fill="#8a2a4a" text-anchor="middle">yes</text>
+  <rect x="564" y="214" width="150" height="44" rx="6" fill="#002438" stroke="#8a2a4a" />
+  <text x="639" y="241" font-size="13" fill="#e07a9f" text-anchor="middle">cancel</text>
+  <text x="740" y="241" font-size="11" fill="#6b8697">(ordered by seq,</text>
+  <text x="740" y="256" font-size="11" fill="#6b8697">not timestamp)</text>
+
+  <!-- check 3 -->
+  <path d="M60,288 L360,288 L360,332 L60,332 Z" fill="#06304a" stroke="#6b8697" stroke-opacity="0.5" />
+  <text x="210" y="315" font-size="13" fill="#9fb6c4" text-anchor="middle">anything still gating?</text>
+  <path d="M360,310 L560,310" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD)" />
+  <text x="460" y="300" font-size="11" fill="#9fb6c4" text-anchor="middle">yes</text>
+  <rect x="564" y="288" width="150" height="44" rx="6" fill="#002438" stroke="#6b8697" />
+  <text x="639" y="315" font-size="13" fill="#9fb6c4" text-anchor="middle">keep holding</text>
+  <text x="740" y="315" font-size="11" fill="#6b8697">(sub-agents,</text>
+  <text x="740" y="330" font-size="11" fill="#6b8697">declared tasks)</text>
+
+  <!-- check 4 -->
+  <path d="M60,362 L360,362 L360,406 L60,406 Z" fill="#06304a" stroke="#6b8697" stroke-opacity="0.5" />
+  <text x="210" y="389" font-size="13" fill="#9fb6c4" text-anchor="middle">quiet long enough? (10s)</text>
+  <path d="M360,384 L560,384" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD)" />
+  <text x="460" y="374" font-size="11" fill="#9fb6c4" text-anchor="middle">no</text>
+  <rect x="564" y="362" width="150" height="44" rx="6" fill="#002438" stroke="#6b8697" />
+  <text x="639" y="389" font-size="13" fill="#9fb6c4" text-anchor="middle">keep holding</text>
+
+  <!-- release -->
+  <rect x="60" y="440" width="300" height="44" rx="6" fill="#06304a" stroke="#d84a8b" />
+  <text x="210" y="467" font-size="13" font-weight="700" fill="#d84a8b" text-anchor="middle">release: task complete</text>
+
+  <!-- vertical spine -->
+  <path d="M210,110 L210,136" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD)" />
+  <path d="M210,184 L210,210" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD)" />
+  <text x="222" y="203" font-size="11" fill="#6b8697">no</text>
+  <path d="M210,258 L210,284" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD)" />
+  <text x="222" y="277" font-size="11" fill="#6b8697">no</text>
+  <path d="M210,332 L210,358" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD)" />
+  <text x="222" y="351" font-size="11" fill="#6b8697">no</text>
+  <path d="M210,406 L210,436" fill="none" stroke="#d84a8b" stroke-width="2" marker-end="url(#arrowP)" />
+  <text x="222" y="429" font-size="11" fill="#d84a8b">yes</text>
+</svg>
