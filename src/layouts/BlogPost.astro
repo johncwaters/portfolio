@@ -1,5 +1,6 @@
 ---
 import DefaultPage from "./DefaultPage.astro";
+import { formatDate } from "../utils/formatDate";
 
 export interface Props {
   title: string;
@@ -9,11 +10,7 @@ export interface Props {
 }
 
 const { title, description, pubDate, tags } = Astro.props;
-const formattedDate = pubDate.toLocaleDateString("en-us", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-});
+const formattedDate = formatDate(pubDate);
 ---
 
 <DefaultPage title={title} description={description} showHeader>
