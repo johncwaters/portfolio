@@ -1,5 +1,13 @@
 # build output
 dist/
+.vercel/
+
+# generated
+.astro/
+
+# tooling
+.glissa/
+.compiled-commit-tmp/
 
 # dependencies
 node_modules/
