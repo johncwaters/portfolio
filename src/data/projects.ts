@@ -42,14 +42,14 @@ export const projects: Project[] = [
   {
     title: "Dispatch Automation Reliability",
     file: "dispatch-reliability.md",
-    description: "Hardened an Azure Durable Functions system that automates time-boxed regulatory dispatch calls: orchestrator refactors, recall handling, and an unsampled heartbeat metric with a liveness monitor.",
+    description: "Designed and built the Azure Durable Functions system that automates time-boxed regulatory dispatch calls, then hardened it: orchestrator refactors, recall handling, and an unsampled heartbeat metric with a liveness monitor.",
     impact: "Silent failure of a business-critical workflow now alerts within minutes instead of going unnoticed.",
     stack: ["C#", ".NET", "Durable Functions", "Datadog"],
   },
   {
     title: "Team AI Tooling and PR Analytics",
     file: "team-ai-tooling.md",
-    description: "Built a Claude Code plugin encoding the org's PR, story, and release workflows as skills, plus an Azure DevOps extension dashboarding org-wide PR review health.",
+    description: "Own AI adoption and engineering standards across the org: a Claude Code plugin encoding PR, story, and release workflows as skills, plus an Azure DevOps extension dashboarding org-wide PR review health.",
     impact: "Standards apply themselves at the point of work, and PR review bottlenecks are visible instead of anecdotal.",
     stack: ["TypeScript", "React", "Claude Code", "Azure DevOps"],
   },
