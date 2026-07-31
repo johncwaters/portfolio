@@ -53,6 +53,24 @@
     font-family: "SFMono-Regular", ui-monospace, "Cascadia Mono", Consolas, monospace;
 }
 
+/* brand palette shared by the workCard surfaces (Professional Work and My Works); red/pink match the hero wave gradient */
+:root {
+    --brand-red: #ff0005;
+    --brand-pink: #ff0092;
+    --brand-pink-soft: #ff5c8a;
+    --brand-line: #12455e;
+    --brand-chrome: #032033;
+}
+
+.workCard::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--brand-red), var(--brand-pink));
+    z-index: 1;
+}
+
 .prose {
     --tw-prose-body: var(--color-base-content);
     --tw-prose-headings: var(--color-base-content);
