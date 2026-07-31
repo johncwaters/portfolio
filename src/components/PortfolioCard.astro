@@ -28,7 +28,11 @@ const hostnameFrom = (url: string): string => {
 };
 const displayUrl = hostnameFrom(hrefUrl);
 
+// 2048x894 is the shared banner size of the client-site images; every viewport uses it so card heights align across the grid
+const viewportAspectClass = "aspect-[2048/894]";
 const isContain = imageFit === "contain";
+const viewportBackdropClass = isContain ? "bg-white p-4" : "";
+const imageFitClass = isContain ? "object-contain" : "object-cover";
 ---
 
 <div class="workCard group relative flex flex-col w-96 max-w-full overflow-hidden bg-base-200 border border-[var(--brand-line)] transition-colors hover:border-[var(--brand-pink-soft)]">
@@ -43,12 +47,12 @@ const isContain = imageFit === "contain";
     </span>
   </div>
   <div
-    class={`aspect-[2048/894] w-full border-b border-[var(--brand-line)] ${isContain ? "bg-white p-4" : ""}`}
+    class={`${viewportAspectClass} w-full border-b border-[var(--brand-line)] ${viewportBackdropClass}`}
   >
     <Image
       src={image}
       alt={altText}
-      class={`h-full w-full ${isContain ? "object-contain" : "object-cover"}`}
+      class={`h-full w-full ${imageFitClass}`}
     />
   </div>
   <div class="flex flex-col flex-1 p-5 pl-6 text-left">
