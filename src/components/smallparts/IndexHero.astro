@@ -6,6 +6,9 @@ import Header from "../Header.astro";
   <div id="background" class="relative isolate w-full min-h-screen">
     <div class="waveLayer wave-back opacity-0" style="--delay: 1.25s;" aria-hidden="true"></div>
     <div class="waveLayer wave-mid opacity-0" style="--delay: 0.95s;" aria-hidden="true"></div>
+    <div class="hedgehogPeek" aria-hidden="true">
+      <img id="hedgehogPeekImage" alt="" width="360" height="397" />
+    </div>
     <div class="waveLayer wave-front opacity-0" style="--delay: 0.75s;" aria-hidden="true"></div>
     <Header animDelay={"1.5s"} />
 
@@ -118,4 +121,56 @@ import Header from "../Header.astro";
       transform: translateY(0%);
     }
   }
+
+  /* PostHog easter egg: sits between the mid and front wave layers (same
+     z-index, DOM order decides paint order) so the front wave hides it until
+     it rises */
+  .hedgehogPeek {
+    position: absolute;
+    z-index: -1;
+    bottom: 10%;
+    left: 62%;
+    width: clamp(90px, 12vw, 150px);
+    transform: translateY(130%) rotate(6deg);
+    transition: transform 900ms cubic-bezier(0.34, 1.56, 0.64, 1) 400ms;
+    pointer-events: none;
+  }
+  #background.showHedgehog .hedgehogPeek {
+    transform: translateY(0) rotate(0deg);
+  }
+  .hedgehogPeek img {
+    width: 100%;
+    height: auto;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hedgehogPeek {
+      transition: none;
+    }
+  }
 </style>
+
+<script>
+  const isFromPosthog = (): boolean => {
+    if (new URLSearchParams(window.location.search).has("ph")) return true;
+    try {
+      const referrerHost = new URL(document.referrer).hostname;
+      return referrerHost === "posthog.com" || referrerHost.endsWith(".posthog.com");
+    } catch {
+      return false;
+    }
+  };
+
+  const revealHedgehog = async () => {
+    const hedgehogImage = document.getElementById("hedgehogPeekImage");
+    if (!(hedgehogImage instanceof HTMLImageElement)) return;
+    hedgehogImage.src = "/hedgehog/waving-hog.png";
+    try {
+      await hedgehogImage.decode();
+    } catch {
+      /* a failed decode still leaves whatever the browser managed to load */
+    }
+    document.getElementById("background")?.classList.add("showHedgehog");
+  };
+
+  if (isFromPosthog()) revealHedgehog();
+</script>
