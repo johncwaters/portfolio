@@ -8,6 +8,7 @@ export interface Props {
   hrefUrl: string;
   altText: string;
   imageFit?: "cover" | "contain";
+  imageClass?: string;
 }
 
 const {
@@ -17,6 +18,7 @@ const {
   hrefUrl,
   altText,
   imageFit = "cover",
+  imageClass = "",
 } = Astro.props;
 
 const hostnameFrom = (url: string): string => {
@@ -32,7 +34,10 @@ const displayUrl = hostnameFrom(hrefUrl);
 const viewportAspectClass = "aspect-[2048/894]";
 const isContain = imageFit === "contain";
 const viewportBackdropClass = isContain ? "bg-white p-4" : "";
-const imageFitClass = isContain ? "object-contain" : "object-cover";
+// contain mode hugs the drawn image (w-auto) so per-card imageClass borders/radii clip the visible artwork, not the letterboxed element
+const imageFitClass = isContain
+  ? "object-contain h-full w-auto mx-auto"
+  : "object-cover h-full w-full";
 ---
 
 <div class="workCard group relative flex flex-col w-full h-full overflow-hidden bg-base-200 border border-[var(--brand-line)] transition-colors hover:border-[var(--brand-pink-soft)]">
@@ -52,7 +57,7 @@ const imageFitClass = isContain ? "object-contain" : "object-cover";
     <Image
       src={image}
       alt={altText}
-      class={`h-full w-full ${imageFitClass}`}
+      class={`${imageFitClass} ${imageClass}`}
     />
   </div>
   <div class="flex flex-col flex-1 p-5 pl-6 text-left">
