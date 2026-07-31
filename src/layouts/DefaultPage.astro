@@ -21,13 +21,15 @@ const {
 
 <!DOCTYPE html>
 <html data-theme="dark" lang="en-us" class="scroll-smooth">
-  <BaseHead title={title} description={description} />
-  <!--<GoogleAnalytics id="G-QP2FLYGVL3" />-->
+  <head>
+    <BaseHead title={title} description={description} />
+    <!--<GoogleAnalytics id="G-QP2FLYGVL3" />-->
+  </head>
 
   <body class="flex flex-col min-h-screen">
     <main class="flex flex-col flex-1">
       {showHeader && <Header />}
-      <slot /><!-- Body Stuff goes here -->
+      <slot />
     </main>
     <footer>
       <Footer />
