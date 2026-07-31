@@ -27,4 +27,4 @@ The contact form needs credentials: copy `.example.env` to `.env` and fill in th
 
 ## Easter egg
 
-Arrive with `?ph=1` or a posthog.com referrer and a hedgehog peeks out of the hero waves.
+A hedgehog peeks out of the hero waves once they finish rising.

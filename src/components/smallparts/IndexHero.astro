@@ -160,16 +160,6 @@ import Header from "../Header.astro";
 </style>
 
 <script>
-  const isFromPosthog = (): boolean => {
-    if (new URLSearchParams(window.location.search).has("ph")) return true;
-    try {
-      const referrerHost = new URL(document.referrer).hostname;
-      return referrerHost === "posthog.com" || referrerHost.endsWith(".posthog.com");
-    } catch {
-      return false;
-    }
-  };
-
   const revealHedgehog = async () => {
     const hedgehogImage = document.getElementById("hedgehogPeekImage");
     if (!(hedgehogImage instanceof HTMLImageElement)) return;
@@ -182,5 +172,5 @@ import Header from "../Header.astro";
     document.getElementById("background")?.classList.add("showHedgehog");
   };
 
-  if (isFromPosthog()) revealHedgehog();
+  revealHedgehog();
 </script>
