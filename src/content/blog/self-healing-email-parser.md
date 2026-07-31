@@ -28,7 +28,7 @@ The system I built works like this:
 3. **Match.** Look the signature up in the profile store. Known signature: apply the stored extraction profile, a purely static, declarative set of rules. This is the hot path, and it contains no AI at all.
 4. **Heal.** Unknown signature: make exactly one LLM call. The model's job is not to parse the message. Its job is to *write the extraction profile* for this format: where each field lives, what pattern captures it, what the delimiters are. The profile is stored against the signature, and every future message in that format parses statically.
 
-![Diagram: every email is normalized and fingerprinted; known signatures parse with a stored static profile on the hot path, unknown signatures trigger one LLM call that writes and stores a new profile](/blog/parser-pipeline.svg)
+![Diagram: every email is normalized and fingerprinted; known signatures parse with a stored static profile on the hot path, unknown signatures trigger exactly one LLM call that writes and stores a new profile](/blog/parser-pipeline.svg)
 
 The comparison ends up lopsided:
 

@@ -27,7 +27,7 @@ The old OSC-0 terminal-title trick didn't get deleted, it got demoted. A braille
 
 The two sources feed a merge step with explicit precedence (hook beats title) and a short conflict window: if a `ready` signal shows up, Glissa holds it briefly in case a racing `awaiting-input` or a fresh `working` signal is about to arrive and should win instead. That window is what saved me from the next class of bug, and also what let one slip through.
 
-![Diagram: hooks and the terminal-title fallback feed a merge step with explicit precedence, which drives the session card status](/blog/status-detection-pipeline.svg)
+![Diagram: Claude Code hooks and the terminal title fallback both feed a merge step with explicit precedence, which drives the session card status](/blog/status-detection-pipeline.svg)
 
 ## War story one: the quiet redraw
 
