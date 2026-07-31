@@ -13,6 +13,7 @@ Personal portfolio and blog, live at [www.johncwaters.com](https://www.johncwate
 - `/` landing page: animated wave hero, Professional Work (terminal-style cards driven by `src/data/projects.ts`), My Works (browser-window cards in `src/components/smallparts/Portfolio.astro`), About Me, contact form
 - `/blog` Markdown content collection in `src/content/blog/`, schema in `src/content.config.ts`, feed at `/rss.xml`
 - `/api/nodemailer` serverless contact form endpoint (nodemailer with Gmail OAuth via googleapis)
+- `/resume.pdf` one-page resume, linked from the header nav
 
 ## Development
 
