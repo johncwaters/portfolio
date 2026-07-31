@@ -90,3 +90,10 @@
     --tw-prose-th-borders: var(--color-neutral);
     --tw-prose-td-borders: var(--color-neutral);
 }
+
+/* narrow-viewBox SVG diagrams stay readable full-width on phones but would
+   scale up comically at full prose width on desktop */
+.prose img[src$=".svg"] {
+    max-width: min(100%, 30rem);
+    margin-inline: auto;
+}
