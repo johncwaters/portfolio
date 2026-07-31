@@ -29,6 +29,8 @@ The problem: those twenty merges would have consumed the team's attention budget
 
 The replacement had four parts, none of them clever individually. The prose style guide became a machine-checkable contract: required sections, required ordering, patterns each section must satisfy, and any rule that could not be checked by a program was rewritten until it could be, or cut. A small Python linter validates any README against that contract and says exactly what is missing, in terms a contributor can fix without ever opening the style guide. A reusable pipeline template lets any repo add the check with one include. And a required branch policy makes it binding: a PR that breaks the README contract does not merge.
 
+![Diagram: the manual audit produced a dated snapshot of compliance; the replacement lints every pull request against a machine-checkable README contract, and a required branch policy makes passing the gate a condition of merging](/blog/readme-gate.svg)
+
 Bulk remediation still happened, once, to get every repo past the gate. The difference is that the gate remains. The system now enforces the standard on every future PR, forever, at a marginal cost of about two seconds of CI time. Compliance stopped being a project and became a property.
 
 ## Audits become artifacts

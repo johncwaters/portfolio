@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 780" font-family="ui-monospace, 'Cascadia Mono', Consolas, monospace" role="img" aria-label="Diagram: every email is normalized and fingerprinted; known signatures parse with a stored static profile on the hot path, unknown signatures trigger exactly one LLM call that writes and stores a new profile">
+  <defs>
+    <marker id="arrowP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#d84a8b" />
+    </marker>
+    <marker id="arrowD" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9fb6c4" />
+    </marker>
+  </defs>
+
+  <rect x="1" y="1" width="498" height="778" rx="10" fill="#002438" stroke="#e07a9f" stroke-opacity="0.18" />
+
+  <text x="28" y="42" font-size="16" fill="#6b8697">$ <tspan fill="#d84a8b">cat</tspan> <tspan fill="#ffffff">self-healing-parser.md</tspan></text>
+
+  <rect x="32" y="70" width="436" height="48" rx="6" fill="#06304a" stroke="#e07a9f" stroke-opacity="0.4" />
+  <text x="250" y="100" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">locate ticket arrives as email</text>
+
+  <path d="M250,118 L250,146" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD)" />
+
+  <rect x="32" y="150" width="436" height="64" rx="6" fill="#06304a" stroke="#6b8697" stroke-opacity="0.5" />
+  <text x="250" y="178" font-size="15.5" font-weight="700" fill="#ffffff" text-anchor="middle">Normalize</text>
+  <text x="250" y="200" font-size="12.5" fill="#6b8697" text-anchor="middle">(encodings, wrapped lines, signature noise)</text>
+
+  <path d="M250,214 L250,242" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD)" />
+
+  <rect x="32" y="246" width="436" height="64" rx="6" fill="#06304a" stroke="#6b8697" stroke-opacity="0.5" />
+  <text x="250" y="274" font-size="15.5" font-weight="700" fill="#ffffff" text-anchor="middle">Fingerprint</text>
+  <text x="250" y="296" font-size="12.5" fill="#6b8697" text-anchor="middle">(structure only, field values stripped)</text>
+
+  <path d="M250,310 L250,338" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD)" />
+
+  <rect x="32" y="342" width="436" height="52" fill="#06304a" stroke="#6b8697" stroke-opacity="0.5" />
+  <text x="250" y="374" font-size="15.5" fill="#9fb6c4" text-anchor="middle">signature in the profile store?</text>
+
+  <!-- unknown: heal once -->
+  <path d="M388,394 L388,414" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD)" />
+  <text x="400" y="410" font-size="13" fill="#6b8697">no</text>
+  <rect x="250" y="418" width="218" height="64" rx="6" fill="#002438" stroke="#e07a9f" stroke-opacity="0.6" />
+  <text x="359" y="444" font-size="14" fill="#e07a9f" text-anchor="middle">one LLM call writes</text>
+  <text x="359" y="466" font-size="14" fill="#e07a9f" text-anchor="middle">the extraction profile</text>
+  <path d="M359,482 L359,502" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD)" />
+  <rect x="250" y="506" width="218" height="42" rx="6" fill="#002438" stroke="#6b8697" />
+  <text x="359" y="533" font-size="14" fill="#9fb6c4" text-anchor="middle">stored by signature</text>
+  <path d="M359,548 C359,568 380,576 388,584" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD)" />
+
+  <!-- known: hot path -->
+  <path d="M140,394 L140,584" fill="none" stroke="#d84a8b" stroke-width="2" marker-end="url(#arrowP)" />
+  <text x="152" y="500" font-size="13" fill="#d84a8b">yes</text>
+
+  <rect x="32" y="588" width="436" height="84" rx="6" fill="#06304a" stroke="#d84a8b" stroke-opacity="0.55" />
+  <text x="250" y="616" font-size="15.5" font-weight="700" fill="#ffffff" text-anchor="middle">apply the static profile</text>
+  <text x="250" y="638" font-size="12.5" fill="#6b8697" text-anchor="middle">(declarative rules, regex and string ops)</text>
+  <text x="250" y="660" font-size="12" fill="#d84a8b" letter-spacing="1" text-anchor="middle">HOT PATH: ZERO AI CALLS</text>
+
+  <path d="M250,672 L250,700" fill="none" stroke="#d84a8b" stroke-width="2" marker-end="url(#arrowP)" />
+
+  <rect x="32" y="704" width="436" height="48" rx="6" fill="#06304a" stroke="#d84a8b" />
+  <text x="250" y="734" font-size="15.5" font-weight="700" fill="#d84a8b" text-anchor="middle">parsed the same way, every time</text>
+</svg>

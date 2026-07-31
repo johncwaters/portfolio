@@ -30,6 +30,8 @@ We stood up an IAM layer in our platform infrastructure repository. The custom r
 
 Then the part that keeps it fixed: a CI gate that runs an ARM what-if against the live role on every change. If someone hand-edits the role in the portal again, the drift shows up as a failed build in daylight, not as a failed production deploy at 5pm. The role's definition in code is now authoritative, and the pipeline proves it stays that way.
 
+![Diagram: the role definition moves from hand edits in the portal to a Bicep file that deploys the live role, with a CI what-if gate comparing code against live so drift fails the build instead of a production deploy](/blog/iam-drift-gate.svg)
+
 Because the role was shared, fixing it once fixed three services. Shared infrastructure multiplies blast radius, but it multiplies fix value by exactly the same factor. That trade is worth making on purpose instead of by accident.
 
 ## The rejected alternative, honestly

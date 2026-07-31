@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 560" font-family="ui-monospace, 'Cascadia Mono', Consolas, monospace" role="img" aria-label="Diagram: the manual audit produced a dated snapshot of compliance; its replacement lints every pull request against a machine-checkable README contract, failing PRs get an exact fix list, and a required branch policy makes passing the gate a condition of merging">
+  <defs>
+    <marker id="arrowP3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#d84a8b" />
+    </marker>
+    <marker id="arrowD3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9fb6c4" />
+    </marker>
+  </defs>
+
+  <rect x="1" y="1" width="498" height="558" rx="10" fill="#002438" stroke="#e07a9f" stroke-opacity="0.18" />
+
+  <text x="28" y="42" font-size="16" fill="#6b8697">$ <tspan fill="#d84a8b">cat</tspan> <tspan fill="#ffffff">readme-gate.md</tspan></text>
+
+  <!-- before -->
+  <rect x="32" y="66" width="436" height="110" rx="6" fill="#06304a" stroke="#6b8697" stroke-opacity="0.5" stroke-dasharray="5 4" />
+  <text x="52" y="94" font-size="12" fill="#9fb6c4" letter-spacing="1">BEFORE</text>
+  <text x="52" y="120" font-size="14" fill="#9fb6c4">manual audit: 24 repos, 24 stories, 20 PRs</text>
+  <text x="52" y="142" font-size="14" fill="#e07a9f">&#8594; a photograph of compliance,</text>
+  <text x="52" y="164" font-size="14" fill="#e07a9f">  dated the day you finished</text>
+
+  <path d="M250,176 L250,212" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD3)" />
+
+  <!-- after -->
+  <rect x="32" y="216" width="436" height="48" rx="6" fill="#06304a" stroke="#e07a9f" stroke-opacity="0.4" />
+  <text x="250" y="246" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">every pull request</text>
+
+  <path d="M250,264 L250,292" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD3)" />
+
+  <rect x="32" y="296" width="436" height="68" rx="6" fill="#06304a" stroke="#e07a9f" stroke-opacity="0.35" />
+  <text x="250" y="324" font-size="15.5" font-weight="700" fill="#ffffff" text-anchor="middle">README linter</text>
+  <text x="250" y="346" font-size="12.5" fill="#6b8697" text-anchor="middle">(machine-checkable contract, ~2s of CI)</text>
+
+  <path d="M388,364 L388,384" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD3)" />
+  <text x="400" y="380" font-size="13" fill="#6b8697">fail</text>
+  <rect x="250" y="388" width="218" height="64" rx="6" fill="#002438" stroke="#6b8697" />
+  <text x="359" y="414" font-size="14" fill="#9fb6c4" text-anchor="middle">says exactly what is</text>
+  <text x="359" y="436" font-size="14" fill="#9fb6c4" text-anchor="middle">missing; fix and push</text>
+  <path d="M468,420 C488,420 488,420 488,380 L488,330 C488,330 488,330 472,330" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD3)" />
+
+  <path d="M140,364 L140,468" fill="none" stroke="#d84a8b" stroke-width="2" marker-end="url(#arrowP3)" />
+  <text x="152" y="422" font-size="13" fill="#d84a8b">pass</text>
+
+  <rect x="32" y="472" width="436" height="64" rx="6" fill="#06304a" stroke="#d84a8b" />
+  <text x="250" y="500" font-size="16" font-weight="700" fill="#d84a8b" text-anchor="middle">merge</text>
+  <text x="250" y="522" font-size="12.5" fill="#6b8697" text-anchor="middle">(required branch policy: no pass, no merge)</text>
+</svg>

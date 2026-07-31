@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 680" font-family="ui-monospace, 'Cascadia Mono', Consolas, monospace" role="img" aria-label="Diagram: the role definition moves from hand edits in the portal to a Bicep file that deploys the live role, with a CI what-if gate comparing code against live so drift fails the build instead of a production deploy">
+  <defs>
+    <marker id="arrowP2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#d84a8b" />
+    </marker>
+    <marker id="arrowD2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9fb6c4" />
+    </marker>
+    <marker id="arrowR2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a2a4a" />
+    </marker>
+  </defs>
+
+  <rect x="1" y="1" width="498" height="678" rx="10" fill="#002438" stroke="#e07a9f" stroke-opacity="0.18" />
+
+  <text x="28" y="42" font-size="16" fill="#6b8697">$ <tspan fill="#d84a8b">cat</tspan> <tspan fill="#ffffff">iam-as-code.md</tspan></text>
+
+  <!-- before -->
+  <rect x="32" y="66" width="436" height="118" rx="6" fill="#06304a" stroke="#6b8697" stroke-opacity="0.5" stroke-dasharray="5 4" />
+  <text x="52" y="94" font-size="12" fill="#9fb6c4" letter-spacing="1">BEFORE</text>
+  <text x="52" y="120" font-size="14" fill="#9fb6c4">custom role, hand-edited in the portal,</text>
+  <text x="52" y="142" font-size="14" fill="#9fb6c4">shared by three services, recorded nowhere</text>
+  <text x="52" y="166" font-size="14" fill="#e07a9f">&#8594; a 403 in a deploy pipeline, later</text>
+
+  <path d="M250,184 L250,220" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD2)" />
+
+  <!-- after -->
+  <rect x="32" y="224" width="436" height="68" rx="6" fill="#06304a" stroke="#d84a8b" stroke-opacity="0.55" />
+  <text x="250" y="252" font-size="15.5" font-weight="700" fill="#ffffff" text-anchor="middle">role definition in Bicep</text>
+  <text x="250" y="274" font-size="12.5" fill="#6b8697" text-anchor="middle">(versioned, reviewed in pull requests)</text>
+
+  <path d="M250,292 L250,320" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD2)" />
+  <text x="262" y="313" font-size="13" fill="#6b8697">deploy</text>
+
+  <rect x="32" y="324" width="436" height="68" rx="6" fill="#06304a" stroke="#6b8697" stroke-opacity="0.5" />
+  <text x="250" y="352" font-size="15.5" font-weight="700" fill="#ffffff" text-anchor="middle">live Azure role</text>
+  <text x="250" y="374" font-size="12.5" fill="#6b8697" text-anchor="middle">(shared: one fix fixed three services)</text>
+
+  <path d="M250,392 L250,420" fill="none" stroke="#9fb6c4" stroke-width="2" marker-end="url(#arrowD2)" />
+  <path d="M468,258 C486,258 486,258 486,340 L486,458 C486,458 486,458 468,458" fill="none" stroke="#d84a8b" stroke-width="2" marker-end="url(#arrowP2)" />
+
+  <rect x="32" y="424" width="436" height="68" rx="6" fill="#06304a" stroke="#e07a9f" stroke-opacity="0.35" />
+  <text x="250" y="452" font-size="15.5" font-weight="700" fill="#ffffff" text-anchor="middle">CI what-if gate</text>
+  <text x="250" y="474" font-size="12.5" fill="#6b8697" text-anchor="middle">(code vs live, on every change)</text>
+
+  <path d="M388,492 L388,512" fill="none" stroke="#8a2a4a" stroke-width="2" marker-end="url(#arrowR2)" />
+  <text x="400" y="508" font-size="13" fill="#8a2a4a">drift</text>
+  <rect x="250" y="516" width="218" height="64" rx="6" fill="#002438" stroke="#8a2a4a" />
+  <text x="359" y="542" font-size="14" fill="#e07a9f" text-anchor="middle">failed build in daylight,</text>
+  <text x="359" y="564" font-size="14" fill="#e07a9f" text-anchor="middle">not a deploy at 5pm</text>
+
+  <path d="M140,492 L140,592" fill="none" stroke="#d84a8b" stroke-width="2" marker-end="url(#arrowP2)" />
+  <text x="152" y="546" font-size="13" fill="#d84a8b">clean</text>
+
+  <rect x="32" y="596" width="436" height="52" rx="6" fill="#06304a" stroke="#d84a8b" />
+  <text x="250" y="628" font-size="15.5" font-weight="700" fill="#d84a8b" text-anchor="middle">the file is the truth, CI proves it</text>
+</svg>
