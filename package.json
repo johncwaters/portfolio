@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "1.0.0",
   "private": false,
-  "description": "My personal portfolio built with Astro, Tailwind, Typescript, and a dash of React.",
+  "description": "My personal portfolio and blog, built with Astro, Tailwind, daisyUI, and TypeScript.",
   "author": {
     "email": "john@johncwaters.com",
     "name": "John C. Waters",
