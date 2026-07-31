@@ -7,9 +7,17 @@ export interface Props {
   message: string;
   hrefUrl: string;
   altText: string;
+  imageFit?: "cover" | "contain";
 }
 
-const { image, title, message, hrefUrl, altText } = Astro.props;
+const {
+  image,
+  title,
+  message,
+  hrefUrl,
+  altText,
+  imageFit = "cover",
+} = Astro.props;
 
 const hostnameFrom = (url: string): string => {
   try {
@@ -19,6 +27,8 @@ const hostnameFrom = (url: string): string => {
   }
 };
 const displayUrl = hostnameFrom(hrefUrl);
+
+const isContain = imageFit === "contain";
 ---
 
 <div class="workCard group relative flex flex-col w-96 max-w-full overflow-hidden bg-base-200 border border-[var(--brand-line)] transition-colors hover:border-[var(--brand-pink-soft)]">
@@ -32,7 +42,15 @@ const displayUrl = hostnameFrom(hrefUrl);
       {displayUrl}
     </span>
   </div>
-  <Image src={image} alt={altText} class="object-cover border-b border-[var(--brand-line)]" />
+  <div
+    class={`aspect-[2048/894] w-full border-b border-[var(--brand-line)] ${isContain ? "bg-white p-4" : ""}`}
+  >
+    <Image
+      src={image}
+      alt={altText}
+      class={`h-full w-full ${isContain ? "object-contain" : "object-cover"}`}
+    />
+  </div>
   <div class="flex flex-col flex-1 p-5 pl-6 text-left">
     <h3 class="text-base font-bold transition-colors group-hover:text-[var(--brand-pink-soft)]">
       {title}

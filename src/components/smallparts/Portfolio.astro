@@ -2,6 +2,9 @@
 import watersMassageLogo from "../../assets/portfolio_logos/wmt_logo.png";
 import BlackWiddowTattooLogo from "../../assets/portfolio_logos/black_willow_tattoo_logo.png";
 import DevsDailyDigest from "../../assets/portfolio_logos/devs_daily_digest.png";
+import CardHarborLogo from "../../assets/portfolio_logos/card_harbor_logo.png";
+import GlissaScreenshot from "../../assets/portfolio_logos/glissa_screenshot.png";
+import KeeplingsSplashLogo from "../../assets/portfolio_logos/keeplings_splash_logo.png";
 import PortfolioCard from "../PortfolioCard.astro";
 ---
 
@@ -16,6 +19,29 @@ import PortfolioCard from "../PortfolioCard.astro";
   <div
     class="grid grid-cols-1 gap-11 lg:grid-cols-2 xl:grid-cols-3 justify-center justify-items-center mt-12"
   >
+    <PortfolioCard
+      image={CardHarborLogo}
+      imageFit="contain"
+      hrefUrl={"https://cardharbor.watersedgegames.com"}
+      title="Card Harbor"
+      message={"A Windows desktop app for organizing scanned TCG singles: camera-based card identification, pull sheets, and TCGplayer exports. Built with Electron and React."}
+      altText="Card Harbor logo, a trading card showing an ocean wave beside a dock piling, next to the words Card Harbor"
+    />
+    <PortfolioCard
+      image={GlissaScreenshot}
+      hrefUrl={"https://github.com/johncwaters/glissa"}
+      title="Glissa"
+      message={"A Windows dashboard for running many Claude Code sessions in parallel, each in its own isolated git worktree. Published on npm."}
+      altText="Glissa dashboard showing a Claude Code session in a terminal pane with a session list and review sidebar"
+    />
+    <PortfolioCard
+      image={KeeplingsSplashLogo}
+      imageFit="contain"
+      hrefUrl={"https://keeplings.watersedgegames.com"}
+      title="Keeplings"
+      message={"A gentle habit app for Android and iOS where lapses let your companion rest, no streaks, no punishment. Built with Flutter."}
+      altText="Keeplings mascot, a smiling yellow cartoon elephant with a small green sprout on its head"
+    />
     <PortfolioCard
       image={watersMassageLogo}
       hrefUrl={"https://watersmassage.com/"}
