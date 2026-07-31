@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 640" width="1600" height="640" role="img" aria-label="One hand-edited shared role, Custom FunctionApp Slot Deploy, fanning out to three deploy paths: the slot deploy pipeline where the 403 failed, and service B and service C deploys, both silently affected by any edit to the shared role">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#6d92a8"/>
+    </marker>
+  </defs>
+
+  <rect x="1" y="1" width="1598" height="638" rx="16" ry="16" fill="#002438" stroke="#12455e" stroke-width="2"/>
+
+  <rect x="60" y="60" width="420" height="520" rx="14" fill="#001b2b" stroke="#ff0005" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="92" y="254" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="30" fill="#ffffff">Custom FunctionApp</text>
+  <text x="92" y="292" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="30" fill="#ffffff">Slot Deploy</text>
+  <text x="92" y="340" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="21" fill="#6d92a8">hand-edited &#183;</text>
+  <text x="92" y="368" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="21" fill="#6d92a8">portal only &#183;</text>
+  <text x="92" y="396" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="21" fill="#6d92a8">no source of truth</text>
+
+  <line x1="482" y1="147" x2="608" y2="147" stroke="#6d92a8" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="482" y1="320" x2="608" y2="320" stroke="#6d92a8" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="482" y1="493" x2="608" y2="493" stroke="#6d92a8" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <rect x="620" y="82" width="700" height="130" rx="12" fill="#001b2b" stroke="#12455e" stroke-width="1.5"/>
+  <text x="650" y="137" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="26" fill="#ffffff">slot deploy pipeline</text>
+  <text x="650" y="170" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="19" fill="#6d92a8">the failing 403</text>
+
+  <rect x="620" y="255" width="700" height="130" rx="12" fill="#001b2b" stroke="#12455e" stroke-width="1.5"/>
+  <text x="650" y="310" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="26" fill="#ffffff">service B deploys</text>
+  <text x="650" y="343" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="19" fill="#6d92a8">silently affected by any edit</text>
+
+  <rect x="620" y="428" width="700" height="130" rx="12" fill="#001b2b" stroke="#12455e" stroke-width="1.5"/>
+  <text x="650" y="483" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="26" fill="#ffffff">service C deploys</text>
+  <text x="650" y="516" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="19" fill="#6d92a8">silently affected by any edit</text>
+</svg>

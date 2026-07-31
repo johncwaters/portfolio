@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 400" width="1400" height="400" role="img" aria-labelledby="fig2Title">
+<title id="fig2Title">Table mapping manual, decaying artifacts to executable, enforcing ones: style guide to lint rule, behavior doc to test, glossary to schema.</title>
+<defs>
+  <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ff0005"/>
+    <stop offset="1" stop-color="#ff0092"/>
+  </linearGradient>
+</defs>
+<g font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace">
+  <rect x="0.5" y="0.5" width="1399" height="399" rx="12" fill="#002438" stroke="#12455e" stroke-width="1"/>
+
+  <text x="60" y="50" font-size="15" fill="#6d92a8" letter-spacing="2">MANUAL &#183; DECAYS</text>
+  <text x="780" y="50" font-size="15" fill="#6d92a8" letter-spacing="2">EXECUTABLE &#183; ENFORCES</text>
+
+  <!-- row 1 -->
+  <rect x="60" y="90" width="560" height="70" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1" stroke-dasharray="5 5"/>
+  <text x="84" y="126" font-size="20" fill="#6d92a8" dominant-baseline="central">style guide</text>
+  <text x="700" y="126" font-size="24" fill="#6d92a8" text-anchor="middle" dominant-baseline="central">&#8594;</text>
+  <rect x="780" y="90" width="560" height="70" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/>
+  <rect x="781" y="91" width="9" height="68" rx="3" fill="url(#barGrad)"/>
+  <text x="813" y="126" font-size="20" fill="#ffffff" dominant-baseline="central">lint rule</text>
+
+  <!-- row 2 -->
+  <rect x="60" y="190" width="560" height="70" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1" stroke-dasharray="5 5"/>
+  <text x="84" y="226" font-size="20" fill="#6d92a8" dominant-baseline="central">behavior doc</text>
+  <text x="700" y="226" font-size="24" fill="#6d92a8" text-anchor="middle" dominant-baseline="central">&#8594;</text>
+  <rect x="780" y="190" width="560" height="70" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/>
+  <rect x="781" y="191" width="9" height="68" rx="3" fill="url(#barGrad)"/>
+  <text x="813" y="226" font-size="20" fill="#ffffff" dominant-baseline="central">test</text>
+
+  <!-- row 3 -->
+  <rect x="60" y="290" width="560" height="70" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1" stroke-dasharray="5 5"/>
+  <text x="84" y="326" font-size="20" fill="#6d92a8" dominant-baseline="central">glossary</text>
+  <text x="700" y="326" font-size="24" fill="#6d92a8" text-anchor="middle" dominant-baseline="central">&#8594;</text>
+  <rect x="780" y="290" width="560" height="70" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/>
+  <rect x="781" y="291" width="9" height="68" rx="3" fill="url(#barGrad)"/>
+  <text x="813" y="326" font-size="20" fill="#ffffff" dominant-baseline="central">schema</text>
+</g>
+</svg>

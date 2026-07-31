@@ -3,6 +3,7 @@ title: "The 403 That Refused to Be a One-Line Fix"
 description: "A failing deploy, a hand-edited Azure role shared by three services, and why the real fix was an IAM-as-code layer with a drift gate instead of a permissions patch."
 pubDate: 2026-07-30
 tags: ["azure", "rbac", "bicep", "infrastructure-as-code"]
+cover: "/blog/covers/the-403-that-refused-to-be-a-one-line-fix.svg"
 ---
 
 A deploy pipeline that had worked for months started failing with an ARM 403 during a function app slot deploy. Permission denied, on an operation that used to succeed.
@@ -20,6 +21,8 @@ Two facts turned this from a permissions bug into an architecture smell:
 1. **The role was shared by three services.** Whatever I changed for this pipeline would silently change the security posture of two other deploy paths.
 2. **Nothing, anywhere, recorded what the role was supposed to contain.** No file, no doc, no template. The role's definition existed in exactly one place: the live Azure portal, as the accumulated result of hand edits nobody could reconstruct.
 
+![One hand-edited shared role, Custom FunctionApp Slot Deploy, fanning out to three deploy paths: the slot deploy pipeline where the 403 failed, and service B and service C deploys, both silently affected by any edit to the shared role](/blog/figures/the-403-that-refused-to-be-a-one-line-fix/fig-1.svg)
+
 That second fact is the important one. The question "what actions should this role have?" had no authoritative answer. Patching it in the portal would produce a role whose contents were still undocumented, still shared, still one hand-edit away from breaking a different service on a different afternoon. The next engineer to hit a 403 would start from zero, exactly like I did.
 
 ## Fixing the layer instead of the symptom
@@ -29,6 +32,8 @@ The fix that actually closes the loop: make the role's definition exist somewher
 We stood up an IAM layer in our platform infrastructure repository. The custom role, with its corrected action list, became a Bicep definition: versioned, reviewed in pull requests, deployed like any other infrastructure. The 403 fix itself was a one-line action added to that file, which is the punchline: the *fix* was one line, it was the *system that makes the line reviewable* that was missing.
 
 Then the part that keeps it fixed: a CI gate that runs an ARM what-if against the live role on every change. If someone hand-edits the role in the portal again, the drift shows up as a failed build in daylight, not as a failed production deploy at 5pm. The role's definition in code is now authoritative, and the pipeline proves it stays that way.
+
+![Flow diagram showing roles.bicep leading through pull request and deploy to a live role, the authoritative chain. Below it, a drift gate catches the old failure mode: a portal hand-edit now surfaces as a failed build in daylight instead of a production 403](/blog/figures/the-403-that-refused-to-be-a-one-line-fix/fig-2.svg)
 
 Because the role was shared, fixing it once fixed three services. Shared infrastructure multiplies blast radius, but it multiplies fix value by exactly the same factor. That trade is worth making on purpose instead of by accident.
 

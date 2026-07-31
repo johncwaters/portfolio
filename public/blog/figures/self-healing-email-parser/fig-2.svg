@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1220 400" width="1220" height="400" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" role="img" aria-label="Two different locate tickets collapsing to one structural fingerprint: labels, ordering, and delimiters stay the same while the variable values are removed">
+  <defs>
+    <linearGradient id="fpgrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff0005"/>
+      <stop offset="1" stop-color="#ff0092"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="1219" height="399" rx="24" fill="#002438" stroke="#12455e" stroke-width="1"/>
+
+  <g font-size="20" xml:space="preserve">
+    <rect x="60" y="50" width="360" height="136" rx="14" fill="#001b2b" stroke="#12455e" stroke-width="1"/>
+    <text x="84" y="86"><tspan fill="#6d92a8">TICKET NO:</tspan><tspan fill="#ffffff"> 2216984417</tspan></text>
+    <text x="84" y="118"><tspan fill="#6d92a8">WORK DATE:</tspan><tspan fill="#ffffff"> 07/28/2026</tspan></text>
+    <text x="84" y="150"><tspan fill="#6d92a8">EXCAVATOR:</tspan><tspan fill="#ffffff"> ACME UTIL LLC</tspan></text>
+
+    <rect x="60" y="210" width="360" height="136" rx="14" fill="#001b2b" stroke="#12455e" stroke-width="1"/>
+    <text x="84" y="246"><tspan fill="#6d92a8">TICKET NO:</tspan><tspan fill="#ffffff"> 2217005903</tspan></text>
+    <text x="84" y="278"><tspan fill="#6d92a8">WORK DATE:</tspan><tspan fill="#ffffff"> 08/02/2026</tspan></text>
+    <text x="84" y="310"><tspan fill="#6d92a8">EXCAVATOR:</tspan><tspan fill="#ffffff"> RGV TRENCHING</tspan></text>
+  </g>
+
+  <text x="540" y="208" font-size="32" fill="#6d92a8" text-anchor="middle">&#8594;</text>
+  <text x="540" y="238" font-size="15" fill="#6d92a8" text-anchor="middle" letter-spacing="0.5">values removed</text>
+
+  <g font-size="20" xml:space="preserve">
+    <rect x="660" y="95" width="360" height="136" rx="14" fill="#001b2b" stroke="#12455e" stroke-width="1"/>
+    <text x="684" y="131"><tspan fill="#6d92a8">TICKET NO:</tspan><tspan fill="#ff5c8a"> {&#8230;}</tspan></text>
+    <text x="684" y="163"><tspan fill="#6d92a8">WORK DATE:</tspan><tspan fill="#ff5c8a"> {&#8230;}</tspan></text>
+    <text x="684" y="195"><tspan fill="#6d92a8">EXCAVATOR:</tspan><tspan fill="#ff5c8a"> {&#8230;}</tspan></text>
+  </g>
+
+  <rect x="660" y="251" width="191" height="46" rx="23" fill="url(#fpgrad)"/>
+  <text x="755" y="280" font-size="18" fill="#ffffff" text-anchor="middle" letter-spacing="1">sig 9f3a&#8230;c41</text>
+
+  <rect x="867" y="251" width="290" height="46" rx="23" fill="none" stroke="#12455e" stroke-width="1"/>
+  <text x="1012" y="280" font-size="18" fill="#6d92a8" text-anchor="middle" letter-spacing="1">both messages match</text>
+</svg>

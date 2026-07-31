@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 440" width="1520" height="440" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" role="img" aria-label="Two-lane architecture diagram: the hot path runs normalize, fingerprint, match, apply profile with no AI; the heal path runs one LLM call that writes a profile into the profile store">
+  <defs>
+    <linearGradient id="nodegrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff0005"/>
+      <stop offset="1" stop-color="#ff0092"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="1519" height="439" rx="24" fill="#002438" stroke="#12455e" stroke-width="1"/>
+
+  <text x="60" y="72" font-size="20" letter-spacing="2" xml:space="preserve"><tspan fill="#ffffff">HOT PATH</tspan><tspan fill="#6d92a8">  &#183;  EVERY MESSAGE  &#183;  THOUSANDS A DAY  &#183;  NO AI</tspan></text>
+
+  <g>
+    <rect x="60" y="96" width="292" height="82" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/>
+    <text x="80" y="133" font-size="22" fill="#ffffff">normalize</text>
+    <text x="80" y="153" font-size="15" fill="#6d92a8">strip encodings, wraps, noise</text>
+
+    <text x="374" y="146" font-size="26" fill="#6d92a8" text-anchor="middle">&#8594;</text>
+
+    <rect x="396" y="96" width="220" height="82" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/>
+    <text x="416" y="133" font-size="22" fill="#ffffff">fingerprint</text>
+    <text x="416" y="153" font-size="15" fill="#6d92a8">structural signature</text>
+
+    <text x="638" y="146" font-size="26" fill="#6d92a8" text-anchor="middle">&#8594;</text>
+
+    <rect x="660" y="96" width="220" height="82" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/>
+    <text x="680" y="133" font-size="22" fill="#ffffff">match</text>
+    <text x="680" y="153" font-size="15" fill="#6d92a8">profile store lookup</text>
+
+    <text x="902" y="146" font-size="26" fill="#6d92a8" text-anchor="middle">&#8594;</text>
+
+    <rect x="924" y="96" width="265" height="82" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/>
+    <text x="944" y="133" font-size="22" fill="#ffffff">apply profile</text>
+    <text x="944" y="153" font-size="15" fill="#6d92a8">static, declarative rules</text>
+
+    <text x="1211" y="146" font-size="26" fill="#6d92a8" text-anchor="middle">&#8594;</text>
+
+    <rect x="1233" y="96" width="193" height="82" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/>
+    <text x="1253" y="133" font-size="22" fill="#ffffff">fields out</text>
+    <text x="1253" y="153" font-size="15" fill="#6d92a8">same in, same out</text>
+  </g>
+
+  <text x="60" y="270" font-size="20" letter-spacing="2" xml:space="preserve"><tspan fill="#ffffff">HEAL PATH</tspan><tspan fill="#6d92a8">  &#183;  UNKNOWN SIGNATURE ONLY  &#183;  A HANDFUL A YEAR</tspan></text>
+
+  <g>
+    <rect x="60" y="294" width="185" height="82" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/>
+    <text x="152" y="341" font-size="22" fill="#ffffff" text-anchor="middle">unknown sig</text>
+
+    <text x="267" y="344" font-size="26" fill="#6d92a8" text-anchor="middle">&#8594;</text>
+
+    <rect x="289" y="294" width="317" height="82" rx="10" fill="url(#nodegrad)"/>
+    <text x="309" y="331" font-size="22" fill="#ffffff">LLM writes the profile</text>
+    <text x="309" y="351" font-size="15" fill="#ffffff" fill-opacity="0.85">exactly one call</text>
+
+    <text x="633" y="344" font-size="26" fill="#6d92a8" text-anchor="middle">&#8594;</text>
+
+    <rect x="655" y="294" width="420" height="82" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1" stroke-dasharray="4 4"/>
+    <text x="675" y="331" font-size="22" fill="#6d92a8">profile store</text>
+    <text x="675" y="351" font-size="15" fill="#6d92a8">every future message takes the hot path</text>
+  </g>
+</svg>

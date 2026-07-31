@@ -3,6 +3,7 @@ title: "We Audited 24 READMEs by Hand. Then We Deleted the Process."
 description: "Twenty pull requests into a manual documentation cleanup, we abandoned the epic on purpose and replaced it with a linter and a required CI check."
 pubDate: 2026-07-29
 tags: ["developer-experience", "ci", "documentation", "process"]
+cover: "/blog/covers/we-audited-24-readmes-then-deleted-the-process.svg"
 ---
 
 Our organization had a README template and several dozen repositories, and the overlap between "repos" and "repos that followed the template" was embarrassing. Some READMEs were missing setup instructions, some described services that had been rewritten twice, some did not exist.
@@ -19,6 +20,8 @@ A README standardized by hand starts rotting immediately. The next feature chang
 
 Manual compliance work does not produce compliance. It produces a photograph of compliance, dated the day you finished.
 
+![Line chart showing compliance rising after each manual README cleanup and decaying before the next one, sawtoothing over time. Once the required CI check lands, compliance stays flat at the top instead of decaying again.](/blog/figures/we-audited-24-readmes-then-deleted-the-process/fig-1.svg)
+
 ## Sunk cost, faced honestly
 
 Abandoning twenty open pull requests felt terrible. They were done, reviewed or nearly reviewed, each one a small real improvement. Merging them all and *then* building enforcement was the comfortable path, and I want to be honest that the argument for it ("the work is already done, just land it") is emotionally compelling and not entirely wrong.
@@ -34,3 +37,5 @@ Bulk remediation still happened, once, to get every repo past the gate. The diff
 ## Audits become artifacts
 
 A convention without a CI gate is a suggestion, and suggestions decay at the speed of your busiest sprint. When you find yourself auditing anything by hand for the second time, stop and convert the audit into an executable artifact: a lint rule beats a style guide, a test beats a behavior doc, a schema beats a glossary. And if you are mid-way through the manual version when you realize this, killing the in-flight work is not waste. Finishing it would be.
+
+![Table mapping manual, decaying artifacts to executable, enforcing ones: style guide to lint rule, behavior doc to test, glossary to schema.](/blog/figures/we-audited-24-readmes-then-deleted-the-process/fig-2.svg)

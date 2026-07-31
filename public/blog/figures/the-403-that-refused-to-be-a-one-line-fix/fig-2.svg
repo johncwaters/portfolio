@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900 420" width="1900" height="420" role="img" aria-label="Flow diagram: roles.bicep to pull request to deploy to live role, the authoritative chain. Below it, a drift gate catches the old failure mode: a portal hand-edit now surfaces as a failed build in daylight instead of a production 403"
+     xml:space="preserve">
+  <defs>
+    <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#6d92a8"/>
+    </marker>
+  </defs>
+
+  <rect x="1" y="1" width="1898" height="418" rx="16" ry="16" fill="#002438" stroke="#12455e" stroke-width="2"/>
+
+  <rect x="30" y="60" width="420" height="110" rx="12" fill="#001b2b" stroke="#12455e" stroke-width="1.5"/>
+  <text x="60" y="106" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="24" fill="#ffffff">roles.bicep</text>
+  <text x="60" y="136" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="18" fill="#6d92a8">authoritative definition</text>
+
+  <line x1="452" y1="115" x2="498" y2="115" stroke="#6d92a8" stroke-width="2" marker-end="url(#arrowhead2)"/>
+
+  <rect x="500" y="60" width="420" height="110" rx="12" fill="#001b2b" stroke="#12455e" stroke-width="1.5"/>
+  <text x="530" y="106" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="24" fill="#ffffff">pull request</text>
+  <text x="530" y="136" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="18" fill="#6d92a8">reviewed, versioned</text>
+
+  <line x1="922" y1="115" x2="968" y2="115" stroke="#6d92a8" stroke-width="2" marker-end="url(#arrowhead2)"/>
+
+  <rect x="970" y="60" width="420" height="110" rx="12" fill="#001b2b" stroke="#12455e" stroke-width="1.5"/>
+  <text x="1000" y="106" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="24" fill="#ffffff">deploy</text>
+  <text x="1000" y="136" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="18" fill="#6d92a8">like any other infra</text>
+
+  <line x1="1392" y1="115" x2="1438" y2="115" stroke="#6d92a8" stroke-width="2" marker-end="url(#arrowhead2)"/>
+
+  <rect x="1440" y="60" width="420" height="110" rx="12" fill="#001b2b" stroke="#12455e" stroke-width="1.5"/>
+  <text x="1470" y="106" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="24" fill="#ffffff">live role</text>
+  <text x="1470" y="136" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="18" fill="#6d92a8">three services covered</text>
+
+  <rect x="500" y="250" width="420" height="110" rx="12" fill="#001b2b" stroke="#ff0005" stroke-width="1.5"/>
+  <text x="530" y="296" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="24" fill="#6d92a8">portal hand-edit</text>
+  <text x="530" y="326" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="18" fill="#6d92a8">the old failure mode</text>
+
+  <line x1="922" y1="305" x2="968" y2="305" stroke="#6d92a8" stroke-width="2" marker-end="url(#arrowhead2)"/>
+
+  <rect x="970" y="250" width="420" height="110" rx="12" fill="#001b2b" stroke="#ff5c8a" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="1000" y="296" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="22" letter-spacing="4" fill="#ff5c8a">DRIFT GATE</text>
+  <text x="1000" y="326" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="18" fill="#6d92a8">arm what-if on every change</text>
+
+  <line x1="1392" y1="305" x2="1438" y2="305" stroke="#6d92a8" stroke-width="2" marker-end="url(#arrowhead2)"/>
+
+  <rect x="1440" y="250" width="420" height="110" rx="12" fill="#001b2b" stroke="#12455e" stroke-width="1.5"/>
+  <text x="1470" y="296" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="24" fill="#ffffff">build fails in daylight</text>
+  <text x="1470" y="326" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace" font-size="18" fill="#6d92a8">not a deploy at 5pm</text>
+</svg>

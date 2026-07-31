@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 894" width="2048" height="894" role="img" aria-labelledby="coverTitle">
+<title id="coverTitle">24 READMEs audited by hand, 20 PRs in. The audit is struck through and stamped PROCESS DELETED, replaced by a readme-lint required CI check.</title>
+<defs>
+  <clipPath id="cardClip"><rect x="0" y="0" width="2048" height="894" rx="24"/></clipPath>
+  <linearGradient id="numGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ff0005"/>
+    <stop offset="1" stop-color="#ff0092"/>
+  </linearGradient>
+  <linearGradient id="chipGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ff0005"/>
+    <stop offset="1" stop-color="#ff0092"/>
+  </linearGradient>
+</defs>
+<rect width="2048" height="894" rx="24" fill="#002438"/>
+<g clip-path="url(#cardClip)" font-family="SFMono-Regular, ui-monospace, Cascadia Mono, Consolas, monospace">
+  <rect x="0" y="0" width="2048" height="90" fill="#032033"/>
+  <line x1="0" y1="90" x2="2048" y2="90" stroke="#12455e" stroke-width="1"/>
+  <circle cx="44" cy="45" r="11" fill="#ff0005"/>
+  <circle cx="88" cy="45" r="11" fill="#ff0092"/>
+  <circle cx="132" cy="45" r="11" fill="#12455e"/>
+  <rect x="168" y="23" width="794.4" height="44" rx="22" fill="#001b2b" stroke="#12455e" stroke-width="1"/>
+  <text x="198" y="45" font-size="24" dominant-baseline="central"><tspan fill="#6d92a8">blog/</tspan><tspan fill="#ff5c8a">we-audited-24-readmes-then-deleted-the-process</tspan></text>
+
+  <text x="62" y="307.9" font-size="287" font-weight="700" fill="url(#numGrad)" dominant-baseline="hanging">24</text>
+  <text x="62" y="586.2" font-size="30" fill="#6d92a8" dominant-baseline="hanging">
+    <tspan x="62" dy="0">READMEs audited by hand,</tspan>
+    <tspan x="62" dy="45">20 PRs in</tspan>
+  </text>
+
+  <rect x="584.0" y="355.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="632.8" y="394.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="701.5" y="355.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="750.3" y="394.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="819.0" y="355.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="867.8" y="394.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="936.5" y="355.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="985.3" y="394.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="1054.0" y="355.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="1102.8" y="394.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="1171.5" y="355.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="1220.3" y="394.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="1289.0" y="355.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="1337.8" y="394.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="1406.5" y="355.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="1455.3" y="394.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="584.0" y="453.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="632.8" y="492.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="701.5" y="453.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="750.3" y="492.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="819.0" y="453.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="867.8" y="492.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="936.5" y="453.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="985.3" y="492.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="1054.0" y="453.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="1102.8" y="492.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="1171.5" y="453.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="1220.3" y="492.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="1289.0" y="453.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="1337.8" y="492.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="1406.5" y="453.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="1455.3" y="492.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="584.0" y="551.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="632.8" y="590.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="701.5" y="551.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="750.3" y="590.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="819.0" y="551.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="867.8" y="590.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="936.5" y="551.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="985.3" y="590.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="1054.0" y="551.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="1102.8" y="590.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="1171.5" y="551.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="1220.3" y="590.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="1289.0" y="551.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="1337.8" y="590.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+<rect x="1406.5" y="551.0" width="97.5" height="78.0" rx="10" fill="#001b2b" stroke="#12455e" stroke-width="1"/><text x="1455.3" y="590.0" font-size="22" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="1">MD</text>
+
+  <line x1="584.0" y1="629.0" x2="1504.0" y2="355.0" stroke="#ff0005" stroke-width="4"/>
+  <g transform="translate(1044.0 492.0) rotate(-7)">
+    <rect x="-240" y="-31" width="480" height="62" fill="#002438" stroke="#ff0005" stroke-width="2"/>
+    <text x="0" y="1" font-size="27" fill="#ff0005" text-anchor="middle" dominant-baseline="central" letter-spacing="6">PROCESS DELETED</text>
+  </g>
+
+  <rect x="1566.0" y="417.0" width="272.0" height="62.5" rx="31.3" fill="url(#chipGrad)"/>
+  <text x="1702.0" y="449.3" font-size="30" fill="#ffffff" text-anchor="middle" dominant-baseline="central" letter-spacing="2">readme-lint</text>
+
+  <rect x="1566.0" y="504.5" width="380.0" height="62.5" rx="31.3" fill="none" stroke="#12455e" stroke-width="1"/>
+  <text x="1756.0" y="536.8" font-size="30" fill="#6d92a8" text-anchor="middle" dominant-baseline="central" letter-spacing="2">required CI check</text>
+</g>
+<rect x="0.5" y="0.5" width="2047" height="893" rx="23.5" fill="none" stroke="#12455e" stroke-width="1"/>
+</svg>
