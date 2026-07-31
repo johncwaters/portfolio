@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900 420" width="1900" height="420" role="img" aria-label="Flow diagram: roles.bicep to pull request to deploy to live role, the authoritative chain. Below it, a drift gate catches the old failure mode: a portal hand-edit now surfaces as a failed build in daylight instead of a production 403"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900 420" width="1900" height="420"
      xml:space="preserve">
   <defs>
     <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto">

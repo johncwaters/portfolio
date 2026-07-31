@@ -12,7 +12,7 @@ export interface Props {
 
 const { title, description, pubDate, tags, cover } = Astro.props;
 const formattedDate = formatDate(pubDate);
-const ogImage = cover?.replace(/\.svg$/, ".png");
+const ogImage = cover?.replace(/\.svg$/, "-og.png");
 ---
 
 <DefaultPage title={title} description={description} showHeader image={ogImage}>

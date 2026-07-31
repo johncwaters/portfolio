@@ -1,5 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 894" width="2048" height="894" role="img" aria-labelledby="coverTitle">
-<title id="coverTitle">24 READMEs audited by hand, 20 PRs in. The audit is struck through and stamped PROCESS DELETED, replaced by a readme-lint required CI check.</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 894" width="2048" height="894">
 <defs>
   <clipPath id="cardClip"><rect x="0" y="0" width="2048" height="894" rx="24"/></clipPath>
   <linearGradient id="numGrad" x1="0" y1="0" x2="0" y2="1">
