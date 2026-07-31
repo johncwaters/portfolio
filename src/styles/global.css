@@ -6,7 +6,7 @@
 
 /* dark color scheme; only base-100, base-content, neutral-content, primary, and accent are site-specific, the rest match daisyUI's stock dark palette */
 @plugin "daisyui/theme" {
-    name: "light";
+    name: "dark";
     default: true;
     color-scheme: dark;
 
