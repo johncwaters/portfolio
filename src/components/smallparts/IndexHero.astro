@@ -3,19 +3,12 @@ import Header from "../Header.astro";
 ---
 
 <div class="max-h-screen overflow-hidden">
-  <div
-    id="background"
-    style="width: 100%;
-    place-items: center;
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    z-index: 0;"
-  >
+  <div id="background" class="relative isolate w-full min-h-screen">
+    <div class="waveLayer lineUp opacity-0" style="--delay: 0.6s;" aria-hidden="true"></div>
     <Header animDelay={"1.5s"} />
 
     <div class="hero-overlay opacity-0"></div>
-    <div class="hero-content sm:pt-32 pt-24">
+    <div class="hero-content max-w-6xl mx-auto px-6 sm:px-12 sm:pt-32 pt-24">
       <div class="text-left">
         <h1
           class="mb-5 sm:text-2xl text-2xl lineUp opacity-0 min-h-sc"
@@ -46,16 +39,6 @@ import Header from "../Header.astro";
     </div>
   </div>
 </div>
-
-<script>
-  const random = Math.floor(Math.random() * 100000).toString();
-  const background = document.getElementById("background");
-  const bgurl = `url('/background.svg?rando=${random}')`;
-
-  if (background) {
-    background.style.backgroundImage = bgurl;
-  }
-</script>
 
 <style>
   /* lineup class and keyframes */
@@ -95,5 +78,15 @@ import Header from "../Header.astro";
 
   .scroll-button .arrow {
     margin-right: 0.25rem;
+  }
+
+  .waveLayer {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url("/background.svg");
+    background-size: cover;
+    background-position: center;
+    will-change: transform, opacity;
   }
 </style>
