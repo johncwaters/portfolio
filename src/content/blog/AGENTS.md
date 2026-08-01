@@ -27,7 +27,6 @@ Rules for writing and editing posts in this directory. Grounded in Nielsen Norma
 
 - One result per sentence: claim, number, baseline or condition. Never nest multiple percentages, sample sizes, and a caveat in one clause.
 - Finding first, qualifiers trailing: "X went 4/4 under mcp" then the n and the caveat.
-- Repeat a number only when the repetition adds a new comparison or implication.
 - Separate "what happened" from "what it means": results prose states magnitudes, discussion prose states mechanism and limits. Mixing the two is how mega-paragraphs form.
 
 ## Fat to cut
