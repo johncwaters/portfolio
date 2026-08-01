@@ -9,11 +9,11 @@ A deploy pipeline that had worked for months started failing with an ARM 403 dur
 
 Every platform engineer knows the tempting version of this fix. Find the identity, find the missing permission, grant it in the portal, rerun the pipeline, green check, close the ticket, get coffee. Ten minutes, tops.
 
-I want to walk through why that would have been the wrong fix, because the reasoning generalizes to most cloud permission failures.
+That would have been the wrong fix, and the reasoning generalizes to most cloud permission failures.
 
 ## Root-causing the 403
 
-The deploy identity held a custom Azure role, created by hand in the portal some time in the past, with a name along the lines of "Custom FunctionApp Slot Deploy." Tracing the failing ARM calls showed the role was missing the actions needed to read publish profiles and app configuration during the slot operation.
+The deploy identity held a custom Azure role, created by hand in the portal, with a name along the lines of "Custom FunctionApp Slot Deploy." Tracing the failing ARM calls showed the role was missing the actions needed to read publish profiles and app configuration during the slot operation.
 
 Two facts turned this from a permissions bug into an architecture smell:
 
@@ -26,18 +26,20 @@ That second fact is the important one. The question "what actions should this ro
 
 The fix that actually closes the loop: make the role's definition exist somewhere other than the portal.
 
-We stood up an IAM layer in our platform infrastructure repository. The custom role, with its corrected action list, became a Bicep definition: versioned, reviewed in pull requests, deployed like any other infrastructure. The 403 fix itself was a one-line action added to that file, which is the punchline: the *fix* was one line, it was the *system that makes the line reviewable* that was missing.
+We stood up an IAM layer in our platform infrastructure repository. The custom role, with its corrected action list, became a Bicep definition: versioned, reviewed in pull requests, deployed like any other infrastructure. The 403 fix itself was a one-line action added to that file, which is the punchline: the *fix* was one line; the *system that makes the line reviewable* was what was missing.
 
 Then the part that keeps it fixed: a CI gate that runs an ARM what-if against the live role on every change. If someone hand-edits the role in the portal again, the drift shows up as a failed build in daylight, not as a failed production deploy at 5pm. The role's definition in code is now authoritative, and the pipeline proves it stays that way.
 
 ![Diagram: the role definition moves from hand edits in the portal to a Bicep file that deploys the live role, with a CI what-if gate comparing code against live so drift fails the build instead of a production deploy](/blog/iam-drift-gate.svg)
 
-Because the role was shared, fixing it once fixed three services. Shared infrastructure multiplies blast radius, but it multiplies fix value by exactly the same factor. That trade is worth making on purpose instead of by accident.
+Fixing the role once fixed three services, because it was shared. Shared infrastructure multiplies blast radius, but it multiplies fix value by exactly the same factor. That trade is worth making on purpose instead of by accident.
 
 ## The rejected alternative, honestly
 
-Patching the single pipeline's permissions was not obviously wrong in the moment. It was faster, lower risk today, and did not require agreeing on where IAM definitions should live. If this had been a one-off role on a one-off service scheduled for decommission, the patch would have been the right call. Codifying everything is not free; the argument for the IAM layer was specifically that this role was *shared*, *undocumented*, and *already causing failures*. That is the combination that justifies building the layer.
+Patching the single pipeline's permissions was not obviously wrong in the moment. It was faster, lower risk today, and did not require agreeing on where IAM definitions should live. If this had been a one-off role on a one-off service scheduled for decommission, the patch would have been the right call.
+
+Codifying everything is not free; the argument for the IAM layer was specifically that this role was *shared*, *undocumented*, and *already causing failures*. That is the combination that justifies building the layer.
 
 ## The rule worth keeping
 
-Any cloud resource that exists only in the portal is a production incident on a timer. If no file says what a permission should be, every deploy that depends on it is a guess. When a permissions failure sends you toward a hand-edit, spend the extra hour turning the resource into code with a drift check, because the 403 you are debugging is the system telling you exactly which piece of invisible infrastructure to make visible first.
+Any cloud resource that exists only in the portal is a production incident on a timer. If no file says what a permission should be, every deploy that depends on it is a guess. Spend the extra hour turning the resource into code with a drift check whenever a permissions failure sends you toward a hand-edit, because the 403 you are debugging is the system telling you exactly which piece of invisible infrastructure to make visible first.

@@ -13,11 +13,13 @@ The legacy answer at the utility infrastructure company where I work was a hand-
 
 The moment you say "unstructured email" and "extraction" in the same sentence, the obvious 2026 answer is: send every email to an LLM and ask for JSON.
 
-I rejected that design before writing any code. Cost was the loudest reason: we see a handful of new formats a year and thousands of messages a day, so per-message inference means paying thousands of times over for knowledge the system already has. Latency and nondeterminism were close behind. Locate tickets feed time-boxed regulatory workflows, an LLM round trip per message is a tax you pay forever, and the same email should parse the same way every time; a model that is 99.5% consistent is a slow-burning incident generator in a compliance workflow.
+I rejected that design before writing any code. Cost was the loudest reason: we see a handful of new formats a year and thousands of messages a day, so per-message inference pays thousands of times over for knowledge the system already has.
 
-And then there is the audit question. "Why did this ticket parse this way?" needs an answer that is a rule you can read, not a temperature setting.
+Latency and nondeterminism were close behind. An LLM round trip per message is a tax you pay forever, and locate tickets feed time-boxed regulatory workflows that cannot absorb it. The same email should parse the same way every time; a model that is 99.5% consistent is a slow-burning incident generator in a compliance workflow.
 
-The thing that actually changes is the *format*, not the message. So put the intelligence where the change happens.
+Then there's the audit question. "Why did this ticket parse this way?" needs an answer that is a rule you can read, not a temperature setting.
+
+What actually changes is the *format*, not the message. So put the intelligence where the change happens.
 
 ## Parse with profiles, heal with one LLM call
 
@@ -41,7 +43,9 @@ The comparison ends up lopsided:
 
 ## The part I did not expect
 
-The first working version of this came together in a single focused day at our monthly professional development day, working solo with AI coding tools. That is not a humblebrag about typing speed; it is a data point about where the effort in this design lives. Normalization and fingerprinting are the hard 20% that make the LLM's job easy. When the model only has to describe a format once, with a clean normalized sample in front of it, you are asking it for the thing LLMs are genuinely great at: noticing structure and writing it down.
+The first working version of this came together in a single focused day at our monthly professional development day, working solo with AI coding tools. That is not a humblebrag about typing speed; it is a data point about where the effort in this design lives.
+
+Normalization and fingerprinting are the hard 20% that make the LLM's job easy. When the model only has to describe a format once, with a clean normalized sample in front of it, you are asking it for the thing LLMs are genuinely great at: noticing structure and writing it down.
 
 A self-healing system also fails better. If the model writes a bad profile, you find out immediately, on the first message of a new format, in one place, with a reviewable artifact to fix. A per-message design smears the same failure across thousands of messages as a subtle quality problem.
 

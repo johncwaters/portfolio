@@ -13,9 +13,13 @@ Glissa had watched the terminal redraw after `/clear`, seen a spinner flash and 
 
 ## The obvious approach is a trap
 
-The first version of this detection scraped the rendered terminal: watched the raw PTY byte stream for prompt strings, reconstructed screen lines from cursor moves and carriage-return overwrites, and matched a growing blacklist of chrome text against whatever Claude Code (or an orchestration layer on top of it) happened to print that week. It worked until the next release changed a spinner glyph or added a line of padding, at which point it silently stopped working, and I found out from a session that had finished an hour ago with no notification at all.
+The first version of this detection scraped the rendered terminal: watched the raw PTY byte stream for prompt strings, reconstructed screen lines from cursor moves and carriage-return overwrites, and matched a growing blacklist of chrome text against whatever Claude Code (or an orchestration layer on top of it) happened to print that week.
 
-Screen content is written for a human's eyes, not a parser's. Every redraw, every theme change, every point release invalidates whatever pattern you matched against it. And there wasn't one detector doing the guessing, there were three, layered: a prompt-pattern matcher, a terminal-title watcher, and an idle timer flagging "pending content" as a last resort. Reasoning about which one fired, and why, meant reading a stack of race-condition band-aids accreted over months. None of it was measurable. Tuning was by anecdote: something looked wrong, I nudged a timeout, I moved on.
+It worked until the next release changed a spinner glyph or added a line of padding, at which point it silently stopped working, and I found out from a session that had finished an hour ago with no notification at all.
+
+Screen content is written for a human's eyes, not a parser's. Every redraw, every theme change, every point release invalidates whatever pattern you matched against it. And there wasn't one detector doing the guessing, there were three, layered: a prompt-pattern matcher, a terminal-title watcher, and an idle timer flagging "pending content" as a last resort.
+
+Reasoning about which one fired, and why, meant reading a stack of race-condition band-aids accreted over months. None of it was measurable. Tuning was by anecdote: something looked wrong, I nudged a timeout, I moved on.
 
 The fix wasn't a better scraper. It was giving up on the rendered screen entirely and asking Claude Code what it was actually doing.
 
@@ -39,9 +43,13 @@ The fix is a quiet latch. On a detected `SessionStart` with source `clear` or `c
 
 `Task` with `run_in_background`, or Ctrl+B, lets an agent kick off a sub-agent and keep going. The main agent's own turn can end, firing `Stop`, while that sub-agent is still running. Treat `Stop` as completion and you close the card while real work is happening underneath it, unseen.
 
-Glissa counts live sub-agents from `SubagentStart` and `SubagentStop` (a simple `agent_id` set) and suppresses the `ready` to `task_complete` transition while that set is non-empty. Usually the main agent auto-resumes when the sub-agent finishes, its later `Stop` drains the count back to zero, and the card completes normally a moment late. The interesting failures are the times no later `Stop` ever arrives: an idle teammate, a dropped `SubagentStop`. For those, the suppressed `ready` gets held rather than discarded, and released later once the count actually drains, whether that's a real `SubagentStop`, a payload that explicitly declares zero running tasks, or a TTL prune.
+Glissa counts live sub-agents from `SubagentStart` and `SubagentStop` (a simple `agent_id` set) and suppresses the `ready` to `task_complete` transition while that set is non-empty. Usually the main agent auto-resumes when the sub-agent finishes, its later `Stop` drains the count back to zero, and the card completes normally a moment late. The interesting failures are the times no later `Stop` ever arrives: an idle teammate, a dropped `SubagentStop`.
 
-Counting `SubagentStart`/`Stop` pairs wasn't the whole picture. `Stop` and `SubagentStop` payloads also carry a `background_tasks` field (running or pending entries, each with an id and a type) that sees work the counted pairs can't: background shell commands, native-team teammates. Glissa takes the max of the counted set and the declared active entries, and that surfaced a strange fact: an idle-but-alive teammate stays declared `status: running` in Claude's own task registry until it's explicitly shut down, so every subsequent `Stop` re-declares it as in-flight forever.
+For those, the suppressed `ready` gets held rather than discarded, and released later once the count actually drains, whether that's a real `SubagentStop`, a payload that explicitly declares zero running tasks, or a TTL prune.
+
+Counting `SubagentStart`/`Stop` pairs wasn't the whole picture. `Stop` and `SubagentStop` payloads also carry a `background_tasks` field (running or pending entries, each with an id and a type) that sees work the counted pairs can't: background shell commands, native-team teammates.
+
+Glissa takes the max of the counted set and the declared active entries, and that surfaced a strange fact: an idle-but-alive teammate stays declared `status: running` in Claude's own task registry until it's explicitly shut down, so every subsequent `Stop` re-declares it as in-flight forever.
 
 The drain hook for this, `TeammateIdle`, carries only a name, no task id, and for named-agent teammates the id-granting hook (`TaskCreated`) never fires at all, so there's no name-to-id map to resolve it against. Glissa ends up draining by count instead of identity: an unresolved `TeammateIdle` is recorded by name, and that count is subtracted from the surviving declared teammate entries, clamped so a stale name can never mask a real one. Inelegant, but it's what survives multiple simultaneous idle teammates with ambiguous names.
 
@@ -49,7 +57,9 @@ Releasing a held `ready` needed its own arbiter: releasing it is a completion cl
 
 ![Diagram: the arbiter that decides whether a held ready signal is cancelled, kept holding, or released as task complete](/blog/held-ready-release.svg)
 
-The quiet window (ten seconds by default) exists because a lead resuming on a teammate mailbox message fires no `UserPromptSubmit`, and the title source only emits `working` on the edge into a spinner, so a card already spinning when the message arrived reported nothing new; an instant release would fire a false completion before any evidence could show up. Hook-less background work (shell tasks, monitors) never gets a completion callback at all, so those entries stop counting after a bounded TTL instead of pinning a card working for the full half-hour agent timeout because someone left a dev server running.
+The quiet window (ten seconds by default) exists because a lead resuming on a teammate mailbox message fires no `UserPromptSubmit`, and the title source only emits `working` on the edge into a spinner, so a card already spinning when the message arrived reported nothing new; an instant release would fire a false completion before any evidence could show up.
+
+Hook-less background work (shell tasks, monitors) never gets a completion callback at all, so those entries stop counting after a bounded TTL instead of pinning a card working for the full half-hour agent timeout because someone left a dev server running.
 
 ## War story three: the process that vanished mid-assertion
 
@@ -63,10 +73,16 @@ The part I'm more pleased with than the fix is the test helper. Reproducing an 8
 
 ## Limitations, stated plainly
 
-Glissa is Windows 11 only, built for a problem I have on the machine I use every day, and untested anywhere else. Neither WebSocket channel it opens has authentication; any local process can connect to either one. That's a scope decision for a single-user dev tool, not an oversight, but it means the port must never be exposed past localhost. Underneath all of the above, detection is still inference over signals Claude Code doesn't formally guarantee: hooks documented to fire don't always fire the same way across versions (boot auto-resume had to stop depending on `SessionStart` entirely once testing showed it doesn't reliably fire on interactive startup), and the fallback exists precisely because that inference sometimes comes up empty.
+Glissa is Windows 11 only, built for a problem I have on the machine I use every day, and untested anywhere else. Neither WebSocket channel it opens has authentication; any local process can connect to either one. That's a scope decision for a single-user dev tool, not an oversight, but it means the port must never be exposed past localhost.
+
+Detection is still inference over signals Claude Code doesn't formally guarantee: hooks documented to fire don't always fire the same way across versions (boot auto-resume had to stop depending on `SessionStart` entirely once testing showed it doesn't reliably fire on interactive startup), and the fallback exists precisely because that inference sometimes comes up empty.
 
 ## What dogfooding actually got me
 
-Every one of these incidents was found by running Glissa on itself. This article was written inside a Glissa session. The `/clear` bug showed up because I clear my scrollback constantly; the background-agent gate showed up because I run background sub-agents constantly. The CI bug only showed up once I wired up CI, which is its own small lesson: a fix you haven't put in front of a colder environment is a fix you haven't tested. Every session also writes a forensic recording by default (hook payloads and state transitions, not raw keystrokes), replayed through a version-aware harness as regression fixtures, which is the only reason I could diagnose the sub-agent gate bug from real session data instead of trying to reproduce a race by hand.
+Every one of these incidents was found by running Glissa on itself. This article was written inside a Glissa session. The `/clear` bug showed up because I clear my scrollback constantly; the background-agent gate showed up because I run background sub-agents constantly.
+
+The CI bug only showed up once I wired up CI, which is its own small lesson: a fix you haven't put in front of a colder environment is a fix you haven't tested.
+
+Every session also writes a forensic recording by default (hook payloads and state transitions, not raw keystrokes), replayed through a version-aware harness as regression fixtures, which is the only reason I could diagnose the sub-agent gate bug from real session data instead of trying to reproduce a race by hand.
 
 Glissa is on npm (`npm install -g glissa`) and the source is at [github.com/johncwaters/glissa](https://github.com/johncwaters/glissa).

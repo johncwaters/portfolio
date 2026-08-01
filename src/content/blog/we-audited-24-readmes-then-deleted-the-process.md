@@ -21,13 +21,15 @@ Manual compliance work does not produce compliance. It produces a photograph of 
 
 ## Sunk cost, faced honestly
 
-Abandoning twenty open pull requests felt terrible. They were done, reviewed or nearly reviewed, each one a small real improvement. Merging them all and *then* building enforcement was the comfortable path, and I want to be honest that the argument for it ("the work is already done, just land it") is emotionally compelling and not entirely wrong.
+Abandoning twenty open pull requests felt terrible. They were done, reviewed or nearly reviewed, each one a small real improvement. Merging them all and *then* building enforcement was the comfortable path, and the argument for it ("the work is already done, just land it") is emotionally compelling and not entirely wrong.
 
 The problem: those twenty merges would have consumed the team's attention budget for README work and produced the same decaying snapshot. The three PRs that had already merged stayed merged. The rest were superseded by something better, and finishing them anyway would have been effort spent making the sunk cost feel justified.
 
 ## What replaced the epic
 
-The replacement had four parts, none of them clever individually. The prose style guide became a machine-checkable contract: required sections, required ordering, patterns each section must satisfy, and any rule that could not be checked by a program was rewritten until it could be, or cut. A small Python linter validates any README against that contract and says exactly what is missing, in terms a contributor can fix without ever opening the style guide. A reusable pipeline template lets any repo add the check with one include. And a required branch policy makes it binding: a PR that breaks the README contract does not merge.
+The replacement had four parts, none of them clever individually. The prose style guide became a machine-checkable contract: required sections, required ordering, patterns each section must satisfy, and any rule that could not be checked by a program was rewritten until it could be, or cut.
+
+A small Python linter validates any README against that contract and says exactly what is missing, in terms a contributor can fix without ever opening the style guide. A reusable pipeline template lets any repo add the check with one include. And a required branch policy makes it binding: a PR that breaks the README contract does not merge.
 
 ![Diagram: the manual audit produced a dated snapshot of compliance; its replacement lints every pull request against a machine-checkable README contract, failing PRs get an exact fix list, and a required branch policy makes passing the gate a condition of merging](/blog/readme-gate.svg)
 
