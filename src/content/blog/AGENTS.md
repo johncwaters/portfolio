@@ -20,6 +20,8 @@ Rules for writing and editing posts in this directory. Grounded in Nielsen Norma
 
 - Subheads state the finding or topic, not a clever label. They are the primary scan path.
 - Bullets for parallel, countable, or independently actionable items, one line each where possible. Never bullet a continuous argument or causal narrative, and never dump multi-sentence paragraphs under bullets.
+- Any paragraph enumerating three or more parallel items (task names, metrics, definitions) becomes a bullet list or table. Inline enumeration in prose is a defect.
+- Analytical and project posts end with a "Next steps" section: concrete, actionable items stating who should do what. Open questions are not next steps.
 - Tables when readers compare the same fields across conditions; charts when the story is trend or magnitude. Interpret either in 1 to 2 sentences, do not restate cell values in prose.
 - Bold sparingly, only decision-grade claims or metrics.
 
