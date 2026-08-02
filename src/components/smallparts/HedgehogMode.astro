@@ -15,16 +15,18 @@
       return;
     }
 
-    import("@posthog/hedgehog-mode").then(async ({ HedgeHogMode }) => {
-      const game = new HedgeHogMode({
-        assetsUrl: "/hedgehog-mode",
-        platforms: {
-          selector: ".prose pre, .prose table, .prose img",
-          viewportPadding: { top: 60 },
-        },
-      });
-      await game.render(container);
-    });
+    import("@posthog/hedgehog-mode")
+      .then(async ({ HedgeHogMode }) => {
+        const game = new HedgeHogMode({
+          assetsUrl: "/hedgehog-mode",
+          platforms: {
+            selector: ".prose pre, .prose table, .prose img",
+            viewportPadding: { top: 60 },
+          },
+        });
+        await game.render(container);
+      })
+      .catch(() => {});
   }
 
   function whenIdle(callback: () => void) {
