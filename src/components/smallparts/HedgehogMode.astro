@@ -1,0 +1,39 @@
+<div
+  id="hedgehog-mode-container"
+  class="fixed inset-0 z-40 pointer-events-none overflow-hidden"
+>
+</div>
+
+<script>
+  function startHedgehogMode() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    const container = document.getElementById("hedgehog-mode-container");
+    if (!(container instanceof HTMLDivElement)) {
+      return;
+    }
+
+    import("@posthog/hedgehog-mode").then(async ({ HedgeHogMode }) => {
+      const game = new HedgeHogMode({
+        assetsUrl: "/hedgehog-mode",
+        platforms: {
+          selector: ".prose pre, .prose table, .prose img",
+          viewportPadding: { top: 60 },
+        },
+      });
+      await game.render(container);
+    });
+  }
+
+  function whenIdle(callback: () => void) {
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(callback);
+      return;
+    }
+    setTimeout(callback, 1500);
+  }
+
+  whenIdle(startHedgehogMode);
+</script>

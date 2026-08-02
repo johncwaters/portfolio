@@ -1,5 +1,6 @@
 ---
 import DefaultPage from "./DefaultPage.astro";
+import HedgehogMode from "../components/smallparts/HedgehogMode.astro";
 import { formatDate } from "../utils/formatDate";
 
 export interface Props {
@@ -11,6 +12,7 @@ export interface Props {
 
 const { title, description, pubDate, tags } = Astro.props;
 const formattedDate = formatDate(pubDate);
+const hasHedgehogMode = tags.includes("posthog");
 ---
 
 <DefaultPage title={title} description={description} showHeader>
@@ -26,4 +28,5 @@ const formattedDate = formatDate(pubDate);
       <slot />
     </div>
   </article>
+  {hasHedgehogMode && <HedgehogMode />}
 </DefaultPage>

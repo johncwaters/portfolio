@@ -31,9 +31,12 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/vercel": "^11.0.4",
+    "@posthog/hedgehog-mode": "^0.0.54",
     "daisyui": "^5.7.9",
     "googleapis": "^173.0.0",
-    "nodemailer": "^9.0.3"
+    "nodemailer": "^9.0.3",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "overrides": {
     "brace-expansion": "^5.0.8",

@@ -5,7 +5,7 @@ pubDate: 2026-08-01
 tags: ["evals", "agents", "posthog", "context-engineering"]
 ---
 
-I'm applying for PostHog's Context Engineer role. The job, in one sentence: make PostHog legible to AI agents, not just to humans reading docs. Rather than claim in a cover letter that I can do that, I measured how legible it is today. This study is my application.
+If you're reading this from PostHog: hi, you're the audience. I'm applying for the Context Engineer role, the job of making PostHog legible to AI agents, not just to humans reading docs. Rather than claim in a cover letter that I can do that, I measured how legible PostHog is to an agent today. This study is my application.
 
 The setup: a headless Claude Code agent (`claude -p`, model `claude-sonnet-5`) ran six real tasks from my two shipping products, both of which run PostHog, under four context regimes. Four trials per cell, 96 trials total, every pass/fail decided by a script against a pinned reference. No LLM judge anywhere.
 
@@ -140,3 +140,5 @@ Every trial fires an `eval_run_completed` event into a PostHog project as it is 
 ## Reproduction
 
 The full harness, task definitions, prompts, references, and raw data live in the public repo at [github.com/johncwaters/claude-setup](https://github.com/johncwaters/claude-setup): the harness README under `evals/`, one append-only journal row per trial in `evals/results/journal.jsonl`, per-cell roll-ups in `evals/results/summary.json`, and task definitions in `evals/tasks/`.
+
+The hedgehog wandering around this page is PostHog's own [hedgehog-mode](https://github.com/PostHog/hedgehog-mode) engine. It felt wrong to write this much about PostHog without inviting one.
