@@ -9,6 +9,8 @@ If you're reading this from PostHog: hi, you're the audience. I'm applying for t
 
 > Rather than claim in a cover letter that I can do that, I measured how legible PostHog is to an agent today.
 
+In a hurry? [Jump straight to Learnings](#learnings).
+
 The setup: a headless Claude Code agent (`claude -p`) ran six real tasks from my two shipping products, both running PostHog in production, under four context regimes, on two models (`claude-sonnet-5` and `claude-opus-5`). Every pass/fail was decided by a script against a pinned reference. No LLM judge anywhere.
 
 Getting to numbers I trust took four grids and 296 scored trials, plus cap-sweep batches, because along the way I had to catch and fix three problems in my own harness: a turn cap that was quietly starving the coding tasks, a checker with bugs in both directions, and a rate-limit failure mode that scored empty runs as real failures. This report is the whole arc, findings and corrections together, because for a role that is fundamentally about measurement, the harness rigor is as much the evidence as the results.
@@ -120,7 +122,7 @@ The original cap-50 sonnet grid is worth reporting in full, both because parts o
 
 ![Chart: passes by regime in each independent batch](/blog/evals-passes-by-regime-per-batch.png)
 
-![Chart: pass rate heatmap, task by regime](/blog/evals-pass-rate-heatmap.png)
+![Chart: pass rate heatmap, task by regime, aggregating both cap-50 arms](/blog/evals-pass-rate-heatmap.png)
 
 ![Chart: pass rate by regime](/blog/evals-pass-rate-by-regime.png)
 
@@ -141,7 +143,7 @@ The original cap-50 sonnet grid is worth reporting in full, both because parts o
 
 ![Chart: failure reason breakdown across the 63 failing trials](/blog/evals-failure-reasons.png)
 
-The charts are captures of this grid's dashboard batches; I haven't rebuilt them over the definitive grid, since mixing two turn-cap regimes and two checker versions into one chart would misrepresent both. Three problems with this grid surfaced after publication.
+The charts are live captures of the results dashboard. All tiles except the heatmap are filtered to this sonnet grid's two valid batches, so they match the tables above; the heatmap aggregates both cap-50 arms, eight trials per cell, which is why its percentages sit between the two models' numbers. None of the tiles include the cap-1000 grid, since mixing two turn-cap regimes and two checker versions into one chart would misrepresent both. Three problems with this grid surfaced after publication.
 
 ### The turn cap was the real bottleneck
 

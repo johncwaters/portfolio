@@ -76,7 +76,10 @@
     --tw-prose-body: var(--color-base-content);
     --tw-prose-headings: var(--color-base-content);
     --tw-prose-lead: var(--color-base-content);
-    --tw-prose-links: var(--color-accent);
+    /* accent red is ~3:1 on the dark base and the blog leans hard on inline
+       code and links; lightened same-hue tints keep the brand while clearing
+       WCAG AA for body-size text */
+    --tw-prose-links: #ff6b6e;
     --tw-prose-bold: var(--color-base-content);
     --tw-prose-counters: var(--color-base-content);
     --tw-prose-bullets: var(--color-neutral-content);
@@ -84,7 +87,7 @@
     --tw-prose-quotes: var(--color-base-content);
     --tw-prose-quote-borders: var(--color-neutral);
     --tw-prose-captions: var(--color-base-content);
-    --tw-prose-code: var(--color-accent);
+    --tw-prose-code: #ffb3b4;
     --tw-prose-pre-code: var(--color-base-content);
     --tw-prose-pre-bg: var(--color-neutral);
     --tw-prose-th-borders: var(--color-neutral);
