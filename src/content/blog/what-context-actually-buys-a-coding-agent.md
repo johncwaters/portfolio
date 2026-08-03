@@ -9,7 +9,7 @@ If you're reading this from PostHog: hi, you're the audience. I'm applying for t
 
 > Rather than claim in a cover letter that I can do that, I measured how legible PostHog is to an agent today.
 
-In a hurry? [Jump straight to Learnings](#learnings).
+If you only read one section, read [Learnings](#learnings).
 
 The setup: a headless Claude Code agent (`claude -p`) ran six real tasks from my two shipping products, both running PostHog in production, under four context regimes, on two models (`claude-sonnet-5` and `claude-opus-5`). Every pass/fail was decided by a script against a pinned reference. No LLM judge anywhere.
 
