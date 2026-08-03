@@ -165,7 +165,7 @@ The false-positive bug surfaced next, as a side effect of the fix above: once th
 
 With all of that fixed, I reran `ch-release-tagging` for opus at the same `max_turns: 50` cap (`config-checkfix.yml`) and it went from the buggy 6/16 to 5/8, three of those eight hitting the cap directly (`reason_code: turn-capped`). This rerun was still capped, not uncapped: the runner's own turn counter (`num_turns`, as reported by `claude -p`) can land a turn or two past the enforced `--max-turns` boundary, which is why trials in this rerun show 49 to 67 turns against a nominal 50-turn limit, and the three capped ones landed at 51, 51, and 64 rather than exactly on it. I haven't dug into why the CLI's own counter and its own enforcement disagree by that much.
 
-I don't have a clean rescoring of the original 16 sonnet trials against the final checker, and sonnet's inline, single-file style is the shape the false-negative bugs mostly affected opus rather than sonnet, so I can't say precisely whether the published 16/16 would hold exactly. I'm flagging that rather than restating a corrected number: treat the original `ch-release-tagging` row as measured by a checker later shown to have bugs in both directions, now fixed.
+I don't have a clean rescoring of the original 16 sonnet trials against the final checker, and since the false-negative bugs mostly affected opus's extracted-module style rather than sonnet's inline, single-file style, I can't say precisely whether the published 16/16 would hold exactly. I'm flagging that rather than restating a corrected number: treat the original `ch-release-tagging` row as measured by a checker later shown to have bugs in both directions, now fixed.
 
 ### Raising the turn cap
 
