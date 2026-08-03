@@ -6,8 +6,18 @@ import Header from "../Header.astro";
   <div id="background" class="relative isolate w-full min-h-screen">
     <div class="waveLayer wave-back opacity-0" style="--delay: 1.25s;" aria-hidden="true"></div>
     <div class="waveLayer wave-mid opacity-0" style="--delay: 0.95s;" aria-hidden="true"></div>
-    <div class="hedgehogPeek" aria-hidden="true">
-      <img id="hedgehogPeekImage" alt="" width="360" height="397" />
+    <div class="hedgehogPeek">
+      <a
+        href="/blog/what-context-actually-buys-a-coding-agent/"
+        aria-label="Read the PostHog eval writeup"
+      >
+        <img
+          id="hedgehogPeekImage"
+          alt="A waving hedgehog peeking out of the waves"
+          width="360"
+          height="397"
+        />
+      </a>
     </div>
     <div class="waveLayer wave-front opacity-0" style="--delay: 0.75s;" aria-hidden="true"></div>
     <Header animDelay={"1.5s"} />
@@ -89,6 +99,7 @@ import Header from "../Header.astro";
     position: absolute;
     inset: 0;
     z-index: -1;
+    pointer-events: none;
     background-size: cover;
     background-position: center;
     will-change: transform, opacity;
@@ -138,6 +149,11 @@ import Header from "../Header.astro";
        by its 50% keyframe at ~1.65s) is in place to rise out of */
     transition: transform 900ms cubic-bezier(0.34, 1.56, 0.64, 1) 1800ms;
     pointer-events: none;
+  }
+  .hedgehogPeek a {
+    display: block;
+    pointer-events: auto;
+    cursor: pointer;
   }
   /* narrow viewports cover-scale the waves taller, so the crest sits higher */
   @media (max-width: 640px) {

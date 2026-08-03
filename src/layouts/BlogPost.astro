@@ -28,5 +28,15 @@ const hasHedgehogMode = tags.includes("posthog");
       <slot />
     </div>
   </article>
+  <aside class="max-w-3xl mx-auto px-4 pb-20 text-center">
+    <div class="divider mb-10"></div>
+    <h2 class="text-3xl font-bold mb-3">This was one project. There are more.</h2>
+    <p class="opacity-80 max-w-xl mx-auto mb-6">
+      Everything on this blog comes from something I shipped: AI agent
+      platforms, desktop and mobile apps, and the measurement to prove they
+      work. The rest of the portfolio is one click away.
+    </p>
+    <a href="/#professionalwork" class="btn btn-primary">View my projects</a>
+  </aside>
   {hasHedgehogMode && <HedgehogMode />}
 </DefaultPage>
