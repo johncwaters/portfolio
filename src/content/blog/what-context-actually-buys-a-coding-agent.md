@@ -233,7 +233,7 @@ Concrete actions this data supports.
 
 ## What this says about the job
 
-As I understand the Context Engineer role, it is exactly the loop this post runs once, end to end: measure where PostHog is illegible to agents, localize each failure until it has an address (a missing worked example, a renderer-first assumption, an index shaped for human skimming), propose the fix, and rerun to confirm the failure actually disappears. I ran that loop on my own products, at my own expense, published the corrections alongside the findings, and put the results where a PostHog team would want them: in PostHog. I'd like to keep running it with PostHog's docs, MCP tools, and `llms.txt` as the surface, at the scale where the mid-range effects stop being unknowable.
+As I understand the Context Engineer role, it is exactly the loop this post runs once, end to end: measure where PostHog is illegible to agents, localize each failure until it has an address (a missing worked example, a renderer-first assumption, an index shaped for human skimming), propose the fix, and rerun to confirm the failure actually disappears. I ran that loop on my own products, published the corrections alongside the findings, and put the results where a PostHog team would want them: in PostHog. I'd like to keep running it with PostHog's docs, MCP tools, and `llms.txt` as the surface, at the scale where the mid-range effects stop being unknowable.
 
 ## Results dashboard
 

@@ -16,7 +16,8 @@
     --color-base-content: white;
 
     --color-primary: #B30003;
-    --color-primary-content: oklch(13.138% 0.0392 275.75);
+    /* near-black content is unreadable on the dark red primary */
+    --color-primary-content: white;
     --color-secondary: oklch(74.8% 0.26 342.55);
     --color-secondary-content: oklch(14.96% 0.052 342.55);
     --color-accent: #E50004;
