@@ -76,9 +76,7 @@
     --tw-prose-body: var(--color-base-content);
     --tw-prose-headings: var(--color-base-content);
     --tw-prose-lead: var(--color-base-content);
-    /* accent red is ~3:1 on the dark base and the blog leans hard on inline
-       code and links; lightened same-hue tints keep the brand while clearing
-       WCAG AA for body-size text */
+    /* same-hue tints, not the accent: accent red fails contrast on the dark base */
     --tw-prose-links: #ff6b6e;
     --tw-prose-bold: var(--color-base-content);
     --tw-prose-counters: var(--color-base-content);
