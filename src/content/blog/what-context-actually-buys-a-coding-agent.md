@@ -145,7 +145,7 @@ The charts are captures of this grid's dashboard batches; I haven't rebuilt them
 
 ### The turn cap was the real bottleneck
 
-45 of 48 `ch-` runs hit the 50-turn cap, which meant most coding-task failures could be starvation artifacts rather than real misses. A cap-100 sweep confirmed it: 39 of 40 addressable `ch-` failures at the 50-turn cap were turn starvation, not model failure. That is what justified the 1000-turn definitive grid, where zero rows capped and the same tasks ran 22 to 122 turns.
+45 of 48 `ch-` runs hit the 50-turn cap, which meant most coding-task failures could be starvation artifacts rather than real misses. A cap-100 sweep confirmed it: 39 of 40 addressable `ch-` failures at the 50-turn cap were turn starvation, not model failure. That is what justified the 1000-turn definitive grid (commit `081ba11`), where zero rows capped and the same tasks ran 22 to 122 turns.
 
 The consequence shows up directly in the numbers. At cap 50, `bundle` swept `ch-main-process-capture` 4/4 while every other regime managed 2 or fewer, which looked like a decisive curated-context win. Uncapped, all four regimes saturate it 8/8 on both models. And `ch-flag-gated-rollout`, which read as uniformly hard at cap 50, separates the models once starved runs stop polluting it: 3/8 sonnet against 5/8 opus.
 
@@ -153,8 +153,8 @@ The consequence shows up directly in the numbers. At cap 50, `bundle` swept `ch-
 
 Before spending compute on longer runs, I audited the scoring code, and `ch-release-tagging`'s checker failed the audit twice over.
 
-- **False negatives**: the checker required the `register` call and the release-property keys to appear in the same file's added lines, which wrongly failed correct implementations that extracted super-properties into their own module. Its hardcoded-semver scan also misread test fixtures like `toHaveBeenCalledWith({ app_version: '0.9.7' })` as production hardcoding. Sonnet had passed the task 16/16 writing everything inline in one file; opus had scored 6/16 writing extracted modules plus tests, and every opus failure the audit checked was a check artifact, not a real miss.
-- **False positives**: once the symbol search could follow the register call across files, release-tagging keys anywhere in the target file could wrongly credit a symbol that didn't define them. A follow-up series scoped the search to the declaration's own body and closed the correctness gaps that scoping introduced.
+- **False negatives** (fixed in `7d60acc`): the checker required the `register` call and the release-property keys to appear in the same file's added lines, which wrongly failed correct implementations that extracted super-properties into their own module. Its hardcoded-semver scan also misread test fixtures like `toHaveBeenCalledWith({ app_version: '0.9.7' })` as production hardcoding. Sonnet had passed the task 16/16 writing everything inline in one file; opus had scored 6/16 writing extracted modules plus tests, and every opus failure the audit checked was a check artifact, not a real miss. The same commit added a `turn-capped` reason code so budget artifacts stop contaminating failure-reason breakdowns.
+- **False positives** (fixed in `349d235` plus three follow-ups): once the symbol search could follow the register call across files, release-tagging keys anywhere in the target file could wrongly credit a symbol that didn't define them. The fix series scoped the search to the declaration's own body and closed the correctness gaps that scoping introduced.
 
 Under the corrected checker, opus reran the task at 5/8, with three of the eight failures being pure turn-capping. I don't have a clean rescoring of the original 16 sonnet trials against the final checker, so treat the 16/16 row above as measured by a checker later shown to be buggy in both directions. Flagging that is more honest than quietly restating a number I can't back.
 
@@ -162,7 +162,7 @@ Under the corrected checker, opus reran the task at 5/8, with three of the eight
 
 Partway through the definitive grid, the account hit its weekly Claude usage limit. `claude -p` invocations started returning instantly with zero gross tokens, never reaching the model, and the runner scored each untouched workspace exactly as if the agent had tried and failed. A rate-limit rejection was indistinguishable from a genuine wrong answer. This poisoned 55 rows before it was caught.
 
-The fix detects zero-gross-token runs before scoring and journals them as `rate-limited` errors, excluded from all pass rates and always rerun on resume. Every poisoned cell was rerun after the fix; the pre-fix rows are preserved in `journal.jsonl.bak` files for auditability, and the detection went on to correctly catch 33 more genuine rate-limit rejections as the grid finished. An eval harness needs the same defensive posture as production code: an infrastructure failure and a real failure produce different-looking evidence, and conflating them silently biases every number downstream, always in a direction you won't notice.
+The fix (commits `42e3fba`, `b2a5a84`) detects zero-gross-token runs before scoring and journals them as `rate-limited` errors, excluded from all pass rates and always rerun on resume. Every poisoned cell was rerun after the fix; the pre-fix rows are preserved in `journal.jsonl.bak` files for auditability, and the detection went on to correctly catch 33 more genuine rate-limit rejections as the grid finished. An eval harness needs the same defensive posture as production code: an infrastructure failure and a real failure produce different-looking evidence, and conflating them silently biases every number downstream, always in a direction you won't notice.
 
 ## Findings
 
@@ -199,8 +199,8 @@ The parts that took the most iteration:
 | Headless `claude -p` would silently skip connecting to the PostHog MCP server | Server entry must declare `"type": "http"` and must not be named `posthog` (Claude Code caches a needs-auth verdict per server name, so colliding with a developer's own OAuth-based server skips auth); every run passes `--strict-mcp-config` so no ambient user-scoped MCP server leaks in |
 | A `none`/`llms-txt`/`bundle` run must never query live PostHog with harness credentials | All harness PostHog environment variables are stripped from the agent subprocess in every regime; the `mcp` token travels through a generated config file outside the workspace, deleted at teardown, never as an env var |
 | The `mcp` regime must not touch production data destructively or leak into the wrong project | Read-only API key; every task pins the MCP session to one project via header (`kp-` to Keeplings production, `ch-` to a scratch project); a missing token or project id fails the cell as `check-infra` rather than running unpinned |
-| Checker scored structure, not semantics: same-file assumptions and unscoped symbol scans failed correct extracted-module implementations and credited unrelated code | Symbol search follows the register call across files but is scoped to the declaration's own body; test fixtures excluded from the hardcoded-semver scan; a `turn-capped` reason code keeps budget artifacts out of failure-reason breakdowns |
-| A weekly usage-limit rejection returned instantly with zero tokens and was scored as a real failure against the untouched workspace | Zero-gross-token runs journal as `rate-limited` errors, excluded from scoring and rerun on resume; pre-fix poisoned rows preserved in `.bak` journals for audit |
+
+The two largest fixes, the checker audit and the rate-limit discrimination, are covered in their own sections above.
 
 ## Limitations
 
