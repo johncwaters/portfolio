@@ -79,6 +79,8 @@ Two earlier batches are excluded: one ran before the regimes were fully wired, a
 | kp-store-engagement | ffff | ffff | PPPP | ffff |
 | **Passes / 24** | **6** | **6** | **12** | **9** |
 
+*Editorial note (2026-08-03): the `ch-release-tagging` 16/16 and `kp-reminder-funnel` 0/16 rows both turned out to need a second look. The release-tagging checker had two real bugs, and the funnel task's "always wrong" streak broke once under a follow-up run. See the update below.*
+
 ![Chart: pass rate heatmap, task by regime](/blog/evals-pass-rate-heatmap.png)
 
 ![Chart: pass rate by regime](/blog/evals-pass-rate-by-regime.png)
@@ -98,6 +100,8 @@ Two earlier batches are excluded: one ran before the regimes were fully wired, a
 
 The coding tasks are the expensive half of the suite regardless of regime. `ch-` runs averaged 50.75 turns (45 of 48 hit the 50-turn cap) and accounted for $132.88 of the cost and 323 of the wall-minutes. `kp-` runs averaged 12.5 turns and finished in 59 minutes total.
 
+*Editorial note (2026-08-03): a follow-up run confirmed this cap-starvation was the dominant failure mode on `ch-` tasks, not a minor artifact; once uncapped, the same tasks ran 22 to 122 turns instead of pinning at 50. See the update below.*
+
 ![Chart: average turns per task against the 50-turn cap](/blog/evals-average-turns-per-task.png)
 
 ![Chart: failure reason breakdown across the 63 failing trials](/blog/evals-failure-reasons.png)
@@ -111,6 +115,8 @@ The failure mode matters as much as the pass rate: all 24 non-`mcp` trials on th
 **2. The sharpest finding is an MCP failure, not an MCP success.** On `kp-reminder-funnel`, all four `mcp` trials across both batches independently computed a conversion rate of 0.5. The true rate is 0.1667. All four used the identical wrong method: counting users who fired both `reminder_created` and `habit_confirmed` anywhere in the window, instead of users whose first `habit_confirmed` came at or after their first `reminder_created`, which the prompt explicitly asked for.
 
 That is a per-user event-sequencing error, "did A and B" instead of "did A then B." I could not find a worked sequential-funnel HogQL example anywhere in PostHog's public docs. Four independent trials converging on the same shortcut is a concrete signal that the docs, or the MCP tool's own guidance, don't make the correct pattern obvious. It reproduces reliably, and it is exactly the kind of failure better agent-facing documentation fixes and a smarter model doesn't.
+
+*Editorial note (2026-08-03): a follow-up run under a much higher turn cap broke the "always" in this finding, once. See the update below for what changed and why the finding still holds directionally.*
 
 **3. A hand-built bundle swept the Electron crash-capture task; the flag-rollout task is just hard.** `bundle` went 4/4 on `ch-main-process-capture`, against 2/4 for `none`, 1/4 for `llms-txt`, and 0/4 for `mcp`. Public PostHog docs don't cover Electron main-process integration at all, so the bundle had to compose renderer-side error APIs with a preload/IPC bridge. That task-specific synthesis is what curated context engineering provides and a generic doc index can't.
 
@@ -145,10 +151,81 @@ The parts that took the most iteration:
 | A `none`/`llms-txt`/`bundle` run must never query live PostHog with harness credentials | All harness PostHog environment variables are stripped from the agent subprocess in every regime; the `mcp` token travels through a generated config file outside the workspace, deleted at teardown, never as an env var |
 | The `mcp` regime must not touch production data destructively or leak into the wrong project | Read-only API key; every task pins the MCP session to one project via header (`kp-` to Keeplings production, `ch-` to a scratch project); a missing token or project id fails the cell as `check-infra` rather than running unpinned |
 
+## Update: un-starving the agent (2026-08-03)
+
+The work above stopped at a sonnet-only, 50-turn-cap grid. I kept going in the same harness after publication: added a second model, audited the checks that scored these runs, removed the turn cap that was quietly capping most of the coding tasks, and hardened the runner against a rate-limit bug that briefly poisoned the follow-up data. This section reports what changed, with every new number traced back to the harness's own append-only run journals: `evals/results/journal.jsonl` (the original cap-50 grid, and the source of the buggy-checker opus 6/16 below), `evals/results/checkfix-opus/journal.jsonl` (the fixed-checker rerun, source of the opus 5/8), and `evals/results/cap1000-sonnet/journal.jsonl` and `evals/results/cap1000-opus/journal.jsonl` (the definitive 1000-turn-cap grid), all in the [repo](https://github.com/johncwaters/claude-setup).
+
+### The checks had bugs
+
+Before touching the turn cap, I audited the scoring code, because 45 of 48 `ch-` runs hitting the cap (noted above) meant most coding-task failures could be starvation artifacts rather than real misses, and I wanted the scoring itself to be trustworthy before spending more compute on longer runs. `ch-release-tagging`'s checker turned out to have bugs in both directions: a false-negative class that wrongly failed correct implementations, and a false-positive class that wrongly credited incorrect ones.
+
+The false-negative bugs were fixed in `7d60acc`. An opus replay audit found the checker required the `register` call and the release-property keys to appear in the same file's added lines, which failed correct implementations that extracted super-properties into their own module, and its hardcoded-semver scan misread test fixtures like `toHaveBeenCalledWith({ app_version: '0.9.7' })` as production hardcoding. That commit's own message states the motivating numbers directly: sonnet had passed the task 16/16 writing everything inline in one file, opus had scored 6/16 writing extracted modules plus tests, and every opus failure the audit checked turned out to be a check artifact, not a real miss. `7d60acc` also resolved the register-indirection hop and added a `turn-capped` reason code, so turn-budget artifacts stop contaminating failure-reason breakdowns from here on.
+
+The false-positive bug surfaced next, as a side effect of the fix above: once the symbol search could follow the register call to any changed file, release-tagging keys anywhere else in that file, including an unrelated call, could wrongly credit a symbol that didn't actually define them. `349d235` scoped the search to the declaration's own body, and three follow-up commits closed correctness gaps that scoping fix introduced or missed: `7b5b292` fixed a false negative on destructured-parameter arrow functions, `b02bb7c` bounded the assignment search to the declaration's own statement, and `d3b50ce` made bare declarations return `None` and covered async destructured arrows.
+
+With all of that fixed, I reran `ch-release-tagging` for opus at the same `max_turns: 50` cap (`config-checkfix.yml`) and it went from the buggy 6/16 to 5/8, three of those eight hitting the cap directly (`reason_code: turn-capped`). This rerun was still capped, not uncapped: the runner's own turn counter (`num_turns`, as reported by `claude -p`) can land a turn or two past the enforced `--max-turns` boundary, which is why trials in this rerun show 49 to 67 turns against a nominal 50-turn limit, and the three capped ones landed at 51, 51, and 64 rather than exactly on it. I haven't dug into why the CLI's own counter and its own enforcement disagree by that much.
+
+I don't have a clean rescoring of the original 16 sonnet trials against the final checker, and sonnet's inline, single-file style is the shape the false-negative bugs mostly affected opus rather than sonnet, so I can't say precisely whether the published 16/16 would hold exactly. I'm flagging that rather than restating a corrected number: treat the original `ch-release-tagging` row as measured by a checker later shown to have bugs in both directions, now fixed.
+
+### Raising the turn cap
+
+With the checks fixed, I raised `max_turns` from 50 to 1000, with an explicit 5400-second wall-clock timeout as the actual backstop (commit `081ba11`). That commit's own message cites the evidence for doing it: a 2026-08-02 cap-100 sweep (`evals/results/capsweep-sonnet/`, `evals/results/capsweep-opus/`) found 39 of 40 addressable `ch-` failures at the 50-turn cap were turn starvation, not model failure, and the check-fix rerun's only failures were turn-capped. With that in hand, I reran a definitive grid: both models, all six tasks, all four regimes, n=2 per cell (down from n=4, to keep the added model and the rerun affordable). Turn count, not the raw cap, drives cost on these tasks, so this only makes sense once the cap itself is no longer the thing being measured.
+
+### Harness hardening: a rate-limit bug that looked like real failures
+
+Partway through the cap-1000 grid, the account hit its weekly Claude usage limit. That produced `claude -p` invocations that returned instantly with zero gross tokens, meaning the process never reached the model at all. The runner didn't know that: it scored the untouched, unmodified workspace against each task's checks exactly as if the agent had tried and failed, which meant a rate-limit rejection was indistinguishable from a genuine wrong answer or a build failure. The runner's own fix commit (`42e3fba`) puts a number on it: this poisoned 55 rows of the cap-1000 grid before it was caught.
+
+The fix detects `usage["gross"] == 0` before scoring and journals the cell as a new `error` status with `reason_code: rate-limited`, excluded from both the scored and infra summary buckets, and always rerun on resume, the same treatment as a harness-side infra fault (commits `42e3fba`, `b2a5a84`). The 55 originally poisoned rows aren't visible in the live journals: they were scored under the pre-fix code path with a plausible-looking `wrong-answer` or `build-fail` verdict, indistinguishable from a real failure until you know to distrust them. They're preserved as-is in `journal.jsonl.bak` in each cap-1000 results directory, and every affected cell was rerun after the fix landed, so the live `journal.jsonl` files hold only the corrected results. Separately, the fix's own detection kept catching genuine rate-limit rejections as the grid continued running: the final journals carry 33 such rows (13 sonnet, 20 opus) correctly tagged `status: error`, `reason_code: rate-limited`, excluded from scoring, with each cell's real result appended later in the same journal once it reran clean. It's a good example of how an eval harness needs the same defensive posture as production code: an infrastructure failure and a real failure produce different-looking evidence (zero tokens versus a scored-but-wrong workspace) and conflating them silently biases every number downstream.
+
+### The definitive grid: 1000-turn cap, n=2, fixed checks
+
+| Model | Passes | Pass rate |
+|---|---|---|
+| sonnet | 22/48 | 46% |
+| opus | 23/48 | 48% |
+
+By regime (of 12 per model):
+
+| Regime | Sonnet | Opus |
+|---|---|---|
+| mcp | 8 | 7 |
+| llms-txt | 5 | 5 |
+| none | 5 | 5 |
+| bundle | 4 | 6 |
+
+By task (of 8 per model; each cell is two trials per regime, in regime order none, llms-txt, mcp, bundle, `P`/`f` per trial, n=2):
+
+| Task | Sonnet | Opus |
+|---|---|---|
+| ch-main-process-capture | PP PP PP PP (8/8) | PP PP PP PP (8/8) |
+| ch-release-tagging | PP PP Pf fP (6/8) | PP PP ff PP (6/8) |
+| ch-flag-gated-rollout | Pf Pf ff Pf (3/8) | fP Pf Pf PP (5/8) |
+| kp-release-impact | ff ff PP ff (2/8) | ff ff PP ff (2/8) |
+| kp-store-engagement | ff ff PP ff (2/8) | ff ff PP ff (2/8) |
+| kp-reminder-funnel | ff ff Pf ff (1/8) | ff ff ff ff (0/8) |
+
+Zero rows hit the turn cap this time (`ch-` runs ranged 22 to 122 turns, averaging 74.6 for sonnet and 79.9 for opus, 77.3 combined), against 45 of 48 hitting the cap in the original grid. That's the headline result of un-starving the agent: `ch-main-process-capture` saturates to 8/8 for both models once given room to work (it was the most regime-sensitive task at the 50-turn cap, where `bundle` swept it 4/4 and everything else struggled), and `ch-flag-gated-rollout` finally separates the models (3/8 sonnet vs. 5/8 opus) instead of reading as uniformly hard. `ch-release-tagging` is not directly comparable to its cap-50 numbers, since the checker changed underneath it, as noted above.
+
+n=2 per cell is enough to confirm floors and saturations (`kp-reminder-funnel` going exactly 0/2 in `none`, `llms-txt`, and `bundle` for both models, the only pass anywhere being one sonnet `mcp` trial; `ch-main-process-capture` hitting the ceiling) but not to read anything into the mid-range regime gaps in the table above, the same caveat the original post makes about n=4. The `mcp` regime still leads on total passes for both models, which is the one result that survived every round of hardening: every `kp-` pass in this grid, all nine of them across all three analytics tasks and both models, came under `mcp`.
+
+### The reminder-funnel finding, revisited
+
+The original finding was that all four `mcp` trials on `kp-reminder-funnel` independently computed the same wrong conversion rate, 0.5 against a true 0.1667, by the same shortcut. Under the cap-1000 grid, that streak breaks, but not in the way I expected.
+
+Sonnet's first `mcp` trial passed: 17 turns, `answer.json` matched the reference query within tolerance, and the agent's own HogQL corroborated it. Its second trial reproduced the exact original failure, the identical 0.5 against 0.1667, by the same "did A and B" shortcut. Opus's two `mcp` trials failed differently again: the checker's read-only guard, a post-hoc, case-insensitive regex over the reported HogQL string looking for `INSERT`, `UPDATE`, `DELETE`, `DROP`, `ALTER`, `CREATE`, or `TRUNCATE` (`tasks/kp-reminder-funnel/checks.py`), rejected both before they ever reached a comparable number. The MCP key itself is read-only and project-pinned, so nothing could actually have written to Keeplings production regardless of what either agent submitted. No transcript survives for either trial, so I have not confirmed whether the flagged keyword was a genuine write statement in the agent's HogQL or a false positive of the same unscoped-scan class I had just finished fixing elsewhere in this checker.
+
+So the honest read is not "still four for four wrong the same way." It's narrower and, I think, more useful: the docs gap that produces the 0.5 shortcut is real and reproduces most of the time, sonnet hit it again on a fresh long run, but it isn't unconditional, one trial got the sequencing right unprompted. That a worked example could plausibly close the gap is a *stronger* claim with one clean pass in hand than it was with zero, because it shows the correct pattern is reachable from the same context, not structurally unreachable.
+
+### What this does and doesn't change
+
+The cap-50, sonnet-only story above is the original measurement and I've left it intact rather than rewriting it in place; the editorial notes above mark where a number needs this section's context. The directional findings hold up under the harder test: live data access via MCP is still the only regime that ever solves the winnable analytics tasks, at both turn caps and both models; a hand-scoped bundle ties the generic doc index on combined passes in the new grid, 10 to 10, splitting one model each way; `llms.txt` still doesn't distinguish itself from no context at all. What changed is confidence in the coding-task numbers specifically, since most of those runs were never given enough turns to finish the job, and confidence in exactly how absolute the reminder-funnel failure is.
+
+The charts embedded above are captures of the original cap-50 dashboard batches; I haven't rebuilt them to include the cap-1000 events, since mixing two different turn-cap regimes and two check-code versions into one chart would misrepresent both.
+
 ## Limitations
 
 - **n=4 per cell.** Powers floor-finding and directional sweeps, not mid-range comparisons; finding 3 shows an apparent n=2 effect dissolving at n=4.
-- **Single model.** Every trial ran `claude-sonnet-5`; nothing here claims the regime effects generalize across models.
+- **Single model.** Every trial ran `claude-sonnet-5`; nothing here claims the regime effects generalize across models. *(Editorial note, 2026-08-03: a follow-up grid added `claude-opus-5`; see the update above. Same model family, so this still doesn't test generalization across providers, but the two-model grid is the more current comparison.)*
 - **Six tasks.** Real work from two apps, not a stratified sample of PostHog use cases.
 - **Static acceptance on `ch-` tasks.** Live event-arrival validation happens manually once each feature actually lands; it could never pass during a trial, since no task asks the agent to run the app.
 - **Cost is API-equivalent, not actual spend.** The runs used a Claude subscription; per-token pricing is applied for comparability across regimes.
@@ -176,6 +253,6 @@ Every trial fires an `eval_run_completed` event into a PostHog project as it is 
 
 ## Reproduction
 
-The full harness, task definitions, prompts, references, and raw data live in the public repo at [github.com/johncwaters/claude-setup](https://github.com/johncwaters/claude-setup): the harness README under `evals/`, one append-only journal row per trial in `evals/results/journal.jsonl`, per-cell roll-ups in `evals/results/summary.json`, and task definitions in `evals/tasks/`.
+The full harness, task definitions, prompts, references, and raw data live in the public repo at [github.com/johncwaters/claude-setup](https://github.com/johncwaters/claude-setup): the harness README under `evals/`, one append-only journal row per trial in `evals/results/journal.jsonl`, per-cell roll-ups in `evals/results/summary.json`, and task definitions in `evals/tasks/`. `evals/results/journal.jsonl` now holds 192 rows, not 96: the 96 published sonnet trials this post reports, plus a 96-row cap-50 opus arm added afterward (see the update below). The `evals/results/cap1000-*/`, `evals/results/checkfix-opus/`, and `evals/results/capsweep-*/` directories hold the follow-up runs the update section cites.
 
 The hedgehog wandering around this page is PostHog's own [hedgehog-mode](https://github.com/PostHog/hedgehog-mode) engine. It felt wrong to write this much about PostHog without inviting one.
