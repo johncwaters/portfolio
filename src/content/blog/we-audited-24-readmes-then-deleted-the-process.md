@@ -29,12 +29,10 @@ The problem: those twenty merges would have consumed the team's attention budget
 
 The replacement had four parts, none of them clever on its own:
 
-- A style guide rewritten as a machine-checkable contract: required sections, required ordering, a pattern each section must satisfy.
-- A small Python linter that validates any README against that contract and says exactly what is missing.
+- A style guide rewritten as a machine-checkable contract: required sections, required ordering, a pattern each section must satisfy. Any rule a program could not check got reworded until it could be, or cut.
+- A small Python linter that validates any README against that contract and names the missing piece in terms a contributor can fix without ever opening the guide.
 - A reusable pipeline template, so a repo adds the check with one include.
 - A required branch policy: a PR that breaks the README contract does not merge.
-
-Rewriting the style guide was the part with teeth. Any rule a program could not check got reworded until it could be, or cut. The linter's output matters for the same reason: it names the missing piece in terms a contributor can fix without ever opening the guide.
 
 ![Diagram: the manual audit produced a dated snapshot of compliance; its replacement lints every pull request against a machine-checkable README contract, failing PRs get an exact fix list, and a required branch policy makes passing the gate a condition of merging](/blog/readme-gate.svg)
 

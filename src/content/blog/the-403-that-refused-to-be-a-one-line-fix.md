@@ -9,7 +9,7 @@ A deploy pipeline that had worked for months started failing with an ARM 403 dur
 
 Every platform engineer knows the tempting version of this fix. Find the identity, find the missing permission, grant it in the portal, rerun the pipeline, green check, close the ticket, get coffee. Ten minutes, tops.
 
-That would have been the wrong fix.
+That would have been the wrong fix, and not only for this pipeline: the same reasoning applies to most cloud permission failures.
 
 ## Root-causing the 403
 
@@ -32,7 +32,7 @@ Then the part that keeps it fixed: a CI gate that runs an ARM what-if against th
 
 ![Diagram: the role definition moves from hand edits in the portal to a Bicep file that deploys the live role, with a CI what-if gate comparing code against live so drift fails the build instead of a production deploy](/blog/iam-drift-gate.svg)
 
-Fixing the role once fixed three services, because it was shared. Sharing is what made a hand edit dangerous here, and it is also why one correct definition was worth three times as much.
+Fixing the role once fixed three services, because it was shared. Shared infrastructure multiplies blast radius, and it multiplies fix value by exactly the same factor. Better to make that trade on purpose than by accident.
 
 ## The rejected alternative, honestly
 
