@@ -13,13 +13,13 @@ If you only read one section, read [Learnings](#learnings).
 
 The setup: a headless Claude Code agent (`claude -p`) ran six real tasks from my two shipping products, both running PostHog in production, under four context regimes, on two models (`claude-sonnet-5` and `claude-opus-5`). Every pass/fail was decided by a script against a pinned reference. No LLM judge anywhere.
 
-Getting to numbers I trust took four grids and 296 scored trials, plus cap-sweep batches, because along the way I had to catch and fix three problems in my own harness: a turn cap that was quietly starving the coding tasks, a checker with bugs in both directions, and a rate-limit failure mode that scored empty runs as real failures. This report is the whole arc, findings and corrections together, because for a role that is fundamentally about measurement, the harness rigor is as much the evidence as the results.
+Getting to numbers I trust took four grids and 296 scored trials, plus cap-sweep batches, because along the way I had to catch and fix three problems in my own harness: a turn cap that was starving the coding tasks, a checker with bugs in both directions, and a rate-limit failure mode that scored empty runs as real failures. This report is the whole arc, findings and corrections together. For a job that is about measurement, how I caught my own harness bugs is part of the evidence.
 
 **TL;DR:**
 
 - Live data access via MCP is the only regime that ever solved the analytics tasks. Every analytics pass in every grid, on both models, came under `mcp`. Documentation alone, however good, went zero for everything there.
-- The sharpest finding is an MCP *failure*: run after run computed the identical wrong funnel number by the identical shortcut. It reproduces most of the time, which makes it a documentation gap with a locatable fix, not a model quirk.
-- The 50-turn cap in my first grid was deciding the coding tasks, not the context: 39 of 40 addressable failures at the cap were turn starvation. Uncapped, the hardest coding task saturated to 8/8 for both models, and an apparent "curated context wins" effect turned out to mean "curated context is cheaper, not smarter."
+- The sharpest finding is an MCP *failure*: run after run computed the identical wrong funnel number by the identical shortcut. It reproduces most of the time, so there is a locatable doc fix behind it rather than a model quirk.
+- The 50-turn cap in my first grid decided the coding tasks for me: 39 of 40 addressable failures at the cap were turn starvation. Uncapped, the hardest coding task saturated to 8/8 for both models, and an apparent "curated context wins" effect turned out to mean "curated context is cheaper, not smarter."
 - `llms.txt`, PostHog's own agent-facing doc index, bought zero lift over no context at all, at 2.9x the cost per run.
 - I audited my own scoring code mid-study, found bugs in both directions, and caught a rate-limit bug that had silently poisoned 55 rows. Every correction is traceable in the public run journals.
 
@@ -164,7 +164,7 @@ Under the corrected checker, opus reran the task at 5/8, with three of the eight
 
 Partway through the definitive grid, the account hit its weekly Claude usage limit. `claude -p` invocations started returning instantly with zero gross tokens, never reaching the model, and the runner scored each untouched workspace exactly as if the agent had tried and failed. A rate-limit rejection was indistinguishable from a genuine wrong answer. This poisoned 55 rows before it was caught.
 
-The fix (commits `42e3fba`, `b2a5a84`) detects zero-gross-token runs before scoring and journals them as `rate-limited` errors, excluded from all pass rates and always rerun on resume. Every poisoned cell was rerun after the fix; the pre-fix rows are preserved in `journal.jsonl.bak` files for auditability, and the detection went on to correctly catch 33 more genuine rate-limit rejections as the grid finished. An eval harness needs the same defensive posture as production code: an infrastructure failure and a real failure produce different-looking evidence, and conflating them silently biases every number downstream, always in a direction you won't notice.
+The fix (commits `42e3fba`, `b2a5a84`) detects zero-gross-token runs before scoring and journals them as `rate-limited` errors, excluded from all pass rates and always rerun on resume. Every poisoned cell was rerun after the fix; the pre-fix rows are preserved in `journal.jsonl.bak` files for auditability, and the detection went on to correctly catch 33 more genuine rate-limit rejections as the grid finished. An eval harness needs the same defensive posture as production code: an infrastructure failure and a real failure produce different-looking evidence, and conflating them biases every number downstream, always in a direction you won't notice.
 
 ## Findings
 
@@ -178,18 +178,18 @@ The definitive grid sharpened this rather than overturning it. One sonnet trial 
 
 **4. `llms.txt` bought no lift at the highest cost.** It tied `none` on passes in the cap-50 grid (6/24 each), tied it again in the definitive grid (10 passes each across both models), and cost $3.43 per run against `none`'s $1.20, the worst cost per success of any regime. The snapshot is a ~330 KB flat link index, so an agent burns turns crawling it one `WebFetch` at a time before it can act, and that overhead never converted into task-relevant depth. This is a design problem with the artifact: a link index optimized for a human skimming titles fits an agent worse than either no context or a small task-scoped bundle.
 
-**5. Context that describes data without connecting to it is a fabrication risk.** In the excluded early batches, one `bundle` trial confidently fabricated plausible-looking analytics numbers, and another passed by quietly querying production through inherited credentials. After credential isolation, every documentation-only trial on every analytics task either declined honestly or was caught by the reference check. The guard that catches fabrication is a live reference check, not better prose.
+**5. Context that describes data without connecting to it is a fabrication risk.** In the excluded early batches, one `bundle` trial confidently fabricated plausible-looking analytics numbers, and another passed by quietly querying production through inherited credentials. After credential isolation, every documentation-only trial on every analytics task either declined honestly or was caught by the reference check. Prose doesn't catch fabrication; a live reference check does.
 
 ## Learnings
 
 What this study taught me that transfers past these six tasks:
 
 - **Connection beats description.** Wherever data was the deliverable, live access was the only thing that worked, and description without connection enabled confident fabrication.
-- **Fit beats volume, and both interact with budget.** A small hand-scoped bundle beat a 330 KB index on cost everywhere and on passes exactly where the turn budget was tight. The lever is what an agent can use this turn.
-- **Grade the graders.** The single largest correction in this study came from auditing my own checker, not from running more trials. A scored eval is only as trustworthy as its scoring code, and checker bugs are invisible from the pass-rate tables they corrupt.
-- **Reproducible failures are the highest-value output.** Four trials converging on the same wrong number is a documentation bug with a locatable fix; a flaky miss teaches nothing. Design evals so failures localize.
-- **Distrust mid-range effects at small n.** Doubling n dissolved one apparent regime effect; removing the turn cap dissolved another. Floors, ceilings, and directions are cheap to establish; middles are not.
-- **Harness bugs bias optimistic or bias silently.** Inherited credentials and fabricated numbers inflated early scores; the rate-limit bug deflated later ones while looking exactly like real failures. Credential isolation, infra-vs-failure discrimination, and live reference checks are part of the eval design, not overhead.
+- **Fit beats volume, and both interact with budget.** A small hand-scoped bundle beat a 330 KB index on cost everywhere and on passes exactly where the turn budget was tight. What counts is how much of the context an agent can actually spend in the turns it has.
+- **Grade the graders.** The single largest correction in this study came from auditing my own checker, not from running more trials. Checker bugs are invisible from the pass-rate tables they corrupt.
+- **Reproducible failures are the highest-value output.** Four trials converging on the same wrong number is a documentation bug with an address. A flaky miss teaches nothing.
+- **Distrust mid-range effects at small n.** Doubling n dissolved one apparent regime effect; removing the turn cap dissolved another. Floors and ceilings are cheap to establish. The middle is not.
+- **Harness bugs bias optimistic or bias silently.** Inherited credentials and fabricated numbers inflated early scores; the rate-limit bug deflated later ones while looking exactly like real failures. Credential isolation, infra-vs-failure discrimination, and live reference checks belong in the eval design from the start.
 
 ## Methods hardening
 

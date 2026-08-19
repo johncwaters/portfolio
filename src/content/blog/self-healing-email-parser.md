@@ -43,12 +43,12 @@ The comparison ends up lopsided:
 
 ## The part I did not expect
 
-The first working version of this came together in a single focused day at our monthly professional development day, working solo with AI coding tools. That is not a humblebrag about typing speed; it is a data point about where the effort in this design lives.
+The first working version came together in one focused day at our monthly professional development day, working solo with AI coding tools. I bring that up for what it says about where the effort in this design actually lives.
 
 Normalization and fingerprinting are the hard 20% that make the LLM's job easy. When the model only has to describe a format once, with a clean normalized sample in front of it, you are asking it for the thing LLMs are genuinely great at: noticing structure and writing it down.
 
-A self-healing system also fails better. If the model writes a bad profile, you find out immediately, on the first message of a new format, in one place, with a reviewable artifact to fix. A per-message design smears the same failure across thousands of messages as a subtle quality problem.
+A self-healing system also fails better. If the model writes a bad profile, you find out on the first message of a new format, in one place, with a reviewable artifact to fix. A per-message design smears that same failure across thousands of messages as a subtle quality problem.
 
-## The principle
+## Where to put the LLM
 
-Put the LLM where the change happens, not where the work happens. Design-time inference is cheap, reviewable, and cacheable; hot-path inference is a per-transaction tax on cost, latency, and determinism. If the variability in your problem is low-frequency (formats, schemas, layouts) and the volume is high-frequency (messages, rows, requests), let the model generate the deterministic artifact once, and let boring code run it forever.
+Put the LLM where the change happens, not where the work happens. Inference at design time is cheap and cacheable, and it leaves behind an artifact you can review. Inference on the hot path is a per-transaction tax on cost, latency, and determinism. So when the variability in a problem is low-frequency (formats, schemas) and the volume is high-frequency (messages, requests), have the model generate the deterministic artifact once and let boring code run it forever.

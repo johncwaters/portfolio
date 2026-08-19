@@ -5,7 +5,7 @@ pubDate: 2026-01-22
 tags: ["developer-experience", "ci", "documentation", "process"]
 ---
 
-Our organization had a README template and several dozen repositories, and the overlap between "repos" and "repos that followed the template" was embarrassing. Some READMEs were missing setup instructions, some described services that had been rewritten twice, some did not exist.
+Our organization had a README template and several dozen repositories, and the overlap between "repos" and "repos that followed the template" was embarrassing. Some READMEs were missing setup instructions. Others described services that had been rewritten twice. A few repos had no README at all.
 
 So I did the responsible thing. I scoped a proper cleanup: an epic with one story per repository, each story bringing that repo's README up to the org standard. Twenty-four repos, twenty-four stories, a clear definition of done. I even made it efficient, dispatching AI agents in batches to draft the updates, so the mechanical work moved fast and human time went to review.
 
@@ -13,11 +13,11 @@ It worked. Pull requests went up, early ones merged, the burndown chart did its 
 
 ## The decay argument
 
-The realization that stopped me was not about the quality of the PRs. It was about what happens the day after the last one merges.
+What stopped me had nothing to do with the quality of the PRs. They were fine. The problem was the day after the last one merged.
 
-A README standardized by hand starts rotting immediately. The next feature changes a setup step, the next reorg renames a team, the next service migration invalidates a link, and nothing anywhere notices. The epic was producing a snapshot: "on this date, all 24 READMEs complied." Six months later we would be exactly where we started, minus the credibility of the standard, because everyone would remember that the last big cleanup did not stick either.
+A README standardized by hand starts rotting immediately. A feature changes a setup step. A reorg renames the team on the ownership line, a service migration invalidates a link, and nothing anywhere notices. What the epic actually produced was a snapshot: "on this date, all 24 READMEs complied." Six months later we would be back where we started, minus the credibility of the standard, because everyone would remember that the last big cleanup did not stick either.
 
-Manual compliance work does not produce compliance. It produces a photograph of compliance, dated the day you finished.
+Hand-auditing does not produce compliance. It produces a photograph of it, dated the day you finished.
 
 ## Sunk cost, faced honestly
 
@@ -27,9 +27,14 @@ The problem: those twenty merges would have consumed the team's attention budget
 
 ## What replaced the epic
 
-The replacement had four parts, none of them clever individually. The prose style guide became a machine-checkable contract: required sections, required ordering, patterns each section must satisfy, and any rule that could not be checked by a program was rewritten until it could be, or cut.
+The replacement had four parts, none of them clever on its own:
 
-A small Python linter validates any README against that contract and says exactly what is missing, in terms a contributor can fix without ever opening the style guide. A reusable pipeline template lets any repo add the check with one include. And a required branch policy makes it binding: a PR that breaks the README contract does not merge.
+- A style guide rewritten as a machine-checkable contract: required sections, required ordering, a pattern each section must satisfy.
+- A small Python linter that validates any README against that contract and says exactly what is missing.
+- A reusable pipeline template, so a repo adds the check with one include.
+- A required branch policy: a PR that breaks the README contract does not merge.
+
+Rewriting the style guide was the part with teeth. Any rule a program could not check got reworded until it could be, or cut. The linter's output matters for the same reason: it names the missing piece in terms a contributor can fix without ever opening the guide.
 
 ![Diagram: the manual audit produced a dated snapshot of compliance; its replacement lints every pull request against a machine-checkable README contract, failing PRs get an exact fix list, and a required branch policy makes passing the gate a condition of merging](/blog/readme-gate.svg)
 
@@ -37,4 +42,4 @@ Bulk remediation still happened, once, to get every repo past the gate. The diff
 
 ## Audits become artifacts
 
-A convention without a CI gate is a suggestion, and suggestions decay at the speed of your busiest sprint. When you find yourself auditing anything by hand for the second time, stop and convert the audit into an executable artifact: a lint rule beats a style guide, a test beats a behavior doc, a schema beats a glossary. And if you are mid-way through the manual version when you realize this, killing the in-flight work is not waste. Finishing it would be.
+A convention without a CI gate is a suggestion, and suggestions decay at the speed of your busiest sprint. When you find yourself auditing anything by hand for the second time, stop and convert the audit into something executable: a lint rule instead of a style guide page, a test instead of a paragraph describing the behavior. And if you are twenty PRs into the manual version when you work this out, those twenty PRs are not the thing worth protecting.

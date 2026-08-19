@@ -17,7 +17,7 @@ The first version of this detection scraped the rendered terminal: watched the r
 
 It worked until the next release changed a spinner glyph or added a line of padding, at which point it silently stopped working, and I found out from a session that had finished an hour ago with no notification at all.
 
-Screen content is written for a human's eyes, not a parser's. Every redraw, every theme change, every point release invalidates whatever pattern you matched against it. And there wasn't one detector doing the guessing, there were three, layered: a prompt-pattern matcher, a terminal-title watcher, and an idle timer flagging "pending content" as a last resort.
+Screen content gets laid out to be looked at. A theme change or a point release moves whatever you matched against, and nothing announces the move. And there wasn't one detector doing the guessing, there were three, layered: a prompt-pattern matcher, a terminal-title watcher, and an idle timer flagging "pending content" as a last resort.
 
 Reasoning about which one fired, and why, meant reading a stack of race-condition band-aids accreted over months. None of it was measurable. Tuning was by anecdote: something looked wrong, I nudged a timeout, I moved on.
 
@@ -27,7 +27,7 @@ The fix wasn't a better scraper. It was giving up on the rendered screen entirel
 
 At spawn, Glissa writes a per-session settings file that injects Claude Code hooks (`Stop`, `Notification`, `UserPromptSubmit`, `SessionStart`/`SessionEnd`, `SubagentStart`/`SubagentStop`) as HTTP callbacks to a local endpoint on Glissa's own server, gated by a per-session bearer token. No changes to the target repo, nothing the agent has to cooperate with beyond running normally. These hooks are the authoritative signal: Claude Code emits them on purpose, at real lifecycle boundaries, carrying structured payloads instead of pixels.
 
-The old OSC-0 terminal-title trick didn't get deleted, it got demoted. A braille spinner in the title means working, an idle glyph means ready, and anything else is reported honestly as unknown rather than guessed. It never claims "awaiting input," because a title glyph alone can't tell the difference between idle-and-done and idle-and-waiting-on-you. It exists to cover the gap for anything that predates or bypasses the hooks, and it loses to a hook whenever both are available.
+The old OSC-0 terminal-title trick didn't get deleted, it got demoted. A braille spinner in the title means working, an idle glyph means ready, and anything else is reported as unknown rather than guessed at. It never claims "awaiting input," because a title glyph alone can't tell the difference between idle-and-done and idle-and-waiting-on-you. It exists to cover the gap for anything that predates or bypasses the hooks, and it loses to a hook whenever both are available.
 
 The two sources feed a merge step with explicit precedence (hook beats title) and a short conflict window: if a `ready` signal shows up, Glissa holds it briefly in case a racing `awaiting-input` or a fresh `working` signal is about to arrive and should win instead. That window is what saved me from the next class of bug, and also what let one slip through.
 
@@ -71,7 +71,7 @@ The fix is a canonicalization function that resolves a path through `fs.realpath
 
 The part I'm more pleased with than the fix is the test helper. Reproducing an 8.3-short-path bug locally needs an actual 8.3 alias, and Windows only mints those under specific conditions. I wrote a helper that shells out to `cmd /c for %I in (...) do @echo %~sI` against a real temp directory to get a genuine short-path alias, so the regression tests run the exact hazard the CI runner hits, on my own machine, without needing a runner to debug against.
 
-## Limitations, stated plainly
+## Limitations
 
 Glissa is Windows 11 only, built for a problem I have on the machine I use every day, and untested anywhere else. Neither WebSocket channel it opens has authentication; any local process can connect to either one. That's a scope decision for a single-user dev tool, not an oversight, but it means the port must never be exposed past localhost.
 
@@ -79,9 +79,9 @@ Detection is still inference over signals Claude Code doesn't formally guarantee
 
 ## What dogfooding actually got me
 
-Every one of these incidents was found by running Glissa on itself. This article was written inside a Glissa session. The `/clear` bug showed up because I clear my scrollback constantly; the background-agent gate showed up because I run background sub-agents constantly.
+Every one of these incidents was found by running Glissa on itself. This article was written inside a Glissa session. The `/clear` bug showed up because I clear my scrollback all day. The background-agent gate showed up because I lean on background sub-agents for almost everything.
 
-The CI bug only showed up once I wired up CI, which is its own small lesson: a fix you haven't put in front of a colder environment is a fix you haven't tested.
+The CI bug only showed up once I wired up CI. Nothing on my own machine was ever going to hand the watcher a path in the shape the runner does.
 
 Every session also writes a forensic recording by default (hook payloads and state transitions, not raw keystrokes), replayed through a version-aware harness as regression fixtures, which is the only reason I could diagnose the sub-agent gate bug from real session data instead of trying to reproduce a race by hand.
 
