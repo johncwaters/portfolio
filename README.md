@@ -26,6 +26,3 @@ npm run build    # production build
 
 The contact form needs credentials: copy `.example.env` to `.env` and fill in the Gmail OAuth values.
 
-## Easter egg
-
-A hedgehog peeks out of the hero waves once they finish rising.

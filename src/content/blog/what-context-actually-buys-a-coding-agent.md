@@ -1,19 +1,15 @@
 ---
 title: "Four Runs, Same Wrong Number: What Context Actually Buys a Coding Agent"
-description: "For my PostHog Context Engineer application: 296 scored trials of a headless coding agent on real tasks from my shipping products, across four context regimes and two models. Including the bugs I found in my own harness and the doc gaps the failures point at."
+description: "296 scored trials of a headless coding agent on real tasks from my shipping products, across four context regimes and two models. Including the bugs I found in my own harness and the doc gaps the failures point at."
 pubDate: 2026-08-01
-tags: ["evals", "agents", "posthog", "context-engineering"]
+tags: ["evals", "agents", "context-engineering"]
 ---
-
-If you're reading this from PostHog: hi, you're the audience. I'm applying for the Context Engineer role, the job of making PostHog legible to AI agents, not just to humans reading docs.
-
-> Rather than claim in a cover letter that I can do that, I measured how legible PostHog is to an agent today.
 
 If you only read one section, read [Learnings](#learnings).
 
 The setup: a headless Claude Code agent (`claude -p`) ran six real tasks from my two shipping products, both running PostHog in production, under four context regimes, on two models (`claude-sonnet-5` and `claude-opus-5`). Every pass/fail was decided by a script against a pinned reference. No LLM judge anywhere.
 
-Getting to numbers I trust took four grids and 296 scored trials, plus cap-sweep batches, because along the way I had to catch and fix three problems in my own harness: a turn cap that was starving the coding tasks, a checker with bugs in both directions, and a rate-limit failure mode that scored empty runs as real failures. This report is the whole arc, findings and corrections together. For a job that is about measurement, how I caught my own harness bugs is part of the evidence.
+Getting to numbers I trust took four grids and 296 scored trials, plus cap-sweep batches, because along the way I had to catch and fix three problems in my own harness: a turn cap that was starving the coding tasks, a checker with bugs in both directions, and a rate-limit failure mode that scored empty runs as real failures. This report is the whole arc, findings and corrections together.
 
 **TL;DR:**
 
@@ -231,10 +227,6 @@ Concrete actions this data supports.
 4. **Retain full transcripts for guard-rejected trials**, so a fired safety check can be adjudicated as genuine or as a checker false positive instead of staying ambiguous.
 5. **Validate `ch-` passes against live event arrival** once the real features ship, replacing static acceptance.
 
-## What this says about the job
-
-As I understand the Context Engineer role, it is exactly the loop this post runs once, end to end: measure where PostHog is illegible to agents, localize each failure until it has an address (a missing worked example, a renderer-first assumption, an index shaped for human skimming), propose the fix, and rerun to confirm the failure actually disappears. I ran that loop on my own products, published the corrections alongside the findings, and put the results where a PostHog team would want them: in PostHog. I'd like to keep running it with PostHog's docs, MCP tools, and `llms.txt` as the surface, at the scale where the mid-range effects stop being unknowable.
-
 ## Results dashboard
 
 Every trial fires an `eval_run_completed` event into a PostHog project as it is scored, so the results of this study live in PostHog itself: each chart above is a capture of a dashboard tile, each tile a HogQL insight over the captured events. The dashboard is [publicly shared](https://us.posthog.com/shared/7uIxmXQ4aocE_xJ7VFTDXssY8ixh1w) if you want the live version.
@@ -242,5 +234,3 @@ Every trial fires an `eval_run_completed` event into a PostHog project as it is 
 ## Reproduction
 
 The full harness, task definitions, prompts, references, and raw data live in the public repo at [github.com/johncwaters/claude-setup](https://github.com/johncwaters/claude-setup): the harness README under `evals/`, task definitions in `evals/tasks/`, and one append-only journal row per trial. `evals/results/journal.jsonl` holds the two cap-50 grids (192 rows), `evals/results/checkfix-opus/` the corrected-checker rerun, `evals/results/capsweep-*/` the cap sweeps, and `evals/results/cap1000-*/` the definitive grid, pre-fix poisoned rows preserved in `.bak` journals.
-
-The hedgehog wandering around this page is PostHog's own [hedgehog-mode](https://github.com/PostHog/hedgehog-mode) engine. It felt wrong to write this much about PostHog without inviting one.
