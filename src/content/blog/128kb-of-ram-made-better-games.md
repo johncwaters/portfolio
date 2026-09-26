@@ -25,7 +25,7 @@ The tricks were craft and the flaws were accidents we grew to love, but they sha
 
 ## The wall is gone
 
-Storage is effectively free and compute is cheap enough that I can generate a working prototype in an afternoon while doing something else, which is how every project on this site started, including Keeplings, my habit app built around collectible creatures. The hardware doesn't push back anymore, and the medium leaves no fingerprints because there's barely a medium left. Mostly that's good, since I'm not nostalgic for 128KB and have no interest in writing assembly to hit a frame rate.
+Storage is effectively free and compute is cheap enough that I can generate a working prototype in an afternoon while doing something else, which is how every project on this site started, including [Keeplings](https://play.google.com/store/apps/details?id=app.keeplings.keeplings), my habit app built around collectible creatures. The hardware doesn't push back anymore, and the medium leaves no fingerprints because there's barely a medium left. Mostly that's good, since I'm not nostalgic for 128KB and have no interest in writing assembly to hit a frame rate.
 
 But the wall was doing work nobody accounted for. The reused sprites, the fake 3D, and the elevator that was secretly a loading screen didn't happen because someone felt creative that day; they happened because there was no other option, and the constraint left exactly one way out.
 
