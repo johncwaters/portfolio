@@ -5,11 +5,11 @@ pubDate: 2026-09-26
 tags: ["creativity", "constraints", "craft"]
 ---
 
-The SNES had 128KB of RAM, and that was never a budget so much as a dare. The developers who took it made the most interesting work I can think of, because they couldn't do the obvious thing and had to find something better.
+The SNES had [128KB of RAM](https://www.copetti.org/writings/consoles/super-nintendo/), and that was never a budget so much as a dare. The developers who took it made the most interesting work I can think of, because they couldn't do the obvious thing and had to find something better.
 
 ## Craft from constraint
 
-So they reused sprites, flipping and recoloring one drawing until it passed for three different enemies; on the NES, the clouds and the bushes in *Super Mario Bros.* are the same artwork in a different color. They used Mode 7 to rotate and scale a flat plane until *F-Zero* and *Super Mario Kart* felt like 3D racing on hardware that couldn't draw a polygon. They hid loading screens inside long elevator rides and slow hallways, a trick that never went away because it kept working.
+So they reused sprites, flipping and recoloring one drawing until it passed for three different enemies; on the NES, the clouds and the bushes in *Super Mario Bros.* are the same artwork in a different color. They used Mode 7 to rotate and scale a flat plane until *F-Zero* and *Super Mario Kart* felt like 3D racing on hardware that couldn't draw a polygon. They hid loading screens inside [long elevator rides](https://kotaku.com/an-oddly-long-banter-filled-history-of-mass-effect-ele-472630862) and [slow hallways](https://www.youtube.com/watch?v=6SREFi9Auos), a trick that never went away because it kept working.
 
 Chiptune exists because composers had a handful of channels and a square wave, and dithering exists because palettes were tiny and artists figured out that alternating pixels could trick the eye into seeing colors that weren't there. None of it was decoration. Each trick was someone solving a problem they couldn't avoid.
 
@@ -19,7 +19,7 @@ Nobody designed CRT flicker. Nobody chose scanlines, or the way a tube took a se
 
 We got attached to them anyway.
 
-People install CRT shaders to put the scanlines back, add film grain to footage that was shot clean, and run filters whose whole job is making a photo look worse in one specific, nostalgic way. We're paying to restore the imperfections the technology spent thirty years removing.
+People install CRT shaders to put the scanlines back, [add film grain](https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-18-Colorist-Guide.pdf) to footage that was shot clean, and run filters whose whole job is making a photo look worse in one specific, nostalgic way. We're paying to restore the imperfections the technology spent thirty years removing.
 
 The tricks were craft and the flaws were accidents we grew to love, but they share a root: something was hard, and the difficulty left fingerprints.
 
