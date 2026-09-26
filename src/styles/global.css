@@ -93,6 +93,26 @@
     --tw-prose-td-borders: var(--color-neutral);
 }
 
+.prose h2 {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+.prose h3 {
+    margin-top: 2.25rem;
+}
+
+.prose p, .prose li {
+    line-height: 1.7;
+}
+
+.prose :is(p, li, blockquote, td, th, dd, dt, figcaption),
+.prose :is(p, li, blockquote, td, th, dd, dt, figcaption) :not(code, kbd, pre, pre *) {
+    font-family: var(--font-sans);
+}
+
 /* narrow-viewBox SVG diagrams stay readable full-width on phones but would
    scale up comically at full prose width on desktop */
 .prose img[src$=".svg"] {
