@@ -116,13 +116,13 @@ The original cap-50 sonnet grid is worth reporting in full, both because parts o
 | kp-store-engagement | ffff | ffff | PPPP | ffff |
 | **Passes / 24** | **6** | **6** | **12** | **9** |
 
-![Chart: passes by regime in each independent batch](/blog/evals-passes-by-regime-per-batch.png)
+[![Chart: passes by regime in each independent batch](/blog/evals-passes-by-regime-per-batch.png)](/blog/evals-passes-by-regime-per-batch.png)
 
-![Chart: pass rate heatmap, task by regime, aggregating both cap-50 arms](/blog/evals-pass-rate-heatmap.png)
+[![Chart: pass rate heatmap, task by regime, aggregating both cap-50 arms](/blog/evals-pass-rate-heatmap.png)](/blog/evals-pass-rate-heatmap.png)
 
-![Chart: pass rate by regime](/blog/evals-pass-rate-by-regime.png)
+[![Chart: pass rate by regime](/blog/evals-pass-rate-by-regime.png)](/blog/evals-pass-rate-by-regime.png)
 
-![Chart: pass rate by task](/blog/evals-pass-rate-by-task.png)
+[![Chart: pass rate by task](/blog/evals-pass-rate-by-task.png)](/blog/evals-pass-rate-by-task.png)
 
 **Cost per success by regime** (cap-50 sonnet grid; total wall time 382 minutes, total cost $171.72 at API-equivalent pricing, since the runs actually rode a Claude subscription):
 
@@ -133,11 +133,11 @@ The original cap-50 sonnet grid is worth reporting in full, both because parts o
 | mcp | 12/24 | $31.20 | $1.30 | $2.60 |
 | bundle | 9/24 | $29.52 | $1.23 | $3.28 |
 
-![Chart: cost per success by regime](/blog/evals-cost-per-success-by-regime.png)
+[![Chart: cost per success by regime](/blog/evals-cost-per-success-by-regime.png)](/blog/evals-cost-per-success-by-regime.png)
 
-![Chart: average turns per task against the 50-turn cap](/blog/evals-average-turns-per-task.png)
+[![Chart: average turns per task against the 50-turn cap](/blog/evals-average-turns-per-task.png)](/blog/evals-average-turns-per-task.png)
 
-![Chart: failure reason breakdown across the 63 failing trials](/blog/evals-failure-reasons.png)
+[![Chart: failure reason breakdown across the 63 failing trials](/blog/evals-failure-reasons.png)](/blog/evals-failure-reasons.png)
 
 The charts are live captures of the results dashboard. All tiles except the heatmap are filtered to this sonnet grid's two valid batches, so they match the tables above; the heatmap aggregates both cap-50 arms, eight trials per cell, which is why its percentages sit between the two models' numbers. None of the tiles include the cap-1000 grid, since mixing two turn-cap regimes and two checker versions into one chart would misrepresent both. Three problems with this grid surfaced after publication.
 

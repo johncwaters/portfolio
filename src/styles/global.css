@@ -104,6 +104,16 @@
     margin-top: 2.25rem;
 }
 
+.prose table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+.prose a > img {
+    margin: 0;
+}
+
 .prose p, .prose li {
     line-height: 1.7;
 }
@@ -113,9 +123,19 @@
     font-family: var(--font-sans);
 }
 
-/* narrow-viewBox SVG diagrams stay readable full-width on phones but would
-   scale up comically at full prose width on desktop */
+/* SVG diagrams keep readable labels on phones and stay capped on desktop. */
+.prose p:has(> img[src$=".svg"]) {
+    overflow-x: auto;
+}
+
 .prose img[src$=".svg"] {
     max-width: min(100%, 30rem);
     margin-inline: auto;
+}
+
+@media (max-width: 40rem) {
+    .prose img[src$=".svg"] {
+        min-width: 30rem;
+        max-width: none;
+    }
 }
