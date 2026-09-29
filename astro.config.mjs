@@ -7,11 +7,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
-  }),
+  adapter: vercel(),
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
