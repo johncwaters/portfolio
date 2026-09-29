@@ -25,6 +25,7 @@ const formattedDate = formatDate(pubDate);
     <div class="prose max-w-[65ch]">
       <slot />
     </div>
+    <div data-blog-post-end aria-hidden="true"></div>
   </article>
   <aside class="max-w-3xl mx-auto px-5 sm:px-6 pb-20 text-center">
     <div class="divider mb-10 before:bg-neutral-content/30 after:bg-neutral-content/30"></div>
@@ -33,6 +34,42 @@ const formattedDate = formatDate(pubDate);
       Besides writing, I ship AI agent platforms, desktop and mobile apps, and
       the measurement to prove they work. The portfolio is one click away.
     </p>
-    <a href="/#professionalwork" class="btn btn-primary">View my projects</a>
+    <a href="/#professionalwork" class="btn btn-primary" data-attr="blog-post-cta">View my projects</a>
   </aside>
+  <script is:inline define:vars={{ title, tags }}>
+    const articleEnd = document.querySelector("[data-blog-post-end]");
+    let accumulatedVisibleMilliseconds = 0;
+    let visibleSinceMilliseconds = document.visibilityState === "visible" ? performance.now() : null;
+    document.addEventListener("visibilitychange", () => {
+      const nowMilliseconds = performance.now();
+      if (document.visibilityState === "visible") {
+        visibleSinceMilliseconds ??= nowMilliseconds;
+        return;
+      }
+      if (visibleSinceMilliseconds === null) return;
+      accumulatedVisibleMilliseconds += nowMilliseconds - visibleSinceMilliseconds;
+      visibleSinceMilliseconds = null;
+    });
+    const measureVisibleMilliseconds = () =>
+      visibleSinceMilliseconds === null
+        ? accumulatedVisibleMilliseconds
+        : accumulatedVisibleMilliseconds + performance.now() - visibleSinceMilliseconds;
+    const readObserver = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      readObserver.disconnect();
+      window.posthog?.capture("blog_post_read", {
+        post_title: title,
+        post_tags: tags,
+        visible_seconds_to_reach_end: Math.round(measureVisibleMilliseconds() / 1000),
+      });
+    });
+    const isArticleEndInView = () => articleEnd.getBoundingClientRect().top < window.innerHeight;
+    const armReadObserver = () => {
+      if (isArticleEndInView()) return;
+      readObserver.observe(articleEnd);
+    };
+    if (!isArticleEndInView()) {
+      window.addEventListener("scroll", armReadObserver, { once: true, passive: true });
+    }
+  </script>
 </DefaultPage>
