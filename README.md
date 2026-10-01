@@ -10,9 +10,8 @@ Personal portfolio and blog, live at [www.johncwaters.com](https://www.johncwate
 
 ## Site map
 
-- `/` landing page: animated wave hero, Professional Work (terminal-style cards driven by `src/data/projects.ts`), My Works (browser-window cards in `src/components/smallparts/Portfolio.astro`), About Me, contact form
+- `/` landing page: animated wave hero, Professional Work (terminal-style cards driven by `src/data/projects.ts`), My Works (browser-window cards in `src/components/smallparts/Portfolio.astro`), About Me
 - `/blog` Markdown content collection in `src/content/blog/`, schema in `src/content.config.ts`, feed at `/rss.xml`
-- `/api/nodemailer` serverless contact form endpoint (nodemailer with Gmail OAuth via googleapis)
 - `/resume.pdf` one-page resume, linked from the header nav
 
 ## Development
@@ -23,6 +22,3 @@ npm run dev      # local dev server
 npm run check    # astro check (types + diagnostics)
 npm run build    # production build
 ```
-
-The contact form needs credentials: copy `.example.env` to `.env` and fill in the Gmail OAuth values.
-
