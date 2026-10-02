@@ -12,7 +12,7 @@ Every morning a Telegram message lands on my phone before I'm out of bed. It ope
 
 ## Everyone else shipped the opposite
 
-September was the month personal agents went mainstream. [Meta announced Muse](https://www.therundown.ai/news/meta-muse-personal-ai-agent) on September 8: it lives in WhatsApp, runs its own cloud browser, and books tables, sends email, and shops for you. Three weeks later [OpenAI unveiled Dots](https://www.wral.com/news/ap/77b6b-openai-ceo-announces-new-ai-agent-and-avoids-mention-of-security-concerns-at-developer-conference/), always-on agents built to "complete ongoing tasks proactively on behalf of users."
+September was the month personal agents went mainstream. [Meta announced Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/) on September 8: it lives in WhatsApp, runs on its own virtual machine with a browser, and sends email and books travel for you. Three weeks later [OpenAI unveiled Dots](https://www.wral.com/news/ap/77b6b-openai-ceo-announces-new-ai-agent-and-avoids-mention-of-security-concerns-at-developer-conference/), agents the Associated Press described as built to "complete ongoing tasks proactively on behalf of users."
 
 I like the interface choice. A chat app you already have open is the right home for an assistant, because the people who most need one aren't going to learn a dashboard. A nurse between shifts, a contractor in a truck, a parent in a school pickup line: they text. That part everyone got right.
 
@@ -38,17 +38,17 @@ The rules are short:
 
 - **Reads are free.** Mail, calendar, Slack, Notion, the web.
 - **Writes are a short list.** Gmail drafts and labels, calendar holds and edits, and nothing else. Sending mail, replying to invites, trashing anything, and every Slack or Notion write are denied outright, whatever the model was talked into.
-- **Deletes need my word.** A calendar delete only runs when my own newest message says "delete" (or "remove," "cancel," and a few others). Glissa once found six duplicate flight events on my calendar and refused to clear them until I said the word.
+- **Deletes need my word.** A calendar delete only runs when my own newest message says "delete" or one of eight other words, from "cancel" to "get rid of." Glissa once found six duplicate flight events on my calendar and refused to clear them until I said the word.
 - **Guests need to be people I named.** It can add my wife to a flight hold because I told it who she is. An address that only appeared in an email can't be invited to anything.
 - **The guard protects itself.** The live session can't edit the guard, its tests, or the scripts it trusts, and it can't reach the network from a shell, because an injected instruction that can rewrite the rules defeats every rule.
 
 <!-- screenshot: Thu Sept 18 delete refusal, then "delete", redacted -->
 
-There's a test file pinning every one of those rules, and the guard has been rewritten more than once after I found a hole in it. It isn't perfect. But the failure mode of a wall is that it's occasionally too tall, and the failure mode of a polite request is that someone asks more politely.
+297 tests pin those rules, and the guard has been rewritten more than once after I found a hole in it. It isn't perfect. But the failure mode of a wall is that it's occasionally too tall, and the failure mode of a polite request is that someone asks more politely.
 
 ## Too tall is a real cost
 
-I'll be honest about the tax. Twice in the last month the guard blocked something I genuinely wanted. When I asked it to share my flights with my wife, it said "Not done" because my phrasing didn't match what the guest check reads, and I had to rephrase. When I asked it to draft a research file to my work address, the draft was blocked, and it sent me a link instead.
+The guard has a cost. Twice in the last month the guard blocked something I genuinely wanted. When I asked it to share my flights with my wife, it said "Not done" because my phrasing didn't match what the guest check reads, and I had to rephrase. When I asked it to draft a research file to my work address, the draft was blocked, and it sent me a link instead.
 
 Both times I was annoyed for about ten seconds. Then I thought about what the alternative design does with an email that says "share your flights with this address."
 
