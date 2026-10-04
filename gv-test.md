@@ -1,2 +1,2 @@
 Glimmervoid keep-mergeable test file.
-status: initial
+status: changed on the feature branch
