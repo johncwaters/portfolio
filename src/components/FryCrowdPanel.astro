@@ -7,6 +7,7 @@ export interface Props {
 
 const { list } = Astro.props;
 const columnHeadingClasses = "pb-2 text-xs font-normal tracking-wide uppercase text-base-content/70";
+const crowdArtClasses = "size-9 data-logo:rounded-full data-logo:bg-white data-logo:object-contain data-logo:p-1.5 sm:size-10";
 ---
 
 <section data-fry-crowd={list.id} class="mt-10">
@@ -42,7 +43,7 @@ const columnHeadingClasses = "pb-2 text-xs font-normal tracking-wide uppercase t
   <template data-crowd-row>
     <tr class="group border-t border-(--brand-line)">
       <td data-crowd-rank class="py-2 text-right text-xl font-bold tabular-nums group-first:text-[#ff5c8a]"></td>
-      <td class="w-11 py-2 pl-2 sm:w-13 sm:pl-3"><img data-crowd-art alt="" width="200" height="200" class="size-9 sm:size-10" /></td>
+      <td class="w-11 py-2 pl-2 sm:w-13 sm:pl-3"><img data-crowd-art alt="" width="200" height="200" class={crowdArtClasses} /></td>
       <th scope="row" class="py-2 pl-2 text-left sm:pl-3">
         <span data-crowd-name class="block leading-tight font-bold sm:text-lg"></span>
         <span class="mt-1.5 block h-1 overflow-hidden rounded-full bg-(--brand-line)">
@@ -58,7 +59,7 @@ const columnHeadingClasses = "pb-2 text-xs font-normal tracking-wide uppercase t
   </template>
   <template data-crowd-added-row>
     <tr class="border-t border-(--brand-line)">
-      <td class="w-9 py-2 sm:w-10"><img data-crowd-art alt="" width="200" height="200" class="size-9 sm:size-10" /></td>
+      <td class="w-9 py-2 sm:w-10"><img data-crowd-art alt="" width="200" height="200" class={crowdArtClasses} /></td>
       <th scope="row" data-crowd-name class="py-2 pl-3 text-left leading-tight font-bold sm:text-lg"></th>
       <td data-crowd-added-share class="py-2 pl-3 text-right whitespace-nowrap tabular-nums"></td>
       <td data-crowd-average class="py-2 pl-4 text-right tabular-nums sm:text-lg"></td>

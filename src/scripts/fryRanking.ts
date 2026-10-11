@@ -367,7 +367,9 @@ function setUpFryRanking(listElement: HTMLElement, list: FryList, voterId: strin
   function fillCrowdRowIdentity(crowdRow: DocumentFragment, entryId: string, averageRank: number): void {
     const entry = entriesById.get(entryId);
     if (!entry) return;
-    requireElement<HTMLImageElement>(crowdRow, "[data-crowd-art]").src = fryArtPathFor(entry);
+    const crowdArt = requireElement<HTMLImageElement>(crowdRow, "[data-crowd-art]");
+    crowdArt.src = entry.logoPath ?? fryArtPathFor(entry);
+    crowdArt.toggleAttribute("data-logo", entry.logoPath !== undefined);
     requireElement<HTMLElement>(crowdRow, "[data-crowd-name]").textContent = entry.name;
     requireElement<HTMLElement>(crowdRow, "[data-crowd-average]").textContent = averageRank.toFixed(1);
   }

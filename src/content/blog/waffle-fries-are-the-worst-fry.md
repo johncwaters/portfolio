@@ -6,6 +6,12 @@ tags: ["fries", "rankings"]
 draft: false
 ---
 
+<nav aria-label="Jump to a list" class="not-prose mb-8 flex flex-wrap items-center gap-2 text-sm">
+<span class="text-base-content/75">Jump to</span>
+<a class="btn btn-sm" href="#the-shapes">The shapes</a>
+<a class="btn btn-sm" href="#the-chains">The chains</a>
+</nav>
+
 Waffle fries are the worst fry. They were [Chick-fil-A's most-ordered menu item](https://www.fox4news.com/news/chick-fil-a-reveals-top-ordered-menu-items-of-2021) in all six regions of the country in 2021, which means a lot of people are ordering a bad fry on purpose.
 
 I ranked thirteen shapes and waffle is thirteenth, behind sweet potato, behind shoestring, and behind a potato with a face on it. Crinkle is twelfth, and it's the only shape bad enough to keep waffle company. Four chains on my list sell one or the other (Shake Shack, Culver's, Nathan's Famous, and Chick-fil-A) and none of them gets higher than eighth, because a kitchen can't cook its way out of a bad shape.
@@ -190,10 +196,6 @@ The whole pitch is that the potatoes are "never frozen and never pre-cut." Five 
 Shake Shack already ran this experiment so nobody else had to. It [swapped its frozen crinkle for a fresh hand-cut fry in 2013 and brought the crinkle back a year later](https://www.nrn.com/food-trends/restaurant-menu-watch-shake-shack-brings-back-crinkle-cut-fries) because it couldn't make the fresh one consistent. Its culinary director, Mark Rosati, [told Food Republic](https://www.foodrepublic.com/2016/03/31/when-frozen-is-better-than-fresh-the-lesson-of-shake-shacks-crinkle-cut-fries) the fresh-cuts were "so temperamental," and that "right out of the fryer, they were amazing." A fry that's only good right out of the fryer is a bad fry. Shake Shack now sits five places above Five Guys, selling a shape I can't stand, frozen.
 
 Burger King is first on the same list with the same straight cut of the same vegetable, and nobody there is bragging about a knife.
-
-## McDonald's is sixth
-
-McDonald's is sixth, behind Dairy Queen. Seven of the thirteen chains sell a regular fry and they finish 1, 2, 3, 4, 6, 9, and 13, so the cut gets no credit and no blame. Taco Bell is second with a straight cut "seasoned with bold Mexican spices," ahead of Wendy's, Dairy Queen, and McDonald's, which sell the same cut and stop at salt.
 
 If your list is different, and it is, you can [move mine around and send me yours](/fries). Put waffle wherever you want. It's still the worst fry.
 
