@@ -170,3 +170,11 @@ Burger King is first on the same list with the same straight cut of the same veg
 McDonald's is sixth, behind Dairy Queen. Seven of the thirteen chains sell a regular fry and they finish 1, 2, 3, 4, 6, 9, and 13, so the cut gets no credit and no blame. Taco Bell is second with a straight cut "seasoned with bold Mexican spices," ahead of Wendy's, Dairy Queen, and McDonald's, which sell the same cut and stop at salt.
 
 If your list is different, and it is, you can [move mine around and send me yours](/fries). Put waffle wherever you want. It's still the worst fry.
+
+<aside class="not-prose mt-10 flex flex-col items-start gap-5 rounded-xl border-2 border-(--brand-pink) bg-(--brand-chrome) p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+<div>
+<p class="text-2xl leading-tight! font-bold">Think I&rsquo;m wrong? Fix my list.</p>
+<p class="mt-2 text-base-content/75">Move my thirteen shapes and thirteen chains into your order, send it to me, and see where everyone else put them.</p>
+</div>
+<a class="btn btn-primary btn-lg shrink-0" href="/fries" data-attr="fry-post-rank-cta">Rank the fries</a>
+</aside>
