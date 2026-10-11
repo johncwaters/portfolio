@@ -29,13 +29,13 @@ I rank fries two ways, by shape and by chain. Put the two lists next to each oth
 </li>
 <li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
 <span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">4</span>
-<img src="/blog/fry-smiley-face.svg" alt="A round potato smiley face with two eye holes and a grin" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
-<strong class="text-center leading-tight">Smiley faces</strong>
+<img src="/blog/fry-tater-tots.svg" alt="Three tater tots stacked in a small pyramid" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
+<strong class="text-center leading-tight">Tater tots (or gems)</strong>
 </li>
 <li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
 <span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">5</span>
-<img src="/blog/fry-tater-tots.svg" alt="Three tater tots stacked in a small pyramid" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
-<strong class="text-center leading-tight">Tater tots (or gems)</strong>
+<img src="/blog/fry-smiley-face.svg" alt="A round potato smiley face with two eye holes and a grin" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
+<strong class="text-center leading-tight">Smiley faces</strong>
 </li>
 <li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
 <span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">6</span>
@@ -44,7 +44,7 @@ I rank fries two ways, by shape and by chain. Put the two lists next to each oth
 </li>
 <li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
 <span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">7</span>
-<img src="/blog/fry-steak.svg" alt="Three thick steak fries piled across each other" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
+<img src="/blog/fry-steak.svg" alt="Two thick steak fries crossed in an X" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
 <strong class="text-center leading-tight">Steak</strong>
 </li>
 <li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
@@ -54,28 +54,28 @@ I rank fries two ways, by shape and by chain. Put the two lists next to each oth
 </li>
 <li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
 <span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">9</span>
-<img src="/blog/fry-crinkle.svg" alt="Three crinkle-cut fries with ridged edges" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
-<strong class="text-center leading-tight">Crinkle</strong>
-</li>
-<li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
-<span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">10</span>
 <img src="/blog/fry-potato-wedge.svg" alt="A plain potato wedge with the skin left on its curved side" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
 <strong class="text-center leading-tight">Potato wedge</strong>
 </li>
 <li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
-<span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">11</span>
-<img src="/blog/fry-waffle.svg" alt="A round waffle fry with a lattice of square holes" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
-<strong class="text-center leading-tight">Waffle</strong>
-</li>
-<li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
-<span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">12</span>
+<span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">10</span>
 <img src="/blog/fry-sweet-potato.svg" alt="A pile of orange sweet potato fries with salt on them" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
 <strong class="text-center leading-tight">Sweet potato</strong>
 </li>
 <li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
-<span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">13</span>
+<span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">11</span>
 <img src="/blog/fry-shoestring.svg" alt="A tangled nest of long, thin shoestring fries" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
 <strong class="text-center leading-tight">Shoestring</strong>
+</li>
+<li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
+<span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">12</span>
+<img src="/blog/fry-crinkle.svg" alt="Three crinkle-cut fries with ridged edges" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
+<strong class="text-center leading-tight">Crinkle</strong>
+</li>
+<li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
+<span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">13</span>
+<img src="/blog/fry-waffle.svg" alt="A round waffle fry with a lattice of square holes" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
+<strong class="text-center leading-tight">Waffle</strong>
 </li>
 </ol>
 
@@ -165,20 +165,20 @@ Five Guys is the thirteenth, and its fry is the one with the best story: hand-cu
 
 ## The bad shapes stay bad
 
-Down the list, the two rankings stop arguing. Crinkle is ninth of thirteen shapes, and the three crinkle chains finish 8th, 10th, and 11th. Steak is seventh on one list and Red Robin is seventh on the other.
+Down the list, the two rankings stop arguing. Crinkle and waffle are the last two shapes of thirteen, and the four chains that sell them finish 8th, 10th, 11th, and 12th. Steak is seventh on one list and Red Robin is seventh on the other.
 
-Waffle fries were [Chick-fil-A's most-ordered menu item](https://www.fox4news.com/news/chick-fil-a-reveals-top-ordered-menu-items-of-2021) in all six regions of the country in 2021. Waffle is 11th of 13 here, and Chick-fil-A is 12th of 13.
+Waffle fries were [Chick-fil-A's most-ordered menu item](https://www.fox4news.com/news/chick-fil-a-reveals-top-ordered-menu-items-of-2021) in all six regions of the country in 2021. Waffle is the last shape here, and Chick-fil-A is the 12th chain of 13.
 
 No chain that sells a crinkle or a waffle finishes above eighth. So a bad shape is a ceiling, and a good shape is not a floor: regular can finish first or dead last depending on who's holding the basket, and crinkle starts at eighth.
 
 ## A jojo is not a wedge
 
-Jojos are sixth and potato wedges are tenth, and they are the same cut of potato. The difference, as Paul Nicewonger [told Willamette Week](https://www.wweek.com/restaurants/reviews/2017/07/12/the-history-of-the-american-jojo-which-is-definitely-not-a-potato-wedge/): "A true jojo is a potato wedge that's been breaded, pressure fried and spiced."
+Jojos are sixth and potato wedges are ninth, and they are the same cut of potato. The difference, as Paul Nicewonger [told Willamette Week](https://www.wweek.com/restaurants/reviews/2017/07/12/the-history-of-the-american-jojo-which-is-definitely-not-a-potato-wedge/): "A true jojo is a potato wedge that's been breaded, pressure fried and spiced."
 
-That's four places for breading and a pressure fryer, which means the shape list was never only about shape. Taco Bell says the same thing on the chain list: its fry is a straight cut "seasoned with bold Mexican spices," and it's second, ahead of Wendy's, Dairy Queen, and McDonald's, which all sell the same cut.
+That's three places for breading and a pressure fryer, which means the shape list was never only about shape. Taco Bell says the same thing on the chain list: its fry is a straight cut "seasoned with bold Mexican spices," and it's second, ahead of Wendy's, Dairy Queen, and McDonald's, which all sell the same cut.
 
 ## Eight shapes, zero chains
 
-Only five of the thirteen shapes are what a chain on my list hands you when you ask for fries. The other eight never get a row in the second list, and four of them are in my top six: hash brown patties, smiley faces, tots, and jojos.
+Only five of the thirteen shapes are what a chain on my list hands you when you ask for fries. The other eight never get a row in the second list, and four of them are in my top six: hash brown patties, tots, smiley faces, and jojos.
 
-That leaves the chain list as a ranking of what the drive-thru decided to sell, and seven times out of thirteen it decided on regular. Burger King and Five Guys start with the same straight cut of the same vegetable. One finished first, one finished thirteenth, and a potato with a face on it beat nine other shapes.
+That leaves the chain list as a ranking of what the drive-thru decided to sell, and seven times out of thirteen it decided on regular. Burger King and Five Guys start with the same straight cut of the same vegetable. One finished first, one finished thirteenth, and a potato with a face on it beat eight other shapes.
