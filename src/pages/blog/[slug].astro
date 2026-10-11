@@ -4,14 +4,28 @@ import { getCollection, render } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog", ({ data }) => !data.draft);
-  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+  const postsNewestFirst = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+    (leftPost, rightPost) => rightPost.data.pubDate.valueOf() - leftPost.data.pubDate.valueOf()
+  );
+  const lastWindowStartIndex = Math.max(postsNewestFirst.length - 3, 0);
+  return postsNewestFirst.map((post, postIndex) => {
+    const windowStartIndex = Math.min(Math.max(postIndex - 1, 0), lastWindowStartIndex);
+    return {
+      params: { slug: post.id },
+      props: {
+        post,
+        keepReadingPosts: postsNewestFirst
+          .slice(windowStartIndex, windowStartIndex + 3)
+          .filter((nearbyPost) => nearbyPost.id !== post.id),
+      },
+    };
+  });
 }
 
-const { post } = Astro.props;
+const { post, keepReadingPosts } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data}>
+<BlogPost {...post.data} keepReadingPosts={keepReadingPosts}>
   <Content />
 </BlogPost>

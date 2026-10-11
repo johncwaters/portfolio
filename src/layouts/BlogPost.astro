@@ -1,5 +1,6 @@
 ---
 import DefaultPage from "./DefaultPage.astro";
+import type { CollectionEntry } from "astro:content";
 import { formatDate } from "../utils/formatDate";
 
 export interface Props {
@@ -7,9 +8,10 @@ export interface Props {
   description: string;
   pubDate: Date;
   tags: string[];
+  keepReadingPosts: CollectionEntry<"blog">[];
 }
 
-const { title, description, pubDate, tags } = Astro.props;
+const { title, description, pubDate, tags, keepReadingPosts } = Astro.props;
 const formattedDate = formatDate(pubDate);
 ---
 
@@ -27,10 +29,49 @@ const formattedDate = formatDate(pubDate);
     </div>
     <div data-blog-post-end aria-hidden="true"></div>
   </article>
-  <aside class="max-w-3xl mx-auto px-5 sm:px-6 pb-20 text-center">
-    <div class="divider mb-10 before:bg-neutral-content/30 after:bg-neutral-content/30"></div>
-    <h2 class="text-3xl font-bold mb-6">Want to see what I build?</h2>
-    <a href="/#professionalwork" class="btn btn-primary" data-attr="blog-post-cta">View my projects</a>
+  <aside class="max-w-3xl mx-auto px-5 sm:px-6 pb-16 sm:pb-20 w-full">
+    <div class="max-w-[65ch] border-t border-neutral pt-8">
+      {
+        keepReadingPosts.length > 0 && (
+          <nav aria-labelledby="keep-reading-heading" class="mb-6">
+            <h2 id="keep-reading-heading" class="text-xs uppercase tracking-widest opacity-70 mb-1">
+              Keep reading
+            </h2>
+            <ul>
+              {keepReadingPosts.map((keepReadingPost) => (
+                <li>
+                  <a
+                    href={`/blog/${keepReadingPost.id}/`}
+                    class="group block py-3 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
+                    data-attr="blog-post-keep-reading"
+                  >
+                    <span class="block text-lg font-semibold leading-snug group-hover:text-(--brand-pink-soft) group-focus-visible:text-(--brand-pink-soft)">
+                      {keepReadingPost.data.title}
+                    </span>
+                    <time
+                      class="block text-sm opacity-70 mt-1"
+                      datetime={keepReadingPost.data.pubDate.toISOString()}
+                    >
+                      {formatDate(keepReadingPost.data.pubDate)}
+                    </time>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )
+      }
+      <p class="text-sm">
+        <span class="text-(--brand-pink-soft) mr-2" aria-hidden="true">$</span>
+        <a
+          href="/#professionalwork"
+          class="underline underline-offset-4 hover:text-(--brand-pink-soft) focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
+          data-attr="blog-post-cta"
+        >
+          View my projects
+        </a>
+      </p>
+    </div>
   </aside>
   <script is:inline define:vars={{ title, tags }}>
     const articleEnd = document.querySelector("[data-blog-post-end]");
