@@ -1,6 +1,6 @@
 # Blog posts
 
-Writing style comes from the `longform-writing` skill, so craft rules live there and not here. This file holds only what is specific to this site.
+This file holds only what is specific to this site.
 
 - Frontmatter: `title`, `description` (1 to 2 sentences, the lede in miniature), `pubDate`, `tags`.
 - Images live in `public/blog/`, referenced as `/blog/<file>`. Alt text describes the image content and matches any embedded SVG aria-label verbatim.

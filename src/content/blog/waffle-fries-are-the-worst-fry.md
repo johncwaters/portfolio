@@ -1,14 +1,14 @@
 ---
 title: "Waffle Fries Are the Worst Fry"
-description: "I ranked thirteen fry shapes and thirteen chains on separate lists. Waffle finished last, crinkle finished right above it, and no chain selling either one made it past eighth."
+description: "Waffle fries are the worst fry, Five Guys fries are awful no matter how many end up in the bag, and cutting a potato fresh means literally nothing. Thirteen shapes and thirteen chains, ranked."
 pubDate: 2026-10-11
 tags: ["fries", "rankings"]
 draft: false
 ---
 
-Burger King is first on my fry list and Five Guys is last, and they sell the same shape.
+Waffle fries are the worst fry. They were [Chick-fil-A's most-ordered menu item](https://www.fox4news.com/news/chick-fil-a-reveals-top-ordered-menu-items-of-2021) in all six regions of the country in 2021, which means a lot of people are ordering a bad fry on purpose.
 
-I rank fries two ways, by shape and by chain. Put the two lists next to each other and they agree about the bad shapes, fight about the best one, and can't explain how one cut of potato ends up at both ends.
+I ranked thirteen shapes and waffle is thirteenth, behind sweet potato, behind shoestring, and behind a potato with a face on it. Crinkle is twelfth, and it's the only shape bad enough to keep waffle company. Four chains on my list sell one or the other (Shake Shack, Culver's, Nathan's Famous, and Chick-fil-A) and none of them gets higher than eighth, because a kitchen can't cook its way out of a bad shape.
 
 ## The shapes
 
@@ -78,6 +78,12 @@ I rank fries two ways, by shape and by chain. Put the two lists next to each oth
 <strong class="text-center leading-tight">Waffle</strong>
 </li>
 </ol>
+
+Curly is the best fry and regular is second. Arby's is the only chain here that sells a curly, and it's fifth, because the best curly fry I've ever had and the one I can get on a Tuesday are two different fries.
+
+Four of my top six aren't what a chain on my list hands you when you ask for fries: tots, hash brown patties, smiley faces, and jojos. Yes, the smiley face is fifth. It beat eight other shapes and I'd do it again.
+
+Jojos are sixth and potato wedges are ninth, and they're the same cut of potato. The difference, as Paul Nicewonger [told Willamette Week](https://www.wweek.com/restaurants/reviews/2017/07/12/the-history-of-the-american-jojo-which-is-definitely-not-a-potato-wedge/): "A true jojo is a potato wedge that's been breaded, pressure fried and spiced." Breading and a pressure fryer are worth three places, so a plain wedge has no excuse.
 
 ## The chains
 
@@ -149,36 +155,18 @@ I rank fries two ways, by shape and by chain. Put the two lists next to each oth
 </li>
 </ol>
 
-## Curly wins the shape and loses the drive-thru
+## Five Guys fries are awful
 
-Curly is first on the shape list. Arby's is the only chain here whose fry is curly, and it's fifth. The four chains ahead of it all sell a regular straight-cut fry, which is the shape I put second.
+Five Guys fries are awful, no matter how many they try to give you in the bag. Five Guys [says](https://www.fiveguys.com/menu/fries/) "an extra scoop comes standard," and a bigger pile of a bad fry is not a deal. They're thirteenth of thirteen chains.
 
-The only way both lists hold is if they're grading different things. "Curly" on the first list is the best curly fry I've ever had, and "Arby's" on the second is the one I can actually get. A shape ranking grades the idea of a fry, and a chain ranking grades a Tuesday.
+The whole pitch is that the potatoes are "never frozen and never pre-cut." Five Guys admits that's "a more difficult process and costs a bit more, but it's worth it." It isn't. Cutting fries fresh means literally nothing and results in a worse fry.
 
-## One shape, first place and last place
+Shake Shack already ran this experiment so nobody else had to. It [swapped its frozen crinkle for a fresh hand-cut fry in 2013 and brought the crinkle back a year later](https://www.nrn.com/food-trends/restaurant-menu-watch-shake-shack-brings-back-crinkle-cut-fries) because it couldn't make the fresh one consistent. Its culinary director, Mark Rosati, [told Food Republic](https://www.foodrepublic.com/2016/03/31/when-frozen-is-better-than-fresh-the-lesson-of-shake-shacks-crinkle-cut-fries) the fresh-cuts were "so temperamental," and that "right out of the fryer, they were amazing." A fry that's only good right out of the fryer is a bad fry. Shake Shack now sits five places above Five Guys, selling a shape I can't stand, frozen.
 
-Regular makes the same point louder. Seven of the thirteen chains sell it, and they land at 1, 2, 3, 4, 6, 9, and 13. McDonald's is sixth, behind Dairy Queen.
+Burger King is first on the same list with the same straight cut of the same vegetable, and nobody there is bragging about a knife.
 
-Five Guys is the thirteenth, and its fry is the one with the best story: hand-cut, "never frozen and never pre-cut," cooked in peanut oil. Shake Shack tried that story once. It [replaced its crinkle with a fresh hand-cut fry in 2013 and brought the crinkle back a year later](https://www.nrn.com/food-trends/restaurant-menu-watch-shake-shack-brings-back-crinkle-cut-fries) because it couldn't make the fresh one consistent, and it sits five places above Five Guys with the frozen fry it went back to.
+## McDonald's is sixth
 
-## The bad shapes stay bad
+McDonald's is sixth, behind Dairy Queen. Seven of the thirteen chains sell a regular fry and they finish 1, 2, 3, 4, 6, 9, and 13, so the cut gets no credit and no blame. Taco Bell is second with a straight cut "seasoned with bold Mexican spices," ahead of Wendy's, Dairy Queen, and McDonald's, which sell the same cut and stop at salt.
 
-Down the list, the two rankings stop arguing. Crinkle and waffle are the last two shapes of thirteen, and the four chains that sell them finish 8th, 10th, 11th, and 12th. Steak is seventh on one list and Red Robin is seventh on the other.
-
-Waffle fries were [Chick-fil-A's most-ordered menu item](https://www.fox4news.com/news/chick-fil-a-reveals-top-ordered-menu-items-of-2021) in all six regions of the country in 2021. Waffle is the last shape here, and Chick-fil-A is the 12th chain of 13.
-
-No chain that sells a crinkle or a waffle finishes above eighth. So a bad shape is a ceiling, and a good shape is not a floor: regular can finish first or dead last depending on who's holding the basket, and crinkle starts at eighth.
-
-## A jojo is not a wedge
-
-Jojos are sixth and potato wedges are ninth, and they are the same cut of potato. The difference, as Paul Nicewonger [told Willamette Week](https://www.wweek.com/restaurants/reviews/2017/07/12/the-history-of-the-american-jojo-which-is-definitely-not-a-potato-wedge/): "A true jojo is a potato wedge that's been breaded, pressure fried and spiced."
-
-That's three places for breading and a pressure fryer, which means the shape list was never only about shape. Taco Bell says the same thing on the chain list: its fry is a straight cut "seasoned with bold Mexican spices," and it's second, ahead of Wendy's, Dairy Queen, and McDonald's, which all sell the same cut.
-
-## Eight shapes, zero chains
-
-Only five of the thirteen shapes are what a chain on my list hands you when you ask for fries. The other eight never get a row in the second list, and four of them are in my top six: tots, hash brown patties, smiley faces, and jojos.
-
-That leaves the chain list as a ranking of what the drive-thru decided to sell, and seven times out of thirteen it decided on regular. Burger King and Five Guys start with the same straight cut of the same vegetable. One finished first, one finished thirteenth, and a potato with a face on it beat eight other shapes.
-
-If your list is different, and it is, you can [move mine around and send me yours](/fries).
+If your list is different, and it is, you can [move mine around and send me yours](/fries). Put waffle wherever you want. It's still the worst fry.
