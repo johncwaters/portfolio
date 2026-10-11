@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<circle cx="100" cy="100" r="96" fill="#0c3f59"/>
+<g transform="translate(100 100) scale(1) translate(-100 -100)">
+<g transform="rotate(-27 84 150)">
+<rect x="77.5" y="66" width="13" height="84" rx="2.5" fill="#f7c948" stroke="#001b2b" stroke-width="4" stroke-linejoin="round"/>
+<rect x="79.84" y="71" width="2.6" height="74" rx="1" fill="#ffe594"/>
+</g>
+<g transform="rotate(27 116 150)">
+<rect x="109.5" y="70" width="13" height="80" rx="2.5" fill="#f7c948" stroke="#001b2b" stroke-width="4" stroke-linejoin="round"/>
+<rect x="111.84" y="75" width="2.6" height="70" rx="1" fill="#ffe594"/>
+</g>
+<g transform="rotate(-16 90 150)">
+<rect x="83.5" y="52" width="13" height="98" rx="2.5" fill="#f7c948" stroke="#001b2b" stroke-width="4" stroke-linejoin="round"/>
+<rect x="85.84" y="57" width="2.6" height="88" rx="1" fill="#ffe594"/>
+</g>
+<g transform="rotate(17 110 150)">
+<rect x="103.5" y="56" width="13" height="94" rx="2.5" fill="#f7c948" stroke="#001b2b" stroke-width="4" stroke-linejoin="round"/>
+<rect x="105.84" y="61" width="2.6" height="84" rx="1" fill="#ffe594"/>
+</g>
+<g transform="rotate(-6 95 150)">
+<rect x="88.5" y="44" width="13" height="106" rx="2.5" fill="#f7c948" stroke="#001b2b" stroke-width="4" stroke-linejoin="round"/>
+<rect x="90.84" y="49" width="2.6" height="96" rx="1" fill="#ffe594"/>
+</g>
+<g transform="rotate(8 106 150)">
+<rect x="99.5" y="40" width="13" height="110" rx="2.5" fill="#f7c948" stroke="#001b2b" stroke-width="4" stroke-linejoin="round"/>
+<rect x="101.84" y="45" width="2.6" height="100" rx="1" fill="#ffe594"/>
+</g>
+<g transform="rotate(0 100 150)">
+<rect x="93.5" y="58" width="13" height="92" rx="2.5" fill="#f7c948" stroke="#001b2b" stroke-width="4" stroke-linejoin="round"/>
+<rect x="95.84" y="63" width="2.6" height="82" rx="1" fill="#ffe594"/>
+</g>
+<path d="M 58 104 Q 100 122 142 104 L 131 178 Q 100 184 69 178 Z" fill="#f4f1ea" stroke="#001b2b" stroke-width="4" stroke-linejoin="round"/>
+<path d="M 61.5 128 Q 100 141 138.5 128 L 136.5 142 Q 100 155 63.5 142 Z" fill="#e50004"/>
+<path d="M 58 104 Q 100 122 142 104 L 131 178 Q 100 184 69 178 Z" fill="none" stroke="#001b2b" stroke-width="4" stroke-linejoin="round"/>
+</g>
+</svg>
