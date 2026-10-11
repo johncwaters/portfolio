@@ -11,6 +11,7 @@ export interface FryEntry {
   name: string;
   artShapeId: string;
   artAlt: string;
+  logoPath?: string;
   detail?: FryEntryDetail;
 }
 
@@ -86,6 +87,8 @@ const benchChains: FryChain[] = [
   { id: "steak-n-shake", name: "Steak ’n Shake", shapeId: "shoestring" },
 ];
 
+const chainIdsWithoutPublicDomainLogo = new Set(["zaxbys"]);
+
 const shapesById = new Map([...rankedShapes, ...benchShapes].map((shape) => [shape.id, shape]));
 
 const toShapeEntry = (shape: FryShape): FryEntry => ({
@@ -103,6 +106,7 @@ const toChainEntry = (chain: FryChain): FryEntry => {
     name: chain.name,
     artShapeId: shape.id,
     artAlt: "",
+    logoPath: chainIdsWithoutPublicDomainLogo.has(chain.id) ? undefined : `/blog/logo-${chain.id}.svg`,
     detail: { shapeName: shape.name, qualifier: chain.qualifier, sourceUrl: chain.sourceUrl },
   };
 };

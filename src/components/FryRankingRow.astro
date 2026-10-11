@@ -9,6 +9,7 @@ export interface Props {
 const { entry, authorRank } = Astro.props;
 const isBenchEntry = authorRank === undefined;
 const { detail } = entry;
+const hasLogo = entry.logoPath !== undefined;
 const unlinkedDetailPrefix = detail?.qualifier === undefined ? "" : `${detail.shapeName}, `;
 const sourcedDetailText = detail?.qualifier ?? detail?.shapeName;
 ---
@@ -23,13 +24,25 @@ const sourcedDetailText = detail?.qualifier ?? detail?.shapeName;
     class="w-9 shrink-0 text-right text-2xl leading-none font-bold tabular-nums opacity-80 group-first:bg-linear-to-r group-first:from-(--brand-red) group-first:to-(--brand-pink) group-first:bg-clip-text group-first:text-3xl group-first:text-transparent group-first:opacity-100"
     >{authorRank}</span
   >
-  <img
-    src={fryArtPathFor(entry)}
-    alt={entry.artAlt}
-    width="200"
-    height="200"
-    class="size-14 shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 motion-reduce:transition-none sm:size-16"
-  />
+  <span class:list={["relative size-14 shrink-0 sm:size-16", hasLogo && "mr-1.5"]}>
+    {
+      hasLogo && (
+        <span class="flex size-full items-center justify-center rounded-full bg-white p-[17%]">
+          <img src={entry.logoPath} alt="" class="size-full object-contain" />
+        </span>
+      )
+    }
+    <img
+      src={fryArtPathFor(entry)}
+      alt={entry.artAlt}
+      width="200"
+      height="200"
+      class:list={[
+        "transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 motion-reduce:transition-none",
+        hasLogo ? "absolute -right-2.5 -bottom-1.5 size-[44%] rounded-full ring-2 ring-(--brand-chrome)" : "size-full",
+      ]}
+    />
+  </span>
   <span class="flex min-w-0 flex-1 flex-col">
     <strong class="text-lg leading-tight">{entry.name}</strong>
     {
