@@ -222,7 +222,7 @@ function setUpFryRanking(listElement: HTMLElement, list: FryList, voterId: strin
 
   function describeMovement(rank: number, authorRank: number | undefined): string {
     if (authorRank === undefined) return "Your pick";
-    if (rank === authorRank) return "Same as mine";
+    if (rank === authorRank) return "";
     const direction = rank < authorRank ? "Up" : "Down";
     return `${direction} ${Math.abs(rank - authorRank)}, was ${toOrdinal(authorRank)}`;
   }

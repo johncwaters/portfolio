@@ -54,9 +54,19 @@ const sourcedDetailText = detail?.qualifier ?? detail?.shapeName;
     }
     <span data-movement class="text-sm text-base-content/75 data-moved:text-[#ff6b6e]"></span>
   </span>
-  <span data-needs-script hidden class="flex shrink-0 flex-col gap-1">
-    <button type="button" class="btn btn-sm" data-move="higher" aria-label={`Move ${entry.name} higher`}>Higher</button>
-    <button type="button" class="btn btn-sm" data-move="lower" aria-label={`Move ${entry.name} lower`}>Lower</button>
+  <span data-needs-script hidden class="flex shrink-0 flex-col items-stretch gap-1">
+    <span class="flex gap-1">
+      <button type="button" class="btn btn-square" data-move="higher" aria-label={`Move ${entry.name} higher`}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="size-5" aria-hidden="true">
+          <path d="M12 19V5m-6 6 6-6 6 6"></path>
+        </svg>
+      </button>
+      <button type="button" class="btn btn-square" data-move="lower" aria-label={`Move ${entry.name} lower`}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="size-5" aria-hidden="true">
+          <path d="M12 5v14m-6-6 6 6 6-6"></path>
+        </svg>
+      </button>
+    </span>
     {
       isBenchEntry && (
         <button type="button" class="btn btn-ghost btn-sm" data-remove aria-label={`Remove ${entry.name} from your list`}>
