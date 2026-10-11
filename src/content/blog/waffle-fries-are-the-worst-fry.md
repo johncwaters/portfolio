@@ -13,19 +13,45 @@ I ranked thirteen shapes and waffle is thirteenth, behind sweet potato, behind s
 ## The shapes
 
 <ol class="not-prose my-8 grid list-none grid-cols-2 gap-3 p-0 sm:grid-cols-3">
-<li class="group col-span-2 flex items-center justify-center gap-5 rounded-2xl border-2 border-(--brand-pink) bg-(--brand-chrome) p-4 sm:col-span-3">
+<li class="col-span-2 rounded-2xl border-2 border-(--brand-pink) bg-(--brand-chrome) sm:col-span-3">
+<details class="group/reveal">
+<summary class="block cursor-pointer list-none rounded-2xl group-open/reveal:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--brand-pink) [&::-webkit-details-marker]:hidden"><span class="flex items-center justify-center gap-5 p-4">
+<span aria-hidden="true" class="flex size-36 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-(--brand-line) text-7xl leading-none font-bold opacity-70 sm:size-44">?</span>
+<span class="flex flex-col gap-1"><span class="bg-linear-to-r from-(--brand-red) to-(--brand-pink) bg-clip-text font-bold leading-none text-transparent text-7xl">1</span><strong class="text-2xl leading-tight">Tap to reveal</strong></span>
+</span></summary>
+<div class="group flex items-center justify-center gap-5 p-4 motion-safe:group-open/reveal:animate-fry-reveal">
 <img src="/blog/fry-curly.svg" alt="A curly fry coiled like a spring" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-36 group-hover:-rotate-12 group-hover:scale-110 sm:size-44" />
 <span class="flex flex-col gap-1"><span class="bg-linear-to-r from-(--brand-red) to-(--brand-pink) bg-clip-text font-bold leading-none text-transparent text-7xl">1</span><strong class="text-2xl leading-tight">Curly</strong></span>
+</div>
+</details>
 </li>
-<li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
+<li class="rounded-2xl border border-(--brand-line) bg-(--brand-chrome)">
+<details class="group/reveal">
+<summary class="block cursor-pointer list-none rounded-2xl group-open/reveal:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--brand-pink) [&::-webkit-details-marker]:hidden"><span class="relative flex flex-col items-center gap-1 p-3 pt-5">
+<span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">2</span>
+<span aria-hidden="true" class="flex size-24 items-center justify-center rounded-full border-2 border-dashed border-(--brand-line) text-5xl leading-none font-bold opacity-70 sm:size-28">?</span>
+<strong class="text-center leading-tight">Tap to reveal</strong>
+</span></summary>
+<div class="group relative flex flex-col items-center gap-1 p-3 pt-5 motion-safe:group-open/reveal:animate-fry-reveal">
 <span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">2</span>
 <img src="/blog/fry-regular.svg" alt="Straight-cut fries standing in a paper cup with a red stripe" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
 <strong class="text-center leading-tight">Regular</strong>
+</div>
+</details>
 </li>
-<li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
+<li class="rounded-2xl border border-(--brand-line) bg-(--brand-chrome)">
+<details class="group/reveal">
+<summary class="block cursor-pointer list-none rounded-2xl group-open/reveal:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--brand-pink) [&::-webkit-details-marker]:hidden"><span class="relative flex flex-col items-center gap-1 p-3 pt-5">
+<span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">3</span>
+<span aria-hidden="true" class="flex size-24 items-center justify-center rounded-full border-2 border-dashed border-(--brand-line) text-5xl leading-none font-bold opacity-70 sm:size-28">?</span>
+<strong class="text-center leading-tight">Tap to reveal</strong>
+</span></summary>
+<div class="group relative flex flex-col items-center gap-1 p-3 pt-5 motion-safe:group-open/reveal:animate-fry-reveal">
 <span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">3</span>
 <img src="/blog/fry-tater-tots.svg" alt="Three tater tots stacked in a small pyramid" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
 <strong class="text-center leading-tight">Tater tots (or gems)</strong>
+</div>
+</details>
 </li>
 <li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
 <span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">4</span>
