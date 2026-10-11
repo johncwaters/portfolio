@@ -3,7 +3,8 @@ import { fryArtPathFor, fryLists, isCompleteFryOrder, type FryList } from "../da
 import type { FryTallies } from "../utils/fryBallots";
 
 type MoveDirection = "higher" | "lower";
-type CrowdTrigger = "sent" | "button" | "return_visit";
+type CrowdTrigger = "sent" | "in_view";
+type CrowdVersusAuthor = "higher" | "lower" | "same";
 
 interface StoredRanking {
   order: string[];
@@ -95,7 +96,8 @@ const rankPopKeyframes = [{ transform: "scale(1.6)" }, { transform: "scale(1)" }
 const movementArrivalKeyframes = [{ opacity: 0, transform: "translateY(4px)" }, { opacity: 1, transform: "none" }];
 const rowArrivalKeyframes = [{ opacity: 0, transform: "translateY(-14px) scale(0.96)" }, { opacity: 1, transform: "none" }];
 const rowFlashKeyframes = [{ boxShadow: "0 0 0 3px #ff6b6e" }, { boxShadow: "0 0 0 3px transparent" }];
-const crowdRowArrivalKeyframes = [{ opacity: 0, transform: "translateX(-12px)" }, { opacity: 1, transform: "none" }];
+const crowdRowArrivalKeyframes = [{ opacity: 0 }, { opacity: 1 }];
+const crowdRevealEasing = "cubic-bezier(0.16, 1, 0.3, 1)";
 const easeOutCubic = (progress: number): number => 1 - (1 - progress) ** 3;
 let finishSlideInFlight: (() => void) | null = null;
 
@@ -113,7 +115,10 @@ function playRowArrival(row: HTMLElement): void {
 function revealCrowdRows(crowdRowsElement: HTMLElement): void {
   if (reducedMotionQuery.matches) return;
   [...crowdRowsElement.children].forEach((crowdRow, index) => {
-    crowdRow.animate(crowdRowArrivalKeyframes, { duration: 280, delay: index * 45, easing: "ease-out", fill: "backwards" });
+    const staggeredStart = { delay: index * 45, easing: crowdRevealEasing, fill: "backwards" as const };
+    crowdRow.animate(crowdRowArrivalKeyframes, { ...staggeredStart, duration: 320 });
+    const bar = crowdRow.querySelector<HTMLElement>("[data-crowd-bar]");
+    bar?.animate([{ transform: "scaleX(0)" }, { transform: bar.style.transform }], { ...staggeredStart, duration: 640 });
   });
 }
 
@@ -188,11 +193,14 @@ function setUpFryRanking(listElement: HTMLElement, list: FryList, voterId: strin
   const statusElement = requireElement<HTMLElement>(listElement, "[data-fry-status]");
   const crowdElement = requireElement<HTMLElement>(document, `[data-fry-crowd="${list.id}"]`);
   const crowdStatusElement = requireElement<HTMLElement>(crowdElement, "[data-crowd-status]");
+  const crowdReloadButton = requireElement<HTMLButtonElement>(crowdElement, "[data-crowd-reload]");
+  const crowdTableElement = requireElement<HTMLElement>(crowdElement, "[data-crowd-table]");
   const crowdOrderElement = requireElement<HTMLElement>(crowdElement, "[data-crowd-order]");
   const crowdFightElement = requireElement<HTMLElement>(crowdElement, "[data-crowd-fight]");
   const crowdAddedElement = requireElement<HTMLElement>(crowdElement, "[data-crowd-added]");
   const crowdAddedRowsElement = requireElement<HTMLElement>(crowdElement, "[data-crowd-added-rows]");
   const crowdRowTemplate = requireElement<HTMLTemplateElement>(crowdElement, "[data-crowd-row]");
+  const crowdAddedRowTemplate = requireElement<HTMLTemplateElement>(crowdElement, "[data-crowd-added-row]");
 
   const storedRanking = readStoredRanking(list, storageKey);
   let currentOrder = storedRanking?.order ?? authorOrder;
@@ -201,6 +209,7 @@ function setUpFryRanking(listElement: HTMLElement, list: FryList, voterId: strin
   let isSending = false;
   let latestChangeNote = "";
   let hasRenderedOnce = false;
+  let isCrowdShownFromOwnSend = false;
 
   const rowFor = (entryId: string): HTMLElement => {
     const row = rowsByEntryId.get(entryId);
@@ -224,7 +233,7 @@ function setUpFryRanking(listElement: HTMLElement, list: FryList, voterId: strin
     if (sendProblem === "failed") return "Couldn’t send. Your ranking is still saved in this browser.";
     if (sentOrder === null) return "Not sent yet.";
     if (hasSameOrder(sentOrder, currentOrder)) return "Sent. Change anything and send again to replace it.";
-    return "Changed since you sent it.";
+    return "This no longer matches the ranking you sent. Press Send ranking to update it.";
   }
 
   function summarizeDisagreement(order: string[]) {
@@ -350,33 +359,36 @@ function setUpFryRanking(listElement: HTMLElement, list: FryList, voterId: strin
     const rowTopsBeforeReset = recordRankedRowTops();
     currentOrder = authorOrder;
     placeRowsInCurrentOrder();
-    keepChange("Back to my order.");
+    keepChange("Reset to the starting order.");
     slideRowsFromRecordedTops(rowTopsBeforeReset);
     captureFryEvent("fry_ranking_reset", { list: list.id, ...disagreementBeforeReset });
   }
 
-  function addCrowdRow(target: HTMLElement, entryId: string, rankLabel: string, note: string): void {
+  function fillCrowdRowIdentity(crowdRow: DocumentFragment, entryId: string, averageRank: number): void {
     const entry = entriesById.get(entryId);
     if (!entry) return;
-    const crowdRow = crowdRowTemplate.content.cloneNode(true) as DocumentFragment;
-    requireElement<HTMLElement>(crowdRow, "[data-crowd-rank]").textContent = rankLabel;
     requireElement<HTMLImageElement>(crowdRow, "[data-crowd-art]").src = fryArtPathFor(entry);
     requireElement<HTMLElement>(crowdRow, "[data-crowd-name]").textContent = entry.name;
-    requireElement<HTMLElement>(crowdRow, "[data-crowd-note]").textContent = note;
-    target.append(crowdRow);
+    requireElement<HTMLElement>(crowdRow, "[data-crowd-average]").textContent = averageRank.toFixed(1);
   }
 
   function describeCrowdCount(ballotCount: number): string {
     if (ballotCount === 0) return "No rankings sent yet. Yours would be the first.";
-    if (ballotCount === 1 && sentOrder !== null) return "1 ranking sent, and it’s yours. You are the crowd.";
-    if (ballotCount === 1) return "1 ranking sent.";
-    return `${ballotCount} rankings sent.`;
+    if (ballotCount === 1 && sentOrder !== null) return "Based on 1 ranking, and it’s yours. You are the crowd.";
+    if (ballotCount === 1) return "Based on 1 ranking.";
+    return `Based on ${ballotCount} rankings.`;
   }
 
-  function describeCrowdVersusAuthor(crowdRank: number, authorRank: number): string {
-    if (crowdRank === authorRank) return "Same as mine.";
-    const direction = crowdRank < authorRank ? "higher" : "lower";
-    return `${Math.abs(crowdRank - authorRank)} ${direction} than my ${toOrdinal(authorRank)}.`;
+  function compareCrowdWithAuthor(crowdRank: number, authorRank: number): { versus: CrowdVersusAuthor; shown: string; spoken: string } {
+    const gap = Math.abs(crowdRank - authorRank);
+    if (gap === 0) return { versus: "same", shown: "=", spoken: "Same as mine." };
+    if (crowdRank < authorRank) return { versus: "higher", shown: `▲ ${gap}`, spoken: `${gap} higher than my ${toOrdinal(authorRank)}.` };
+    return { versus: "lower", shown: `▼ ${gap}`, spoken: `${gap} lower than my ${toOrdinal(authorRank)}.` };
+  }
+
+  function barFillFor(averageRank: number): number {
+    const shareOfWayToLastSpot = (averageRank - 1) / (authorOrder.length - 1);
+    return Math.min(Math.max(1 - shareOfWayToLastSpot, 0.03), 1);
   }
 
   function showCrowd(tallies: FryTallies, trigger: CrowdTrigger): void {
@@ -389,7 +401,7 @@ function setUpFryRanking(listElement: HTMLElement, list: FryList, voterId: strin
       .sort((firstTally, secondTally) => firstTally.averageRank - secondTally.averageRank)
       .map((tally, index) => ({ ...tally, crowdRank: index + 1, authorRank: authorRankByEntryId.get(tally.id) ?? 0 }));
     const readerAddedEntries = tallies.entries
-      .filter((tally) => !authorRankByEntryId.has(tally.id))
+      .filter((tally) => !authorRankByEntryId.has(tally.id) && entriesById.has(tally.id))
       .sort((firstTally, secondTally) => secondTally.ballotCount - firstTally.ballotCount);
     const biggestFight = crowdRankedEntries.reduce<(typeof crowdRankedEntries)[number] | null>((biggest, candidate) => {
       const candidateGap = Math.abs(candidate.crowdRank - candidate.authorRank);
@@ -401,14 +413,24 @@ function setUpFryRanking(listElement: HTMLElement, list: FryList, voterId: strin
     crowdOrderElement.replaceChildren();
     crowdAddedRowsElement.replaceChildren();
     for (const crowdEntry of crowdRankedEntries) {
-      const note = `Average spot ${Math.round(crowdEntry.averageRank * 10) / 10}. ${describeCrowdVersusAuthor(crowdEntry.crowdRank, crowdEntry.authorRank)}`;
-      addCrowdRow(crowdOrderElement, crowdEntry.id, String(crowdEntry.crowdRank), note);
+      const crowdRow = crowdRowTemplate.content.cloneNode(true) as DocumentFragment;
+      const comparison = compareCrowdWithAuthor(crowdEntry.crowdRank, crowdEntry.authorRank);
+      const versusElement = requireElement<HTMLElement>(crowdRow, "[data-crowd-versus]");
+      fillCrowdRowIdentity(crowdRow, crowdEntry.id, crowdEntry.averageRank);
+      requireElement<HTMLElement>(crowdRow, "[data-crowd-rank]").textContent = String(crowdEntry.crowdRank);
+      requireElement<HTMLElement>(crowdRow, "[data-crowd-bar]").style.transform = `scaleX(${barFillFor(crowdEntry.averageRank)})`;
+      versusElement.textContent = comparison.shown;
+      versusElement.dataset.versus = comparison.versus;
+      requireElement<HTMLElement>(crowdRow, "[data-crowd-versus-spoken]").textContent = comparison.spoken;
+      crowdOrderElement.append(crowdRow);
     }
     for (const addedEntry of readerAddedEntries) {
-      const note = `Added by ${addedEntry.ballotCount} of ${tallies.ballotCount}. Average spot ${Math.round(addedEntry.averageRank * 10) / 10}.`;
-      addCrowdRow(crowdAddedRowsElement, addedEntry.id, "+", note);
+      const addedRow = crowdAddedRowTemplate.content.cloneNode(true) as DocumentFragment;
+      fillCrowdRowIdentity(addedRow, addedEntry.id, addedEntry.averageRank);
+      requireElement<HTMLElement>(addedRow, "[data-crowd-added-share]").textContent = `${addedEntry.ballotCount} of ${tallies.ballotCount}`;
+      crowdAddedRowsElement.append(addedRow);
     }
-    crowdOrderElement.hidden = crowdRankedEntries.length === 0;
+    crowdTableElement.hidden = crowdRankedEntries.length === 0;
     crowdAddedElement.hidden = readerAddedEntries.length === 0;
     crowdFightElement.hidden = tallies.ballotCount === 0;
     revealCrowdRows(crowdOrderElement);
@@ -425,15 +447,27 @@ function setUpFryRanking(listElement: HTMLElement, list: FryList, voterId: strin
     });
   }
 
-  async function loadCrowd(trigger: CrowdTrigger): Promise<void> {
+  async function loadCrowd(): Promise<void> {
+    crowdReloadButton.hidden = true;
     crowdStatusElement.textContent = "Loading…";
     const crowdResult = await actions.readFryCrowd({ listId: list.id }).catch(() => null);
+    if (isCrowdShownFromOwnSend) return;
     if (!crowdResult || crowdResult.error) {
-      crowdStatusElement.textContent = "Couldn’t load the crowd’s ranking.";
+      crowdStatusElement.textContent = "Couldn’t load the leaderboard.";
+      crowdReloadButton.hidden = false;
       return;
     }
-    showCrowd(crowdResult.data, trigger);
+    showCrowd(crowdResult.data, "in_view");
   }
+
+  const crowdInViewObserver = new IntersectionObserver(
+    (observedEntries) => {
+      if (!observedEntries.some((observedEntry) => observedEntry.isIntersecting)) return;
+      crowdInViewObserver.disconnect();
+      void loadCrowd();
+    },
+    { rootMargin: "200px" },
+  );
 
   async function sendRanking(): Promise<void> {
     if (isSending) return;
@@ -462,8 +496,13 @@ function setUpFryRanking(listElement: HTMLElement, list: FryList, voterId: strin
       is_resend: isResend,
       ...summarizeDisagreement(orderBeingSent),
     });
+    isCrowdShownFromOwnSend = true;
+    crowdInViewObserver.disconnect();
+    crowdReloadButton.hidden = true;
     showCrowd(sendResult.data, "sent");
   }
+
+  crowdReloadButton.addEventListener("click", () => void loadCrowd());
 
   listElement.addEventListener("click", (event) => {
     const pressedButton = event.target instanceof Element ? event.target.closest("button") : null;
@@ -477,15 +516,12 @@ function setUpFryRanking(listElement: HTMLElement, list: FryList, voterId: strin
     if (pressedButton.hasAttribute("data-send")) return void sendRanking();
     if (pressedButton.hasAttribute("data-reset")) return resetToAuthorOrder();
   });
-  requireElement<HTMLButtonElement>(crowdElement, "[data-show-crowd]").addEventListener("click", () => void loadCrowd("button"));
 
-  const scriptedElements = [listElement, crowdElement].flatMap((root) => [...root.querySelectorAll<HTMLElement>("[data-needs-script]")]);
-  for (const scriptedElement of scriptedElements) scriptedElement.hidden = false;
-  crowdStatusElement.textContent = "Send your ranking to see how everyone else ordered these, or just look.";
+  for (const scriptedElement of listElement.querySelectorAll<HTMLElement>("[data-needs-script]")) scriptedElement.hidden = false;
   placeRowsInCurrentOrder();
   renderRanking();
   hasRenderedOnce = true;
-  if (sentOrder !== null) void loadCrowd("return_visit");
+  crowdInViewObserver.observe(crowdElement);
 }
 
 const voterId = readOrCreateVoterId();

@@ -22,6 +22,9 @@ const isFryPostPublished = fryPost !== undefined && !fryPost.data.draft;
       I ranked thirteen fry shapes and thirteen chains. Move anything that’s in the wrong spot, send your version, and
       see how everyone else ordered them.
     </p>
+    <p class="mt-3 max-w-[65ch] opacity-90">
+      Only here for the results? <a class="link text-[#ff6b6e]" href="#leaderboard">Jump to the leaderboard</a>.
+    </p>
     {
       isFryPostPublished && (
         <p class="mt-3 max-w-[65ch] opacity-90">
@@ -35,8 +38,12 @@ const isFryPostPublished = fryPost !== undefined && !fryPost.data.draft;
     }
     <FryRankingList list={fryLists.shapes} />
     <FryRankingList list={fryLists.chains} />
-    <section class="mt-16">
-      <h2 class="text-2xl font-bold sm:text-3xl">The crowd</h2>
+    <section id="leaderboard" class="mt-16 scroll-mt-24">
+      <h2 class="text-2xl font-bold sm:text-3xl">The leaderboard</h2>
+      <p class="mt-2 max-w-[65ch] opacity-90">
+        Every ranking readers have sent, averaged. A lower average spot is better, and the last column shows how far the
+        crowd moved each one from where I put it.
+      </p>
       <FryCrowdPanel list={fryLists.shapes} />
       <FryCrowdPanel list={fryLists.chains} />
     </section>
