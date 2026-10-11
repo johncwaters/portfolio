@@ -92,66 +92,79 @@ Jojos are sixth and potato wedges are ninth, and they're the same cut of potato.
 <span class="w-9 shrink-0 text-right tabular-nums bg-linear-to-r from-(--brand-red) to-(--brand-pink) bg-clip-text font-bold leading-none text-transparent text-3xl">1</span>
 <img src="/blog/fry-regular.svg" alt="" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-14 shrink-0 group-hover:-rotate-6 group-hover:scale-110" />
 <span class="flex flex-col"><strong class="text-lg leading-tight">Burger King</strong><span class="text-sm text-base-content/75">Regular</span></span>
+<span class="ml-auto flex h-9 w-16 shrink-0 items-center justify-center rounded-md bg-white p-1.5 sm:h-11 sm:w-20"><img src="/blog/logo-burger-king.svg" alt="" class="mx-0! my-0! size-full! min-w-0! object-contain" /></span>
 </li>
 <li class="group flex items-center gap-3 rounded-xl border border-(--brand-line) bg-(--brand-chrome) px-3 py-2">
 <span class="w-9 shrink-0 text-right tabular-nums text-2xl leading-none font-bold opacity-80">2</span>
 <img src="/blog/fry-regular.svg" alt="" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-14 shrink-0 group-hover:-rotate-6 group-hover:scale-110" />
 <span class="flex flex-col"><strong class="text-lg leading-tight">Taco Bell</strong><span class="text-sm text-base-content/75">Regular, <a class="link text-[#ff6b6e]" href="https://www.tacobell.com/food/sides-sweets/nacho-fries">seasoned</a></span></span>
+<span class="ml-auto flex h-9 w-16 shrink-0 items-center justify-center rounded-md bg-white p-1.5 sm:h-11 sm:w-20"><img src="/blog/logo-taco-bell.svg" alt="" class="mx-0! my-0! size-full! min-w-0! object-contain" /></span>
 </li>
 <li class="group flex items-center gap-3 rounded-xl border border-(--brand-line) bg-(--brand-chrome) px-3 py-2">
 <span class="w-9 shrink-0 text-right tabular-nums text-2xl leading-none font-bold opacity-80">3</span>
 <img src="/blog/fry-regular.svg" alt="" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-14 shrink-0 group-hover:-rotate-6 group-hover:scale-110" />
 <span class="flex flex-col"><strong class="text-lg leading-tight">Wendy&rsquo;s</strong><span class="text-sm text-base-content/75">Regular</span></span>
+<span class="ml-auto flex h-9 w-16 shrink-0 items-center justify-center rounded-md bg-white p-1.5 sm:h-11 sm:w-20"><img src="/blog/logo-wendys.svg" alt="" class="mx-0! my-0! size-full! min-w-0! object-contain" /></span>
 </li>
 <li class="group flex items-center gap-3 rounded-xl border border-(--brand-line) bg-(--brand-chrome) px-3 py-2">
 <span class="w-9 shrink-0 text-right tabular-nums text-2xl leading-none font-bold opacity-80">4</span>
 <img src="/blog/fry-regular.svg" alt="" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-14 shrink-0 group-hover:-rotate-6 group-hover:scale-110" />
 <span class="flex flex-col"><strong class="text-lg leading-tight">Dairy Queen</strong><span class="text-sm text-base-content/75">Regular</span></span>
+<span class="ml-auto flex h-9 w-16 shrink-0 items-center justify-center rounded-md bg-white p-1.5 sm:h-11 sm:w-20"><img src="/blog/logo-dairy-queen.svg" alt="" class="mx-0! my-0! size-full! min-w-0! object-contain" /></span>
 </li>
 <li class="group flex items-center gap-3 rounded-xl border border-(--brand-line) bg-(--brand-chrome) px-3 py-2">
 <span class="w-9 shrink-0 text-right tabular-nums text-2xl leading-none font-bold opacity-80">5</span>
 <img src="/blog/fry-curly.svg" alt="" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-14 shrink-0 group-hover:-rotate-6 group-hover:scale-110" />
 <span class="flex flex-col"><strong class="text-lg leading-tight">Arby&rsquo;s</strong><span class="text-sm text-base-content/75">Curly</span></span>
+<span class="ml-auto flex h-9 w-16 shrink-0 items-center justify-center rounded-md bg-white p-1.5 sm:h-11 sm:w-20"><img src="/blog/logo-arbys.svg" alt="" class="mx-0! my-0! size-full! min-w-0! object-contain" /></span>
 </li>
 <li class="group flex items-center gap-3 rounded-xl border border-(--brand-line) bg-(--brand-chrome) px-3 py-2">
 <span class="w-9 shrink-0 text-right tabular-nums text-2xl leading-none font-bold opacity-80">6</span>
 <img src="/blog/fry-regular.svg" alt="" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-14 shrink-0 group-hover:-rotate-6 group-hover:scale-110" />
 <span class="flex flex-col"><strong class="text-lg leading-tight">McDonald&rsquo;s</strong><span class="text-sm text-base-content/75">Regular</span></span>
+<span class="ml-auto flex h-9 w-16 shrink-0 items-center justify-center rounded-md bg-white p-1.5 sm:h-11 sm:w-20"><img src="/blog/logo-mcdonalds.svg" alt="" class="mx-0! my-0! size-full! min-w-0! object-contain" /></span>
 </li>
 <li class="group flex items-center gap-3 rounded-xl border border-(--brand-line) bg-(--brand-chrome) px-3 py-2">
 <span class="w-9 shrink-0 text-right tabular-nums text-2xl leading-none font-bold opacity-80">7</span>
 <img src="/blog/fry-steak.svg" alt="" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-14 shrink-0 group-hover:-rotate-6 group-hover:scale-110" />
 <span class="flex flex-col"><strong class="text-lg leading-tight">Red Robin</strong><span class="text-sm text-base-content/75"><a class="link text-[#ff6b6e]" href="https://www.redrobin.com/menu/bottomless/steak-fries">Steak</a></span></span>
+<span class="ml-auto flex h-9 w-16 shrink-0 items-center justify-center rounded-md bg-white p-1.5 sm:h-11 sm:w-20"><img src="/blog/logo-red-robin.svg" alt="" class="mx-0! my-0! size-full! min-w-0! object-contain" /></span>
 </li>
 <li class="group flex items-center gap-3 rounded-xl border border-(--brand-line) bg-(--brand-chrome) px-3 py-2">
 <span class="w-9 shrink-0 text-right tabular-nums text-2xl leading-none font-bold opacity-80">8</span>
 <img src="/blog/fry-crinkle.svg" alt="" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-14 shrink-0 group-hover:-rotate-6 group-hover:scale-110" />
 <span class="flex flex-col"><strong class="text-lg leading-tight">Shake Shack</strong><span class="text-sm text-base-content/75">Crinkle</span></span>
+<span class="ml-auto flex h-9 w-16 shrink-0 items-center justify-center rounded-md bg-white p-1.5 sm:h-11 sm:w-20"><img src="/blog/logo-shake-shack.svg" alt="" class="mx-0! my-0! size-full! min-w-0! object-contain" /></span>
 </li>
 <li class="group flex items-center gap-3 rounded-xl border border-(--brand-line) bg-(--brand-chrome) px-3 py-2">
 <span class="w-9 shrink-0 text-right tabular-nums text-2xl leading-none font-bold opacity-80">9</span>
 <img src="/blog/fry-regular.svg" alt="" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-14 shrink-0 group-hover:-rotate-6 group-hover:scale-110" />
 <span class="flex flex-col"><strong class="text-lg leading-tight">Popeyes</strong><span class="text-sm text-base-content/75">Regular</span></span>
+<span class="ml-auto flex h-9 w-16 shrink-0 items-center justify-center rounded-md bg-white p-1.5 sm:h-11 sm:w-20"><img src="/blog/logo-popeyes.svg" alt="" class="mx-0! my-0! size-full! min-w-0! object-contain" /></span>
 </li>
 <li class="group flex items-center gap-3 rounded-xl border border-(--brand-line) bg-(--brand-chrome) px-3 py-2">
 <span class="w-9 shrink-0 text-right tabular-nums text-2xl leading-none font-bold opacity-80">10</span>
 <img src="/blog/fry-crinkle.svg" alt="" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-14 shrink-0 group-hover:-rotate-6 group-hover:scale-110" />
 <span class="flex flex-col"><strong class="text-lg leading-tight">Culver&rsquo;s</strong><span class="text-sm text-base-content/75"><a class="link text-[#ff6b6e]" href="https://www.culvers.com/menu-and-nutrition/sides/crinkle-cut-fries">Crinkle</a></span></span>
+<span class="ml-auto flex h-9 w-16 shrink-0 items-center justify-center rounded-md bg-white p-1.5 sm:h-11 sm:w-20"><img src="/blog/logo-culvers.svg" alt="" class="mx-0! my-0! size-full! min-w-0! object-contain" /></span>
 </li>
 <li class="group flex items-center gap-3 rounded-xl border border-(--brand-line) bg-(--brand-chrome) px-3 py-2">
 <span class="w-9 shrink-0 text-right tabular-nums text-2xl leading-none font-bold opacity-80">11</span>
 <img src="/blog/fry-crinkle.svg" alt="" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-14 shrink-0 group-hover:-rotate-6 group-hover:scale-110" />
 <span class="flex flex-col"><strong class="text-lg leading-tight">Nathan&rsquo;s Famous</strong><span class="text-sm text-base-content/75">Crinkle</span></span>
+<span class="ml-auto flex h-9 w-16 shrink-0 items-center justify-center rounded-md bg-white p-1.5 sm:h-11 sm:w-20"><img src="/blog/logo-nathans-famous.svg" alt="" class="mx-0! my-0! size-full! min-w-0! object-contain" /></span>
 </li>
 <li class="group flex items-center gap-3 rounded-xl border border-(--brand-line) bg-(--brand-chrome) px-3 py-2">
 <span class="w-9 shrink-0 text-right tabular-nums text-2xl leading-none font-bold opacity-80">12</span>
 <img src="/blog/fry-waffle.svg" alt="" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-14 shrink-0 group-hover:-rotate-6 group-hover:scale-110" />
 <span class="flex flex-col"><strong class="text-lg leading-tight">Chick-fil-A</strong><span class="text-sm text-base-content/75">Waffle</span></span>
+<span class="ml-auto flex h-9 w-16 shrink-0 items-center justify-center rounded-md bg-white p-1.5 sm:h-11 sm:w-20"><img src="/blog/logo-chick-fil-a.svg" alt="" class="mx-0! my-0! size-full! min-w-0! object-contain" /></span>
 </li>
 <li class="group flex items-center gap-3 rounded-xl border border-(--brand-line) bg-(--brand-chrome) px-3 py-2">
 <span class="w-9 shrink-0 text-right tabular-nums text-2xl leading-none font-bold opacity-80">13</span>
 <img src="/blog/fry-regular.svg" alt="" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-14 shrink-0 group-hover:-rotate-6 group-hover:scale-110" />
 <span class="flex flex-col"><strong class="text-lg leading-tight">Five Guys</strong><span class="text-sm text-base-content/75">Regular, <a class="link text-[#ff6b6e]" href="https://www.fiveguys.com/menu/fries/">hand-cut</a></span></span>
+<span class="ml-auto flex h-9 w-16 shrink-0 items-center justify-center rounded-md bg-white p-1.5 sm:h-11 sm:w-20"><img src="/blog/logo-five-guys.svg" alt="" class="mx-0! my-0! size-full! min-w-0! object-contain" /></span>
 </li>
 </ol>
 
