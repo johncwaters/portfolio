@@ -24,13 +24,13 @@ I rank fries two ways, by shape and by chain. Put the two lists next to each oth
 </li>
 <li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
 <span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">3</span>
-<img src="/blog/fry-hash-brown-patty.svg" alt="An oval hash brown patty covered in shredded potato" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
-<strong class="text-center leading-tight">Hash brown patty</strong>
+<img src="/blog/fry-tater-tots.svg" alt="Three tater tots stacked in a small pyramid" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
+<strong class="text-center leading-tight">Tater tots (or gems)</strong>
 </li>
 <li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
 <span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">4</span>
-<img src="/blog/fry-tater-tots.svg" alt="Three tater tots stacked in a small pyramid" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
-<strong class="text-center leading-tight">Tater tots (or gems)</strong>
+<img src="/blog/fry-hash-brown-patty.svg" alt="An oval hash brown patty covered in shredded potato" width="200" height="200" class="mx-0! max-w-full! min-w-0! transition-transform duration-300 motion-reduce:transition-none size-24 group-hover:-rotate-6 group-hover:scale-110 sm:size-28" />
+<strong class="text-center leading-tight">Hash brown patty</strong>
 </li>
 <li class="group relative flex flex-col items-center gap-1 rounded-2xl border border-(--brand-line) bg-(--brand-chrome) p-3 pt-5">
 <span class="absolute top-2 left-3 text-2xl leading-none font-bold opacity-80">5</span>
@@ -80,8 +80,6 @@ I rank fries two ways, by shape and by chain. Put the two lists next to each oth
 </ol>
 
 ## The chains
-
-Each chain is drawn with the fry it hands you by default.
 
 <ol class="not-prose my-8 flex list-none flex-col gap-2 p-0">
 <li class="group flex items-center gap-3 rounded-xl border-2 border-(--brand-pink) bg-(--brand-chrome) px-3 py-2">
@@ -179,6 +177,6 @@ That's three places for breading and a pressure fryer, which means the shape lis
 
 ## Eight shapes, zero chains
 
-Only five of the thirteen shapes are what a chain on my list hands you when you ask for fries. The other eight never get a row in the second list, and four of them are in my top six: hash brown patties, tots, smiley faces, and jojos.
+Only five of the thirteen shapes are what a chain on my list hands you when you ask for fries. The other eight never get a row in the second list, and four of them are in my top six: tots, hash brown patties, smiley faces, and jojos.
 
 That leaves the chain list as a ranking of what the drive-thru decided to sell, and seven times out of thirteen it decided on regular. Burger King and Five Guys start with the same straight cut of the same vegetable. One finished first, one finished thirteenth, and a potato with a face on it beat eight other shapes.
