@@ -1,0 +1,37 @@
+---
+import FryRankingRow from "./FryRankingRow.astro";
+import type { FryList } from "../data/fryRanking";
+
+export interface Props {
+  list: FryList;
+}
+
+const { list } = Astro.props;
+---
+
+<section data-fry-list={list.id} class="mt-12">
+  <h2 class="mb-4 text-2xl font-bold sm:text-3xl">{list.heading}</h2>
+  <ol data-fry-order class="flex list-none flex-col gap-2 p-0">
+    {list.rankedEntries.map((entry, index) => <FryRankingRow entry={entry} authorRank={index + 1} />)}
+  </ol>
+  <div data-fry-bench data-needs-script hidden class="mt-5">
+    <p class="mb-2 text-sm text-base-content/75">Missing one? Add it to the bottom of your list.</p>
+    <div class="flex flex-wrap gap-2">
+      {
+        list.benchEntries.map((entry) => (
+          <button type="button" class="btn btn-sm" data-add-entry={entry.id} aria-label={`Add ${entry.name} to your list`}>
+            + {entry.name}
+          </button>
+        ))
+      }
+    </div>
+    <ul data-fry-bench-rows hidden>
+      {list.benchEntries.map((entry) => <FryRankingRow entry={entry} />)}
+    </ul>
+  </div>
+  <div data-needs-script hidden class="mt-5 flex flex-wrap items-center gap-3">
+    <button type="button" class="btn btn-primary" data-send>Send ranking</button>
+    <button type="button" class="btn btn-ghost" data-reset>Start over</button>
+    <p data-fry-status role="status" class="basis-full text-sm text-base-content/75"></p>
+  </div>
+</section>

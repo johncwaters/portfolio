@@ -1,0 +1,55 @@
+---
+import { fryArtPathFor, type FryEntry } from "../data/fryRanking";
+
+export interface Props {
+  entry: FryEntry;
+  authorRank?: number;
+}
+
+const { entry, authorRank } = Astro.props;
+const isBenchEntry = authorRank === undefined;
+const { detail } = entry;
+const unlinkedDetailPrefix = detail?.qualifier === undefined ? "" : `${detail.shapeName}, `;
+const sourcedDetailText = detail?.qualifier ?? detail?.shapeName;
+---
+
+<li
+  data-entry-id={entry.id}
+  data-author-rank={authorRank}
+  class="group flex items-center gap-2 rounded-xl border border-(--brand-line) bg-(--brand-chrome) px-2 py-2 first:border-2 first:border-(--brand-pink) sm:gap-3 sm:px-3"
+>
+  <span
+    data-rank
+    class="w-9 shrink-0 text-right text-2xl leading-none font-bold tabular-nums opacity-80 group-first:bg-linear-to-r group-first:from-(--brand-red) group-first:to-(--brand-pink) group-first:bg-clip-text group-first:text-3xl group-first:text-transparent group-first:opacity-100"
+    >{authorRank}</span
+  >
+  <img
+    src={fryArtPathFor(entry)}
+    alt={entry.artAlt}
+    width="200"
+    height="200"
+    class="size-14 shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 motion-reduce:transition-none sm:size-16"
+  />
+  <span class="flex min-w-0 flex-1 flex-col">
+    <strong class="text-lg leading-tight">{entry.name}</strong>
+    {
+      detail && (
+        <span class="text-sm text-base-content/75">
+          {unlinkedDetailPrefix}{detail.sourceUrl === undefined ? sourcedDetailText : <a class="link text-[#ff6b6e]" href={detail.sourceUrl}>{sourcedDetailText}</a>}
+        </span>
+      )
+    }
+    <span data-movement class="text-sm text-base-content/75 data-moved:text-[#ff6b6e]"></span>
+  </span>
+  <span data-needs-script hidden class="flex shrink-0 flex-col gap-1">
+    <button type="button" class="btn btn-sm" data-move="higher" aria-label={`Move ${entry.name} higher`}>Higher</button>
+    <button type="button" class="btn btn-sm" data-move="lower" aria-label={`Move ${entry.name} lower`}>Lower</button>
+    {
+      isBenchEntry && (
+        <button type="button" class="btn btn-ghost btn-sm" data-remove aria-label={`Remove ${entry.name} from your list`}>
+          Remove
+        </button>
+      )
+    }
+  </span>
+</li>

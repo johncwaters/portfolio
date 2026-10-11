@@ -1,0 +1,33 @@
+---
+import type { FryList } from "../data/fryRanking";
+
+export interface Props {
+  list: FryList;
+}
+
+const { list } = Astro.props;
+---
+
+<section data-fry-crowd={list.id} class="mt-8">
+  <h3 class="text-xl font-bold">{list.heading}</h3>
+  <div class="mt-3 flex flex-wrap items-center gap-3">
+    <button type="button" class="btn btn-sm" data-show-crowd data-needs-script hidden>Show the crowd’s ranking</button>
+    <p data-crowd-status role="status" class="text-sm text-base-content/75"></p>
+  </div>
+  <ol data-crowd-order hidden class="mt-4 flex list-none flex-col gap-1 p-0"></ol>
+  <p data-crowd-fight hidden class="mt-4"></p>
+  <div data-crowd-added hidden class="mt-5">
+    <h4 class="mb-2 text-sm font-bold tracking-wide uppercase opacity-80">Added by readers</h4>
+    <ul data-crowd-added-rows class="flex list-none flex-col gap-1 p-0"></ul>
+  </div>
+  <template data-crowd-row>
+    <li class="flex items-center gap-3 rounded-lg border border-(--brand-line) bg-(--brand-chrome) px-3 py-1.5">
+      <span data-crowd-rank class="w-7 shrink-0 text-right font-bold tabular-nums"></span>
+      <img data-crowd-art alt="" width="200" height="200" class="size-9 shrink-0" />
+      <span class="flex min-w-0 flex-1 flex-col sm:flex-row sm:items-baseline sm:gap-3">
+        <strong data-crowd-name class="leading-tight"></strong>
+        <span data-crowd-note class="text-sm text-base-content/75"></span>
+      </span>
+    </li>
+  </template>
+</section>

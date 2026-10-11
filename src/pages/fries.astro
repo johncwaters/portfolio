@@ -1,0 +1,45 @@
+---
+export const prerender = true;
+
+import { getEntry } from "astro:content";
+import DefaultPage from "../layouts/DefaultPage.astro";
+import FryCrowdPanel from "../components/FryCrowdPanel.astro";
+import FryRankingList from "../components/FryRankingList.astro";
+import { fryLists } from "../data/fryRanking";
+
+const fryPost = await getEntry("blog", "curly-fries-are-the-best-fry-and-arbys-still-finished-fifth");
+const isFryPostPublished = fryPost !== undefined && !fryPost.data.draft;
+---
+
+<DefaultPage
+  title="Rank the Fries"
+  description="I ranked thirteen fry shapes and thirteen chains. Move anything that’s in the wrong spot, send your version, and see how everyone else ordered them."
+  showHeader
+>
+  <div class="mx-auto w-full max-w-3xl px-5 py-8 sm:px-6 sm:py-14">
+    <h1 class="mb-4 text-3xl leading-tight font-bold tracking-tight sm:text-4xl lg:text-5xl">Rank the Fries</h1>
+    <p class="max-w-[65ch] text-lg opacity-90">
+      I ranked thirteen fry shapes and thirteen chains. Move anything that’s in the wrong spot, send your version, and
+      see how everyone else ordered them.
+    </p>
+    {
+      isFryPostPublished && (
+        <p class="mt-3 max-w-[65ch] opacity-90">
+          The case for this order is in{" "}
+          <a class="link text-[#ff6b6e]" href={`/blog/${fryPost.id}/`}>
+            {fryPost.data.title}
+          </a>
+          .
+        </p>
+      )
+    }
+    <FryRankingList list={fryLists.shapes} />
+    <FryRankingList list={fryLists.chains} />
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold sm:text-3xl">The crowd</h2>
+      <FryCrowdPanel list={fryLists.shapes} />
+      <FryCrowdPanel list={fryLists.chains} />
+    </section>
+  </div>
+  <script src="../scripts/fryRanking.ts"></script>
+</DefaultPage>

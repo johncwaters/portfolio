@@ -180,3 +180,5 @@ That's three places for breading and a pressure fryer, which means the shape lis
 Only five of the thirteen shapes are what a chain on my list hands you when you ask for fries. The other eight never get a row in the second list, and four of them are in my top six: tots, hash brown patties, smiley faces, and jojos.
 
 That leaves the chain list as a ranking of what the drive-thru decided to sell, and seven times out of thirteen it decided on regular. Burger King and Five Guys start with the same straight cut of the same vegetable. One finished first, one finished thirteenth, and a potato with a face on it beat eight other shapes.
+
+If your list is different, and it is, you can [move mine around and send me yours](/fries).
