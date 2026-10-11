@@ -1,9 +1,9 @@
 ---
-title: "Curly Fries Are the Best Fry, and Arby's Still Finished Fifth"
-description: "I ranked thirteen fry shapes and thirteen chains on separate lists. Curly won the shapes, and then the four best chains all turned out to sell the shape I put second."
+title: "Waffle Fries Are the Worst Fry"
+description: "I ranked thirteen fry shapes and thirteen chains on separate lists. Waffle finished last, crinkle finished right above it, and no chain selling either one made it past eighth."
 pubDate: 2026-10-11
 tags: ["fries", "rankings"]
-draft: true
+draft: false
 ---
 
 Burger King is first on my fry list and Five Guys is last, and they sell the same shape.
