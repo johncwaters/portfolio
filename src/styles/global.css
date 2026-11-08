@@ -150,3 +150,24 @@
         max-width: none;
     }
 }
+
+/* Gutter and margin math mirror BlogPost.astro's article (max-w-3xl, px-5 sm:px-6), since the 65ch prose column is left-aligned inside it. */
+.prose {
+    --article-gutter: 1.25rem;
+    --wide-visual-width: min(100vw - 2.5rem, 60rem);
+}
+
+@media (min-width: 40rem) {
+    .prose {
+        --article-gutter: 1.5rem;
+    }
+}
+
+.prose :is(
+    figure[data-chart],
+    p:has(> img:only-child:is([src$=".png"], [src$=".gif"]), > a:only-child > img:is([src$=".png"], [src$=".gif"]))
+) {
+    width: var(--wide-visual-width);
+    max-width: none;
+    margin-left: calc((100vw - var(--wide-visual-width)) / 2 - max(0px, (100vw - 48rem) / 2) - var(--article-gutter));
+}
