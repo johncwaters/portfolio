@@ -3,7 +3,7 @@ title: "How Developers Work With Agents; or Don't"
 description: "I read 411 first-hand accounts of how developers run coding agents and scored each one. Most of them drive agents from a bare terminal and still read most of the diff, and the ones who built their own tooling mostly stopped reading."
 pubDate: 2026-11-08
 tags: ["agents", "ade", "data"]
-draft: true
+draft: false
 ---
 
 Every few weeks someone on X asks "how do you work with coding agents?" and a few hundred people answer. I kept reading those threads, then Hacker News threads, then blog posts, and at some point I started writing it down. After 411 people the short version is this: most developers don't use an ADE at all.
