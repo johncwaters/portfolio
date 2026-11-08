@@ -163,6 +163,16 @@
     width: var(--wide-visual-width);
     max-width: none;
     margin-left: calc((100cqw - var(--wide-visual-width)) / 2);
+    margin-block: 3.5rem;
+}
+
+@media (max-width: 40rem) {
+    .prose :is(
+        figure[data-chart],
+        p:has(> img:only-child:is([src$=".png"], [src$=".gif"]), > a:only-child > img:is([src$=".png"], [src$=".gif"]))
+    ) {
+        margin-block: 2.5rem;
+    }
 }
 
 .prose figure[data-chart] > figcaption {
