@@ -15,6 +15,8 @@ const {
   description,
   image = "/logos/Favicon No Background.svg",
 } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!-- Global Metadata -->
@@ -22,6 +24,8 @@ const {
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/logos/Favicon No Background.svg" />
 <meta name="generator" content={Astro.generator} />
+<link rel="canonical" href={canonicalUrl} />
+<link rel="alternate" type="application/rss+xml" title="John C. Waters" href={new URL("/rss.xml", Astro.site)} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
@@ -30,16 +34,16 @@ const {
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={canonicalUrl} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={new URL(image, Astro.site)} />
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalUrl} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(image, Astro.site)} />
 
 {import.meta.env.PROD && <PostHog />}
