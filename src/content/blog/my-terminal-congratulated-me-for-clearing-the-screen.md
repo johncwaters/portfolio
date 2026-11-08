@@ -1,6 +1,6 @@
 ---
 title: "My Terminal Congratulated Me for Clearing the Screen"
-description: "My agent dashboard told me a session finished when all I did was clear the scrollback. Three war stories from making Claude Code's own signals tell the truth about what six parallel sessions are actually doing."
+description: "My agent dashboard said a session finished when I'd only cleared the scrollback. Three war stories from making Claude Code's signals tell the truth."
 pubDate: 2026-07-31
 tags: ["glimmervoid", "claude-code", "agents", "debugging"]
 ---

@@ -1,6 +1,6 @@
 ---
 title: "128KB of RAM Made Better Games Than Unlimited Compute Does"
-description: "The best work came from someone who couldn't do the obvious thing. Now the wall is gone, and self-imposed limits only hold when something outside your own willpower enforces them."
+description: "The best games came from people who couldn't do the obvious thing. The wall is gone, and now a limit only holds if something besides willpower enforces it."
 pubDate: 2026-09-26
 tags: ["creativity", "constraints", "craft"]
 ---

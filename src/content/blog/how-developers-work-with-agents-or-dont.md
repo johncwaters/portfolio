@@ -1,6 +1,6 @@
 ---
 title: "How Developers Work With Agents; or Don't"
-description: "I read 411 first-hand accounts of how developers run coding agents and scored each one. Most of them drive agents from a bare terminal and still read most of the diff, and the ones who built their own tooling mostly stopped reading."
+description: "I scored 411 firsthand accounts of developers running AI agents. Most use a bare terminal and still read the diff. The ones with their own tooling stopped."
 pubDate: 2026-11-08
 tags: ["agents", "ade", "data"]
 draft: false

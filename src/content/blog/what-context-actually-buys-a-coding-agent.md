@@ -1,6 +1,6 @@
 ---
 title: "Four Runs, Same Wrong Number: What Context Actually Buys a Coding Agent"
-description: "296 scored trials of a headless coding agent on real tasks from my shipping products, across four context regimes and two models. Including the bugs I found in my own harness and the doc gaps the failures point at."
+description: "296 scored trials of a headless coding agent on real tasks, across four context regimes and two models, plus the bugs I found in my own harness."
 pubDate: 2026-08-01
 tags: ["evals", "agents", "context-engineering"]
 ---

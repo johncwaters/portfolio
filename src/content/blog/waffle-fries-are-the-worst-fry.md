@@ -1,6 +1,6 @@
 ---
 title: "Waffle Fries Are the Worst Fry"
-description: "Waffle fries are the worst fry, Five Guys fries are awful no matter how many end up in the bag, and cutting a potato fresh means literally nothing. Thirteen shapes and thirteen chains, ranked."
+description: "Waffle fries are the worst fry, and Five Guys fries are awful no matter how many land in the bag. Thirteen shapes and thirteen chains, ranked."
 pubDate: 2026-10-11
 tags: ["fries", "rankings"]
 draft: false

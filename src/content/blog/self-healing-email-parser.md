@@ -1,6 +1,6 @@
 ---
 title: "Teaching an AI to Parse Emails Once, Then Never Again"
-description: "When an unknown email format shows up, call an LLM exactly once to generate a reusable extraction profile, then parse that format deterministically forever. Zero AI calls on the hot path."
+description: "When an unknown email format shows up, call an LLM once to write a reusable extraction profile, then parse that format deterministically forever."
 pubDate: 2026-05-19
 tags: ["llm-architecture", "parsing", "python", "cost-engineering"]
 ---
