@@ -5,9 +5,27 @@ import DefaultPage from "../../layouts/DefaultPage.astro";
 import { getCollection } from "astro:content";
 import { formatDate } from "../../utils/formatDate";
 
+const wordsPerMinute = 230;
+
 const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+const countReadingMinutes = (markdownBody: string): number => {
+  const plainText = markdownBody
+    .replace(/<[^>]*>/g, " ")
+    .replace(/!?\[([^\]]*)\]\([^)]*\)/g, "$1")
+    .replace(/[#*_>`~|-]+/g, " ");
+  const wordCount = plainText.split(/\s+/).filter((token) => /[\p{L}\p{N}]/u.test(token)).length;
+  return Math.max(1, Math.ceil(wordCount / wordsPerMinute));
+};
+
+const formatShortDate = (date: Date): string =>
+  date.toLocaleDateString("en-us", { month: "short", day: "2-digit", timeZone: "UTC" });
+
+const [latestPost, ...olderPosts] = posts;
+
+const olderPostsByYear = Map.groupBy(olderPosts, (post) => post.data.pubDate.getUTCFullYear());
 ---
 
 <DefaultPage
@@ -15,28 +33,126 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
   description="Notes on platform engineering, reliability, and AI tooling."
   showHeader
 >
-  <div class="max-w-3xl mx-auto px-5 sm:px-6 py-8 sm:py-14 w-full">
+  <div class="max-w-4xl mx-auto px-5 sm:px-6 py-8 sm:py-14 w-full">
     <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight mb-8 sm:mb-10">Blog</h1>
-    <ul>
-      {
-        posts.map((post) => (
-          <li class="border-b border-neutral">
-            <a
-              href={`/blog/${post.id}/`}
-              class="block py-6 group focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
-            >
-              <h2 class="text-2xl font-semibold leading-snug group-hover:text-accent group-focus-visible:text-accent">
-                {post.data.title}
-              </h2>
-              <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm opacity-70 mt-2">
-                <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
-                {post.data.tags.map((tag: string) => <span>#{tag}</span>)}
-              </p>
-              <p class="opacity-70 mt-2">{post.data.description}</p>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+
+    {!latestPost && <p class="opacity-70">Nothing is published yet; the first post will show up here.</p>}
+
+    {
+      latestPost && (
+        <a
+          href={`/blog/${latestPost.id}/`}
+          class="latestPost group block bg-[var(--brand-terminal)] border border-[var(--brand-line)] transition-colors hover:border-[var(--brand-pink-soft)] focus-visible:outline-2 focus-visible:outline-[var(--brand-pink-soft)] focus-visible:outline-offset-4"
+        >
+          <div
+            class="flex items-center gap-2.5 bg-[var(--brand-chrome)] border-b border-[var(--brand-line)] px-4 py-2"
+            aria-hidden="true"
+          >
+            <span class="text-sm font-bold text-[var(--brand-pink-soft)]">&gt;_</span>
+            <span class="text-xs opacity-60">john@site: ~/blog/latest</span>
+            <span class="ml-auto flex gap-3 text-xs opacity-60">
+              <span>_</span>
+              <span>&#9633;</span>
+              <span>&#10005;</span>
+            </span>
+          </div>
+          <div class="p-6 sm:p-9">
+            <p class="text-xs opacity-60 mb-4 break-words">
+              <span class="text-[var(--brand-pink-soft)]">{"$ "}</span>
+              cat {latestPost.id}.md
+            </p>
+            <h2 class="text-2xl sm:text-4xl font-bold leading-tight max-w-[22ch] transition-colors group-hover:text-[var(--brand-pink-soft)] group-focus-visible:text-[var(--brand-pink-soft)]">
+              {latestPost.data.title}
+            </h2>
+            <p class="text-xs uppercase tracking-widest opacity-60 mt-3 mb-5">
+              <time datetime={latestPost.data.pubDate.toISOString()}>{formatDate(latestPost.data.pubDate)}</time>
+              {" / "}
+              {countReadingMinutes(latestPost.body ?? "")} min read
+              {latestPost.data.tags.map((tag: string) => ` / ${tag}`)}
+            </p>
+            <p class="postDescription text-base sm:text-lg leading-relaxed opacity-85 max-w-[60ch]">
+              {latestPost.data.description}
+            </p>
+            <p class="mt-6 text-sm font-bold text-[var(--brand-pink-soft)]">
+              <span class="font-normal text-base-content opacity-60">{"$ "}</span>
+              Read post
+              {" ->"}
+              <span class="tmCursor" aria-hidden="true" />
+            </p>
+          </div>
+        </a>
+      )
+    }
+
+    {
+      [...olderPostsByYear].map(([year, yearPosts]) => (
+        <section aria-labelledby={`year-${year}`} class="mt-12 sm:mt-16">
+          <h2 id={`year-${year}`} class="flex items-baseline gap-4 text-sm mb-2">
+            <span>
+              <span class="text-[var(--brand-pink-soft)]">{"# "}</span>
+              {year}
+            </span>
+            <span class="flex-1 border-t border-[var(--brand-line)]" aria-hidden="true" />
+          </h2>
+          <ul>
+            {yearPosts.map((post) => {
+              const readingMinutes = countReadingMinutes(post.body ?? "");
+              const shortDate = formatShortDate(post.data.pubDate);
+              return (
+                <li>
+                  <a
+                    href={`/blog/${post.id}/`}
+                    class="group grid sm:grid-cols-[5rem_1fr_4.5rem] sm:gap-6 items-baseline py-3.5 focus-visible:outline-2 focus-visible:outline-[var(--brand-pink-soft)] focus-visible:outline-offset-4"
+                  >
+                    <time datetime={post.data.pubDate.toISOString()} class="hidden sm:block text-sm opacity-70">
+                      {shortDate}
+                    </time>
+                    <span class="min-w-0">
+                      <span class="sm:hidden block text-xs opacity-70 mb-1">
+                        {shortDate} · {readingMinutes} min
+                      </span>
+                      <span class="block text-lg font-bold leading-snug transition-colors group-hover:text-[var(--brand-pink-soft)] group-focus-visible:text-[var(--brand-pink-soft)]">
+                        {post.data.title}
+                      </span>
+                      <span class="block text-[0.6875rem] uppercase tracking-widest opacity-60 mt-1">
+                        {post.data.tags.join(" / ")}
+                      </span>
+                    </span>
+                    <span class="hidden sm:block text-sm opacity-70 text-right">{readingMinutes} min</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ))
+    }
   </div>
 </DefaultPage>
+
+<style>
+  .postDescription {
+    font-family: var(--font-sans);
+  }
+  .tmCursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1em;
+    background: var(--brand-pink-soft);
+    margin-left: 3px;
+    vertical-align: text-bottom;
+  }
+  .latestPost:hover .tmCursor {
+    animation: tm-blink 1.1s steps(1) infinite;
+  }
+  @keyframes tm-blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .latestPost:hover .tmCursor {
+      animation: none;
+    }
+  }
+</style>
