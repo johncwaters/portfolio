@@ -111,6 +111,7 @@ const CALLOUTS = [
 	{
 		who: "Mitchell Hashimoto",
 		note: "Mitchell Hashimoto",
+		isRingOnly: true,
 		keepWhenNarrow: true,
 	},
 	{ who: "Charlieholtz (Conductor creator)", note: "Charlie Holtz, Conductor" },
@@ -534,9 +535,27 @@ function renderQuadrant(svg, width, model) {
 		other.x1 < box.x2 &&
 		box.y1 < other.y2 &&
 		other.y1 < box.y2;
+	const drawCalloutRing = (position) =>
+		el(
+			"circle",
+			{
+				cx: position.x,
+				cy: position.y,
+				r: radius + 2.5,
+				fill: "none",
+				stroke: COLORS.text,
+				"stroke-width": 1.5,
+				"pointer-events": "none",
+			},
+			svg,
+		);
 	callouts.forEach((callout) => {
 		const position = positionByWho[callout.who];
 		if (!position) return;
+		if (callout.isRingOnly) {
+			drawCalloutRing(position);
+			return;
+		}
 		const fontSize = isNarrow ? 11 : 12;
 		const labelWidth = measureText(
 			svg,
@@ -634,19 +653,7 @@ function renderQuadrant(svg, width, model) {
 			},
 			svg,
 		);
-		el(
-			"circle",
-			{
-				cx: position.x,
-				cy: position.y,
-				r: radius + 2.5,
-				fill: "none",
-				stroke: COLORS.text,
-				"stroke-width": 1.5,
-				"pointer-events": "none",
-			},
-			svg,
-		);
+		drawCalloutRing(position);
 		text(svg, chosen.x, chosen.y, callout.note, {
 			"text-anchor": chosen.anchor,
 			"font-size": fontSize,
