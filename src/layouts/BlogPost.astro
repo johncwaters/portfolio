@@ -18,20 +18,20 @@ const formattedDate = formatDate(pubDate);
 
 <DefaultPage title={title} description={description} image={image} publishedAt={pubDate} tags={tags} showHeader>
   <article class="max-w-3xl mx-auto px-5 sm:px-6 py-8 sm:py-14 w-full">
-    <header class="mb-10 sm:mb-12">
+    <header class="max-w-[65ch] mx-auto mb-10 sm:mb-12">
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight mb-4">{title}</h1>
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm opacity-70">
         <time datetime={pubDate.toISOString()}>{formattedDate}</time>
         {tags.map((tag: string) => <span>#{tag}</span>)}
       </p>
     </header>
-    <div class="prose max-w-[65ch]">
+    <div class="prose max-w-[65ch] mx-auto">
       <slot />
     </div>
     <div data-blog-post-end data-post-title={title} data-post-tags={JSON.stringify(tags)} aria-hidden="true"></div>
   </article>
   <aside class="max-w-3xl mx-auto px-5 sm:px-6 pb-16 sm:pb-20 w-full">
-    <div class="max-w-[65ch] border-t border-neutral pt-8">
+    <div class="max-w-[65ch] mx-auto border-t border-neutral pt-8">
       {
         keepReadingPosts.length > 0 && (
           <nav aria-labelledby="keep-reading-heading" class="mb-6">
