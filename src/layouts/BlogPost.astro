@@ -4,11 +4,11 @@ import type { CollectionEntry } from "astro:content";
 import { formatDate } from "../utils/formatDate";
 
 export interface Props {
-  title: string;
-  description: string;
-  pubDate: Date;
-  tags: string[];
-  keepReadingPosts: CollectionEntry<"blog">[];
+	title: string;
+	description: string;
+	pubDate: Date;
+	tags: string[];
+	keepReadingPosts: CollectionEntry<"blog">[];
 }
 
 const { title, description, pubDate, tags, keepReadingPosts } = Astro.props;
@@ -27,7 +27,7 @@ const formattedDate = formatDate(pubDate);
     <div class="prose max-w-[65ch]">
       <slot />
     </div>
-    <div data-blog-post-end aria-hidden="true"></div>
+    <div data-blog-post-end data-post-title={title} data-post-tags={JSON.stringify(tags)} aria-hidden="true"></div>
   </article>
   <aside class="max-w-3xl mx-auto px-5 sm:px-6 pb-16 sm:pb-20 w-full">
     <div class="max-w-[65ch] border-t border-neutral pt-8">
@@ -73,40 +73,49 @@ const formattedDate = formatDate(pubDate);
       </p>
     </div>
   </aside>
-  <script is:inline define:vars={{ title, tags }}>
-    const articleEnd = document.querySelector("[data-blog-post-end]");
-    let accumulatedVisibleMilliseconds = 0;
-    let visibleSinceMilliseconds = document.visibilityState === "visible" ? performance.now() : null;
-    document.addEventListener("visibilitychange", () => {
-      const nowMilliseconds = performance.now();
-      if (document.visibilityState === "visible") {
-        visibleSinceMilliseconds ??= nowMilliseconds;
-        return;
-      }
-      if (visibleSinceMilliseconds === null) return;
-      accumulatedVisibleMilliseconds += nowMilliseconds - visibleSinceMilliseconds;
-      visibleSinceMilliseconds = null;
-    });
-    const measureVisibleMilliseconds = () =>
-      visibleSinceMilliseconds === null
-        ? accumulatedVisibleMilliseconds
-        : accumulatedVisibleMilliseconds + performance.now() - visibleSinceMilliseconds;
-    const readObserver = new IntersectionObserver((entries) => {
-      if (!entries.some((entry) => entry.isIntersecting)) return;
-      readObserver.disconnect();
-      window.posthog?.capture("blog_post_read", {
-        post_title: title,
-        post_tags: tags,
-        visible_seconds_to_reach_end: Math.round(measureVisibleMilliseconds() / 1000),
+  <script>
+    import posthog from "posthog-js";
+
+    const articleEnd = document.querySelector<HTMLElement>("[data-blog-post-end]");
+    if (articleEnd) trackReadToEnd(articleEnd);
+
+    function trackReadToEnd(articleEnd: HTMLElement) {
+      const title = articleEnd.dataset.postTitle;
+      const tags = JSON.parse(articleEnd.dataset.postTags ?? "[]");
+      let accumulatedVisibleMilliseconds = 0;
+      let visibleSinceMilliseconds = document.visibilityState === "visible" ? performance.now() : null;
+      document.addEventListener("visibilitychange", () => {
+        const nowMilliseconds = performance.now();
+        if (document.visibilityState === "visible") {
+          visibleSinceMilliseconds ??= nowMilliseconds;
+          return;
+        }
+        if (visibleSinceMilliseconds === null) return;
+        accumulatedVisibleMilliseconds += nowMilliseconds - visibleSinceMilliseconds;
+        visibleSinceMilliseconds = null;
       });
-    });
-    const isArticleEndInView = () => articleEnd.getBoundingClientRect().top < window.innerHeight;
-    const armReadObserver = () => {
-      if (isArticleEndInView()) return;
-      readObserver.observe(articleEnd);
-    };
-    if (!isArticleEndInView()) {
-      window.addEventListener("scroll", armReadObserver, { once: true, passive: true });
+      const measureVisibleMilliseconds = () =>
+        visibleSinceMilliseconds === null
+          ? accumulatedVisibleMilliseconds
+          : accumulatedVisibleMilliseconds + performance.now() - visibleSinceMilliseconds;
+      const readObserver = new IntersectionObserver((entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        readObserver.disconnect();
+        if (!posthog.__loaded) return;
+        posthog.capture("blog_post_read", {
+          post_title: title,
+          post_tags: tags,
+          visible_seconds_to_reach_end: Math.round(measureVisibleMilliseconds() / 1000),
+        });
+      });
+      const isArticleEndInView = () => articleEnd.getBoundingClientRect().top < window.innerHeight;
+      const armReadObserver = () => {
+        if (isArticleEndInView()) return;
+        readObserver.observe(articleEnd);
+      };
+      if (!isArticleEndInView()) {
+        window.addEventListener("scroll", armReadObserver, { once: true, passive: true });
+      }
     }
   </script>
 </DefaultPage>

@@ -1,4 +1,5 @@
 import { actions } from "astro:actions";
+import posthog from "posthog-js";
 import { fryArtPathFor, fryLists, isCompleteFryOrder, type FryList } from "../data/fryRanking";
 import type { FryTallies } from "../utils/fryBallots";
 
@@ -81,8 +82,10 @@ function requireElement<ElementType extends Element>(root: ParentNode, selector:
 const hasSameOrder = (firstOrder: string[], secondOrder: string[]): boolean =>
   firstOrder.length === secondOrder.length && firstOrder.every((entryId, index) => entryId === secondOrder[index]);
 
-const captureFryEvent = (eventName: string, properties: Record<string, unknown>): void =>
-  window.posthog?.capture(eventName, properties);
+const captureFryEvent = (eventName: string, properties: Record<string, unknown>): void => {
+  if (!posthog.__loaded) return;
+  posthog.capture(eventName, properties);
+};
 
 interface SlidingRow {
   row: HTMLElement;
