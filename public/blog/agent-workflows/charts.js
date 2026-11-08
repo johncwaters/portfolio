@@ -383,13 +383,10 @@ function renderQuadrant(svg, width, model) {
 	const isNarrow = width < NARROW_WIDTH;
 	const reviewLabels = isNarrow ? REVIEW_STEPS_SHORT : REVIEW_STEPS;
 	const reviewFontSize = isNarrow ? 10.5 : 12;
-	const left =
-		Math.max(
-			...reviewLabels.map((label) => measureText(svg, label, reviewFontSize)),
-		) + 12;
+	const left = 4;
 	const right = width - 4;
 	const top = isNarrow ? 58 : 62;
-	const plotHeight = isNarrow ? 400 : 500;
+	const plotHeight = isNarrow ? 480 : 650;
 	const bottom = top + plotHeight;
 	const height = bottom + (isNarrow ? 92 : 96);
 	const radius = isNarrow ? 3.2 : 4.5;
@@ -397,7 +394,9 @@ function renderQuadrant(svg, width, model) {
 	svg.setAttribute("height", height);
 	const xScale = (value) => left + (value / 4) * (right - left);
 	const rowHeight = plotHeight / 5;
-	const rowCenter = (review) => top + (4 - review + 0.5) * rowHeight;
+	const rowLabelBand = 20;
+	const rowTop = (review) => top + (4 - review) * rowHeight;
+	const rowCenter = (review) => rowTop(review) + rowLabelBand / 2 + rowHeight / 2;
 	const splitY = top + 2 * rowHeight;
 	const splitX = xScale(DELEGATION_SPLIT);
 	const visible = model.placedRows;
@@ -422,8 +421,8 @@ function renderQuadrant(svg, width, model) {
 		);
 	});
 	[4, 3, 2, 1, 0].forEach((review) => {
-		text(svg, left - 8, rowCenter(review) + 4, reviewLabels[review], {
-			"text-anchor": "end",
+		text(svg, left + 10, rowTop(review) + 18, reviewLabels[review], {
+			"text-anchor": "start",
 			"font-size": reviewFontSize,
 			fill: COLORS.textSecondary,
 		});
