@@ -26,6 +26,6 @@ const { post, keepReadingPosts } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data} keepReadingPosts={keepReadingPosts}>
+<BlogPost {...post.data} keepReadingPosts={keepReadingPosts} image={`/og/${post.id}.png`}>
   <Content />
 </BlogPost>

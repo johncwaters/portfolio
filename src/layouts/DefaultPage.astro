@@ -8,6 +8,7 @@ export interface Props {
   title?: string;
   description?: string;
   showHeader?: boolean;
+  image?: string;
   publishedAt?: Date;
   tags?: string[];
 }
@@ -16,6 +17,7 @@ const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
   showHeader = false,
+  image,
   publishedAt,
   tags,
 } = Astro.props;
@@ -24,7 +26,7 @@ const {
 <!DOCTYPE html>
 <html data-theme="dark" lang="en-us" class="scroll-smooth">
   <head>
-    <BaseHead title={title} description={description} publishedAt={publishedAt} tags={tags} />
+    <BaseHead title={title} description={description} image={image} publishedAt={publishedAt} tags={tags} />
   </head>
 
   <body class="flex flex-col min-h-screen">
